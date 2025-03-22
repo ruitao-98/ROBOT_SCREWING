@@ -162,7 +162,121 @@ def get_data_dir_and_file(ds_name, training_split, params, read_only=False):
 
     return os.path.join(rec_file_dir, ds_name, split), ds_instance_name + '.csv'
 
+def load_pickled_models(directory='', file_name='', model_options=None):
+    """
+    Loads a pre-trained model from the specified directory, contained in a given pickle filename. Otherwise, if
+    the model_options dictionary is given, use its contents to reconstruct the directory location of the pre-trained
+    model fitting the requirements.
 
+    :param directory: directory where the model file is located
+    :param file_name: file name of the pre-trained model
+    :param model_options: dictionary with the keys: "noisy" (bool), "drag" (bool), "git" (string), "training_samples"
+    (int), "payload" (bool).
+
+    :return: a dictionary with the recovered models from the pickle files.
+    """
+
+    if model_options is not None:
+        directory, file_name = get_model_dir_and_file(model_options)
+
+    try:
+        pickled_files = os.listdir(directory)
+    except FileNotFoundError:
+        return None
+
+    loaded_models = []
+
+    try:
+        for file in pickled_files:
+            if not file.startswith(file_name) and file != 'feats.csv':
+                continue
+            if '.pkl' not in file and '.csv' not in file:
+                continue
+            if '.pkl' in file:
+                loaded_models.append(joblib.load(os.path.join(directory, file)))
+
+    except IsADirectoryError:
+        raise FileNotFoundError("Tried to load file from directory %s, but it was not found." % directory)
+
+    if loaded_models is not None:
+        if loaded_models:
+            pre_trained_models = {"models": loaded_models}
+        else:
+            pre_trained_models = None
+    else:
+        pre_trained_models = None
+
+    return pre_trained_models
+
+def sample_random_points(points, used_idx, points_to_sample, dense_gp=None):
+    bins = min(10, int(len(points) / 10))
+    bins = max(bins, 2)
+
+    # Add remaining points as random points
+    free_points = np.arange(0, points.shape[0], 1)
+    gp_i_free_points = np.delete(free_points, used_idx)
+    n_samples = min(points_to_sample, len(gp_i_free_points))
+
+    # Compute histogram of data
+    a, b = np.histogramdd(points[gp_i_free_points, :], bins)
+    assignments = [np.minimum(np.digitize(points[gp_i_free_points, j], bins=b[j]) - 1, bins - 1)
+                   for j in range(points.shape[1])]
+
+    # Compute probability distribution based on inverse histogram
+    probs = np.max(a) - a[tuple(assignments)]
+    probs = probs / sum(probs)
+
+    try:
+        gp_i_free_points = np.random.choice(gp_i_free_points, n_samples, p=probs, replace=False)
+    except ValueError:
+        print('a')
+    used_idx = np.append(used_idx, gp_i_free_points)
+
+    return used_idx
+
+
+def parse_xacro_file(xacro):
+    """
+    Reads a .xacro file describing a robot for Gazebo and returns a dictionary with its properties.
+    :param xacro: full path of .xacro file to read
+    :return: a dictionary of robot attributes
+    """
+
+    tree = XMLtree.parse(xacro)
+
+    attrib_dict = {}
+
+    for node in tree.getroot().getchildren():
+        # Get attributes
+        attributes = node.attrib
+
+        if 'value' in attributes.keys():
+            attrib_dict[attributes['name']] = attributes['value']
+
+        if node.getchildren():
+            try:
+                attrib_dict[attributes['name']] = [child.attrib for child in node.getchildren()]
+            except:
+                continue
+
+    return attrib_dict
+
+
+
+def make_bx_matrix(x_dims, y_feats):
+    """
+    Generates the Bx matrix for the GP augmented MPC.
+
+    :param x_dims: dimensionality of the state vector
+    :param y_feats: array with the indices of the state vector x that are augmented by the GP regressor
+    :return: The Bx matrix to map the GP output to the state space.
+    """
+
+    bx = np.zeros((x_dims, len(y_feats)))
+    for i in range(len(y_feats)):
+        bx[y_feats[i], i] = 1
+
+    return bx
 
 def make_bz_matrix(x_dims, u_dims, x_feats, u_feats):
     """
@@ -184,6 +298,38 @@ def make_bz_matrix(x_dims, u_dims, x_feats, u_feats):
     bzu = np.concatenate((np.zeros((len(u_feats), x_dims)), bzu), axis=1)
     bz = np.concatenate((bz, bzu), axis=0)
     return bz
+
+def separate_variables(traj):
+    """
+    Reshapes a trajectory into expected format.
+
+    :param traj: N x 13 array representing the reference trajectory
+    :return: A list with the components: Nx3 position trajectory array, Nx4 quaternion trajectory array, Nx3 velocity
+    trajectory array, Nx3 body rate trajectory array
+    """
+
+    p_traj = traj[:, :3]
+    a_traj = traj[:, 3:7]
+    v_traj = traj[:, 7:10]
+    r_traj = traj[:, 10:]
+    return [p_traj, a_traj, v_traj, r_traj]
+
+def quaternion_state_mse(x, x_ref, mask):
+    """
+    Calculates the MSE of the 13-dimensional state (p_xyz, q_wxyz, v_xyz, r_xyz) wrt. the reference state. The MSE of
+    the quaternions are treated axes-wise.
+
+    :param x: 13-dimensional state
+    :param x_ref: 13-dimensional reference state
+    :param mask: 12-dimensional masking for weighted MSE (p_xyz, q_xyz, v_xyz, r_xyz)
+    :return: the mean squared error of both
+    """
+
+    q_error = q_dot_q(x[3:7], quaternion_inverse(x_ref[3:7]))
+    e = np.concatenate((x[:3] - x_ref[:3], q_error[1:], x[7:10] - x_ref[7:10], x[10:] - x_ref[10:]))
+
+    return np.sqrt((e * np.array(mask)).dot(e))
+
 
 # def get_model_dir_and_file(model_options):
 #     directory = os.path.join(GPConfig.SAVE_DIR, str(model_options["git"]), str(model_options["model_name"]))

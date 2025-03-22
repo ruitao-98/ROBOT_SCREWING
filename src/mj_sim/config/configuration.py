@@ -29,3 +29,49 @@ class RecordingOptions:
         "dataset_name": "sim_dataset",
         "training_split": True,
     }
+
+class ModelFitConfig:
+    """
+    Class for storing flags for the model fitting scripts.
+    """
+
+    # ## Dataset loading ## #
+    ds_name = "simplified_sim_dataset"
+    ds_metadata = {
+        "noisy": True,
+        "drag": True,
+        "payload": False,
+        "motor_noise": True
+    }
+
+    # ds_metadata = {
+    #     "gazebo": "default",
+    # }
+
+    # ## Visualization ## #
+    # Training mode
+    visualize_training_result = True
+    visualize_data = False
+
+    # Visualization mode
+    grid_sampling_viz = True
+    x_viz = [7, 8, 9]
+    u_viz = []
+    y_viz = [7, 8, 9]
+
+    # ## Data post-processing ## #
+    histogram_bins = 40              # Cluster data using histogram binning
+    histogram_threshold = 0.001      # Remove bins where the total ratio of data is lower than this threshold
+    velocity_cap = 16                # Also remove datasets point if abs(velocity) > x_cap
+
+    # ############# Experimental ############# #
+
+    # ## Use fit model to generate synthetic data ## #
+    use_dense_model = False
+    dense_model_version = ""
+    dense_model_name = ""
+    dense_training_points = 200
+
+    # ## Clustering for multidimensional models ## #
+    clusters = 1
+    load_clusters = False
