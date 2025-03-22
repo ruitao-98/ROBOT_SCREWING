@@ -1,0 +1,10 @@
+{
+  "package_name": "robot_msgs",
+  "non_idl_tuples": [
+    "/home/yanji/robot_screwing/src/robot_msgs:msg/FtPub.msg",
+    "/home/yanji/robot_screwing/src/robot_msgs:msg/RobotStatus.msg",
+    "/home/yanji/robot_screwing/src/robot_msgs:msg/ControlCommand.msg",
+    "/home/yanji/robot_screwing/src/robot_msgs:msg/RefStatus.msg",
+    "/home/yanji/robot_screwing/src/robot_msgs:srv/StartPose.srv"
+  ]
+}

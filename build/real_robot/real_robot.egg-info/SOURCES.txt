@@ -1,0 +1,15 @@
+package.xml
+setup.cfg
+setup.py
+../../build/real_robot/real_robot.egg-info/PKG-INFO
+../../build/real_robot/real_robot.egg-info/SOURCES.txt
+../../build/real_robot/real_robot.egg-info/dependency_links.txt
+../../build/real_robot/real_robot.egg-info/entry_points.txt
+../../build/real_robot/real_robot.egg-info/requires.txt
+../../build/real_robot/real_robot.egg-info/top_level.txt
+../../build/real_robot/real_robot.egg-info/zip-safe
+real_robot/__init__.py
+resource/real_robot
+test/test_copyright.py
+test/test_flake8.py
+test/test_pep257.py

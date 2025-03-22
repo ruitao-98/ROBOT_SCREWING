@@ -1,0 +1,4 @@
+[console_scripts]
+mpc_node = mj_sim.mpc_node:main
+robot_sim_env = mj_sim.robot_sim_env:main
+

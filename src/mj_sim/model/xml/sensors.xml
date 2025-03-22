@@ -1,0 +1,4 @@
+<mujoco>
+    <force name="r_force_sensor" site="r_sensor_site"/>
+    <torque name="r_torque_sensor" site="r_sensor_site"/>
+</mujoco>

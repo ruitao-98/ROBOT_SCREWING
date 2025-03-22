@@ -1,0 +1,18 @@
+[0.228s] Invoking command in '/home/yanji/robot_screwing/build/robot_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/yanji/robot_screwing/install/real_robot:/home/yanji/robot_screwing/install/mj_sim:/opt/ros/foxy CONDA_PROMPT_MODIFIER=(screwrobot) /usr/bin/cmake /home/yanji/robot_screwing/src/robot_msgs -DCMAKE_INSTALL_PREFIX=/home/yanji/robot_screwing/install/robot_msgs
+[0.234s] -- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.245s] -- Using PYTHON_EXECUTABLE: /home/yanji/anaconda3/envs/screwrobot/bin/python3
+[0.311s] -- Found rosidl_default_generators: 1.0.1 (/opt/ros/foxy/share/rosidl_default_generators/cmake)
+[0.312s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.314s] -- Found rosidl_adapter: 1.3.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[0.385s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.407s] -- Found PythonInterp: /home/yanji/anaconda3/envs/screwrobot/bin/python3 (found version "3.8.20") 
+[0.444s] CMake Error at /opt/ros/foxy/share/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake:162 (message):
+[0.444s]   rosidl_generate_interfaces() the passed dependency 'std_msgs' has not been
+[0.444s]   found before using find_package()
+[0.444s] Call Stack (most recent call first):
+[0.444s]   CMakeLists.txt:22 (rosidl_generate_interfaces)
+[0.444s] 
+[0.444s] 
+[0.444s] -- Configuring incomplete, errors occurred!
+[0.444s] See also "/home/yanji/robot_screwing/build/robot_msgs/CMakeFiles/CMakeOutput.log".
+[0.447s] Invoked command in '/home/yanji/robot_screwing/build/robot_msgs' returned '1': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/yanji/robot_screwing/install/real_robot:/home/yanji/robot_screwing/install/mj_sim:/opt/ros/foxy CONDA_PROMPT_MODIFIER=(screwrobot) /usr/bin/cmake /home/yanji/robot_screwing/src/robot_msgs -DCMAKE_INSTALL_PREFIX=/home/yanji/robot_screwing/install/robot_msgs

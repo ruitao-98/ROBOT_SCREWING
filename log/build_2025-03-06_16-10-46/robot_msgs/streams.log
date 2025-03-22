@@ -1,0 +1,251 @@
+[0.231s] Invoking command in '/home/yanji/robot_screwing/build/robot_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/yanji/robot_screwing/install/real_robot:/home/yanji/robot_screwing/install/mj_sim:/opt/ros/foxy CONDA_PROMPT_MODIFIER=(screwrobot) /usr/bin/cmake --build /home/yanji/robot_screwing/build/robot_msgs -- -j24 -l24
+[0.254s] -- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.266s] -- Found PythonInterp: /home/yanji/anaconda3/envs/screwrobot/bin/python3 (found suitable version "3.8.20", minimum required is "3") 
+[0.266s] -- Using PYTHON_EXECUTABLE: /home/yanji/anaconda3/envs/screwrobot/bin/python3
+[0.352s] -- Found rosidl_default_generators: 1.0.1 (/opt/ros/foxy/share/rosidl_default_generators/cmake)
+[0.354s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.356s] -- Found rosidl_adapter: 1.3.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[0.437s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.460s] -- Found PythonInterp: /home/yanji/anaconda3/envs/screwrobot/bin/python3 (found version "3.8.20") 
+[0.532s] -- Found ament_cmake_ros: 0.9.2 (/opt/ros/foxy/share/ament_cmake_ros/cmake)
+[0.587s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.591s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.603s] -- Found PythonInterp: /home/yanji/anaconda3/envs/screwrobot/bin/python3 (found suitable version "3.8.20", minimum required is "3.5") 
+[0.603s] -- Found python_cmake_module: 0.8.1 (/opt/ros/foxy/share/python_cmake_module/cmake)
+[0.615s] -- Using PYTHON_EXECUTABLE: /home/yanji/anaconda3/envs/screwrobot/bin/python3
+[0.615s] -- Using PYTHON_INCLUDE_DIRS: /home/yanji/anaconda3/envs/screwrobot/include/python3.8
+[0.615s] -- Using PYTHON_LIBRARIES: /home/yanji/anaconda3/envs/screwrobot/lib/libpython3.8.so
+[0.710s] -- Using numpy include directory: /home/yanji/.local/lib/python3.8/site-packages/numpy/core/include
+[0.714s] -- Found ament_lint_auto: 0.9.8 (/opt/ros/foxy/share/ament_lint_auto/cmake)
+[0.724s] -- Added test 'copyright' to check source files copyright and LICENSE
+[0.725s] -- Added test 'lint_cmake' to check CMake code style
+[0.726s] -- Added test 'xmllint' to check XML markup files
+[0.728s] -- Configuring done
+[0.750s] -- Generating done
+[0.756s] -- Build files have been written to: /home/yanji/robot_screwing/build/robot_msgs
+[0.767s] [  2%] [34m[1mGenerating C code for ROS interfaces[0m
+[0.767s] [35m[1mScanning dependencies of target robot_msgs__cpp[0m
+[0.771s] [  4%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[0.989s] [  4%] Built target robot_msgs__cpp
+[0.993s] [  8%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[0.993s] [  8%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[0.993s] [ 10%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[0.996s] [35m[1mScanning dependencies of target robot_msgs__rosidl_generator_c[0m
+[1.001s] [ 17%] [32mBuilding C object CMakeFiles/robot_msgs__rosidl_generator_c.dir/rosidl_generator_c/robot_msgs/msg/detail/robot_status__functions.c.o[0m
+[1.002s] [ 17%] [32mBuilding C object CMakeFiles/robot_msgs__rosidl_generator_c.dir/rosidl_generator_c/robot_msgs/msg/detail/ft_pub__functions.c.o[0m
+[1.002s] [ 17%] [32mBuilding C object CMakeFiles/robot_msgs__rosidl_generator_c.dir/rosidl_generator_c/robot_msgs/msg/detail/control_command__functions.c.o[0m
+[1.054s] [ 19%] [32m[1mLinking C shared library librobot_msgs__rosidl_generator_c.so[0m
+[1.077s] [ 19%] Built target robot_msgs__rosidl_generator_c
+[1.081s] [ 23%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[1.081s] [ 23%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[1.186s] [35m[1mScanning dependencies of target robot_msgs__rosidl_typesupport_cpp[0m
+[1.192s] [ 25%] [32mBuilding CXX object CMakeFiles/robot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robot_msgs/msg/ft_pub__type_support.cpp.o[0m
+[1.192s] [ 27%] [32mBuilding CXX object CMakeFiles/robot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robot_msgs/msg/robot_status__type_support.cpp.o[0m
+[1.192s] [ 29%] [32mBuilding CXX object CMakeFiles/robot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robot_msgs/msg/control_command__type_support.cpp.o[0m
+[1.195s] [35m[1mScanning dependencies of target robot_msgs__rosidl_typesupport_introspection_cpp[0m
+[1.202s] [ 31%] [32mBuilding CXX object CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/control_command__type_support.cpp.o[0m
+[1.202s] [ 34%] [32mBuilding CXX object CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/ft_pub__type_support.cpp.o[0m
+[1.202s] [ 36%] [32mBuilding CXX object CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/robot_status__type_support.cpp.o[0m
+[1.209s] [35m[1mScanning dependencies of target robot_msgs__rosidl_typesupport_fastrtps_cpp[0m
+[1.216s] [ 38%] [32mBuilding CXX object CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/ft_pub__type_support.cpp.o[0m
+[1.218s] [ 42%] [32mBuilding CXX object CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/robot_status__type_support.cpp.o[0m
+[1.218s] [ 42%] [32mBuilding CXX object CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/control_command__type_support.cpp.o[0m
+[1.299s] [35m[1mScanning dependencies of target robot_msgs__rosidl_typesupport_introspection_c[0m
+[1.307s] [ 44%] [32mBuilding C object CMakeFiles/robot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/robot_msgs/msg/detail/robot_status__type_support.c.o[0m
+[1.308s] [ 48%] [32mBuilding C object CMakeFiles/robot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/robot_msgs/msg/detail/ft_pub__type_support.c.o[0m
+[1.308s] [ 48%] [32mBuilding C object CMakeFiles/robot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/robot_msgs/msg/detail/control_command__type_support.c.o[0m
+[1.308s] [35m[1mScanning dependencies of target robot_msgs__rosidl_typesupport_c[0m
+[1.316s] [ 51%] [32mBuilding CXX object CMakeFiles/robot_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/robot_msgs/msg/ft_pub__type_support.cpp.o[0m
+[1.317s] [ 53%] [32mBuilding CXX object CMakeFiles/robot_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/robot_msgs/msg/control_command__type_support.cpp.o[0m
+[1.317s] [ 55%] [32mBuilding CXX object CMakeFiles/robot_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/robot_msgs/msg/robot_status__type_support.cpp.o[0m
+[1.330s] [ 57%] [32m[1mLinking C shared library librobot_msgs__rosidl_typesupport_introspection_c.so[0m
+[1.345s] [ 57%] Built target robot_msgs__rosidl_typesupport_introspection_c
+[1.362s] [ 59%] [32m[1mLinking CXX shared library librobot_msgs__rosidl_typesupport_c.so[0m
+[1.384s] [ 59%] Built target robot_msgs__rosidl_typesupport_c
+[1.415s] [ 61%] [32m[1mLinking CXX shared library librobot_msgs__rosidl_typesupport_cpp.so[0m
+[1.434s] [ 63%] [32m[1mLinking CXX shared library librobot_msgs__rosidl_typesupport_introspection_cpp.so[0m
+[1.435s] [ 63%] Built target robot_msgs__rosidl_typesupport_cpp
+[1.468s] [ 63%] Built target robot_msgs__rosidl_typesupport_introspection_cpp
+[1.500s] [ 65%] [32m[1mLinking CXX shared library librobot_msgs__rosidl_typesupport_fastrtps_cpp.so[0m
+[1.538s] [ 65%] Built target robot_msgs__rosidl_typesupport_fastrtps_cpp
+[1.543s] [ 68%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[1.755s] [35m[1mScanning dependencies of target robot_msgs__rosidl_typesupport_fastrtps_c[0m
+[1.762s] [ 72%] [32mBuilding CXX object CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/control_command__type_support_c.cpp.o[0m
+[1.762s] [ 74%] [32mBuilding CXX object CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/ft_pub__type_support_c.cpp.o[0m
+[1.762s] [ 74%] [32mBuilding CXX object CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/robot_status__type_support_c.cpp.o[0m
+[1.961s] [ 76%] [32m[1mLinking CXX shared library librobot_msgs__rosidl_typesupport_fastrtps_c.so[0m
+[2.000s] [ 76%] Built target robot_msgs__rosidl_typesupport_fastrtps_c
+[2.009s] [ 76%] Built target robot_msgs
+[2.014s] [35m[1mScanning dependencies of target robot_msgs__py[0m
+[2.018s] [ 78%] [34m[1mGenerating Python code for ROS interfaces[0m
+[2.486s] [ 78%] Built target robot_msgs__py
+[2.491s] [35m[1mScanning dependencies of target robot_msgs__python[0m
+[2.501s] [ 85%] [32mBuilding C object CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/msg/_robot_status_s.c.o[0m
+[2.501s] [ 85%] [32mBuilding C object CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/msg/_ft_pub_s.c.o[0m
+[2.501s] [ 85%] [32mBuilding C object CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/msg/_control_command_s.c.o[0m
+[2.604s] [ 87%] [32m[1mLinking C shared library rosidl_generator_py/robot_msgs/librobot_msgs__python.so[0m
+[2.625s] [ 87%] Built target robot_msgs__python
+[2.630s] [35m[1mScanning dependencies of target robot_msgs__rosidl_typesupport_introspection_c__pyext[0m
+[2.630s] [35m[1mScanning dependencies of target robot_msgs__rosidl_typesupport_fastrtps_c__pyext[0m
+[2.630s] [35m[1mScanning dependencies of target robot_msgs__rosidl_typesupport_c__pyext[0m
+[2.637s] [ 93%] [32mBuilding C object CMakeFiles/robot_msgs__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/robot_msgs/_robot_msgs_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[2.637s] [ 93%] [32mBuilding C object CMakeFiles/robot_msgs__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/robot_msgs/_robot_msgs_s.ep.rosidl_typesupport_c.c.o[0m
+[2.637s] [ 93%] [32mBuilding C object CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/robot_msgs/_robot_msgs_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[2.700s] [ 95%] [32m[1mLinking C shared library rosidl_generator_py/robot_msgs/robot_msgs_s__rosidl_typesupport_c.cpython-38-x86_64-linux-gnu.so[0m
+[2.700s] [100%] [32m[1mLinking C shared library rosidl_generator_py/robot_msgs/robot_msgs_s__rosidl_typesupport_introspection_c.cpython-38-x86_64-linux-gnu.so[0m
+[2.700s] [100%] [32m[1mLinking CXX shared library rosidl_generator_py/robot_msgs/robot_msgs_s__rosidl_typesupport_fastrtps_c.cpython-38-x86_64-linux-gnu.so[0m
+[2.715s] [100%] Built target robot_msgs__rosidl_typesupport_introspection_c__pyext
+[2.716s] [100%] Built target robot_msgs__rosidl_typesupport_c__pyext
+[2.728s] [100%] Built target robot_msgs__rosidl_typesupport_fastrtps_c__pyext
+[2.733s] Invoked command in '/home/yanji/robot_screwing/build/robot_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/yanji/robot_screwing/install/real_robot:/home/yanji/robot_screwing/install/mj_sim:/opt/ros/foxy CONDA_PROMPT_MODIFIER=(screwrobot) /usr/bin/cmake --build /home/yanji/robot_screwing/build/robot_msgs -- -j24 -l24
+[2.739s] Invoking command in '/home/yanji/robot_screwing/build/robot_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/yanji/robot_screwing/install/real_robot:/home/yanji/robot_screwing/install/mj_sim:/opt/ros/foxy CONDA_PROMPT_MODIFIER=(screwrobot) /usr/bin/cmake --install /home/yanji/robot_screwing/build/robot_msgs
+[2.742s] -- Install configuration: ""
+[2.742s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/share/ament_index/resource_index/rosidl_interfaces/robot_msgs
+[2.742s] -- Up-to-date: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs
+[2.742s] -- Up-to-date: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg
+[2.742s] -- Up-to-date: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg/detail
+[2.742s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg/detail/robot_status__functions.h
+[2.742s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg/detail/ft_pub__functions.h
+[2.742s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg/detail/control_command__type_support.h
+[2.742s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg/detail/control_command__functions.h
+[2.742s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg/detail/ft_pub__functions.c
+[2.742s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg/detail/control_command__functions.c
+[2.742s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg/detail/control_command__struct.h
+[2.743s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg/detail/robot_status__struct.h
+[2.743s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg/detail/robot_status__type_support.h
+[2.743s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg/detail/ft_pub__type_support.h
+[2.743s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg/detail/robot_status__functions.c
+[2.743s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg/detail/ft_pub__struct.h
+[2.743s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg/robot_status.h
+[2.743s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg/control_command.h
+[2.743s] -- Up-to-date: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg/rosidl_generator_c__visibility_control.h
+[2.743s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg/ft_pub.h
+[2.743s] -- Up-to-date: /home/yanji/robot_screwing/install/robot_msgs/share/robot_msgs/environment/library_path.sh
+[2.743s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/share/robot_msgs/environment/library_path.dsv
+[2.743s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/lib/librobot_msgs__rosidl_generator_c.so
+[2.743s] -- Set runtime path of "/home/yanji/robot_screwing/install/robot_msgs/lib/librobot_msgs__rosidl_generator_c.so" to ""
+[2.743s] -- Up-to-date: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs
+[2.743s] -- Up-to-date: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg
+[2.743s] -- Up-to-date: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg/detail
+[2.744s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg/detail/control_command__rosidl_typesupport_fastrtps_c.h
+[2.744s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg/detail/ft_pub__rosidl_typesupport_fastrtps_c.h
+[2.744s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg/detail/robot_status__rosidl_typesupport_fastrtps_c.h
+[2.744s] -- Up-to-date: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[2.744s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/lib/librobot_msgs__rosidl_typesupport_fastrtps_c.so
+[2.744s] -- Set runtime path of "/home/yanji/robot_screwing/install/robot_msgs/lib/librobot_msgs__rosidl_typesupport_fastrtps_c.so" to ""
+[2.744s] -- Up-to-date: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs
+[2.744s] -- Up-to-date: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg
+[2.744s] -- Up-to-date: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg/detail
+[2.744s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg/detail/control_command__rosidl_typesupport_fastrtps_cpp.hpp
+[2.744s] -- Up-to-date: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg/detail/dds_fastrtps
+[2.744s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg/detail/ft_pub__rosidl_typesupport_fastrtps_cpp.hpp
+[2.744s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg/detail/robot_status__rosidl_typesupport_fastrtps_cpp.hpp
+[2.744s] -- Up-to-date: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[2.745s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/lib/librobot_msgs__rosidl_typesupport_fastrtps_cpp.so
+[2.745s] -- Set runtime path of "/home/yanji/robot_screwing/install/robot_msgs/lib/librobot_msgs__rosidl_typesupport_fastrtps_cpp.so" to ""
+[2.745s] -- Up-to-date: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs
+[2.745s] -- Up-to-date: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg
+[2.745s] -- Up-to-date: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg/detail
+[2.745s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg/detail/robot_status__type_support.c
+[2.745s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg/detail/control_command__rosidl_typesupport_introspection_c.h
+[2.745s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg/detail/ft_pub__rosidl_typesupport_introspection_c.h
+[2.745s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg/detail/control_command__type_support.c
+[2.745s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg/detail/ft_pub__type_support.c
+[2.745s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg/detail/robot_status__rosidl_typesupport_introspection_c.h
+[2.745s] -- Up-to-date: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[2.745s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/lib/librobot_msgs__rosidl_typesupport_introspection_c.so
+[2.746s] -- Set runtime path of "/home/yanji/robot_screwing/install/robot_msgs/lib/librobot_msgs__rosidl_typesupport_introspection_c.so" to ""
+[2.746s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/lib/librobot_msgs__rosidl_typesupport_c.so
+[2.746s] -- Set runtime path of "/home/yanji/robot_screwing/install/robot_msgs/lib/librobot_msgs__rosidl_typesupport_c.so" to ""
+[2.746s] -- Up-to-date: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs
+[2.746s] -- Up-to-date: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg
+[2.746s] -- Up-to-date: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg/detail
+[2.746s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg/detail/ft_pub__builder.hpp
+[2.746s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg/detail/control_command__traits.hpp
+[2.746s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg/detail/robot_status__type_support.hpp
+[2.746s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg/detail/robot_status__struct.hpp
+[2.746s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg/detail/control_command__type_support.hpp
+[2.746s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg/detail/ft_pub__struct.hpp
+[2.746s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg/detail/control_command__builder.hpp
+[2.746s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg/detail/ft_pub__traits.hpp
+[2.746s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg/detail/robot_status__traits.hpp
+[2.747s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg/detail/ft_pub__type_support.hpp
+[2.747s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg/detail/control_command__struct.hpp
+[2.747s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg/detail/robot_status__builder.hpp
+[2.747s] -- Up-to-date: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg/rosidl_generator_cpp__visibility_control.hpp
+[2.747s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg/control_command.hpp
+[2.747s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg/ft_pub.hpp
+[2.747s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg/robot_status.hpp
+[2.747s] -- Up-to-date: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs
+[2.747s] -- Up-to-date: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg
+[2.747s] -- Up-to-date: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg/detail
+[2.747s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg/detail/ft_pub__rosidl_typesupport_introspection_cpp.hpp
+[2.747s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg/detail/ft_pub__type_support.cpp
+[2.747s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg/detail/control_command__rosidl_typesupport_introspection_cpp.hpp
+[2.747s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg/detail/robot_status__type_support.cpp
+[2.747s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg/detail/control_command__type_support.cpp
+[2.747s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg/detail/robot_status__rosidl_typesupport_introspection_cpp.hpp
+[2.747s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/lib/librobot_msgs__rosidl_typesupport_introspection_cpp.so
+[2.747s] -- Set runtime path of "/home/yanji/robot_screwing/install/robot_msgs/lib/librobot_msgs__rosidl_typesupport_introspection_cpp.so" to ""
+[2.748s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/lib/librobot_msgs__rosidl_typesupport_cpp.so
+[2.748s] -- Set runtime path of "/home/yanji/robot_screwing/install/robot_msgs/lib/librobot_msgs__rosidl_typesupport_cpp.so" to ""
+[2.748s] -- Up-to-date: /home/yanji/robot_screwing/install/robot_msgs/share/robot_msgs/environment/pythonpath.sh
+[2.748s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/share/robot_msgs/environment/pythonpath.dsv
+[2.748s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/lib/python3.8/site-packages/robot_msgs/__init__.py
+[2.763s] Compiling '/home/yanji/robot_screwing/install/robot_msgs/lib/python3.8/site-packages/robot_msgs/__init__.py'...
+[2.765s] -- Up-to-date: /home/yanji/robot_screwing/install/robot_msgs/lib/python3.8/site-packages/robot_msgs/msg
+[2.765s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/lib/python3.8/site-packages/robot_msgs/msg/_robot_status_s.c
+[2.765s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/lib/python3.8/site-packages/robot_msgs/msg/__init__.py
+[2.765s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/lib/python3.8/site-packages/robot_msgs/msg/_control_command.py
+[2.765s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/lib/python3.8/site-packages/robot_msgs/msg/_robot_status.py
+[2.765s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/lib/python3.8/site-packages/robot_msgs/msg/_ft_pub_s.c
+[2.765s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/lib/python3.8/site-packages/robot_msgs/msg/_control_command_s.c
+[2.765s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/lib/python3.8/site-packages/robot_msgs/msg/_ft_pub.py
+[2.766s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/lib/python3.8/site-packages/robot_msgs/robot_msgs_s__rosidl_typesupport_fastrtps_c.cpython-38-x86_64-linux-gnu.so
+[2.766s] -- Set runtime path of "/home/yanji/robot_screwing/install/robot_msgs/lib/python3.8/site-packages/robot_msgs/robot_msgs_s__rosidl_typesupport_fastrtps_c.cpython-38-x86_64-linux-gnu.so" to ""
+[2.766s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/lib/python3.8/site-packages/robot_msgs/robot_msgs_s__rosidl_typesupport_introspection_c.cpython-38-x86_64-linux-gnu.so
+[2.767s] -- Set runtime path of "/home/yanji/robot_screwing/install/robot_msgs/lib/python3.8/site-packages/robot_msgs/robot_msgs_s__rosidl_typesupport_introspection_c.cpython-38-x86_64-linux-gnu.so" to ""
+[2.767s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/lib/python3.8/site-packages/robot_msgs/robot_msgs_s__rosidl_typesupport_c.cpython-38-x86_64-linux-gnu.so
+[2.767s] -- Set runtime path of "/home/yanji/robot_screwing/install/robot_msgs/lib/python3.8/site-packages/robot_msgs/robot_msgs_s__rosidl_typesupport_c.cpython-38-x86_64-linux-gnu.so" to ""
+[2.767s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/lib/librobot_msgs__python.so
+[2.767s] -- Set runtime path of "/home/yanji/robot_screwing/install/robot_msgs/lib/librobot_msgs__python.so" to ""
+[2.767s] -- Up-to-date: /home/yanji/robot_screwing/install/robot_msgs/share/robot_msgs/msg/FtPub.idl
+[2.768s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/share/robot_msgs/msg/RobotStatus.idl
+[2.768s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/share/robot_msgs/msg/ControlCommand.idl
+[2.768s] -- Up-to-date: /home/yanji/robot_screwing/install/robot_msgs/share/robot_msgs/msg/FtPub.msg
+[2.768s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/share/robot_msgs/msg/RobotStatus.msg
+[2.768s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/share/robot_msgs/msg/ControlCommand.msg
+[2.768s] -- Up-to-date: /home/yanji/robot_screwing/install/robot_msgs/share/ament_index/resource_index/package_run_dependencies/robot_msgs
+[2.768s] -- Up-to-date: /home/yanji/robot_screwing/install/robot_msgs/share/ament_index/resource_index/parent_prefix_path/robot_msgs
+[2.768s] -- Up-to-date: /home/yanji/robot_screwing/install/robot_msgs/share/robot_msgs/environment/ament_prefix_path.sh
+[2.768s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/share/robot_msgs/environment/ament_prefix_path.dsv
+[2.768s] -- Up-to-date: /home/yanji/robot_screwing/install/robot_msgs/share/robot_msgs/environment/path.sh
+[2.768s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/share/robot_msgs/environment/path.dsv
+[2.768s] -- Up-to-date: /home/yanji/robot_screwing/install/robot_msgs/share/robot_msgs/local_setup.bash
+[2.768s] -- Up-to-date: /home/yanji/robot_screwing/install/robot_msgs/share/robot_msgs/local_setup.sh
+[2.768s] -- Up-to-date: /home/yanji/robot_screwing/install/robot_msgs/share/robot_msgs/local_setup.zsh
+[2.768s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/share/robot_msgs/local_setup.dsv
+[2.768s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/share/robot_msgs/package.dsv
+[2.768s] -- Up-to-date: /home/yanji/robot_screwing/install/robot_msgs/share/ament_index/resource_index/packages/robot_msgs
+[2.768s] -- Up-to-date: /home/yanji/robot_screwing/install/robot_msgs/share/robot_msgs/cmake/robot_msgs__rosidl_generator_cExport.cmake
+[2.768s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/share/robot_msgs/cmake/robot_msgs__rosidl_generator_cExport-noconfig.cmake
+[2.769s] -- Up-to-date: /home/yanji/robot_screwing/install/robot_msgs/share/robot_msgs/cmake/robot_msgs__rosidl_typesupport_introspection_cExport.cmake
+[2.769s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/share/robot_msgs/cmake/robot_msgs__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[2.769s] -- Up-to-date: /home/yanji/robot_screwing/install/robot_msgs/share/robot_msgs/cmake/robot_msgs__rosidl_typesupport_cExport.cmake
+[2.769s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/share/robot_msgs/cmake/robot_msgs__rosidl_typesupport_cExport-noconfig.cmake
+[2.769s] -- Up-to-date: /home/yanji/robot_screwing/install/robot_msgs/share/robot_msgs/cmake/robot_msgs__rosidl_generator_cppExport.cmake
+[2.769s] -- Up-to-date: /home/yanji/robot_screwing/install/robot_msgs/share/robot_msgs/cmake/robot_msgs__rosidl_typesupport_introspection_cppExport.cmake
+[2.769s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/share/robot_msgs/cmake/robot_msgs__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[2.769s] -- Up-to-date: /home/yanji/robot_screwing/install/robot_msgs/share/robot_msgs/cmake/robot_msgs__rosidl_typesupport_cppExport.cmake
+[2.769s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/share/robot_msgs/cmake/robot_msgs__rosidl_typesupport_cppExport-noconfig.cmake
+[2.769s] -- Installing: /home/yanji/robot_screwing/install/robot_msgs/share/robot_msgs/cmake/rosidl_cmake-extras.cmake
+[2.769s] -- Up-to-date: /home/yanji/robot_screwing/install/robot_msgs/share/robot_msgs/cmake/ament_cmake_export_dependencies-extras.cmake
+[2.769s] -- Up-to-date: /home/yanji/robot_screwing/install/robot_msgs/share/robot_msgs/cmake/ament_cmake_export_libraries-extras.cmake
+[2.769s] -- Up-to-date: /home/yanji/robot_screwing/install/robot_msgs/share/robot_msgs/cmake/ament_cmake_export_targets-extras.cmake
+[2.769s] -- Up-to-date: /home/yanji/robot_screwing/install/robot_msgs/share/robot_msgs/cmake/ament_cmake_export_include_directories-extras.cmake
+[2.769s] -- Up-to-date: /home/yanji/robot_screwing/install/robot_msgs/share/robot_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[2.769s] -- Up-to-date: /home/yanji/robot_screwing/install/robot_msgs/share/robot_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[2.769s] -- Up-to-date: /home/yanji/robot_screwing/install/robot_msgs/share/robot_msgs/cmake/robot_msgsConfig.cmake
+[2.770s] -- Up-to-date: /home/yanji/robot_screwing/install/robot_msgs/share/robot_msgs/cmake/robot_msgsConfig-version.cmake
+[2.770s] -- Up-to-date: /home/yanji/robot_screwing/install/robot_msgs/share/robot_msgs/package.xml
+[2.771s] Invoked command in '/home/yanji/robot_screwing/build/robot_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/yanji/robot_screwing/install/real_robot:/home/yanji/robot_screwing/install/mj_sim:/opt/ros/foxy CONDA_PROMPT_MODIFIER=(screwrobot) /usr/bin/cmake --install /home/yanji/robot_screwing/build/robot_msgs

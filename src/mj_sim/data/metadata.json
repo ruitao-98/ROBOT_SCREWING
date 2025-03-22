@@ -1,0 +1,18 @@
+{
+    "sim_dataset": {
+        "train": {
+            "dataset_001": {
+                "groove1": true,
+                "groove2": false,
+                "screw1": false,
+                "screw2": false
+            },
+            "dataset_002": {
+                "groove1": true,
+                "groove2": true,
+                "screw1": false,
+                "screw2": false
+            }
+        }
+    }
+}

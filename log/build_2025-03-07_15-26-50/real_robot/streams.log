@@ -1,0 +1,20 @@
+[0.432s] Invoking command in '/home/yanji/robot_screwing/src/real_robot': CONDA_PROMPT_MODIFIER=(screwrobot) PYTHONPATH=/home/yanji/robot_screwing/build/real_robot/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/yanji/robot_screwing/install/real_robot/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/real_robot build --build-base /home/yanji/robot_screwing/build/real_robot/build install --record /home/yanji/robot_screwing/build/real_robot/install.log --install-scripts $base/lib/real_robot --single-version-externally-managed install_data
+[0.530s] running egg_info
+[0.530s] writing ../../build/real_robot/real_robot.egg-info/PKG-INFO
+[0.530s] writing dependency_links to ../../build/real_robot/real_robot.egg-info/dependency_links.txt
+[0.530s] writing entry points to ../../build/real_robot/real_robot.egg-info/entry_points.txt
+[0.530s] writing requirements to ../../build/real_robot/real_robot.egg-info/requires.txt
+[0.530s] writing top-level names to ../../build/real_robot/real_robot.egg-info/top_level.txt
+[0.545s] reading manifest file '../../build/real_robot/real_robot.egg-info/SOURCES.txt'
+[0.546s] writing manifest file '../../build/real_robot/real_robot.egg-info/SOURCES.txt'
+[0.546s] running build
+[0.546s] running build_py
+[0.546s] running install
+[0.546s] running install_lib
+[0.547s] running install_data
+[0.547s] running install_egg_info
+[0.548s] removing '/home/yanji/robot_screwing/install/real_robot/lib/python3.8/site-packages/real_robot-0.0.0-py3.8.egg-info' (and everything under it)
+[0.548s] Copying ../../build/real_robot/real_robot.egg-info to /home/yanji/robot_screwing/install/real_robot/lib/python3.8/site-packages/real_robot-0.0.0-py3.8.egg-info
+[0.548s] running install_scripts
+[0.556s] writing list of installed files to '/home/yanji/robot_screwing/build/real_robot/install.log'
+[0.566s] Invoked command in '/home/yanji/robot_screwing/src/real_robot' returned '0': CONDA_PROMPT_MODIFIER=(screwrobot) PYTHONPATH=/home/yanji/robot_screwing/build/real_robot/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/yanji/robot_screwing/install/real_robot/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/real_robot build --build-base /home/yanji/robot_screwing/build/real_robot/build install --record /home/yanji/robot_screwing/build/real_robot/install.log --install-scripts $base/lib/real_robot --single-version-externally-managed install_data

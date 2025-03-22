@@ -1,0 +1,29 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from robot_msgs/srv/StartPose.srv
+// generated code does not contain a copyright notice
+
+
+module robot_msgs {
+  module srv {
+    @verbatim (language="comment", text=
+      " GetParams.srv")
+    struct StartPose_Request {
+      uint8 structure_needs_at_least_one_member;
+    };
+    typedef double double__3[3];
+    typedef double double__9[9];
+    struct StartPose_Response {
+      boolean success;
+
+      string message;
+
+      @verbatim (language="comment", text=
+        " 位置参数，3个浮点数")
+      double__3 pos_para;
+
+      @verbatim (language="comment", text=
+        " 展平的旋转矩阵，9个浮点数")
+      double__9 ori_para;
+    };
+  };
+};

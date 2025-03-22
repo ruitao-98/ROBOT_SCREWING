@@ -1,0 +1,31 @@
+[0.468s] Invoking command in '/home/yanji/robot_screwing/src/mj_sim': CONDA_PROMPT_MODIFIER=(screwrobot) PYTHONPATH=/home/yanji/robot_screwing/build/mj_sim/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/yanji/robot_screwing/install/mj_sim/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/mj_sim build --build-base /home/yanji/robot_screwing/build/mj_sim/build install --record /home/yanji/robot_screwing/build/mj_sim/install.log --install-scripts $base/lib/mj_sim --single-version-externally-managed install_data
+[0.565s] running egg_info
+[0.565s] writing ../../build/mj_sim/mj_sim.egg-info/PKG-INFO
+[0.565s] writing dependency_links to ../../build/mj_sim/mj_sim.egg-info/dependency_links.txt
+[0.565s] writing entry points to ../../build/mj_sim/mj_sim.egg-info/entry_points.txt
+[0.565s] writing requirements to ../../build/mj_sim/mj_sim.egg-info/requires.txt
+[0.565s] writing top-level names to ../../build/mj_sim/mj_sim.egg-info/top_level.txt
+[0.581s] reading manifest file '../../build/mj_sim/mj_sim.egg-info/SOURCES.txt'
+[0.581s] writing manifest file '../../build/mj_sim/mj_sim.egg-info/SOURCES.txt'
+[0.581s] running build
+[0.581s] running build_py
+[0.582s] copying mj_sim/mpc_optimizer.py -> /home/yanji/robot_screwing/build/mj_sim/build/lib/mj_sim
+[0.582s] copying mj_sim/mpc_node.py -> /home/yanji/robot_screwing/build/mj_sim/build/lib/mj_sim
+[0.582s] copying mj_sim/robot_sim_env.py -> /home/yanji/robot_screwing/build/mj_sim/build/lib/mj_sim
+[0.582s] running install
+[0.582s] running install_lib
+[0.583s] copying /home/yanji/robot_screwing/build/mj_sim/build/lib/mj_sim/mpc_optimizer.py -> /home/yanji/robot_screwing/install/mj_sim/lib/python3.8/site-packages/mj_sim
+[0.583s] copying /home/yanji/robot_screwing/build/mj_sim/build/lib/mj_sim/mpc_node.py -> /home/yanji/robot_screwing/install/mj_sim/lib/python3.8/site-packages/mj_sim
+[0.583s] copying /home/yanji/robot_screwing/build/mj_sim/build/lib/mj_sim/robot_sim_env.py -> /home/yanji/robot_screwing/install/mj_sim/lib/python3.8/site-packages/mj_sim
+[0.583s] byte-compiling /home/yanji/robot_screwing/install/mj_sim/lib/python3.8/site-packages/mj_sim/mpc_optimizer.py to mpc_optimizer.cpython-38.pyc
+[0.584s] byte-compiling /home/yanji/robot_screwing/install/mj_sim/lib/python3.8/site-packages/mj_sim/mpc_node.py to mpc_node.cpython-38.pyc
+[0.584s] byte-compiling /home/yanji/robot_screwing/install/mj_sim/lib/python3.8/site-packages/mj_sim/robot_sim_env.py to robot_sim_env.cpython-38.pyc
+[0.587s] running install_data
+[0.587s] copying launch/launch_robot_sim.py -> /home/yanji/robot_screwing/install/mj_sim/share/mj_sim
+[0.587s] running install_egg_info
+[0.587s] removing '/home/yanji/robot_screwing/install/mj_sim/lib/python3.8/site-packages/mj_sim-0.0.0-py3.8.egg-info' (and everything under it)
+[0.588s] Copying ../../build/mj_sim/mj_sim.egg-info to /home/yanji/robot_screwing/install/mj_sim/lib/python3.8/site-packages/mj_sim-0.0.0-py3.8.egg-info
+[0.588s] running install_scripts
+[0.595s] Installing robot_sim_env = mj_sim.robot_sim_env:mainmpc_node script to /home/yanji/robot_screwing/install/mj_sim/lib/mj_sim
+[0.596s] writing list of installed files to '/home/yanji/robot_screwing/build/mj_sim/install.log'
+[0.608s] Invoked command in '/home/yanji/robot_screwing/src/mj_sim' returned '0': CONDA_PROMPT_MODIFIER=(screwrobot) PYTHONPATH=/home/yanji/robot_screwing/build/mj_sim/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/yanji/robot_screwing/install/mj_sim/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/mj_sim build --build-base /home/yanji/robot_screwing/build/mj_sim/build install --record /home/yanji/robot_screwing/build/mj_sim/install.log --install-scripts $base/lib/mj_sim --single-version-externally-managed install_data

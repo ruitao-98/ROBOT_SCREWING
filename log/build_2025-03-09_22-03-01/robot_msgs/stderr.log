@@ -1,0 +1,18 @@
+[01m[K/home/yanji/robot_screwing/build/robot_msgs/rosidl_generator_py/robot_msgs/msg/_ft_pub_s.c:11:10:[m[K [01;31m[Kfatal error: [m[Knumpy/ndarrayobject.h: 没有那个文件或目录
+   11 | #include [01;31m[K"numpy/ndarrayobject.h"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+[01m[K/home/yanji/robot_screwing/build/robot_msgs/rosidl_generator_py/robot_msgs/msg/_control_command_s.c:11:10:[m[K [01;31m[Kfatal error: [m[Knumpy/ndarrayobject.h: 没有那个文件或目录
+   11 | #include [01;31m[K"numpy/ndarrayobject.h"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/yanji/robot_screwing/build/robot_msgs/rosidl_generator_py/robot_msgs/msg/_robot_status_s.c:11:10:[m[K [01;31m[Kfatal error: [m[Knumpy/ndarrayobject.h: 没有那个文件或目录
+   11 | #include [01;31m[K"numpy/ndarrayobject.h"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+compilation terminated.
+make[2]: *** [CMakeFiles/robot_msgs__python.dir/build.make:76：CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/msg/_robot_status_s.c.o] 错误 1
+make[2]: *** 正在等待未完成的任务....
+make[2]: *** [CMakeFiles/robot_msgs__python.dir/build.make:63：CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/msg/_ft_pub_s.c.o] 错误 1
+make[2]: *** [CMakeFiles/robot_msgs__python.dir/build.make:89：CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/msg/_control_command_s.c.o] 错误 1
+make[1]: *** [CMakeFiles/Makefile2:499：CMakeFiles/robot_msgs__python.dir/all] 错误 2
+make: *** [Makefile:141：all] 错误 2

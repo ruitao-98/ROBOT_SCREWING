@@ -1,0 +1,14 @@
+{
+    "terminal.integrated.inheritEnv": true,
+    // "cmake.configureSettings": {
+    //     "CMAKE_PREFIX_PATH": "/opt/ros/foxy"
+    // },
+    "terminal.integrated.env.linux": {
+        "CONDA_DEFAULT_ENV": "screwrobot",
+        "PATH": "/home/yanji/anaconda3/envs/screwrobot/bin:${env:PATH}"
+    },
+    "python.defaultInterpreterPath": "/home/yanji/anaconda3/envs/screwrobot/bin/python",
+    "files.associations": {
+        "string": "cpp"
+    }
+}

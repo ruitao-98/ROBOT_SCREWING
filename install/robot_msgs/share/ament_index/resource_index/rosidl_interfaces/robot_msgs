@@ -1,0 +1,12 @@
+msg/ControlCommand.idl
+msg/ControlCommand.msg
+msg/FtPub.idl
+msg/FtPub.msg
+msg/RefStatus.idl
+msg/RefStatus.msg
+msg/RobotStatus.idl
+msg/RobotStatus.msg
+srv/StartPose.idl
+srv/StartPose.srv
+srv/StartPose_Request.msg
+srv/StartPose_Response.msg

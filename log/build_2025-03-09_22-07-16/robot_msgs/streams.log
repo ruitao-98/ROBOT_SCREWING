@@ -1,0 +1,33 @@
+[0.226s] Invoking command in '/home/yanji/robot_screwing/build/robot_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/yanji/robot_screwing/install/real_robot:/home/yanji/robot_screwing/install/mj_sim:/opt/ros/foxy CONDA_PROMPT_MODIFIER=(screwrobot) /usr/bin/cmake --build /home/yanji/robot_screwing/build/robot_msgs -- -j24 -l24
+[0.248s] [  2%] Built target robot_msgs__cpp
+[0.249s] [ 12%] Built target robot_msgs__rosidl_generator_c
+[0.257s] [ 23%] Built target robot_msgs__rosidl_typesupport_cpp
+[0.257s] [ 34%] Built target robot_msgs__rosidl_typesupport_introspection_cpp
+[0.257s] [ 44%] Built target robot_msgs__rosidl_typesupport_c
+[0.259s] [ 55%] Built target robot_msgs__rosidl_typesupport_fastrtps_cpp
+[0.259s] [ 65%] Built target robot_msgs__rosidl_typesupport_introspection_c
+[0.270s] [ 76%] Built target robot_msgs__rosidl_typesupport_fastrtps_c
+[0.278s] [ 76%] Built target robot_msgs
+[0.285s] [ 78%] Built target robot_msgs__py
+[0.294s] [ 80%] [32mBuilding C object CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/msg/_ft_pub_s.c.o[0m
+[0.294s] [ 82%] [32mBuilding C object CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/msg/_robot_status_s.c.o[0m
+[0.294s] [ 85%] [32mBuilding C object CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/msg/_control_command_s.c.o[0m
+[0.337s] [01m[K/home/yanji/robot_screwing/build/robot_msgs/rosidl_generator_py/robot_msgs/msg/_robot_status_s.c:11:10:[m[K [01;31m[Kfatal error: [m[Knumpy/ndarrayobject.h: 没有那个文件或目录
+[0.337s]    11 | #include [01;31m[K"numpy/ndarrayobject.h"[m[K
+[0.337s]       |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[0.337s] [01m[K/home/yanji/robot_screwing/build/robot_msgs/rosidl_generator_py/robot_msgs/msg/_ft_pub_s.c:11:10:[m[K [01;31m[Kfatal error: [m[Knumpy/ndarrayobject.h: 没有那个文件或目录
+[0.337s]    11 | #include [01;31m[K"numpy/ndarrayobject.h"[m[K
+[0.337s]       |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[0.337s] compilation terminated.
+[0.337s] compilation terminated.
+[0.338s] [01m[K/home/yanji/robot_screwing/build/robot_msgs/rosidl_generator_py/robot_msgs/msg/_control_command_s.c:11:10:[m[K [01;31m[Kfatal error: [m[Knumpy/ndarrayobject.h: 没有那个文件或目录
+[0.338s]    11 | #include [01;31m[K"numpy/ndarrayobject.h"[m[K
+[0.338s]       |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[0.338s] compilation terminated.
+[0.338s] make[2]: *** [CMakeFiles/robot_msgs__python.dir/build.make:63：CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/msg/_ft_pub_s.c.o] 错误 1
+[0.338s] make[2]: *** 正在等待未完成的任务....
+[0.338s] make[2]: *** [CMakeFiles/robot_msgs__python.dir/build.make:76：CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/msg/_robot_status_s.c.o] 错误 1
+[0.338s] make[2]: *** [CMakeFiles/robot_msgs__python.dir/build.make:89：CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/msg/_control_command_s.c.o] 错误 1
+[0.338s] make[1]: *** [CMakeFiles/Makefile2:499：CMakeFiles/robot_msgs__python.dir/all] 错误 2
+[0.338s] make: *** [Makefile:141：all] 错误 2
+[0.340s] Invoked command in '/home/yanji/robot_screwing/build/robot_msgs' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/yanji/robot_screwing/install/real_robot:/home/yanji/robot_screwing/install/mj_sim:/opt/ros/foxy CONDA_PROMPT_MODIFIER=(screwrobot) /usr/bin/cmake --build /home/yanji/robot_screwing/build/robot_msgs -- -j24 -l24

@@ -1,0 +1,13 @@
+[  2%] Built target robot_msgs__cpp
+[ 12%] Built target robot_msgs__rosidl_generator_c
+[ 34%] Built target robot_msgs__rosidl_typesupport_cpp
+[ 34%] Built target robot_msgs__rosidl_typesupport_introspection_cpp
+[ 44%] Built target robot_msgs__rosidl_typesupport_introspection_c
+[ 55%] Built target robot_msgs__rosidl_typesupport_c
+[ 65%] Built target robot_msgs__rosidl_typesupport_fastrtps_cpp
+[ 76%] Built target robot_msgs__rosidl_typesupport_fastrtps_c
+[ 76%] Built target robot_msgs
+[ 78%] Built target robot_msgs__py
+[ 80%] [32mBuilding C object CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/msg/_ft_pub_s.c.o[0m
+[ 82%] [32mBuilding C object CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/msg/_robot_status_s.c.o[0m
+[ 85%] [32mBuilding C object CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/msg/_control_command_s.c.o[0m

@@ -1,0 +1,5 @@
+/home/yanji/robot_screwing/build/robot_msgs/rosidl_adapter/robot_msgs:msg/FtPub.idl
+/home/yanji/robot_screwing/build/robot_msgs/rosidl_adapter/robot_msgs:msg/RobotStatus.idl
+/home/yanji/robot_screwing/build/robot_msgs/rosidl_adapter/robot_msgs:msg/ControlCommand.idl
+/home/yanji/robot_screwing/build/robot_msgs/rosidl_adapter/robot_msgs:msg/RefStatus.idl
+/home/yanji/robot_screwing/build/robot_msgs/rosidl_adapter/robot_msgs:srv/StartPose.idl

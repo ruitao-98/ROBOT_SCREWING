@@ -1,0 +1,32 @@
+running egg_info
+writing ../../build/mj_sim/mj_sim.egg-info/PKG-INFO
+writing dependency_links to ../../build/mj_sim/mj_sim.egg-info/dependency_links.txt
+writing entry points to ../../build/mj_sim/mj_sim.egg-info/entry_points.txt
+writing requirements to ../../build/mj_sim/mj_sim.egg-info/requires.txt
+writing top-level names to ../../build/mj_sim/mj_sim.egg-info/top_level.txt
+reading manifest file '../../build/mj_sim/mj_sim.egg-info/SOURCES.txt'
+writing manifest file '../../build/mj_sim/mj_sim.egg-info/SOURCES.txt'
+running build
+running build_py
+copying mj_sim/mpc_optimizer.py -> /home/yanji/robot_screwing/build/mj_sim/build/lib/mj_sim
+copying mj_sim/mpc_node.py -> /home/yanji/robot_screwing/build/mj_sim/build/lib/mj_sim
+copying mj_sim/test.py -> /home/yanji/robot_screwing/build/mj_sim/build/lib/mj_sim
+copying mj_sim/robot_sim_env.py -> /home/yanji/robot_screwing/build/mj_sim/build/lib/mj_sim
+running install
+running install_lib
+copying /home/yanji/robot_screwing/build/mj_sim/build/lib/mj_sim/mpc_optimizer.py -> /home/yanji/robot_screwing/install/mj_sim/lib/python3.8/site-packages/mj_sim
+copying /home/yanji/robot_screwing/build/mj_sim/build/lib/mj_sim/mpc_node.py -> /home/yanji/robot_screwing/install/mj_sim/lib/python3.8/site-packages/mj_sim
+copying /home/yanji/robot_screwing/build/mj_sim/build/lib/mj_sim/test.py -> /home/yanji/robot_screwing/install/mj_sim/lib/python3.8/site-packages/mj_sim
+copying /home/yanji/robot_screwing/build/mj_sim/build/lib/mj_sim/robot_sim_env.py -> /home/yanji/robot_screwing/install/mj_sim/lib/python3.8/site-packages/mj_sim
+byte-compiling /home/yanji/robot_screwing/install/mj_sim/lib/python3.8/site-packages/mj_sim/mpc_optimizer.py to mpc_optimizer.cpython-38.pyc
+byte-compiling /home/yanji/robot_screwing/install/mj_sim/lib/python3.8/site-packages/mj_sim/mpc_node.py to mpc_node.cpython-38.pyc
+byte-compiling /home/yanji/robot_screwing/install/mj_sim/lib/python3.8/site-packages/mj_sim/test.py to test.cpython-38.pyc
+byte-compiling /home/yanji/robot_screwing/install/mj_sim/lib/python3.8/site-packages/mj_sim/robot_sim_env.py to robot_sim_env.cpython-38.pyc
+running install_data
+running install_egg_info
+removing '/home/yanji/robot_screwing/install/mj_sim/lib/python3.8/site-packages/mj_sim-0.0.0-py3.8.egg-info' (and everything under it)
+Copying ../../build/mj_sim/mj_sim.egg-info to /home/yanji/robot_screwing/install/mj_sim/lib/python3.8/site-packages/mj_sim-0.0.0-py3.8.egg-info
+running install_scripts
+Installing mpc_node script to /home/yanji/robot_screwing/install/mj_sim/lib/mj_sim
+Installing robot_sim_env script to /home/yanji/robot_screwing/install/mj_sim/lib/mj_sim
+writing list of installed files to '/home/yanji/robot_screwing/build/mj_sim/install.log'

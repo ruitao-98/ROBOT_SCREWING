@@ -1,0 +1,23 @@
+[0.428s] Invoking command in '/home/yanji/robot_screwing/src/mj_sim': CONDA_PROMPT_MODIFIER=(screwrobot) PYTHONPATH=/home/yanji/robot_screwing/build/mj_sim/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/yanji/robot_screwing/install/mj_sim/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/mj_sim build --build-base /home/yanji/robot_screwing/build/mj_sim/build install --record /home/yanji/robot_screwing/build/mj_sim/install.log --install-scripts $base/lib/mj_sim --single-version-externally-managed install_data
+[0.523s] running egg_info
+[0.523s] writing ../../build/mj_sim/mj_sim.egg-info/PKG-INFO
+[0.523s] writing dependency_links to ../../build/mj_sim/mj_sim.egg-info/dependency_links.txt
+[0.523s] writing entry points to ../../build/mj_sim/mj_sim.egg-info/entry_points.txt
+[0.523s] writing requirements to ../../build/mj_sim/mj_sim.egg-info/requires.txt
+[0.524s] writing top-level names to ../../build/mj_sim/mj_sim.egg-info/top_level.txt
+[0.538s] reading manifest file '../../build/mj_sim/mj_sim.egg-info/SOURCES.txt'
+[0.539s] writing manifest file '../../build/mj_sim/mj_sim.egg-info/SOURCES.txt'
+[0.539s] running build
+[0.539s] running build_py
+[0.539s] running install
+[0.539s] running install_lib
+[0.540s] running install_data
+[0.540s] copying package.xml -> /home/yanji/robot_screwing/install/mj_sim/share/mj_sim
+[0.540s] running install_egg_info
+[0.541s] removing '/home/yanji/robot_screwing/install/mj_sim/lib/python3.8/site-packages/mj_sim-0.0.0-py3.8.egg-info' (and everything under it)
+[0.541s] Copying ../../build/mj_sim/mj_sim.egg-info to /home/yanji/robot_screwing/install/mj_sim/lib/python3.8/site-packages/mj_sim-0.0.0-py3.8.egg-info
+[0.541s] running install_scripts
+[0.549s] Installing mpc_node script to /home/yanji/robot_screwing/install/mj_sim/lib/mj_sim
+[0.549s] Installing robot_sim_env script to /home/yanji/robot_screwing/install/mj_sim/lib/mj_sim
+[0.549s] writing list of installed files to '/home/yanji/robot_screwing/build/mj_sim/install.log'
+[0.558s] Invoked command in '/home/yanji/robot_screwing/src/mj_sim' returned '0': CONDA_PROMPT_MODIFIER=(screwrobot) PYTHONPATH=/home/yanji/robot_screwing/build/mj_sim/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/yanji/robot_screwing/install/mj_sim/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/mj_sim build --build-base /home/yanji/robot_screwing/build/mj_sim/build install --record /home/yanji/robot_screwing/build/mj_sim/install.log --install-scripts $base/lib/mj_sim --single-version-externally-managed install_data

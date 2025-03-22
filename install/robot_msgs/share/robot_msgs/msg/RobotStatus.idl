@@ -1,0 +1,32 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from robot_msgs/msg/RobotStatus.msg
+// generated code does not contain a copyright notice
+
+
+module robot_msgs {
+  module msg {
+    typedef double double__6[6];
+    typedef double double__3[3];
+    typedef double double__9[9];
+    @verbatim (language="comment", text=
+      " 6维力/力矩分量 (单位: N 和 N·m)")
+    struct RobotStatus {
+      @verbatim (language="comment", text=
+        " xyz 方向的力和力矩")
+      double__6 ft_vector;
+
+      @verbatim (language="comment", text=
+        " 3维向量 (向量)")
+      double__3 pos_vector;
+
+      @verbatim (language="comment", text=
+        " 3x3姿态矩阵 (旋转矩阵)" "\n"
+        " 3x3矩阵，按行优先存储，共9个元素")
+      double__9 rotation_matrix;
+
+      @verbatim (language="comment", text=
+        " 6维向量，速度")
+      double__6 vel_vector;
+    };
+  };
+};

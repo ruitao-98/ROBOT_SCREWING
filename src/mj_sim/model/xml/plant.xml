@@ -1,0 +1,22 @@
+<mujoco>
+
+<worldbody>
+    <body name="board">
+      <geom type="mesh" mesh="part0"/>
+      <geom type="mesh" mesh="part1"/>
+      <geom type="mesh" mesh="part2"/>
+      <geom type="mesh" mesh="part3"/>
+      <geom type="mesh" mesh="part4"/>
+      <geom type="mesh" mesh="part5"/>
+      <geom type="mesh" mesh="part6"/>
+      <geom type="mesh" mesh="part7"/>
+      <geom type="mesh" mesh="part8"/>
+      <geom type="mesh" mesh="part9"/>
+      <geom type="mesh" mesh="part10"/>
+      <geom type="mesh" mesh="part11"/>
+      <geom type="mesh" mesh="part12"/>
+      <!-- 依次添加所有几何体 -->
+    </body>
+</worldbody>
+
+</mujoco>
