@@ -314,81 +314,263 @@ def separate_variables(traj):
     r_traj = traj[:, 10:]
     return [p_traj, a_traj, v_traj, r_traj]
 
-def quaternion_state_mse(x, x_ref, mask):
-    """
-    Calculates the MSE of the 13-dimensional state (p_xyz, q_wxyz, v_xyz, r_xyz) wrt. the reference state. The MSE of
-    the quaternions are treated axes-wise.
-
-    :param x: 13-dimensional state
-    :param x_ref: 13-dimensional reference state
-    :param mask: 12-dimensional masking for weighted MSE (p_xyz, q_xyz, v_xyz, r_xyz)
-    :return: the mean squared error of both
-    """
-
-    q_error = q_dot_q(x[3:7], quaternion_inverse(x_ref[3:7]))
-    e = np.concatenate((x[:3] - x_ref[:3], q_error[1:], x[7:10] - x_ref[7:10], x[10:] - x_ref[10:]))
-
-    return np.sqrt((e * np.array(mask)).dot(e))
-
-
-# def get_model_dir_and_file(model_options):
-#     directory = os.path.join(GPConfig.SAVE_DIR, str(model_options["git"]), str(model_options["model_name"]))
-
-#     model_params = model_options["params"]
-#     file_name = ''
-#     model_vars = list(model_params.keys())
-#     model_vars.sort()
-#     for i, param in enumerate(model_vars):
-#         if i > 0:
-#             file_name += '__'
-#         file_name += 'no_' if not model_params[param] else ''
-#         file_name += param
-
-#     return directory, file_name
-
-
-# def load_pickled_models(directory='', file_name='', model_options=None):
+# def quaternion_state_mse(x, x_ref, mask):
 #     """
-#     Loads a pre-trained model from the specified directory, contained in a given pickle filename. Otherwise, if
-#     the model_options dictionary is given, use its contents to reconstruct the directory location of the pre-trained
-#     model fitting the requirements.
+#     Calculates the MSE of the 13-dimensional state (p_xyz, q_wxyz, v_xyz, r_xyz) wrt. the reference state. The MSE of
+#     the quaternions are treated axes-wise.
 
-#     :param directory: directory where the model file is located
-#     :param file_name: file name of the pre-trained model
-#     :param model_options: dictionary with the keys: "noisy" (bool), "drag" (bool), "git" (string), "training_samples"
-#     (int), "payload" (bool).
-
-#     :return: a dictionary with the recovered models from the pickle files.
+#     :param x: 13-dimensional state
+#     :param x_ref: 13-dimensional reference state
+#     :param mask: 12-dimensional masking for weighted MSE (p_xyz, q_xyz, v_xyz, r_xyz)
+#     :return: the mean squared error of both
 #     """
 
-#     if model_options is not None:
-#         directory, file_name = get_model_dir_and_file(model_options)
+#     q_error = q_dot_q(x[3:7], quaternion_inverse(x_ref[3:7]))
+#     e = np.concatenate((x[:3] - x_ref[:3], q_error[1:], x[7:10] - x_ref[7:10], x[10:] - x_ref[10:]))
 
-#     try:
-#         pickled_files = os.listdir(directory)
-#     except FileNotFoundError:
-#         return None
+#     return np.sqrt((e * np.array(mask)).dot(e))
 
-#     loaded_models = []
 
-#     try:
-#         for file in pickled_files:
-#             if not file.startswith(file_name) and file != 'feats.csv':
-#                 continue
-#             if '.pkl' not in file and '.csv' not in file:
-#                 continue
-#             if '.pkl' in file:
-#                 loaded_models.append(joblib.load(os.path.join(directory, file)))
+def get_model_dir_and_file(model_options):
+    directory = os.path.join(GPConfig.SAVE_DIR, str(model_options["git"]), str(model_options["model_name"]))
 
-#     except IsADirectoryError:
-#         raise FileNotFoundError("Tried to load file from directory %s, but it was not found." % directory)
+    model_params = model_options["params"]
+    file_name = ''
+    model_vars = list(model_params.keys())
+    model_vars.sort()
+    for i, param in enumerate(model_vars):
+        if i > 0:
+            file_name += '__'
+        file_name += 'no_' if not model_params[param] else ''
+        file_name += param
 
-#     if loaded_models is not None:
-#         if loaded_models:
-#             pre_trained_models = {"models": loaded_models}
-#         else:
-#             pre_trained_models = None
-#     else:
-#         pre_trained_models = None
+    return directory, file_name
 
-#     return pre_trained_models
+
+def load_pickled_models(directory='', file_name='', model_options=None):
+    """
+    Loads a pre-trained model from the specified directory, contained in a given pickle filename. Otherwise, if
+    the model_options dictionary is given, use its contents to reconstruct the directory location of the pre-trained
+    model fitting the requirements.
+
+    :param directory: directory where the model file is located
+    :param file_name: file name of the pre-trained model
+    :param model_options: dictionary with the keys: "noisy" (bool), "drag" (bool), "git" (string), "training_samples"
+    (int), "payload" (bool).
+
+    :return: a dictionary with the recovered models from the pickle files.
+    """
+
+    if model_options is not None:
+        directory, file_name = get_model_dir_and_file(model_options)
+
+    try:
+        pickled_files = os.listdir(directory)
+    except FileNotFoundError:
+        return None
+
+    loaded_models = []
+
+    try:
+        for file in pickled_files:
+            if not file.startswith(file_name) and file != 'feats.csv':
+                continue
+            if '.pkl' not in file and '.csv' not in file:
+                continue
+            if '.pkl' in file:
+                loaded_models.append(joblib.load(os.path.join(directory, file)))
+
+    except IsADirectoryError:
+        raise FileNotFoundError("Tried to load file from directory %s, but it was not found." % directory)
+
+    if loaded_models is not None:
+        if loaded_models:
+            pre_trained_models = {"models": loaded_models}
+        else:
+            pre_trained_models = None
+    else:
+        pre_trained_models = None
+
+    return pre_trained_models
+
+
+def distance_maximizing_points(x_values, center, n_train_points=7, dense_gp=None, plot=False):
+    if x_values.shape[1] == 1:
+        return distance_maximizing_points_1d(x_values, n_train_points, dense_gp)
+
+    if x_values.shape[1] >= 2:
+        return distance_maximizing_points_2d(x_values, n_train_points, dense_gp, plot)
+
+    # Compute PCA of data to find variability maximizing axes
+    pca = PCA(n_components=3)
+    pca.fit(x_values)
+    pca_axes = pca.components_
+    data_center = center
+
+    # Apply PCA transformation
+    points_pca = (x_values - data_center).dot(pca_axes.T)
+    center = (center - data_center).dot(pca_axes.T)
+
+    # Compute the corners of the cube containing the data in the PCA space
+    p_min = center - (center - np.min(points_pca, 0))
+    p_max = (np.max(points_pca, 0) - center) + center
+
+    centroids = np.array([[center[0], center[1], center[2]]])
+
+    pyramids = np.array([[p_max[0], center[1], center[2]], [center[0], p_max[1], center[2]],
+                         [center[0], center[1], p_max[2]], [p_min[0], center[1], center[2]],
+                         [center[0], p_min[1], center[2]], [center[0], center[1], p_min[2]]])
+
+    cuboid = np.array([[p_max[0], p_max[1], p_max[2]], [p_max[0], p_max[1], p_min[2]],
+                       [p_max[0], p_min[1], p_max[2]], [p_max[0], p_min[1], p_min[2]],
+                       [p_min[0], p_max[1], p_max[2]], [p_min[0], p_max[1], p_min[2]],
+                       [p_min[0], p_min[1], p_max[2]], [p_min[0], p_min[1], p_min[2]]])
+
+    if n_train_points >= 15:
+        centroids = np.concatenate((centroids, pyramids, cuboid), axis=0)
+    elif n_train_points >= 9:
+        centroids = np.concatenate((centroids, cuboid), axis=0)
+    elif n_train_points >= 7:
+        centroids = np.concatenate((centroids, pyramids), axis=0)
+    else:
+        centroids = centroids
+
+    if dense_gp is None:
+
+        closest_points = np.ones(centroids.shape[0], dtype=int) * -1
+
+        # Find the closest points to all centroids
+        for i in range(centroids.shape[0]):
+            centroid = centroids[i, :]
+            dist = np.sqrt(np.sum((points_pca - centroid) ** 2, 1))
+            closest_point = int(np.argmin(dist))
+
+            # Assert no repeated points. If repeated, find next closest one and check again
+            while closest_point in closest_points:
+                dist[closest_point] = np.inf
+                closest_point = int(np.argmin(dist))
+            closest_points[i] = closest_point
+
+        # Convert centroids to data space
+        centroids_ = centroids.dot(pca_axes) + data_center
+
+        if not plot:
+            return closest_points
+
+        fig = plt.figure()
+
+        ax = fig.add_subplot(122, projection='3d')
+        ax.scatter(points_pca[:, 0], points_pca[:, 1], points_pca[:, 2], 'b', label='data')
+
+        ax.scatter(centroids[0, 0], centroids[0, 1], centroids[0, 2], s=50, label='center')
+        ax.scatter(centroids[1:, 0], centroids[1:, 1], centroids[1:, 2], s=50, label='centroids')
+        ax.scatter(points_pca[closest_points, 0], points_pca[closest_points, 1], points_pca[closest_points, 2],
+                   s=50, label='selected')
+        ax.set_title('PCA space')
+        ax.legend()
+
+        ax = fig.add_subplot(121, projection='3d')
+        ax.scatter(x_values[:, 0], x_values[:, 1], x_values[:, 2], 'b', label='data')
+
+        closest_points_x = x_values[closest_points]
+        ax.scatter(centroids_[0, 0], centroids_[0, 1], centroids_[0, 2], s=50, label='center')
+        ax.scatter(centroids_[1:, 0], centroids_[1:, 1], centroids_[1:, 2], s=50, label='centroids')
+        ax.scatter(closest_points_x[:, 0], closest_points_x[:, 1], closest_points_x[:, 2], s=50, label='selected')
+        ax.set_title('Data space')
+        ax.legend()
+        plt.show()
+
+        # Returns the indices of the closest points from the dataset to the ideal ones
+        return closest_points
+
+    else:
+
+        # TODO: Use GP covariance for sampling
+        # Convert centroids to data space
+        centroids_ = centroids.dot(pca_axes) + data_center
+
+        return centroids_.T
+
+
+def distance_maximizing_points_1d(points, n_train_points, dense_gp=None):
+    """
+    Heuristic function for sampling training points in 1D (one input feature and one output prediction dimensions)
+    :param points: dataset points for the current cluster. Array of shape Nx1
+    :param n_train_points: Integer. number of training points to sample.
+    :param dense_gp: A GP object to sample the points from, or None of the points will be taken directly from the data.
+    :return:
+    """
+
+    closest_points = np.zeros(n_train_points, dtype=int if dense_gp is None else float)
+
+    if dense_gp is not None:
+        n_train_points -= 1
+
+    # Fit histogram in data with as many bins as the number of training points
+    a, b = np.histogram(points, bins=n_train_points)
+    hist_indices = np.digitize(points, b) - 1
+
+    # Pick as training value the median or mean value of each bin
+    for i in range(n_train_points):
+        bin_values = points[np.where(hist_indices == i)]
+        if len(bin_values) < 1:
+            closest_points[i] = np.random.choice(np.arange(len(points)), 1)
+            continue
+        if divmod(len(bin_values), 2)[1] == 0:
+            bin_values = bin_values[:-1]
+
+        if dense_gp is None:
+            # If no dense GP, sample median points in each bin from training set
+            bin_median = np.median(bin_values)
+            median_point_id = np.where(points == bin_median)[0]
+            if len(median_point_id) > 1:
+                closest_points[i] = median_point_id[0]
+            else:
+                closest_points[i] = median_point_id
+        else:
+            # If with GP, sample mean points in each bin from GP
+            bin_mean = np.min(bin_values)
+            closest_points[i] = bin_mean
+
+    if dense_gp is not None:
+        # Add dimension axis 0
+        closest_points[-1] = np.max(points)
+        closest_points = closest_points[np.newaxis, :]
+
+    return closest_points
+
+def distance_maximizing_points_2d(points, n_train_points, dense_gp, plot=False):
+    if n_train_points > 30:
+        n_clusters = max(int(n_train_points / 10), 30)
+        n_samples = int(np.floor(n_train_points / n_clusters))
+    else:
+        n_clusters = n_train_points
+        n_samples = 1
+
+    kmeans = KMeans(n_clusters).fit_predict(points)
+
+    closest_points = []
+    for i in range(n_clusters):
+        closest_points += np.random.choice(np.where(kmeans == i)[0], n_samples).tolist()
+
+    # Remove exceeding points
+    for _ in range(len(closest_points) - n_train_points):
+        rnd_item = random.choice(closest_points)
+        closest_points.remove(rnd_item)
+    closest_points = np.array(closest_points)
+
+    if plot:
+        plt.figure()
+        for i in range(n_clusters):
+            cluster_points = points[np.where(kmeans == i)]
+            plt.scatter(cluster_points[:, 0], cluster_points[:, 1])
+        plt.scatter(points[closest_points, 0], points[closest_points, 1], marker='*', facecolors='w',
+                    edgecolors='k', s=100, label='selected')
+        plt.legend()
+        plt.show()
+
+    if dense_gp is None:
+        return closest_points
+
+    closest_points = points[closest_points].T
+    return closest_points

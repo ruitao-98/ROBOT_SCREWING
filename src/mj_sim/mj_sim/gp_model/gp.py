@@ -546,32 +546,36 @@ class GPEnsemble:
         less training samples need to be used per GP.
         """
 
-        self.out_dim = 0
-        self.n_models_dict = {}
+        self.out_dim = 0 # 输出维度
+        self.n_models_dict = {}  # KEY：输出维度索引 VALUE：GPR模型数量
 
         # Make index to dim to make dimensions iterable
-        self.dim_idx = np.zeros(0, dtype=int)
+        self.dim_idx = np.zeros(0, dtype=int) # 所有输出维度的索引
 
         # Dictionary of lists. Each element of the dictionary is indexed by the index of the GP output in the state
         # space, and contains a with all the GP's (one per cluster) used in that dimension.
-        self.gp = {}
+        self.gp = {}  # 键是维度索引，值是该维度对应的 GPR 模型数组
 
         # Store the centroids of all GP's
-        self.gp_centroids = {}
+        self.gp_centroids = {} # 键是维度索引，值是该维度所有 GPR 模型的质心数组，用于模型选择。
 
         # Store the B_z matrices
-        self.B_z_dict = {}
+        self.B_z_dict = {} # 键是维度索引，值是特征提取矩阵 
 
         # Whether the same clustering is used for all dimensions or not
-        self.homogeneous = True
+        self.homogeneous = True #布尔值，表示是否所有维度的特征空间分割一致（同质集成）
 
         # Whether the GP model has no ensembles in it (i.e. no GP has more than 1 cluster)
-        self.no_ensemble = True
+        self.no_ensemble = True # 布尔值，表示是否所有维度都只有一个 GPR（无集成）。
 
     @property
     def n_models(self):
+        """
+        如果是同质集成或无集成，返回第一个维度的模型数量（假设所有维度一致）。
+        否则返回整个字典（每维度模型数可能不同）。
+        """
         if self.homogeneous or self.no_ensemble:
-            return self.n_models_dict[next(iter(self.n_models_dict))]
+            return self.n_models_dict[next(iter(self.n_models_dict))]  #iter 迭代器，这里用于遍历KEY, next 从迭代器中取第一个元素 这里的意思就是取字典中第一个key对应的value
         return self.n_models_dict
 
     @property
@@ -580,6 +584,7 @@ class GPEnsemble:
 
     def add_model(self, gp):
         """"
+        向集成中添加一组 GPR 模型，负责某个输出维度
         :param gp: A list of n CustomGPRegression objects, where n is the number of GP's used to divide the feature
         space domain of the dimension in particular.
         :type gp: list
@@ -591,9 +596,9 @@ class GPEnsemble:
             raise ValueError("This dimension is already taken by another GP")
 
         self.out_dim += 1
-        self.dim_idx = np.append(self.dim_idx, gp_dim)
+        self.dim_idx = np.append(self.dim_idx, gp_dim) #增加输出维度计数并记录维度索引
 
-        self.gp[gp_dim] = np.array(gp)
+        self.gp[gp_dim] = np.array(gp) #存储 GPR 模型到 self.gp[gp_dim]
 
         # Store centroids and sort along first dimension for easier comparison
         self.gp_centroids[gp_dim] = np.array([gp_cluster.mean for gp_cluster in gp])
@@ -638,6 +643,7 @@ class GPEnsemble:
     def predict(self, x_test, u_test, return_std=False, return_cov=False, return_gp_id=False, return_z=False,
                 progress_bar=False, gp_idx=None):
         """
+        返回标准差、协方差、使用的 GPR 索引、特征度条、指定 GPR 索引
         Runs GP inference. First, select the GP optimally for the test samples. Then, run inference on that GP.
         :param x_test: array of shape d x n. n is the number of test samples and d their dimension.
         :param u_test: array of shape d' x n. n is the number of test samples and d' their dimension.
@@ -663,7 +669,10 @@ class GPEnsemble:
         # Build regression features and evaluation cluster indices for each GP output dimension
         z = {}
         gp_idx = {} if gp_idx is None else gp_idx
-
+        """
+        如果异质集成，为每个维度提取 z 并选择 GPR（select_gp）。
+        如果同质集成，只计算一次 z 和索引，复用。
+        """
         if not self.homogeneous:
             for dim in self.gp.keys():
 
@@ -743,6 +752,7 @@ class GPEnsemble:
 
     def select_gp(self, dim, x=None, u=None, z=None):
         """
+        根据测试点与质心的欧几里得距离，选择最优 GPR
         Selects the best GP's for computing inference at the given test points x for a given regression output
         dimension. This calculation is done by computing the distance of all n test points to all available GP's
         centroids and selecting the one minimizing the Euclidean distance.
@@ -776,6 +786,15 @@ class GPEnsemble:
         return np.argmin(np.sqrt(np.sum((z[np.newaxis, :, :] - centroids[:, :, np.newaxis]) ** 2, 1)), 0)
 
     def homogeneous_feature_space(self):
+        """
+        功能：检查所有维度的特征空间分割是否相同。
+        逻辑：
+        若只有 1 个维度，默认同质。
+        比较每个维度的质心，若所有质心一致，则为同质。
+        返回值：布尔值。
+        作用：
+        判断集成类型，优化预测效率（同质时可复用计算）
+        """
         if self.out_dim == 1:
             return True
 

@@ -36,12 +36,12 @@ class ModelFitConfig:
     """
 
     # ## Dataset loading ## #
-    ds_name = "simplified_sim_dataset"
+    ds_name = "sim_dataset"
     ds_metadata = {
-        "noisy": True,
-        "drag": True,
-        "payload": False,
-        "motor_noise": True
+        "groove1": True, 
+        "groove2": False,  
+        "screw1": False,                      
+        "screw2": False,   
     }
 
     # ds_metadata = {

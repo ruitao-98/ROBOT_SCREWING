@@ -28,7 +28,10 @@ from gp import CustomGPRegression as npGPRegression
 from gp import GPEnsemble
 from gp_common import GPDataset, restore_gp_regressors, read_dataset
 from gp_visualization import gp_visualization_experiment
-from config.configuration_parameters import ModelFitConfig as Conf
+
+import sys
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
+from config.configuration import ModelFitConfig as Conf
 
 
 
@@ -177,7 +180,7 @@ def main(x_features, u_features, reg_y_dim, quad_sim_options, dataset_name,
     gp_name_dict = {"git": git_version, "model_name": model_name, "params": quad_sim_options}
     save_file_path, save_file_name = get_model_dir_and_file(gp_name_dict)
 
-    # #### DATASET LOADING #### #
+    # #### DATASET LOADING #####
     if isinstance(dataset_name, str):
         df_train = read_dataset(dataset_name, True, quad_sim_options)
         gp_dataset = GPDataset(df_train, x_features, u_features, reg_y_dim,
@@ -192,6 +195,10 @@ def main(x_features, u_features, reg_y_dim, quad_sim_options, dataset_name,
 
     # #### LOAD DENSE GP IF USING GP ENSEMBLE #### #
     if use_dense:
+        """
+        “高精度 GP”（dense GP）指的是使用较多训练点（dense_gp_points）训练的 GP 模型，相较于普通 GP（使用 n_train_points）具有更高的精度。
+        例如，n_train_points = 20，而 dense_gp_points = 100，密集 GP 使用更多数据点，捕获更细致的函数特性。
+        """
         load_options = {"git": dense_gp_version, "model_name": dense_gp_name, "params": quad_sim_options}
         loaded_models = load_pickled_models(model_options=load_options)
 
@@ -370,7 +377,7 @@ if __name__ == '__main__':
     input_arguments = parser.parse_args()
 
     # Use vx, vy, vz as input features
-    x_feats = input_arguments.x
+    x_feats = input_arguments.x #这里只包括一个维度
     u_feats = []
 
     # Regression dimension
@@ -379,7 +386,7 @@ if __name__ == '__main__':
     gp_name = input_arguments.model_name
 
     ds_name = Conf.ds_name
-    simulation_options = Conf.ds_metadata
+    simulation_options = Conf.ds_metadata  #metadata.json文件配置
 
     histogram_pruning_bins = Conf.histogram_bins
     histogram_pruning_threshold = Conf.histogram_threshold

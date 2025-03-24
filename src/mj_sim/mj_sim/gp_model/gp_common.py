@@ -26,7 +26,7 @@ from utils import undo_jsonify, prune_dataset, safe_mknode_recursive, get_data_d
     separate_variables, v_dot_q, quaternion_inverse
 from visualization import visualize_data_distribution
 
-
+# 改写这个类，获取我需要的状态
 class GPDataset:
     def __init__(self, raw_ds=None,
                  x_features=None, u_features=None, y_dim=None,
