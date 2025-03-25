@@ -127,7 +127,6 @@ def gp_train_and_save(x, y, gp_regressors, save_model, save_file, save_path, y_d
 
     return gp_regressors
 
-
 def main(x_features, u_features, reg_y_dim, quad_sim_options, dataset_name,
          x_cap, hist_bins, hist_thresh,
          n_train_points=50, n_restarts=10, n_clusters=1, load_clusters=False, model_name="model",
@@ -179,10 +178,12 @@ def main(x_features, u_features, reg_y_dim, quad_sim_options, dataset_name,
 
     gp_name_dict = {"git": git_version, "model_name": model_name, "params": quad_sim_options}
     save_file_path, save_file_name = get_model_dir_and_file(gp_name_dict)
+    # groove1__no_groove2__no_screw1__no_screw2
+    # /home/yanji/robot_screwing/src/mj_sim/config/../results/model_fitting/e08c4ad/simple_sim_gp
 
     # #### DATASET LOADING #####
     if isinstance(dataset_name, str):
-        df_train = read_dataset(dataset_name, True, quad_sim_options)
+        df_train = read_dataset(dataset_name, True, quad_sim_options) #读取表格数据，为pandas格式的表格
         gp_dataset = GPDataset(df_train, x_features, u_features, reg_y_dim,
                                cap=x_cap, n_bins=hist_bins, thresh=hist_thresh, visualize_data=visualize_data)
     elif isinstance(dataset_name, GPDataset):
@@ -193,7 +194,7 @@ def main(x_features, u_features, reg_y_dim, quad_sim_options, dataset_name,
     # Make clusters for multi-gp prediction
     gp_dataset.cluster(n_clusters, load_clusters=load_clusters, save_dir=save_file_path, visualize_data=visualize_data)
 
-    # #### LOAD DENSE GP IF USING GP ENSEMBLE #### #
+    # #### LOAD DENSE GP IF USING GP ENSEMBLE #### #####################
     if use_dense:
         """
         “高精度 GP”（dense GP）指的是使用较多训练点（dense_gp_points）训练的 GP 模型，相较于普通 GP（使用 n_train_points）具有更高的精度。
@@ -216,6 +217,8 @@ def main(x_features, u_features, reg_y_dim, quad_sim_options, dataset_name,
 
     else:
         dense_gp = None
+    ##################################################################
+
 
     # #### DECLARE SOME PARAMETERS AND VARIABLES #### #
     # List of trained GP regressors. One for each cluster
@@ -368,7 +371,7 @@ if __name__ == '__main__':
 
     parser.add_argument('--x', nargs='+', type=int, default=[7],
                         help='Regression X variables. Must be a list of integers between 0 and 12. Velocities xyz '
-                             'correspond to indices 7, 8, 9.')
+                             'correspond to indices 7, 8, 9.')  # '+' 是 nargs 的一个特定选项，表示接受一个或多个值，并将这些值收集到一个列表中。类似于正则表达式中的 +，表示“至少一个，不能为空”。
 
     parser.add_argument("--y", type=int, default=7,
                         help="Regression Y variable. Must be an integer between 0 and 12. Velocities xyz correspond to"

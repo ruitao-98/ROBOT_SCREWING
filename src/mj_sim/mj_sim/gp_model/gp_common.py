@@ -23,7 +23,7 @@ from sklearn.mixture import GaussianMixture
 
 from gp import GPEnsemble, CustomGPRegression as npGPRegression
 from utils import undo_jsonify, prune_dataset, safe_mknode_recursive, get_data_dir_and_file, \
-    separate_variables, v_dot_q, quaternion_inverse
+    separate_variables
 from visualization import visualize_data_distribution
 
 # 改写这个类，获取我需要的状态
@@ -83,9 +83,9 @@ class GPDataset:
         dt = np.delete(dt, invalid, axis=0)
 
         # Rotate velocities to body frame and recompute errors
-        x_raw = world_to_body_velocity_mapping(x_raw)
-        x_pred = world_to_body_velocity_mapping(x_pred)
-        x_out = world_to_body_velocity_mapping(x_out)
+        # x_raw = world_to_body_velocity_mapping(x_raw)
+        # x_pred = world_to_body_velocity_mapping(x_pred)
+        # x_out = world_to_body_velocity_mapping(x_out)
         y_err = x_out - x_pred
 
         # Normalize error by window time (i.e. predict error dynamics instead of error itself)
@@ -327,17 +327,17 @@ def read_dataset(name, train_split, sim_options):
     return ds
 
 
-def world_to_body_velocity_mapping(state_sequence):
-    """
+# def world_to_body_velocity_mapping(state_sequence):
+#     """
 
-    :param state_sequence: N x 13 state array, where N is the number of states in the sequence.
-    :return: An N x 13 sequence of states, but where the velocities (assumed to be in positions 7, 8, 9) have been
-    rotated from world to body frame. The rotation is made using the quaternion in positions 3, 4, 5, 6.
-    """
+#     :param state_sequence: N x 13 state array, where N is the number of states in the sequence.
+#     :return: An N x 13 sequence of states, but where the velocities (assumed to be in positions 7, 8, 9) have been
+#     rotated from world to body frame. The rotation is made using the quaternion in positions 3, 4, 5, 6.
+#     """
 
-    p, q, v_w, w = separate_variables(state_sequence)
-    v_b = []
-    for i in range(len(q)):
-        v_b.append(v_dot_q(v_w[i], quaternion_inverse(q[i])))
-    v_b = np.stack(v_b)
-    return np.concatenate((p, q, v_b, w), 1)
+#     p, q, v_w, w = separate_variables(state_sequence)
+#     v_b = []
+#     for i in range(len(q)):
+#         v_b.append(v_dot_q(v_w[i], quaternion_inverse(q[i])))
+#     v_b = np.stack(v_b)
+#     return np.concatenate((p, q, v_b, w), 1)

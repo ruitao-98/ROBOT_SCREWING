@@ -14,6 +14,7 @@ from scipy.interpolate.interpolate import interp1d
 import matplotlib.pyplot as plt
 import xml.etree.ElementTree as XMLtree
 from config.configuration import DirectoryConfig as GPConfig
+import pyquaternion
 
 def safe_mkdir_recursive(directory, overwrite=False):
     if not os.path.exists(directory):
@@ -341,7 +342,7 @@ def get_model_dir_and_file(model_options):
     for i, param in enumerate(model_vars):
         if i > 0:
             file_name += '__'
-        file_name += 'no_' if not model_params[param] else ''
+        file_name += 'no_' if not model_params[param] else ''  # groove1__no_groove2__no_screw1__no_screw2
         file_name += param
 
     return directory, file_name
@@ -574,3 +575,158 @@ def distance_maximizing_points_2d(points, n_train_points, dense_gp, plot=False):
 
     closest_points = points[closest_points].T
     return closest_points
+
+
+def prune_dataset(x, y, x_cap, bins, thresh, plot, labels=None):
+    """
+    Prunes the collected model error dataset with two filters. First, remove values where the input values (velocities)
+    exceed 10. Second, create an histogram for each of the three axial velocity errors (y) with the specified number of
+    bins and remove any data where the total amount of samples in that bin is less than the specified threshold ratio.
+    :param x: dataset of input GP features (velocities). Dimensions N x n (N entries and n dimensions)
+    :param y: dataset of errors. Dimensions N x m (N entries and m dimensions)
+    :param x_cap: remove values from dataset if x > x_cap or x < -x_cap
+    :param bins: number of bins used for histogram
+    :param thresh: threshold ratio below which data from that bin will be removed
+    :param plot: make a plot of the pruning
+    :param labels: Labels to use for the plot
+    :return: The indices kept after the pruning
+    """
+
+    n_bins = bins
+    original_length = x.shape[0]
+
+    plot_bins = []
+    if plot:
+        plt.figure()
+        for i in range(y.shape[1]):
+            plt.subplot(y.shape[1] + 1, 1, i + 1)
+            h, bins = np.histogram(y[:, i], bins=n_bins)
+            plot_bins.append(bins)
+            plt.bar(bins[:-1], h, np.ones_like(h) * (bins[1] - bins[0]), align='edge', label='discarded')
+            if labels is not None:
+                plt.ylabel(labels[i])
+
+    pruned_idx_unique = np.zeros(0, dtype=int)
+
+    # Prune velocities (max axial velocity = x_cap m/s).
+    if x_cap is not None:
+        for i in range(x.shape[1]):
+            pruned_idx = np.where(np.abs(x[:, i]) > x_cap)[0]
+            pruned_idx_unique = np.unique(np.append(pruned_idx, pruned_idx_unique))
+
+    # Prune by error histogram dimension wise (discard bins with less than 1% of the data)
+    for i in range(y.shape[1]):
+        h, bins = np.histogram(y[:, i], bins=n_bins)
+        for j in range(len(h)):
+            if h[j] / np.sum(h) < thresh:
+                pruned_idx = np.where(np.logical_and(bins[j + 1] >= y[:, i], y[:, i] >= bins[j]))
+                pruned_idx_unique = np.unique(np.append(pruned_idx, pruned_idx_unique))
+
+    y_norm = np.sqrt(np.sum(y ** 2, 1))
+
+    # Prune by error histogram norm
+    h, error_bins = np.histogram(y_norm, bins=n_bins)
+    h = h / np.sum(h)
+    if plot:
+        plt.subplot(y.shape[1] + 1, 1, y.shape[1] + 1)
+        plt.bar(error_bins[:-1], h, np.ones_like(h) * (error_bins[1] - error_bins[0]), align='edge', label='discarded')
+
+    for j in range(len(h)):
+        if h[j] / np.sum(h) < thresh:
+            pruned_idx = np.where(np.logical_and(error_bins[j + 1] >= y_norm, y_norm >= error_bins[j]))
+            pruned_idx_unique = np.unique(np.append(pruned_idx, pruned_idx_unique))
+
+    y = np.delete(y, pruned_idx_unique, axis=0)
+
+    if plot:
+        for i in range(y.shape[1]):
+            plt.subplot(y.shape[1] + 1, 1, i + 1)
+            h, bins = np.histogram(y[:, i], bins=plot_bins[i])
+            plt.bar(bins[:-1], h, np.ones_like(h) * (bins[1] - bins[0]), align='edge', label='kept')
+            plt.legend()
+
+        plt.subplot(y.shape[1] + 1, 1, y.shape[1] + 1)
+        h, bins = np.histogram(np.sqrt(np.sum(y ** 2, 1)), bins=error_bins)
+        h = h / sum(h)
+        plt.bar(bins[:-1], h, np.ones_like(h) * (bins[1] - bins[0]), align='edge', label='kept')
+        plt.ylabel('Error norm')
+
+    kept_idx = np.delete(np.arange(0, original_length), pruned_idx_unique)
+    return kept_idx
+
+
+def q_dot_q(q, r):
+    """
+    Applies the rotation of quaternion r to quaternion q. In order words, rotates quaternion q by r. Quaternion format:
+    wxyz.
+
+    :param q: 4-length numpy array or CasADi MX. Initial rotation
+    :param r: 4-length numpy array or CasADi MX. Applied rotation
+    :return: The quaternion q rotated by r, with the same format as in the input.
+    """
+
+    qw, qx, qy, qz = q[0], q[1], q[2], q[3]
+    rw, rx, ry, rz = r[0], r[1], r[2], r[3]
+
+    t0 = rw * qw - rx * qx - ry * qy - rz * qz
+    t1 = rw * qx + rx * qw - ry * qz + rz * qy
+    t2 = rw * qy + rx * qz + ry * qw - rz * qx
+    t3 = rw * qz - rx * qy + ry * qx + rz * qw
+
+    if isinstance(q, np.ndarray):
+        return np.array([t0, t1, t2, t3])
+    else:
+        return cs.vertcat(t0, t1, t2, t3)
+
+def quaternion_inverse(q):
+    w, x, y, z = q[0], q[1], q[2], q[3]
+
+    if isinstance(q, np.ndarray):
+        return np.array([w, -x, -y, -z])
+    else:
+        return cs.vertcat(w, -x, -y, -z)
+
+def q_to_rot_mat(q): #四元数->旋转矩阵
+    qw, qx, qy, qz = q[0], q[1], q[2], q[3]
+
+    if isinstance(q, np.ndarray):
+        rot_mat = np.array([
+            [1 - 2 * (qy ** 2 + qz ** 2), 2 * (qx * qy - qw * qz), 2 * (qx * qz + qw * qy)],
+            [2 * (qx * qy + qw * qz), 1 - 2 * (qx ** 2 + qz ** 2), 2 * (qy * qz - qw * qx)],
+            [2 * (qx * qz - qw * qy), 2 * (qy * qz + qw * qx), 1 - 2 * (qx ** 2 + qy ** 2)]])
+
+    else:
+        rot_mat = cs.vertcat(
+            cs.horzcat(1 - 2 * (qy ** 2 + qz ** 2), 2 * (qx * qy - qw * qz), 2 * (qx * qz + qw * qy)),
+            cs.horzcat(2 * (qx * qy + qw * qz), 1 - 2 * (qx ** 2 + qz ** 2), 2 * (qy * qz - qw * qx)),
+            cs.horzcat(2 * (qx * qz - qw * qy), 2 * (qy * qz + qw * qx), 1 - 2 * (qx ** 2 + qy ** 2)))
+
+    return rot_mat
+
+def v_dot_q(v, q): #矩阵*向量
+    rot_mat = q_to_rot_mat(q)
+    if isinstance(q, np.ndarray):
+        return rot_mat.dot(v)
+
+    return cs.mtimes(rot_mat, v)
+
+def quaternion_state_mse(x, x_ref, mask):
+    """
+    Calculates the MSE of the 13-dimensional state (p_xyz, q_wxyz, v_xyz, r_xyz) wrt. the reference state. The MSE of
+    the quaternions are treated axes-wise.
+
+    :param x: 13-dimensional state
+    :param x_ref: 13-dimensional reference state
+    :param mask: 12-dimensional masking for weighted MSE (p_xyz, q_xyz, v_xyz, r_xyz)
+    :return: the mean squared error of both
+    """
+
+    q_error = q_dot_q(x[3:7], quaternion_inverse(x_ref[3:7]))
+    e = np.concatenate((x[:3] - x_ref[:3], q_error[1:], x[7:10] - x_ref[7:10], x[10:] - x_ref[10:]))
+
+    return np.sqrt((e * np.array(mask)).dot(e))
+
+def quaternion_to_euler(q):
+    q = pyquaternion.Quaternion(w=q[0], x=q[1], y=q[2], z=q[3])
+    yaw, pitch, roll = q.yaw_pitch_roll
+    return [roll, pitch, yaw]
