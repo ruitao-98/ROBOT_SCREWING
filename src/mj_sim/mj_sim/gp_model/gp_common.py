@@ -67,7 +67,7 @@ class GPDataset:
             self.prune()
 
     def load_data(self, ds):
-        x_raw = undo_jsonify(ds['state_in'].to_numpy())
+        x_raw = undo_jsonify(ds['state_in'].to_numpy())  # 二维数组
         x_out = undo_jsonify(ds['state_out'].to_numpy())
         x_pred = undo_jsonify(ds['state_pred'].to_numpy())
         u_raw = undo_jsonify(ds['input_in'].to_numpy())
