@@ -111,6 +111,7 @@ class Data_Recorder(Node):
             "error": np.zeros((0, 3*3)),            # 3 * (x-x_r, x_dot-x_dot_r, f-f_r) 实际状态（state_out）与预测状态（state_pred）之间的误差
             "input_in": np.zeros((0, 6+6)),         # (k,d)*6维，当前状态情况下的输入
             "state_pred": np.zeros((0, 3*3)),       # 基于理论动力学模型预测的状态， 3 * (x, x_dot, f)
+            "state_out": np.zeros((0, 6)),          # 下一时刻的力的真实状态， 6 * (f)
             "timestamp": np.zeros((0, 1)),          # 时间戳
         }
         return blank_recording_dict
@@ -156,15 +157,23 @@ class Data_Recorder(Node):
                     _ref = np.array([self.ref_pose[i], self.ref_vel[i], 0.0])          # [x_r, x_dot_r, f_xr]
                     _input = np.array([-self.adm_k[i]/self.adm_m[i], -self.adm_d[i]/self.adm_m[i], 1/self.adm_m[i]])   # [u_0, u_1, u_2]
                     next_state = predict_next_state(self.mpc_predict, _state, _ref, _input)
-                    Next_State[0, i*3:i*3 + 3] = next_state
+                    Next_State[0, i*3:i*3 + 3] = next_state # 预测下一步的状态 [x, x_dot, f_x]
 
                 self.rec_dict["state_pred"] = np.append(self.rec_dict["state_pred"], Next_State, axis=0)
 
                 self.rec_dict["timestamp"] = np.append(self.rec_dict["timestamp"], [[self.timestamp]], axis=0)
 
+                if self.last_timestamp != 0.0: #第一次不记录，使其始终差一个单位
+                    self.rec_dict["state_out"] = np.append(self.rec_dict["state_out"], self.world_force.reshape(1, 6), axis=0)
+
                 self.last_timestamp = self.timestamp
         else:
             print('stop')
+            self.rec_dict["state_out"] = np.append(self.rec_dict["state_out"], self.world_force.reshape(1, 6), axis=0)
+
+            print(self.rec_dict["state_out"].shape)
+            print(self.rec_dict["state_pred"].shape)
+
             for key in self.rec_dict.keys():
                 self.rec_dict[key] = jsonify(self.rec_dict[key])
 

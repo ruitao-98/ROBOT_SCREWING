@@ -240,7 +240,7 @@ def main(x_features, u_features, reg_y_dim, quad_sim_options, dataset_name,
 
         # #### TRAINING POINT SELECTION #### #
 
-        cluster_mean = centroids[cluster]
+        cluster_mean = centroids[cluster]  # 
         cluster_x_points = gp_dataset.get_x(cluster=cluster)
         cluster_y_points = gp_dataset.get_y(cluster=cluster)
         cluster_u_points = gp_dataset.get_u(cluster=cluster)
@@ -407,3 +407,9 @@ if __name__ == '__main__':
          use_dense=with_dense,
          dense_gp_points=dense_n_points, dense_gp_name=gp_dense_name, dense_gp_version=gp_id_custom,
          visualize_data=Conf.visualize_data, visualize_model=Conf.visualize_training_result)
+
+# def main(x_features, u_features, reg_y_dim, quad_sim_options, dataset_name,
+#          x_cap, hist_bins, hist_thresh,
+#          n_train_points=50, n_restarts=10, n_clusters=1, load_clusters=False, model_name="model",
+#          dense_gp_name="model", dense_gp_points=100, dense_gp_version="", use_dense=False,
+#          visualize_data=False, visualize_model=False):

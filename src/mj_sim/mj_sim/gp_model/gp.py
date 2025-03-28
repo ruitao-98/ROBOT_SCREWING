@@ -741,7 +741,7 @@ class GPEnsemble:
 
         # Convert to CasADi symbolic or numpy matrix depending on the input type
         cov_or_std = cs.horzcat(*[cs.vertcat(*cov_or_std[i]) for i in range(x_test.shape[1])]) \
-            if isinstance(x_test, cs.MX) else np.squeeze(np.array(cov_or_std)).T
+            if isinstance(x_test, cs.MX) else np.squeeze(np.array(cov_or_std)).T   #numpy.squeeze() 这个函数的作用是去掉矩阵里维度为1的维度。
         noise_prior = cs.horzcat(*[cs.vertcat(*noise_prior[i]) for i in range(x_test.shape[1])]) \
             if isinstance(x_test, cs.MX) else np.squeeze(np.array(noise_prior)).T
 

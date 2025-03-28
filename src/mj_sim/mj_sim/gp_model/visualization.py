@@ -128,18 +128,18 @@ def visualize_data_distribution(x_data, y_data, clusters, x_pruned, y_pruned):
     c = np.sqrt(np.sum(y_data ** 2, 1))
     scatter = ax.scatter(x_data[:, 0], x_data[:, 1], x_data[:, 2], c=c, alpha=0.6)
     ax.set_title('Raw data: Correction magnitude')
-    ax.set_xlabel(r'$v_x\: [m/s]$')
-    ax.set_ylabel(r'$v_y\: [m/s]$')
-    ax.set_zlabel(r'$v_z\: [m/s]$')
+    ax.set_xlabel(r'$x\: [m]$')
+    ax.set_ylabel(r'$x_dot\: [m/s]$')
+    ax.set_zlabel(r'$fx\: [N]$')
     fig.colorbar(scatter, ax=ax, orientation='vertical', shrink=0.75)
 
     ax = fig.add_subplot(132, projection='3d')
     c = np.sqrt(np.sum(y_pruned ** 2, 1))
     scatter = ax.scatter(x_pruned[:, 0], x_pruned[:, 1], x_pruned[:, 2], c=c, alpha=0.6)
     ax.set_title('Pruned data: Correction magnitude')
-    ax.set_xlabel(r'$v_x\: [m/s]$')
-    ax.set_ylabel(r'$v_y\: [m/s]$')
-    ax.set_zlabel(r'$v_z\: [m/s]$')
+    ax.set_xlabel(r'$x\: [m]$')
+    ax.set_ylabel(r'$x_dot\: [m/s]$')
+    ax.set_zlabel(r'$fx\: [N]$')
     fig.colorbar(scatter, ax=ax, orientation='vertical', shrink=0.75)
 
     n_clusters = len(clusters.keys())
@@ -148,9 +148,9 @@ def visualize_data_distribution(x_data, y_data, clusters, x_pruned, y_pruned):
     for i in range(int(n_clusters)):
         ax.scatter(x_pruned[clusters[i], 0], x_pruned[clusters[i], 1], x_pruned[clusters[i], 2], alpha=0.6)
     ax.set_title('Cluster assignations')
-    ax.set_xlabel(r'$v_x\: [m/s]$')
-    ax.set_ylabel(r'$v_y\: [m/s]$')
-    ax.set_zlabel(r'$v_z\: [m/s]$')
+    ax.set_xlabel(r'$x\: [m]$')
+    ax.set_ylabel(r'$x_dot\: [m/s]$')
+    ax.set_zlabel(r'$fx\: [N]$')
 
     plt.show()
 

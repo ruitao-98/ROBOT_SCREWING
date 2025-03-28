@@ -16,10 +16,10 @@ import xml.etree.ElementTree as XMLtree
 from config.configuration import DirectoryConfig as GPConfig
 import pyquaternion
 
-def safe_mkdir_recursive(directory, overwrite=False):
+def safe_mkdir_recursive(directory, overwrite=False): #如果路径有多级（如 "a/b/c"），会逐级创建
     if not os.path.exists(directory):
         try:
-            os.makedirs(directory)
+            os.makedirs(directory) 
         except OSError as exc:
             if exc.errno == errno.EEXIST and os.path.isdir(directory):
                 pass
@@ -32,14 +32,6 @@ def safe_mkdir_recursive(directory, overwrite=False):
             except:
                 print('Error while removing directory: {0}'.format(directory))
 
-# def safe_mknode_recursive(destiny_dir, node_name, overwrite):
-#     safe_mkdir_recursive(destiny_dir)
-#     if overwrite and os.path.exists(os.path.join(destiny_dir, node_name)):
-#         os.remove(os.path.join(destiny_dir, node_name))
-#     if not os.path.exists(os.path.join(destiny_dir, node_name)):
-#         os.mknod(os.path.join(destiny_dir, node_name))
-#         return False
-#     return True
 
 def safe_mknode_recursive(destiny_dir, node_name, overwrite):
     safe_mkdir_recursive(destiny_dir)
@@ -579,6 +571,7 @@ def distance_maximizing_points_2d(points, n_train_points, dense_gp, plot=False):
 
 def prune_dataset(x, y, x_cap, bins, thresh, plot, labels=None):
     """
+    prune_dataset 是一个独立的函数，用于对数据集应用两种筛选规则，返回保留的数据索引。它还支持可视化清洗过程
     Prunes the collected model error dataset with two filters. First, remove values where the input values (velocities)
     exceed 10. Second, create an histogram for each of the three axial velocity errors (y) with the specified number of
     bins and remove any data where the total amount of samples in that bin is less than the specified threshold ratio.
@@ -590,10 +583,17 @@ def prune_dataset(x, y, x_cap, bins, thresh, plot, labels=None):
     :param plot: make a plot of the pruning
     :param labels: Labels to use for the plot
     :return: The indices kept after the pruning
+    x：输入特征数据集（例如速度），形状为 N x n（N 个样本，n 个维度）。
+    y：误差数据集，形状为 N x m（N 个样本，m 个维度）。
+    x_cap：输入值的上限，用于移除超出范围的数据。
+    bins：直方图的分箱数。
+    thresh：阈值比例，用于移除样本数过少的直方图区间。
+    plot：布尔值，是否绘制清洗过程的直方图。
+    labels：可选的标签，用于绘图。
     """
 
     n_bins = bins
-    original_length = x.shape[0]
+    original_length = x.shape[0] #记录原始样本数量
 
     plot_bins = []
     if plot:
@@ -608,14 +608,19 @@ def prune_dataset(x, y, x_cap, bins, thresh, plot, labels=None):
 
     pruned_idx_unique = np.zeros(0, dtype=int)
 
-    # Prune velocities (max axial velocity = x_cap m/s).
+    # Prune velocities (max axial velocity = x_cap m/s).  第一次筛选，基于输入值x的上限
     if x_cap is not None:
         for i in range(x.shape[1]):
-            pruned_idx = np.where(np.abs(x[:, i]) > x_cap)[0]
-            pruned_idx_unique = np.unique(np.append(pruned_idx, pruned_idx_unique))
+            pruned_idx = np.where(np.abs(x[:, i]) > x_cap)[0]  #对 x 的每个维度（列），检查是否超出范围（abs(x[:, i]) > x_cap）
+            pruned_idx_unique = np.unique(np.append(pruned_idx, pruned_idx_unique)) #收集所有需要移除的唯一索引
 
-    # Prune by error histogram dimension wise (discard bins with less than 1% of the data)
+    # Prune by error histogram dimension wise (discard bins with less than 1% of the data) 第二次筛选：基于误差（y）的直方图分布
     for i in range(y.shape[1]):
+        """
+        np.histogram(y[:, i], bins=n_bins)：计算直方图，返回频率 h 和分箱边界 bins。
+        检查每个分箱的样本比例 h[j] / np.sum(h) 是否低于 thresh。
+        如果低于阈值，找到该分箱范围内的样本索引（bins[j] <= y[:, i] <= bins[j+1]），加入 pruned_idx_unique。
+        """
         h, bins = np.histogram(y[:, i], bins=n_bins)
         for j in range(len(h)):
             if h[j] / np.sum(h) < thresh:
@@ -624,7 +629,7 @@ def prune_dataset(x, y, x_cap, bins, thresh, plot, labels=None):
 
     y_norm = np.sqrt(np.sum(y ** 2, 1))
 
-    # Prune by error histogram norm
+    # Prune by error histogram norm 第三次筛选：基于误差范数（y_norm）的直方图
     h, error_bins = np.histogram(y_norm, bins=n_bins)
     h = h / np.sum(h)
     if plot:
@@ -636,7 +641,7 @@ def prune_dataset(x, y, x_cap, bins, thresh, plot, labels=None):
             pruned_idx = np.where(np.logical_and(error_bins[j + 1] >= y_norm, y_norm >= error_bins[j]))
             pruned_idx_unique = np.unique(np.append(pruned_idx, pruned_idx_unique))
 
-    y = np.delete(y, pruned_idx_unique, axis=0)
+    y = np.delete(y, pruned_idx_unique, axis=0) #移除数据并更新绘图
 
     if plot:
         for i in range(y.shape[1]):
