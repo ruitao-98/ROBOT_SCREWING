@@ -203,23 +203,25 @@ def load_pickled_models(directory='', file_name='', model_options=None):
 
 def sample_random_points(points, used_idx, points_to_sample, dense_gp=None):
     bins = min(10, int(len(points) / 10))
-    bins = max(bins, 2)
+    bins = max(bins, 2)  #确定直方图 bins 最大10 最小2
 
     # Add remaining points as random points
     free_points = np.arange(0, points.shape[0], 1)
     gp_i_free_points = np.delete(free_points, used_idx)
     n_samples = min(points_to_sample, len(gp_i_free_points))
 
-    # Compute histogram of data
-    a, b = np.histogramdd(points[gp_i_free_points, :], bins)
+    # Compute histogram of data 计算数据分布密度
+    # a：直方图计数（形状 (bins, bins, ...)，维度数由 points.shape[1] 决定）。
+    # b：分箱边界列表。
+    a, b = np.histogramdd(points[gp_i_free_points, :], bins) #bins: 每个维度的分箱数量 a 
     assignments = [np.minimum(np.digitize(points[gp_i_free_points, j], bins=b[j]) - 1, bins - 1)
                    for j in range(points.shape[1])]
 
-    # Compute probability distribution based on inverse histogram
-    probs = np.max(a) - a[tuple(assignments)]
-    probs = probs / sum(probs)
+    # Compute probability distribution based on inverse histogram 计算采样概率
+    probs = np.max(a) - a[tuple(assignments)] #密度越低，概率越高（稀疏区域优先）
+    probs = probs / sum(probs) #概率和为 1
 
-    try:
+    try: #从 gp_i_free_points 中按概率 probs 采样 n_samples 个索引
         gp_i_free_points = np.random.choice(gp_i_free_points, n_samples, p=probs, replace=False)
     except ValueError:
         print('a')
@@ -389,10 +391,10 @@ def load_pickled_models(directory='', file_name='', model_options=None):
 
 def distance_maximizing_points(x_values, center, n_train_points=7, dense_gp=None, plot=False):
     if x_values.shape[1] == 1:
-        return distance_maximizing_points_1d(x_values, n_train_points, dense_gp)
+        return distance_maximizing_points_1d(x_values, n_train_points, dense_gp)  
 
     if x_values.shape[1] >= 2:
-        return distance_maximizing_points_2d(x_values, n_train_points, dense_gp, plot)
+        return distance_maximizing_points_2d(x_values, n_train_points, dense_gp, plot)  #cluster_x_points, cluster_mean, n_train_points=n_train_points, dense_gp=dense_gp, plot=False
 
     # Compute PCA of data to find variability maximizing axes
     pca = PCA(n_components=3)
@@ -533,20 +535,25 @@ def distance_maximizing_points_1d(points, n_train_points, dense_gp=None):
     return closest_points
 
 def distance_maximizing_points_2d(points, n_train_points, dense_gp, plot=False):
+    #从输入数据 points 中选择 n_train_points 个分散的点
+    #使用 KMeans 聚类分割数据，从每个簇随机采样点，确保分布均匀
     if n_train_points > 30:
-        n_clusters = max(int(n_train_points / 10), 30)
-        n_samples = int(np.floor(n_train_points / n_clusters))
+        n_clusters = max(int(n_train_points / 10), 30) #簇数取 1/10 或至少 30，确保分布广泛；采样数分配均匀
+        n_samples = int(np.floor(n_train_points / n_clusters)) #每个簇的样本数量
     else:
         n_clusters = n_train_points
         n_samples = 1
 
-    kmeans = KMeans(n_clusters).fit_predict(points)
+    kmeans = KMeans(n_clusters).fit_predict(points) 
+    #使用 KMeans 将 points 分为 n_clusters 个簇
+    #fit_predict 返回每个样本的簇标签
 
     closest_points = []
-    for i in range(n_clusters):
+    for i in range(n_clusters): #从每个簇采样点
         closest_points += np.random.choice(np.where(kmeans == i)[0], n_samples).tolist()
+    # 遍历每个簇，从中随机采样 n_samples 个点索引，追加到 closest_points 列表
 
-    # Remove exceeding points
+    # Remove exceeding points 若采样点数超过 n_train_points，随机移除多余点
     for _ in range(len(closest_points) - n_train_points):
         rnd_item = random.choice(closest_points)
         closest_points.remove(rnd_item)

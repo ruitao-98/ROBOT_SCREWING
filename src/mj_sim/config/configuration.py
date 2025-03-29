@@ -50,7 +50,7 @@ class ModelFitConfig:
 
     # ## Visualization ## #
     # Training mode
-    visualize_training_result = True
+    visualize_training_result = False
     visualize_data = False
 
     # Visualization mode
@@ -59,7 +59,7 @@ class ModelFitConfig:
     u_viz = []
     y_viz = [7, 8, 9]
 
-    # ## Data post-processing ## #
+    # ## Data post-processing ## # 用于数据后处理，数据清洗，按照一定规则删除异常数据
     histogram_bins = 40              # Cluster data using histogram binning
     histogram_threshold = 0.001      # Remove bins where the total ratio of data is lower than this threshold
     velocity_cap = 16                # Also remove datasets point if abs(velocity) > x_cap
@@ -73,5 +73,5 @@ class ModelFitConfig:
     dense_training_points = 200
 
     # ## Clustering for multidimensional models ## #
-    clusters = 1
+    clusters = 5  # 决定了使用几个GP模型
     load_clusters = False

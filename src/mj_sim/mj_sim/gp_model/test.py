@@ -296,7 +296,7 @@ gp_params = {"x_features": x_features, "u_features": u_features, "reg_dim": reg_
 centroids = gp_dataset.centroids
 print("Training {} cluster model(s)".format(n_clusters))
 
-n_train_points = 50
+n_train_points = 65
 dense_gp = None #没用
 visualize_model = Conf.visualize_training_result
 
@@ -328,82 +328,90 @@ for cluster in range_vec: #cluster是数字
     # time.sleep(1)
 
     # Select a base set of training points for the current cluster using PCA that are as separate from each
-    # other as possible
+    # other as possible 对数据集进行了离散化采样，缩小数据集
     selected_points = distance_maximizing_points(
         cluster_x_points, cluster_mean, n_train_points=n_train_points, dense_gp=dense_gp, plot=False)
-
+    
     cluster_y_mean = np.mean(cluster_y_points, 0)
 
     # # If no dense_gp was provided to the previous function, training_points will be the indices of the training
     # # points to choose from the training set
-    # if dense_gp is None:
-    #     x_train = cluster_x_points[selected_points]
-    #     y_train = np.squeeze(cluster_y_points[selected_points])
-    #     training_points = selected_points
-    # else:
-    #     # Generate a new dataset of synthetic data composed of x and y values
-    #     x_mock = np.zeros((13, selected_points.shape[1]))
-    #     if x_features:
-    #         x_mock[np.array(x_features), :] = selected_points[:len(x_features)]
-    #     u_mock = np.zeros((4, selected_points.shape[1]))
-    #     if u_features:
-    #         u_mock[np.array(u_features), :] = selected_points[len(x_features):]
-    #     out = dense_gp.predict(x_mock, u_mock)
-    #     out["pred"] = np.atleast_2d(out["pred"])
-    #     y_train = np.squeeze(out["pred"][np.where(dense_gp.dim_idx == reg_y_dim)])
-    #     x_train = selected_points.T
-    #     training_points = []
+    if dense_gp is None:
+        x_train = cluster_x_points[selected_points] #筛选后的数据集
+        y_train = np.squeeze(cluster_y_points[selected_points]) #np.squeeze() 是 NumPy 提供的一个函数，用于移除数组中长度为 1 的维度（即“压缩”数组）
+        training_points = selected_points
+    else:
+        # Generate a new dataset of synthetic data composed of x and y values
+        x_mock = np.zeros((13, selected_points.shape[1]))
+        if x_features:
+            x_mock[np.array(x_features), :] = selected_points[:len(x_features)]
+        u_mock = np.zeros((4, selected_points.shape[1]))
+        if u_features:
+            u_mock[np.array(u_features), :] = selected_points[len(x_features):]
+        out = dense_gp.predict(x_mock, u_mock)
+        out["pred"] = np.atleast_2d(out["pred"])
+        y_train = np.squeeze(out["pred"][np.where(dense_gp.dim_idx == reg_y_dim)])
+        x_train = selected_points.T
+        training_points = []
+    print(x_train.shape[0])
+    # # Check if we still haven't used the entirety of the available points，
+    # 造成点数不够的原因是因为：        
+    # n_clusters = max(int(n_train_points / 10), 30) #簇数取 1/10 或至少 30，确保分布广泛；采样数分配均匀
+    # n_samples = int(np.floor(n_train_points / n_clusters)) #每个簇的样本数量
+    # 因为整数取整操作，导致n_samples * n_clusters != 50
 
-    # # Check if we still haven't used the entirety of the available points
-    # n_used_points = x_train.shape[0]
-    # if n_used_points < n_train_points and n_used_points < cluster_x_points.shape[0]:
+    n_used_points = x_train.shape[0]
+    if n_used_points < n_train_points and n_used_points < cluster_x_points.shape[0]:
 
-    #     missing_pts = n_train_points - n_used_points
+        missing_pts = n_train_points - n_used_points
+        # 补充采样点
+        training_points = sample_random_points(cluster_x_points, training_points, missing_pts, dense_gp)
+        if dense_gp is None:
+            # Transform from cluster data index to full dataset index
+            x_train = cluster_x_points[training_points]
+            y_train = np.squeeze(cluster_y_points[training_points])
 
-    #     training_points = sample_random_points(cluster_x_points, training_points, missing_pts, dense_gp)
-    #     if dense_gp is None:
-    #         # Transform from cluster data index to full dataset index
-    #         x_train = cluster_x_points[training_points]
-    #         y_train = np.squeeze(cluster_y_points[training_points])
-
-    #     else:
-    #         # Generate a new dataset of synthetic data composed of x and y values
-    #         training_points = training_points.astype(int)
-    #         x_mock = np.zeros((13, len(training_points)))
-    #         if x_features:
-    #             x_mock[np.array(x_features), :] = cluster_x_points[training_points, :len(x_features)].T
-    #         u_mock = np.zeros((4, len(training_points)))
-    #         if u_features:
-    #             u_mock[np.array(u_features), :] = cluster_u_points[len(x_features):]
-    #         out = dense_gp.predict(x_mock, u_mock)
-    #         y_additional = np.squeeze(out["pred"][np.where(dense_gp.dim_idx == reg_y_dim)])
-    #         y_train = np.append(y_train, y_additional)
-    #         x_train = np.concatenate((x_train, cluster_x_points[training_points, :len(x_features)]), axis=0)
-
-    # # #### GP TRAINING #### #
-    # # Multidimensional input GP regressors
-    # l_scale = length_scale * np.ones((x_train.shape[1], 1))
-
-    # cluster_mean = centroids[cluster]
-    # gp_params["mean"] = cluster_mean
-    # gp_params["y_mean"] = cluster_y_mean
-
-    # # Train one independent GP for each output dimension
-    # exponential_kernel = npKernelFunctions('squared_exponential', params={'l': l_scale, 'sigma_f': sigma_f})
-    # gp_regressors.append(npGPRegression(kernel=exponential_kernel, **gp_params))
-    # gp_regressors[cluster] = gp_train_and_save([x_train], [y_train], [gp_regressors[cluster]], True, save_file_name,
-    #                                             save_file_path, [reg_y_dim], cluster, progress_bar=False)[0]
+        else:
+            # Generate a new dataset of synthetic data composed of x and y values
+            training_points = training_points.astype(int)
+            x_mock = np.zeros((13, len(training_points)))
+            if x_features:
+                x_mock[np.array(x_features), :] = cluster_x_points[training_points, :len(x_features)].T
+            u_mock = np.zeros((4, len(training_points)))
+            if u_features:
+                u_mock[np.array(u_features), :] = cluster_u_points[len(x_features):]
+            out = dense_gp.predict(x_mock, u_mock)
+            y_additional = np.squeeze(out["pred"][np.where(dense_gp.dim_idx == reg_y_dim)])
+            y_train = np.append(y_train, y_additional)
+            x_train = np.concatenate((x_train, cluster_x_points[training_points, :len(x_features)]), axis=0)
 
 
+    print(x_train.shape)
+    print(y_train.shape)
+    # #### GP TRAINING ####
+    # Multidimensional input GP regressors
+    l_scale = length_scale * np.ones((x_train.shape[1], 1))
 
-# if visualize_model:
-#     gp_ensemble = GPEnsemble()
-#     gp_ensemble.add_model(gp_regressors)
-#     x_features = x_features
-#     gp_visualization_experiment(quad_sim_options, gp_dataset,
-#                                 x_value_cap, histogram_pruning_bins, histogram_pruning_threshold,
-#                                 x_features, u_features, reg_y_dim,
-#                                 grid_sampling_viz=True, pre_set_gp=gp_ensemble)
+    cluster_mean = centroids[cluster]
+    gp_params["mean"] = cluster_mean
+    gp_params["y_mean"] = cluster_y_mean
+
+    # Train one independent GP for each output dimension
+    exponential_kernel = npKernelFunctions('squared_exponential', params={'l': l_scale, 'sigma_f': sigma_f})
+    gp_regressors.append(npGPRegression(kernel=exponential_kernel, **gp_params))
+    gp_regressors[cluster] = gp_train_and_save([x_train], [y_train], [gp_regressors[cluster]], True, save_file_name,
+                                                save_file_path, [reg_y_dim], cluster, progress_bar=False)[0]
+
+
+
+if visualize_model:
+    gp_ensemble = GPEnsemble()
+    gp_ensemble.add_model(gp_regressors)
+    x_features = x_features
+    gp_visualization_experiment(quad_sim_options, gp_dataset,
+                                x_value_cap, histogram_pruning_bins, histogram_pruning_threshold,
+                                x_features, u_features, reg_y_dim,
+                                grid_sampling_viz=True, pre_set_gp=gp_ensemble)
 
 
 
