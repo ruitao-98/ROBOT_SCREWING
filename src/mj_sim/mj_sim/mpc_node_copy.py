@@ -276,29 +276,47 @@ def main():
 if __name__ == "__main__":
     # main()
     #导入参数
-    git_version = '314c6b8' #手动填写
+    git_version = '4196701' #手动填写
     model_name = "simple_sim_gp"
+    reg_y_dim = 2 #一次只导入一个维度进行计算
     sim_options = Conf.ds_metadata
     load_ops = {"git": git_version, "model_name": model_name, "params": sim_options}
-    pre_trained_models = load_pickled_models(model_options=load_ops)
+    pre_trained_models = load_pickled_models(model_options=load_ops, dimension=reg_y_dim)
     
     B_x = {}
         # Load augmented dynamics model with GP regressor
     if pre_trained_models is not None:
-        gp_ensemble = restore_gp_regressors(pre_trained_models)
-        print(gp_ensemble)
+        gp_reg_ensemble = restore_gp_regressors(pre_trained_models) 
+        print(gp_reg_ensemble)
         x_dims = 3
-        
-        for y_dim in gp_ensemble.gp.keys():
+        for y_dim in gp_reg_ensemble.gp.keys():
             print(y_dim)
             B_x[y_dim] = make_bx_matrix(x_dims, [y_dim])
             print(B_x[y_dim]) 
 
     else:
-        gp_ensemble = None
+        gp_reg_ensemble = None
         B_x = {}  # Selection matrix of the GP regressor-modified system states
 
     #导入模型
+
+    gp_regressors = gp_reg_ensemble
+    print(gp_regressors.homogeneous)
+        # Check if GP ensemble has an homogeneous feature space (if actual Ensemble)
+    if gp_regressors is not None and gp_regressors.homogeneous:
+        B_x = [B_x[dim] for dim in gp_regressors.dim_idx]
+        B_x = np.squeeze(np.stack(B_x, axis=1))
+        B_x = B_x[:, np.newaxis] if len(B_x.shape) == 1 else B_x
+        B_z = gp_regressors.B_z
+        print(B_z)
+    elif gp_regressors and gp_regressors.no_ensemble:
+        # If not homogeneous, we have to treat each z feature vector independently
+        B_x = [B_x[dim] for dim in gp_regressors.dim_idx]
+        B_x = np.squeeze(np.stack(B_x, axis=1))
+        B_x = B_x[:, np.newaxis] if len(B_x.shape) == 1 else B_x
+        B_z = gp_regressors.B_z
+    else:
+        gp_regressors = None
 
     #融入MPC
 

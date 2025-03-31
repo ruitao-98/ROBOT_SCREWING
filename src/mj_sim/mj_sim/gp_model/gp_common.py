@@ -109,7 +109,7 @@ class GPDataset:
         # x_raw = world_to_body_velocity_mapping(x_raw)
         # x_pred = world_to_body_velocity_mapping(x_pred)
         # x_out = world_to_body_velocity_mapping(x_out)
-        y_err = x_out[:, :3] - x_pred[:, :3] # x y z 维度的力
+        y_err = x_out - x_pred # x y z 维度状态误差
 
         # Normalize error by window time (i.e. predict error dynamics instead of error itself)
         # y_err /= np.expand_dims(dt, 1)
@@ -364,22 +364,24 @@ def restore_gp_regressors(pre_trained_models):
     if isinstance(pre_trained_models['models'][0], dict):
         pre_trained_gp_reg = {}
         for _, model_dict in enumerate(pre_trained_models['models']):
-            print(type(model_dict))
+            # print(type(model_dict))
             if x_features is not None:
                 gp_reg = npGPRegression(x_features, u_features, model_dict["reg_dim"])
             else:
                 # print(model_dict["x_features"], model_dict["u_features"], model_dict["reg_dim"])
                 gp_reg = npGPRegression(model_dict["x_features"], model_dict["u_features"], model_dict["reg_dim"])
             gp_reg.load(model_dict)
-            print(model_dict["reg_dim"])
+            # print(model_dict["reg_dim"])
             if model_dict["reg_dim"] not in pre_trained_gp_reg.keys():
                 pre_trained_gp_reg[model_dict["reg_dim"]] = [gp_reg]
             else:
                 pre_trained_gp_reg[model_dict["reg_dim"]] += [gp_reg]
-
+        print("keys", np.sort(list(pre_trained_gp_reg.keys())))
         # Add the GP's in a per-output-dim basis into the Ensemble
-        for key in np.sort(list(pre_trained_gp_reg.keys())):
+        for key in np.sort(list(pre_trained_gp_reg.keys())): # 2 5 8
             gp_reg_ensemble.add_model(pre_trained_gp_reg[key])
+            print(pre_trained_gp_reg[key])
+            print('________________________________________')
     else:
         raise NotImplementedError("Cannot load this format of GP model.")
 

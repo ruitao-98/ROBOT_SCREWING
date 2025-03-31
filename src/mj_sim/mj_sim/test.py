@@ -202,6 +202,8 @@ def gp_train_and_save(x, y, gp_regressors, save_model, save_file, save_path, y_d
     # If save model, generate saving directory
     if save_model:
         safe_mkdir_recursive(save_path)
+    print(save_file)
+    print(save_path)
 
     if progress_bar:
         print("Training {} gp regression models".format(len(y_dims)))
@@ -216,6 +218,8 @@ def gp_train_and_save(x, y, gp_regressors, save_model, save_file, save_path, y_d
             gp_regressors[y_dim_reg].save(full_path)
 
     return gp_regressors
+
+
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--x', nargs='+', type=int, default=[7],
@@ -254,8 +258,12 @@ print(save_file_path)
 
 dataset_name = Conf.ds_name
 x_features = [0, 1, 2] #这里只包括一个维度 x x_dot f
+# x_features = [3, 4, 5] #这里只包括一个维度 x x_dot f
+# x_features = [6, 7, 8] #这里只包括一个维度 x x_dot f
 u_features = []
 reg_y_dim = 2  #表示只回归力
+# reg_y_dim = 5  #表示只回归力
+# reg_y_dim = 8  #表示只回归力
 
 histogram_pruning_bins = Conf.histogram_bins
 histogram_pruning_threshold = Conf.histogram_threshold
@@ -354,7 +362,7 @@ for cluster in range_vec: #cluster是数字
         y_train = np.squeeze(out["pred"][np.where(dense_gp.dim_idx == reg_y_dim)])
         x_train = selected_points.T
         training_points = []
-    print(x_train.shape[0])
+    # print(x_train.shape[0])
     # # Check if we still haven't used the entirety of the available points，
     # 造成点数不够的原因是因为：        
     # n_clusters = max(int(n_train_points / 10), 30) #簇数取 1/10 或至少 30，确保分布广泛；采样数分配均匀
@@ -387,8 +395,8 @@ for cluster in range_vec: #cluster是数字
             x_train = np.concatenate((x_train, cluster_x_points[training_points, :len(x_features)]), axis=0)
 
 
-    print(x_train.shape)
-    print(y_train.shape)
+    # print(x_train.shape)
+    # print(y_train.shape)
     # #### GP TRAINING ####
     # Multidimensional input GP regressors
     l_scale = length_scale * np.ones((x_train.shape[1], 1))

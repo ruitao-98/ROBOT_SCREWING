@@ -346,7 +346,7 @@ def get_model_dir_and_file(model_options):
     return directory, file_name
 
 
-def load_pickled_models(directory='', file_name='', model_options=None):
+def load_pickled_models(directory='', file_name='', model_options=None, dimension=None):
     """
     Loads a pre-trained model from the specified directory, contained in a given pickle filename. Otherwise, if
     the model_options dictionary is given, use its contents to reconstruct the directory location of the pre-trained
@@ -364,6 +364,10 @@ def load_pickled_models(directory='', file_name='', model_options=None):
         directory, file_name = get_model_dir_and_file(model_options)
 
         print(file_name)
+    
+    dimension_suffix = f'_{dimension}' if dimension is not None else None
+    # if dimension is not None and dimension not in [2, 5, 8]: 
+    #     raise ValueError("dimension must be one of 2, 5, or 8")
 
     try:
         pickled_files = os.listdir(directory)
@@ -379,6 +383,13 @@ def load_pickled_models(directory='', file_name='', model_options=None):
                 continue
             if '.pkl' not in file and '.csv' not in file: # 如果 file 中既不包含 .pkl 也不包含 .csv，就跳过当前循环，处理下一个 file
                 continue
+            # 筛选条件 3：如果指定了 dimension_suffix，则精确匹配第一个后缀
+            if dimension_suffix is not None:
+                # 去掉 file_name 前缀，获取后缀部分
+                suffix_part = file[len(file_name):]
+                # 检查第一个后缀是否匹配 dimension_suffix
+                if not suffix_part.startswith(dimension_suffix):
+                    continue
             if '.pkl' in file:
                 loaded_models.append(joblib.load(os.path.join(directory, file)))
                 # print(file)

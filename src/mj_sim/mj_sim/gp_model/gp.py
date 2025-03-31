@@ -589,9 +589,9 @@ class GPEnsemble:
         space domain of the dimension in particular.
         :type gp: list
         """
-
         # Check if dimension is already "occupied" by another GP
-        gp_dim = gp[0].reg_dim
+        gp_dim = gp[0].reg_dim # 2 /5 /8
+        # print("gp_dim", gp_dim)
         if gp_dim in self.gp.keys():
             raise ValueError("This dimension is already taken by another GP")
 
@@ -608,6 +608,7 @@ class GPEnsemble:
 
         # Calculate if Ensemble is still homogeneous
         self.homogeneous = self.homogeneous_feature_space()
+        # print("self.homogeneous", self.homogeneous)
 
         # Check if current gp is an actual ensemble
         self.n_models_dict[gp_dim] = len(gp)
@@ -615,7 +616,15 @@ class GPEnsemble:
             self.no_ensemble = False
 
         # Pre-compute B_z matrix
-        self.B_z_dict[gp_dim] = make_bz_matrix(x_dims=3, u_dims=3, x_feats=gp[0].x_features, u_feats=gp[0].u_features)
+        self.B_z_dict[gp_dim] = make_bz_matrix(x_dims=3, u_dims=2, x_feats=gp[0].x_features, u_feats=gp[0].u_features)
+
+        """
+        示例：
+        如果 gp_dim = 7，gp = [GPR1, GPR2, GPR3]：
+        self.gp[7] = [GPR1, GPR2, GPR3]（3 个模型）。
+        self.gp_centroids[7] = [centroid1, centroid2, centroid3]。
+        self.n_models_dict[7] = 3，no_ensemble = False。
+        """
 
     def get_z(self, x, u, dim):
         """
@@ -778,11 +787,12 @@ class GPEnsemble:
 
         if z is None:
             z = self.get_z(x, u, dim)
-        z = np.atleast_2d(z)
+        z = np.atleast_2d(z) #从 x 和 u 中提取该维度的特征（由 B_z 定义）。
 
-        centroids = self.gp_centroids[dim]
+        centroids = self.gp_centroids[dim]  #获取该维度的所有簇质心
 
         # Select subset of features for current dimension
+        #计算测试点 z 到每个簇质心的欧几里得距离。 返回距离最小的簇索引
         return np.argmin(np.sqrt(np.sum((z[np.newaxis, :, :] - centroids[:, :, np.newaxis]) ** 2, 1)), 0)
 
     def homogeneous_feature_space(self):
@@ -796,6 +806,8 @@ class GPEnsemble:
         判断集成类型，优化预测效率（同质时可复用计算）
         """
         if self.out_dim == 1:
+            print('out_dim=', self.out_dim)
+            print('----------------------')
             return True
 
         equal_clusters = True
