@@ -6,7 +6,6 @@ import os
 # print("当前 Python 解释器路径:", sys.executable)
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 # print("当前 sys.path:", sys.path)  # 调试用
-
 sys.path.append(f'/home/yanji/anaconda3/envs/screwrobot/lib/python3.8/site-packages')
 
 import rclpy

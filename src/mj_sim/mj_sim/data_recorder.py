@@ -23,7 +23,7 @@ from std_srvs.srv import Trigger
 import time
 from robot_msgs.srv import StartPose
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
-from utils import safe_mknode_recursive, jsonify, get_data_dir_and_file
+from gp_model.utils import safe_mknode_recursive, jsonify, get_data_dir_and_file
 import pandas as pd
 import copy
 from config.configuration import RecordingOptions, SimpleSimConfig
@@ -111,7 +111,7 @@ class Data_Recorder(Node):
             "error": np.zeros((0, 3*3)),            # 3 * (x-x_r, x_dot-x_dot_r, f-f_r) 实际状态（state_out）与预测状态（state_pred）之间的误差
             "input_in": np.zeros((0, 6+6)),         # (k,d)*6维，当前状态情况下的输入
             "state_pred": np.zeros((0, 3*3)),       # 基于理论动力学模型预测的状态， 3 * (x, x_dot, f)
-            "state_out": np.zeros((0, 6)),          # 下一时刻的力的真实状态， 6 * (f)
+            "state_out": np.zeros((0, 9)),          # 下一时刻的力的真实状态， 3 * (x, x_dot, f)
             "timestamp": np.zeros((0, 1)),          # 时间戳
         }
         return blank_recording_dict
@@ -129,8 +129,9 @@ class Data_Recorder(Node):
         return rec_dict
     
     #############
-
+    
     def process_data(self):
+        
         if not self.stop:
             # print(self.timestamp)
             if self.timestamp != self.last_timestamp:
@@ -163,13 +164,20 @@ class Data_Recorder(Node):
 
                 self.rec_dict["timestamp"] = np.append(self.rec_dict["timestamp"], [[self.timestamp]], axis=0)
 
+
+
                 if self.last_timestamp != 0.0: #第一次不记录，使其始终差一个单位
-                    self.rec_dict["state_out"] = np.append(self.rec_dict["state_out"], self.world_force.reshape(1, 6), axis=0)
+                    State_out = np.zeros((1, 9))
+                    for j in range(3):
+                        _state_out = np.array([self.eef_pos[j], self.eef_vel[j], self.world_force[j]])      # [x, x_dot, f_x]
+                        State_out[0, j*3:j*3 + 3] = _state_out
+                    self.rec_dict["state_out"] = np.append(self.rec_dict["state_out"], State_out, axis=0)
 
                 self.last_timestamp = self.timestamp
         else:
             print('stop')
-            self.rec_dict["state_out"] = np.append(self.rec_dict["state_out"], self.world_force.reshape(1, 6), axis=0)
+            State_out = np.zeros((1, 9))
+            self.rec_dict["state_out"] = np.append(self.rec_dict["state_out"], State_out, axis=0)
 
             print(self.rec_dict["state_out"].shape)
             print(self.rec_dict["state_pred"].shape)

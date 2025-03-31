@@ -23,11 +23,11 @@ import matplotlib.pyplot as plt
 from utils import safe_mkdir_recursive, load_pickled_models
 from utils import distance_maximizing_points, get_model_dir_and_file
 from utils import sample_random_points
-from gp import CustomKernelFunctions as npKernelFunctions
-from gp import CustomGPRegression as npGPRegression
-from gp import GPEnsemble
-from gp_common import GPDataset, restore_gp_regressors, read_dataset
-from gp_visualization import gp_visualization_experiment
+from .gp import CustomKernelFunctions as npKernelFunctions
+from .gp import CustomGPRegression as npGPRegression
+from .gp import GPEnsemble
+from .gp_common import GPDataset, restore_gp_regressors, read_dataset
+from .gp_visualization import gp_visualization_experiment
 
 import sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))

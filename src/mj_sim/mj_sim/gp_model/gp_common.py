@@ -21,10 +21,10 @@ import numpy as np
 import pandas as pd
 from sklearn.mixture import GaussianMixture
 
-from gp import GPEnsemble, CustomGPRegression as npGPRegression
-from utils import undo_jsonify, prune_dataset, safe_mknode_recursive, get_data_dir_and_file, \
+from .gp import GPEnsemble, CustomGPRegression as npGPRegression
+from .utils import undo_jsonify, prune_dataset, safe_mknode_recursive, get_data_dir_and_file, \
     separate_variables
-from visualization import visualize_data_distribution
+from .visualization import visualize_data_distribution
 
 # 改写这个类，获取我需要的状态
 class GPDataset:
@@ -93,7 +93,7 @@ class GPDataset:
         x_pred = undo_jsonify(ds['state_pred'].to_numpy())    #当前对下一时刻的预测状态 3 * (x, x_dot, f)
         x_error = undo_jsonify(ds['error'].to_numpy())        #当强状态误差 3 * (x-x_r, x_dot-x_dot_r, f-f_r)
         u_raw = undo_jsonify(ds['input_in'].to_numpy())       #当前控制输入
-        x_out = undo_jsonify(ds['state_out'].to_numpy())       #下一时刻真实状态
+        x_out = undo_jsonify(ds['state_out'].to_numpy())       #下一时刻真实状态 3 * (x, x_dot, f)
 
         # dt = ds["dt"].to_numpy()
         # invalid = np.where(dt == 0)
@@ -109,7 +109,7 @@ class GPDataset:
         # x_raw = world_to_body_velocity_mapping(x_raw)
         # x_pred = world_to_body_velocity_mapping(x_pred)
         # x_out = world_to_body_velocity_mapping(x_out)
-        y_err = x_out[:, :3] - x_pred[:, [2,5,8]] # x y z 维度的力
+        y_err = x_out[:, :3] - x_pred[:, :3] # x y z 维度的力
 
         # Normalize error by window time (i.e. predict error dynamics instead of error itself)
         # y_err /= np.expand_dims(dt, 1)
@@ -352,23 +352,26 @@ def restore_gp_regressors(pre_trained_models):
     :return: The GP ensemble restored from the models.
     :rtype: GPEnsemble
     """
-
     gp_reg_ensemble = GPEnsemble()
+    print(list(pre_trained_models.keys()))
     # TODO: Deprecate compatibility mode with old models.
     if all(item in list(pre_trained_models.keys()) for item in ["x_features", "u_features"]):
         x_features = pre_trained_models["x_features"]
         u_features = pre_trained_models["u_features"]
     else:
-        x_features = u_features = None
+        x_features = u_features = None #这表明输入数据采用新格式，后续需要从每个模型字典中单独提取特征
 
     if isinstance(pre_trained_models['models'][0], dict):
         pre_trained_gp_reg = {}
         for _, model_dict in enumerate(pre_trained_models['models']):
+            print(type(model_dict))
             if x_features is not None:
                 gp_reg = npGPRegression(x_features, u_features, model_dict["reg_dim"])
             else:
+                # print(model_dict["x_features"], model_dict["u_features"], model_dict["reg_dim"])
                 gp_reg = npGPRegression(model_dict["x_features"], model_dict["u_features"], model_dict["reg_dim"])
             gp_reg.load(model_dict)
+            print(model_dict["reg_dim"])
             if model_dict["reg_dim"] not in pre_trained_gp_reg.keys():
                 pre_trained_gp_reg[model_dict["reg_dim"]] = [gp_reg]
             else:

@@ -10,7 +10,7 @@ from scipy.optimize import minimize
 from scipy.spatial.distance import pdist, cdist, squareform
 from sklearn.gaussian_process import GaussianProcessRegressor
 from sklearn.gaussian_process.kernels import RBF, ConstantKernel as C
-from utils import safe_mknode_recursive, make_bz_matrix
+from .utils import safe_mknode_recursive, make_bz_matrix
 
 # 建立高斯回归模型
 
@@ -615,7 +615,7 @@ class GPEnsemble:
             self.no_ensemble = False
 
         # Pre-compute B_z matrix
-        self.B_z_dict[gp_dim] = make_bz_matrix(x_dims=13, u_dims=4, x_feats=gp[0].x_features, u_feats=gp[0].u_features)
+        self.B_z_dict[gp_dim] = make_bz_matrix(x_dims=3, u_dims=3, x_feats=gp[0].x_features, u_feats=gp[0].u_features)
 
     def get_z(self, x, u, dim):
         """

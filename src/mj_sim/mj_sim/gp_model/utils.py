@@ -13,8 +13,12 @@ from sklearn.cluster import KMeans
 from scipy.interpolate.interpolate import interp1d
 import matplotlib.pyplot as plt
 import xml.etree.ElementTree as XMLtree
+import sys
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 from config.configuration import DirectoryConfig as GPConfig
 import pyquaternion
+
+
 
 def safe_mkdir_recursive(directory, overwrite=False): #如果路径有多级（如 "a/b/c"），会逐级创建
     if not os.path.exists(directory):
@@ -359,8 +363,11 @@ def load_pickled_models(directory='', file_name='', model_options=None):
     if model_options is not None:
         directory, file_name = get_model_dir_and_file(model_options)
 
+        print(file_name)
+
     try:
         pickled_files = os.listdir(directory)
+        print(pickled_files)
     except FileNotFoundError:
         return None
 
@@ -368,12 +375,13 @@ def load_pickled_models(directory='', file_name='', model_options=None):
 
     try:
         for file in pickled_files:
-            if not file.startswith(file_name) and file != 'feats.csv':
+            if not file.startswith(file_name) and file != 'feats.csv': # 如果 file 不以 file_name 开头 且 不是 'feats.csv'，就跳过当前循环，处理下一个 file
                 continue
-            if '.pkl' not in file and '.csv' not in file:
+            if '.pkl' not in file and '.csv' not in file: # 如果 file 中既不包含 .pkl 也不包含 .csv，就跳过当前循环，处理下一个 file
                 continue
             if '.pkl' in file:
                 loaded_models.append(joblib.load(os.path.join(directory, file)))
+                # print(file)
 
     except IsADirectoryError:
         raise FileNotFoundError("Tried to load file from directory %s, but it was not found." % directory)

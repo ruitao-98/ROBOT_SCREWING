@@ -13,7 +13,7 @@ this program. If not, see <http://www.gnu.org/licenses/>.
 
 import json
 import tikzplotlib
-
+import os
 import matplotlib.pyplot as plt
 import numpy as np
 import matplotlib.animation as animation
@@ -21,11 +21,12 @@ from matplotlib.colors import LinearSegmentedColormap, BoundaryNorm
 from matplotlib.colorbar import ColorbarBase
 from matplotlib import cm
 from mpl_toolkits.mplot3d import Axes3D
-
+import sys
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 from config.configuration import DirectoryConfig as PathConfig
-from utils import v_dot_q, quaternion_to_euler, quaternion_inverse, q_dot_q, safe_mknode_recursive, \
+from .utils import v_dot_q, quaternion_to_euler, quaternion_inverse, q_dot_q, safe_mknode_recursive, \
     safe_mkdir_recursive
-import os
+
 
 
 def angle_to_rot_mat(angle):
