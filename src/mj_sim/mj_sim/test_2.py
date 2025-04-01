@@ -64,7 +64,7 @@ range_vec = tqdm(range(n_clusters))  #range_vec 是一个 tqdm 迭代器对象�
 # print(range_vec)
 
 for cluster in range_vec:
-    time.sleep(1)
+    time.sleep(0.1)
     range_vec.set_description(f"Cluster")
     # tqdm.write(f"X shape: {cluster}")
     range_vec.set_postfix({
@@ -89,3 +89,17 @@ test = Test()
 result = test.get_data()
 print(result.shape)  # 输出: (2, 0)
 print(result)       # 输出: array([], shape=(2, 0), dtype=int64)
+
+tray = [[1,2,3,4,5,6,7,8,9],
+        [1,2,3,4,5,6,7,8,9]]
+tray = np.array(tray)
+print(np.arange(0, tray.shape[1], 3))
+for i in np.arange(0, int(9), 3):
+    item = int(i/3) #第item个维度求解
+    # print(item)
+    print(i)
+
+
+c_p = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+print("Row-major (C):", c_p.ravel())  # [1, 2, 3, 4, 5, 6, 7, 8, 9]
+print("Column-major (F):", c_p.ravel(order='F'))  # [1, 4, 7, 2, 5, 8, 3, 6, 9]

@@ -614,9 +614,9 @@ class GPEnsemble:
         self.n_models_dict[gp_dim] = len(gp)
         if len(gp) > 1:
             self.no_ensemble = False
-
+        print(gp[0].x_features)
         # Pre-compute B_z matrix
-        self.B_z_dict[gp_dim] = make_bz_matrix(x_dims=3, u_dims=2, x_feats=gp[0].x_features, u_feats=gp[0].u_features)
+        self.B_z_dict[gp_dim] = make_bz_matrix(x_dims=3, u_dims=0, x_feats=[0, 1, 2], u_feats=[])
 
         """
         示例：
@@ -638,12 +638,26 @@ class GPEnsemble:
         # Get input feature indices
         x_feats = self.gp[dim][0].x_features
         u_feats = self.gp[dim][0].u_features
-
+        print("x_u_feats", x_feats, u_feats)
+        # print(dim)
         # Stack into a single matrix
         if isinstance(x, np.ndarray):
-            z = np.concatenate((x[x_feats], u[u_feats]), axis=0)
-        elif isinstance(x, cs.MX):
-            z = cs.mtimes(self.B_z_dict[dim], cs.vertcat(x, u))
+            z_x = x[x_feats] if x_feats else x
+            if u and u_feats:  # 检查 u 和 u_feats 非空
+                z_u = u[u_feats]
+                # 确保 z_u 与 z_x 的列数匹配
+                if z_u.ndim == 1:
+                    z_u = z_u[:, np.newaxis]  # 转换为列向量
+                z = np.concatenate((z_x, z_u), axis=0)
+            else:
+                z = z_x  # 如果 u_feats 为空，仅使用 z_x
+        elif isinstance(x, (cs.MX, cs.SX)):
+            z_x = x[x_feats] if x_feats else x
+            if u and u_feats:
+                z_u = u[u_feats]
+                z = cs.vertcat(z_x, z_u)
+            else:
+                z = z_x
         else:
             raise TypeError
 
@@ -684,7 +698,7 @@ class GPEnsemble:
         """
         if not self.homogeneous:
             for dim in self.gp.keys():
-
+                
                 z[dim] = self.get_z(x_test, u_test, dim)
 
                 if dim not in gp_idx.keys():
@@ -693,9 +707,10 @@ class GPEnsemble:
                     gp_idx[dim] = np.atleast_1d(gp_idx[dim])
 
         else:
+            print("x_test", x_test)
             z_ = self.get_z(x_test, u_test, self.dim_idx[0])
             z = {k: v for k, v in zip(self.dim_idx, [z_] * self.out_dim)}
-
+            print(z_)
             if not bool(gp_idx):
                 gp_idx_ = self.select_gp(z=z_, dim=self.dim_idx[0])
                 gp_idx = {k: v for k, v in zip(self.dim_idx, [gp_idx_] * self.out_dim)}
@@ -787,6 +802,7 @@ class GPEnsemble:
 
         if z is None:
             z = self.get_z(x, u, dim)
+        print("z", z)
         z = np.atleast_2d(z) #从 x 和 u 中提取该维度的特征（由 B_z 定义）。
 
         centroids = self.gp_centroids[dim]  #获取该维度的所有簇质心

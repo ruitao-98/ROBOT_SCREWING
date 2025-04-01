@@ -363,7 +363,7 @@ def load_pickled_models(directory='', file_name='', model_options=None, dimensio
     if model_options is not None:
         directory, file_name = get_model_dir_and_file(model_options)
 
-        print(file_name)
+        # print(file_name)
     
     dimension_suffix = f'_{dimension}' if dimension is not None else None
     # if dimension is not None and dimension not in [2, 5, 8]: 
@@ -371,7 +371,7 @@ def load_pickled_models(directory='', file_name='', model_options=None, dimensio
 
     try:
         pickled_files = os.listdir(directory)
-        print(pickled_files)
+        # print(pickled_files)
     except FileNotFoundError:
         return None
 

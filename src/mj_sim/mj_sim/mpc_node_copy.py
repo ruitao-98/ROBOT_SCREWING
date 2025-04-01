@@ -37,11 +37,55 @@ from gp_model.utils import make_bx_matrix
 class MPCWrapper(Node):
     def __init__(self):
         super().__init__("mpc_node")  # 初始化节点，命名为 'mpc_node'
+
+        # 加载 GP 模型
+        git_version = '4196701'
+        model_name = "simple_sim_gp"
+        sim_options = Conf.ds_metadata
+        load_ops = {"git": git_version, "model_name": model_name, "params": sim_options}
+
+        # 为每个维度加载 GP 模型
+        self.gp_models = {}
+        self.B_x_dicts = {}
+        global_dims = [2, 5, 8]  # x, y, z 维度的全局索引
+        for reg_y_dim in global_dims:  # 对应全局索引 2, 5, 8
+            pre_trained_models = load_pickled_models(model_options=load_ops, dimension=reg_y_dim)
+            if pre_trained_models is not None:
+                gp_regressors = restore_gp_regressors(pre_trained_models)
+
+                for gp_list in gp_regressors.gp.values():
+                    for gp in gp_list:
+                        gp.x_features = [0, 1, 2]  # 局部状态 [x, x_dot, f_x]
+                        gp.u_features = []     # 假设控制输入 2 维
+
+                self.gp_models[reg_y_dim] = gp_regressors
+                # B_x = {}
+                x_dims = 3  # 状态维度
+                B_x = make_bx_matrix(x_dims, [2])  # 固定为 [2]，表示 f_x
+                self.B_x_dicts[reg_y_dim] = B_x
+
+                # for y_dim in gp_regressors.gp.keys():
+                #     B_x[y_dim] = make_bx_matrix(x_dims, [y_dim])
+                #     self.B_x_dicts[reg_y_dim] = B_x[y_dim]
+            else:
+                self.gp_models[reg_y_dim] = None
+                self.B_x_dicts[reg_y_dim] = {}
+        
+        # for y_dim in gp_reg_ensemble.gp.keys():
+        #     print(y_dim)
+        #     B_x[y_dim] = make_bx_matrix(x_dims, [y_dim])
+        #     print(B_x[y_dim]) 
+        
         # 变量和类继承
-        self.mpc_optimzer = Mpc_Opti()
-        self.N = self.mpc_optimzer.N
-        self.n_controls = self.mpc_optimzer.n_controls
-        self.n_states = self.mpc_optimzer.n_controls
+        self.mpc_optimizer = Mpc_Opti(gp_regressors=self.gp_models[2], B_x=self.B_x_dicts[2])  # 默认第一个维度
+        self.N = self.mpc_optimizer.N
+        self.n_controls = self.mpc_optimizer.n_controls
+        self.n_states = self.mpc_optimizer.n_states  # 修正为 n_states
+
+        # self.mpc_optimzer = Mpc_Opti()
+        # self.N = self.mpc_optimzer.N
+        # self.n_controls = self.mpc_optimzer.n_controls
+        # self.n_states = self.mpc_optimzer.n_controls
 
         # 声明参数并提供默认值
         self.declare_parameter('t0', 0.0)
@@ -183,6 +227,13 @@ class MPCWrapper(Node):
             item = int(i/3) #第item个维度求解
             c_p = ref_traj[:, i:i+3].T  #3*N
 
+            # 更新 Mpc_Opti 的 GP 模型
+            reg_y_dim = i + 2 #i=0 3 6 i+2=2 5 8 
+            self.mpc_optimizer.gp_regressors = self.gp_models[reg_y_dim]  
+            self.mpc_optimizer.B_x = self.B_x_dicts[reg_y_dim]
+            self.mpc_optimizer.with_gp = self.gp_models[reg_y_dim] is not None
+
+
             if(item == 0):
                 # print("###item = 0###")
                 # print("c_p:", c_p[:, 0])
@@ -212,16 +263,40 @@ class MPCWrapper(Node):
                 lower_bounds = [-np.inf, -np.inf, -np.inf]
                 upper_bounds = [ np.inf,  np.inf,  np.inf]
                 self.set_state_bounds(lower_bounds, upper_bounds)
-
+            
+            # 计算数值 Delta_f
+            delta_f_values = np.zeros(self.N)
+            if self.mpc_optimizer.with_gp:
+                state = self.X0[item]  # 当前状态
+                for j in range(self.N):
+                    # control = self.U0[item][:, j].full()  # 每个节点的控制输入
+                    # control = []  # 每个节点的控制输入
+                    # # z = self.gp_models[reg_y_dim].get_z(state, control, reg_y_dim)
+                    # outs = self.gp_models[reg_y_dim].predict(state, control, return_cov=False, return_z=False)
+                    # delta_f_values[j] = outs['pred']
+                    print("self.U0[item][:, j]",self.U0[item][:, j])
+                    control = self.U0[item][:, j]
+                    state_next = self.mpc_optimizer.f(state, c_p[:, j], control, delta_f_values[j] if j > 0 else 0)
+                    
+                    outs = self.gp_models[reg_y_dim].predict(state, [], return_cov=False, return_z=False)
+                    delta_f_values[j] = outs['pred']
+                    state = state_next.full()
+                    print("state_next=", state)
+                    # delta_f_values[j] = self.mpc_optimizer.predict_delta_f(state, control)
+            else:
+                delta_f_values = np.zeros(self.N)
+            
             init_control = np.concatenate((self.U0[item].reshape(-1, 1, order='F'), self.Next_s[item].reshape(-1, 1, order='F'))) #U0来自于上一时刻优化结果，X0来自于ros的消息
             # print(c_p)
             # print(self.X0[item])
-            p = np.concatenate((c_p, self.X0[item]), axis=1)
-
-            res = self.mpc_optimzer.solve(init_control, p)
+            # p = np.concatenate((c_p, self.X0[item]), axis=1)
+            c_p_flat = c_p.ravel(order='F')  # 改为 Fortran-style（列优先）
+            # print("self.X0[item]", self.X0[item].ravel())
+            p = np.concatenate((c_p_flat, self.X0[item].ravel(), delta_f_values))
+            res = self.mpc_optimizer.solve(init_control, p)
 
             estimated_opt = res['x'].full() # 提取优化变量的结果，是一个MX，或者DX的对象，estimated_opt是优化变量的最终值，是一个一维数组。
-            self.U0[item] = estimated_opt[:self.N*self.n_controls].reshape(self.N, self.n_controls).T * 1e3  # (N, n_controls) 转化为(n_controls, N)
+            self.U0[item] = estimated_opt[:self.N*self.n_controls].reshape(self.N, self.n_controls).T  # (N, n_controls) 转化为(n_controls, N)
             self.Xm[item] = estimated_opt[self.N*self.n_controls:].reshape(self.N + 1, self.n_states).T   # (N+1, n_states) 预测的状态 转化为(n_states, N+1)
         
         # u = -k_x / m_x, -d_x / m_x, 1 / m_x
@@ -235,16 +310,16 @@ class MPCWrapper(Node):
     def set_state_bounds(self, lower_bounds, upper_bounds):
         """设置新的状态约束并更新边界"""
         """动态更新优化变量的上下界"""
-        self.mpc_optimzer.lbx = []
-        self.mpc_optimzer.ubx = []
+        self.mpc_optimizer.lbx = []
+        self.mpc_optimizer.ubx = []
         # 控制输入 U 的界限
         for _ in range(self.N):
-            self.mpc_optimzer.lbx.extend(self.mpc_optimzer.input_lower_bounds)  # 控制输入下界
-            self.mpc_optimzer.ubx.extend(self.mpc_optimzer.input_upper_bounds)  # 控制输入上界
+            self.mpc_optimizer.lbx.extend(self.mpc_optimizer.input_lower_bounds)  # 控制输入下界
+            self.mpc_optimizer.ubx.extend(self.mpc_optimizer.input_upper_bounds)  # 控制输入上界
         # 状态变量 X 的界限
         for _ in range(self.N + 1):
-            self.mpc_optimzer.lbx.extend(lower_bounds)
-            self.mpc_optimzer.ubx.extend(upper_bounds)
+            self.mpc_optimizer.lbx.extend(lower_bounds)
+            self.mpc_optimizer.ubx.extend(upper_bounds)
 
     def set_state(self):
         #解构机器人状态到mpc能识别的状态
@@ -274,49 +349,50 @@ def main():
     rclpy.spin(mpc_node)
 
 if __name__ == "__main__":
-    # main()
+    main()
     #导入参数
-    git_version = '4196701' #手动填写
-    model_name = "simple_sim_gp"
-    reg_y_dim = 2 #一次只导入一个维度进行计算
-    sim_options = Conf.ds_metadata
-    load_ops = {"git": git_version, "model_name": model_name, "params": sim_options}
-    pre_trained_models = load_pickled_models(model_options=load_ops, dimension=reg_y_dim)
+    # git_version = '4196701' #手动填写
+    # model_name = "simple_sim_gp"
+    # reg_y_dim = 2 #一次只导入一个维度进行计算
+    # sim_options = Conf.ds_metadata
+    # load_ops = {"git": git_version, "model_name": model_name, "params": sim_options}
+    # pre_trained_models = load_pickled_models(model_options=load_ops, dimension=reg_y_dim)
     
-    B_x = {}
-        # Load augmented dynamics model with GP regressor
-    if pre_trained_models is not None:
-        gp_reg_ensemble = restore_gp_regressors(pre_trained_models) 
-        print(gp_reg_ensemble)
-        x_dims = 3
-        for y_dim in gp_reg_ensemble.gp.keys():
-            print(y_dim)
-            B_x[y_dim] = make_bx_matrix(x_dims, [y_dim])
-            print(B_x[y_dim]) 
+    # B_x = {}
+    #     # Load augmented dynamics model with GP regressor
+    # if pre_trained_models is not None:
+    #     gp_reg_ensemble = restore_gp_regressors(pre_trained_models) 
+    #     print(gp_reg_ensemble)
+    #     x_dims = 3
+    #     for y_dim in gp_reg_ensemble.gp.keys():
+    #         print("y_dim", y_dim)
+    #         print(gp_reg_ensemble.dim_idx)
+    #         B_x[y_dim] = make_bx_matrix(x_dims, [y_dim])
+    #         print(B_x[y_dim]) 
 
-    else:
-        gp_reg_ensemble = None
-        B_x = {}  # Selection matrix of the GP regressor-modified system states
+    # else:
+    #     gp_reg_ensemble = None
+    #     B_x = {}  # Selection matrix of the GP regressor-modified system states
 
-    #导入模型
+    # #导入模型
 
-    gp_regressors = gp_reg_ensemble
-    print(gp_regressors.homogeneous)
-        # Check if GP ensemble has an homogeneous feature space (if actual Ensemble)
-    if gp_regressors is not None and gp_regressors.homogeneous:
-        B_x = [B_x[dim] for dim in gp_regressors.dim_idx]
-        B_x = np.squeeze(np.stack(B_x, axis=1))
-        B_x = B_x[:, np.newaxis] if len(B_x.shape) == 1 else B_x
-        B_z = gp_regressors.B_z
-        print(B_z)
-    elif gp_regressors and gp_regressors.no_ensemble:
-        # If not homogeneous, we have to treat each z feature vector independently
-        B_x = [B_x[dim] for dim in gp_regressors.dim_idx]
-        B_x = np.squeeze(np.stack(B_x, axis=1))
-        B_x = B_x[:, np.newaxis] if len(B_x.shape) == 1 else B_x
-        B_z = gp_regressors.B_z
-    else:
-        gp_regressors = None
+    # gp_regressors = gp_reg_ensemble
+    # print(gp_regressors.homogeneous)
+    #     # Check if GP ensemble has an homogeneous feature space (if actual Ensemble)
+    # if gp_regressors is not None and gp_regressors.homogeneous:
+    #     B_x = [B_x[dim] for dim in gp_regressors.dim_idx]
+    #     B_x = np.squeeze(np.stack(B_x, axis=1))
+    #     B_x = B_x[:, np.newaxis] if len(B_x.shape) == 1 else B_x
+    #     B_z = gp_regressors.B_z
+    #     print(B_z)
+    # elif gp_regressors and gp_regressors.no_ensemble:
+    #     # If not homogeneous, we have to treat each z feature vector independently
+    #     B_x = [B_x[dim] for dim in gp_regressors.dim_idx]
+    #     B_x = np.squeeze(np.stack(B_x, axis=1))
+    #     B_x = B_x[:, np.newaxis] if len(B_x.shape) == 1 else B_x
+    #     B_z = gp_regressors.B_z
+    # else:
+    #     gp_regressors = None
 
     #融入MPC
 
