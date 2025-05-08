@@ -568,7 +568,8 @@ class Dual_arm_env(gym.Env):
         # q_target = np.array([-np.pi / 2, np.pi / 3, np.pi * 2 / 3, np.pi / 2, -np.pi / 2, np.pi / 2])
 
 
-        desired_pos = np.array([0, 0.37, 0.08])
+        # desired_pos = np.array([0, 0.37, 0.08])
+        desired_pos = np.array([0, 0.47, 0.075])
 
         # 定义绕 x 轴旋转 90 度（角度单位为度）
         rot = R.from_euler('z', 90, degrees=True)
@@ -702,7 +703,7 @@ def main():
 
     # 声明参数并提供默认值
     env.node.declare_parameter('t0', 0.0)
-    env.node.declare_parameter('traj_length', 0.4)
+    env.node.declare_parameter('traj_length', 0.17)  #长物体是0.4
     env.node.declare_parameter('speed', 0.01)
     env.node.declare_parameter('dt', 0.008)
     env.node.declare_parameter('position_sequence', [0.0, 0.0, 0.0])
@@ -727,6 +728,7 @@ def main():
     traj_3 = np.hstack((traj_3, np.zeros((len(trajectory_positions), 1))))
 
     traj_all =  np.hstack((traj_1, traj_2, traj_3)) # x * 9
+    print("len(traj_all)=", len(traj_all))
 
     action_pose = env.start_pose_quat.copy()  #当前eef的位姿（7，1), 设位初始期望位姿
     action_vel = np.zeros(6) #期望速度
@@ -739,8 +741,8 @@ def main():
         rclpy.spin_once(env.node, timeout_sec=0.0)
         t = t + 1
         start = time.time()
-        start_time = env.node.get_clock().now().nanoseconds * 1e-9
-
+        # start_time = env.node.get_clock().now().nanoseconds * 1e-9
+        start_time = time.perf_counter()
         if (t < len(traj_all)):
             incre_pos = np.array([traj_all[t, 0], traj_all[t, 3], traj_all[t, 6]])
             action_pose[:3] = env.start_pos + env.start_rotm @ incre_pos
@@ -748,15 +750,18 @@ def main():
             action_vel[:3] = env.start_rotm @ incre_vel
             stop=0
         else:
+            print("traj finished")
             incre_pos = np.array([traj_all[-1, 0], traj_all[-1, 3], traj_all[-1, 6]])
             action_pose[:3] = env.start_pos + env.start_rotm @ incre_pos
             incre_vel = np.array([traj_all[-1, 1], traj_all[-1, 4], traj_all[-1, 7]])
             action_vel[:3] = env.start_rotm @ incre_vel
             stop=1
-
+        print("current_idx = ", t)
+        print("__________________________________")
         env.admittance_step_test(action_pose, action_vel, stop)
-        end_time = env.node.get_clock().now().nanoseconds * 1e-9
-        # print("sim time =", end_time - start_time) #稳定耗时12ms
+        # end_time = env.node.get_clock().now().nanoseconds * 1e-9
+        end_time = time.perf_counter()
+        print("sim time =", (end_time - start_time)*1000) #稳定耗时12ms
         # print("input=", env.adm_d)
         # print('------------------------------------')
 

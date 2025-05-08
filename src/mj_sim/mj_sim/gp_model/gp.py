@@ -86,8 +86,8 @@ class CustomKernelFunctions:
         Returns:
             Covariance matrix (m x n).
         """
-
-        if isinstance(x_2, cs.MX):
+        if isinstance(x_1, (cs.SX, cs.MX)) or isinstance(x_2, (cs.SX, cs.MX)):
+        # if isinstance(x_2, cs.MX):
             return self._squared_exponential_kernel_cs(x_1, x_2)
 
         # Length scale parameter
@@ -125,8 +125,10 @@ class CustomKernelFunctions:
 
         if x_1.shape != x_2.shape and x_2.shape[0] == 1:
             tiling_ones = cs.MX.ones(x_1.shape[0], 1)
+            # tiling_ones = cs.SX.ones(x_1.shape[0], 1)  # 使用 SX 类型
             d = x_1 - cs.mtimes(tiling_ones, x_2)
             dist = cs.sum2(d ** 2 / cs.mtimes(tiling_ones, cs.MX(len_scale ** 2).T))
+            # dist = cs.sum2(d ** 2 / cs.mtimes(tiling_ones, cs.SX(len_scale ** 2).T))
         else:
             d = x_1 - x_2
             dist = cs.sum1(d ** 2 / cs.MX(len_scale ** 2))
@@ -423,7 +425,8 @@ class CustomGPRegression:
         # Ensure at least n=1
         x_test = np.atleast_2d(x_test) if isinstance(x_test, np.ndarray) else x_test
 
-        if isinstance(x_test, cs.MX):
+        if isinstance(x_test, (cs.SX, cs.MX)):
+        # if isinstance(x_test, cs.MX):
             return self._predict_sym(x_test=x_test, return_std=return_std, return_cov=return_cov)
 
         if isinstance(x_test, cs.DM):
@@ -634,11 +637,12 @@ class GPEnsemble:
         :param dim: output dimension target.
         :return: A vector of shape mx1 of the same format as inputs. m is determined by the B_z matrix for dim.
         """
-
+        print('dim=', dim)
         # Get input feature indices
         x_feats = self.gp[dim][0].x_features
         u_feats = self.gp[dim][0].u_features
         print("x_u_feats", x_feats, u_feats)
+        print('u', u)
         # print(dim)
         # Stack into a single matrix
         if isinstance(x, np.ndarray):
@@ -653,6 +657,7 @@ class GPEnsemble:
                 z = z_x  # 如果 u_feats 为空，仅使用 z_x
         elif isinstance(x, (cs.MX, cs.SX)):
             z_x = x[x_feats] if x_feats else x
+            print("u and u_feats=", u, u_feats)
             if u and u_feats:
                 z_u = u[u_feats]
                 z = cs.vertcat(z_x, z_u)
@@ -680,7 +685,7 @@ class GPEnsemble:
         :type gp_idx: dict
         :return: m x n arrays, where m is the output dimension and n is the number of samples.
         """
-
+        print('u_test', u_test)
         if return_std:
             assert not return_cov, "Can only return the std or the cov"
         if return_cov:
@@ -696,6 +701,7 @@ class GPEnsemble:
         如果异质集成，为每个维度提取 z 并选择 GPR（select_gp）。
         如果同质集成，只计算一次 z 和索引，复用。
         """
+        print("self.homogeneous", self.homogeneous)
         if not self.homogeneous:
             for dim in self.gp.keys():
                 
@@ -707,10 +713,11 @@ class GPEnsemble:
                     gp_idx[dim] = np.atleast_1d(gp_idx[dim])
 
         else:
-            print("x_test", x_test)
+            # print("x_test", x_test)
             z_ = self.get_z(x_test, u_test, self.dim_idx[0])
             z = {k: v for k, v in zip(self.dim_idx, [z_] * self.out_dim)}
-            print(z_)
+            # print("z_", z_)
+            print('gp_idx', gp_idx)
             if not bool(gp_idx):
                 gp_idx_ = self.select_gp(z=z_, dim=self.dim_idx[0])
                 gp_idx = {k: v for k, v in zip(self.dim_idx, [gp_idx_] * self.out_dim)}

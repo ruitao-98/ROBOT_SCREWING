@@ -371,7 +371,7 @@ def load_pickled_models(directory='', file_name='', model_options=None, dimensio
 
     try:
         pickled_files = os.listdir(directory)
-        # print(pickled_files)
+        print(pickled_files)
     except FileNotFoundError:
         return None
 

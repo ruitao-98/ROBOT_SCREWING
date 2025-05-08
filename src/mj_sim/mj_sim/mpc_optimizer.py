@@ -26,7 +26,7 @@ class Mpc_Opti:
     def __init__(self, gp_regressors=None, B_x=None):
 
         self.T = 0.008  # sampling time [s]
-        self.N = 50  # prediction horizon 预测的节点数量
+        self.N = 10  # prediction horizon 预测的节点数量
 
         self.k_min = 100
         self.k_max = 2000
@@ -38,7 +38,8 @@ class Mpc_Opti:
         self.gp_regressors = gp_regressors        # GPEnsemble 对象
         self.B_x = B_x if B_x is not None else ca.SX.zeros((3, 1)) # GP 输出到状态的映射矩阵
         self.with_gp = gp_regressors is not None  # 是否使用 GP 只要有就使用
-        print("with_gp = ",  self.with_gp)
+        # print("with_gp = ",  self.with_gp)
+        # self.with_gp = None
 
         self.x = ca.SX.sym('x')
         self.x_dot = ca.SX.sym('x_dot')
@@ -56,10 +57,10 @@ class Mpc_Opti:
         self.u = ca.SX.sym('u', self.n_controls)  # 控制输入矩阵
 
         # GP 修正变量
-        if self.with_gp:
-            self.delta_f = ca.SX.sym('delta_f', 1)  # GP 预测的力修正值
-        else:
-            self.delta_f = ca.SX.zeros(1)  # 无 GP 时为 0
+        # if self.with_gp:
+        self.delta_f = ca.SX.sym('delta_f', 1)  # GP 预测的力修正值
+        # else:
+        #     self.delta_f = ca.SX.zeros(1)  # 无 GP 时为 0
 
         # 定义状态误差
         self.s_tilde = self.s - self.s_r
@@ -96,9 +97,12 @@ class Mpc_Opti:
 
         # define
 
-        self.Q = np.array([[100.0, 0.0, 0.0],
-                    [0.0, 10, 0.0],
-                    [0.0, 0.0, 100]])
+        # self.Q = np.array([[1000.0, 0.0, 0.0],
+        #             [0.0, 10, 0.0],
+        #             [0.0, 0.0, 1]])
+        
+        self.Q = ca.SX.sym('Q', 3, 3)  # 符号参数
+        print("self.Q", self.Q)
 
         self.R = np.array([[1e-5, 0.0, 0.0],
                     [0.0, 1e-4, 0.0],
@@ -122,11 +126,11 @@ class Mpc_Opti:
             # self.x_next_ = self.f(self.X[:, i], self.X_r[:, i], self.U[:, i])  # 
 
             self.g.append(self.X[:, i + 1] - self.x_next_)
-
+        print("self.Q", ca.reshape(self.Q, -1, 1))
         self.opt_variables = ca.vertcat(ca.reshape(self.U, -1, 1), ca.reshape(self.X, -1, 1))  # ca.reshape(U, -1, 1) 转换为一个列向量 6 * N, 1 casadi 默认列优先展平，这个和numpy不一样
         # print("ca.reshape(self.X_r, -1, 1)", ca.reshape(self.X_r, -1, 1))
         # print("self.X_r", self.X_r)
-        self.nlp_prob = {'f': self.obj, 'x': self.opt_variables, 'p': ca.vertcat(ca.reshape(self.X_r, -1, 1), self.X0, self.Delta_f), 'g': ca.vertcat(*self.g)} # p: 列向量 3N+6
+        self.nlp_prob = {'f': self.obj, 'x': self.opt_variables, 'p': ca.vertcat(ca.reshape(self.X_r, -1, 1), self.X0, self.Delta_f, ca.reshape(self.Q, -1, 1)), 'g': ca.vertcat(*self.g)} # p: 列向量 3N+6
         self.opts_setting = {'ipopt.max_iter': 100, 'ipopt.print_level': 0, 'print_time': 0,
                     'ipopt.acceptable_tol': 1e-8, 'ipopt.acceptable_obj_change_tol': 1e-6}
 

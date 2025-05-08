@@ -22,7 +22,7 @@ import threading
 from std_srvs.srv import Trigger
 import time
 from robot_msgs.srv import StartPose
-
+import results_plots as rp
 
 from gp_model.utils import load_pickled_models, separate_variables
 
@@ -39,7 +39,8 @@ class MPCWrapper(Node):
         super().__init__("mpc_node")  # 初始化节点，命名为 'mpc_node'
 
         # 加载 GP 模型
-        git_version = '4196701'
+        # git_version = '4196701'  # 长物体的实验结果
+        git_version = "0c85e6c"  # 短物体的实验结果
         model_name = "simple_sim_gp"
         sim_options = Conf.ds_metadata
         load_ops = {"git": git_version, "model_name": model_name, "params": sim_options}
@@ -56,7 +57,7 @@ class MPCWrapper(Node):
                 for gp_list in gp_regressors.gp.values():
                     for gp in gp_list:
                         gp.x_features = [0, 1, 2]  # 局部状态 [x, x_dot, f_x]
-                        gp.u_features = []     # 假设控制输入 2 维
+                        gp.u_features = []         # 假设控制输入 2 维
 
                 self.gp_models[reg_y_dim] = gp_regressors
                 # B_x = {}
@@ -64,18 +65,23 @@ class MPCWrapper(Node):
                 B_x = make_bx_matrix(x_dims, [2])  # 固定为 [2]，表示 f_x
                 self.B_x_dicts[reg_y_dim] = B_x
 
-                # for y_dim in gp_regressors.gp.keys():
-                #     B_x[y_dim] = make_bx_matrix(x_dims, [y_dim])
-                #     self.B_x_dicts[reg_y_dim] = B_x[y_dim]
             else:
                 self.gp_models[reg_y_dim] = None
                 self.B_x_dicts[reg_y_dim] = {}
-        
+
+        self.mpc_counter = 0
+        #推理用时
+        self.Time = []
+        #预测误差
+        self.Predic_err = []
+
+        # print("self.gp_models.keys()", self.gp_models.keys())
+
         # for y_dim in gp_reg_ensemble.gp.keys():
         #     print(y_dim)
         #     B_x[y_dim] = make_bx_matrix(x_dims, [y_dim])
         #     print(B_x[y_dim]) 
-        
+        # print("B_x=self.B_x_dicts[2]=", self.B_x_dicts[2])
         # 变量和类继承
         self.mpc_optimizer = Mpc_Opti(gp_regressors=self.gp_models[2], B_x=self.B_x_dicts[2])  # 默认第一个维度
         self.N = self.mpc_optimizer.N
@@ -89,7 +95,7 @@ class MPCWrapper(Node):
 
         # 声明参数并提供默认值
         self.declare_parameter('t0', 0.0)
-        self.declare_parameter('traj_length', 0.4)
+        self.declare_parameter('traj_length', 0.17)
         self.declare_parameter('speed', 0.01)
         self.declare_parameter('dt', 0.008)
         self.declare_parameter('position_sequence', [0.0, 0.0, 0.0])
@@ -117,7 +123,8 @@ class MPCWrapper(Node):
         self.traj_all =  np.hstack((traj_1, traj_2, traj_3)) # x * 9，只包括x y z 不包括旋转
 
         self.traj_all_base = self.traj_all.copy()
-      
+        
+        self.target_pos = None
         # 定义机器人状态变量
         self.eef_rotm = np.zeros((3,3))
         self.eef_pos = np.zeros(3)
@@ -177,7 +184,8 @@ class MPCWrapper(Node):
             assert action_pos.shape[0] == 3, "action_pos must have 3 elements"
             self.traj_all_base[local_i, [0, 3, 6]] = action_pos
             self.traj_all_base[local_i, [1, 4, 7]] = action_vel
-        
+
+        self.target_pos = self.traj_all_base[-1, [0, 3, 6]]  # 最终位置 (x, y, z)
         print("the traj is transformed!")
             
     
@@ -207,22 +215,53 @@ class MPCWrapper(Node):
 
         self.current_idx += 1 #每次回调函数被调用，都意味者仿真或者实机的控制周期前进了一步
 
-        if not self.optimize_next: #如果self.optimize_next=true，那么上一步刚刚优化过了，这一步不需要再优化了，我们等待上一步的线程结束即可。
-            self.mpc_thread.join()
-            self.optimize_next = True #
-            return #这一步不优化，直接return结束函数
+        distance = np.linalg.norm(self.target_pos - self.eef_pos)  # 欧几里得距离
+        threshold = 0.005  # 阈值，例如 1 毫米
+        if distance < threshold:
+            # 打印 Time 的均值
+            if self.Time:
+                time_mean = np.mean(self.Time)
+                print(f"Time 均值: {time_mean:.2f} 毫秒")
+                # 可视化 Time 变化图像
+                rp.plot_time(self.Time, time_mean)
+            else:
+                print("Time 数据为空，未执行优化")
+            # 终止程序
+            print("机器人已接近目标位置，程序终止")
+            rclpy.shutdown()  # 关闭 ROS 节点
+            sys.exit(0)  # 退出程序
 
-        def _thread_func():
-            self.run_mpc()
+        self.mpc_counter += 1
 
-        self.mpc_thread = threading.Thread(target=_thread_func(), args=(), daemon=True) #开启额外线程运行mpc计算，防止无法及时处理消息
-        self.mpc_thread.start()
-        self.optimize_next = False
+        if self.mpc_counter % 3 == 0:
+        # 检查上一次线程是否完成
+            if hasattr(self, 'mpc_thread') and self.mpc_thread.is_alive():
+                print(f"MPC 线程仍在运行，跳过本次优化 (idx={self.current_idx})")
+                return
+
+            def _thread_func():
+                self.run_mpc()
+
+            self.mpc_thread = threading.Thread(target=_thread_func, args=(), daemon=True)
+            self.mpc_thread.start()
+
+
+        # if not self.optimize_next: #如果self.optimize_next=true，那么上一步刚刚优化过了，这一步不需要再优化了，我们等待上一步的线程结束即可。
+        #     self.mpc_thread.join()
+        #     self.optimize_next = True #
+        #     return #这一步不优化，直接return结束函数
+
+        # def _thread_func():
+        #     self.run_mpc()
+
+        # self.mpc_thread = threading.Thread(target=_thread_func(), args=(), daemon=True) #开启额外线程运行mpc计算，防止无法及时处理消息
+        # self.mpc_thread.start()
+        # self.optimize_next = False
     
     def run_mpc(self):
         ref_traj = self.set_reference()
         print("----------------------------------------")
-
+        start_time = time.perf_counter()
         for i in np.arange(0, int(self.traj_all_base.shape[1]), 3):
             item = int(i/3) #第item个维度求解
             c_p = ref_traj[:, i:i+3].T  #3*N
@@ -233,36 +272,26 @@ class MPCWrapper(Node):
             self.mpc_optimizer.B_x = self.B_x_dicts[reg_y_dim]
             self.mpc_optimizer.with_gp = self.gp_models[reg_y_dim] is not None
 
-
             if(item == 0):
-                # print("###item = 0###")
-                # print("c_p:", c_p[:, 0])
-                # print("f_x:", self.X0[item][2, 0])
-                # print("state:", self.X0[item][:, 0])
-                # print("k:", -self.U0[item][0, 0] * self.mpc_optimzer.c)
-                # print("d:", -self.U0[item][1, 0] * self.mpc_optimzer.c)
-                # print("State error:", self.Next_s[item][:, 0] - c_p[:, 0])
-                # lower_bounds = [-0.01, -np.inf, -np.inf]
-                # upper_bounds = [0.01,  np.inf, np.inf]
+                Q_val = np.array([[100.0, 0.0, 0.0],
+                                [0.0, 10, 0.0],
+                                [0.0, 0.0, 100]])
                 lower_bounds = [-np.inf, -np.inf, -np.inf]
                 upper_bounds = [ np.inf,  np.inf,  np.inf]
                 self.set_state_bounds(lower_bounds, upper_bounds)
 
-            if(item == 1):
-                # print("###item = 1###")
-                # print("c_p:", c_p[:, 0])
-                # print("f_x:", self.X0[item][2, 0])
-                # print("state:", self.X0[item][:, 0])
-                # print("k:", -self.U0[item][0, 0] * self.mpc_optimzer.c)
-                # print("d:", -self.U0[item][1, 0] * self.mpc_optimzer.c)
-                # print("State error:", self.Next_s[item][:, 0] - c_p[:, 0])
-
-                # lower_bounds = [-0.05, -np.inf, -np.inf]
-                # upper_bounds = [0.05, np.inf, np.inf]
-
+            elif(item == 1):
+                Q_val = np.array([[1000.0, 0.0, 0.0],
+                                [0.0, 1, 0.0],
+                                [0.0, 0.0, 0.1]])
                 lower_bounds = [-np.inf, -np.inf, -np.inf]
                 upper_bounds = [ np.inf,  np.inf,  np.inf]
                 self.set_state_bounds(lower_bounds, upper_bounds)
+            
+            else:
+                Q_val = np.array([[100.0, 0.0, 0.0],
+                                [0.0, 10, 0.0],
+                                [0.0, 0.0, 10]])
             
             # 计算数值 Delta_f
             delta_f_values = np.zeros(self.N)
@@ -278,7 +307,7 @@ class MPCWrapper(Node):
                     control = self.U0[item][:, j]
                     state_next = self.mpc_optimizer.f(state, c_p[:, j], control, delta_f_values[j] if j > 0 else 0)
                     
-                    outs = self.gp_models[reg_y_dim].predict(state, [], return_cov=False, return_z=False)
+                    outs = self.gp_models[reg_y_dim].predict(state-c_p[:, j], [], return_cov=False, return_z=False)
                     delta_f_values[j] = outs['pred']
                     state = state_next.full()
                     print("state_next=", state)
@@ -292,18 +321,25 @@ class MPCWrapper(Node):
             # p = np.concatenate((c_p, self.X0[item]), axis=1)
             c_p_flat = c_p.ravel(order='F')  # 改为 Fortran-style（列优先）
             # print("self.X0[item]", self.X0[item].ravel())
-            p = np.concatenate((c_p_flat, self.X0[item].ravel(), delta_f_values))
+            p = np.concatenate((c_p_flat, self.X0[item].ravel(order='F'), delta_f_values, Q_val.ravel(order="F")))
             res = self.mpc_optimizer.solve(init_control, p)
 
             estimated_opt = res['x'].full() # 提取优化变量的结果，是一个MX，或者DX的对象，estimated_opt是优化变量的最终值，是一个一维数组。
             self.U0[item] = estimated_opt[:self.N*self.n_controls].reshape(self.N, self.n_controls).T  # (N, n_controls) 转化为(n_controls, N)
             self.Xm[item] = estimated_opt[self.N*self.n_controls:].reshape(self.N + 1, self.n_states).T   # (N+1, n_states) 预测的状态 转化为(n_states, N+1)
         
+        end_time = time.perf_counter()
+        self.Time.append((end_time - start_time) * 1000)
+
         # u = -k_x / m_x, -d_x / m_x, 1 / m_x
         command = ControlCommand()
-        command.d = [-self.U0[0][1, 0]/self.U0[0][2, 0], -self.U0[1][1, 0]/self.U0[1][2, 0], -self.U0[2][1, 0]/self.U0[2][2, 0], 1.0, 1.0, 1.0] #xyz的阻尼和刚度是求解的，其他三个维度暂时是写死的 m_x * u[1]
-        command.k = [-self.U0[0][0, 0]/self.U0[0][2, 0], -self.U0[1][0, 0]/self.U0[1][2, 0], -self.U0[2][0, 0]/self.U0[2][2, 0], 0.8, 0.8, 0.8] #xyz的阻尼和刚度是求解的，其他三个维度暂时是写死的, m_x * u[0]
+        # command.d = [-self.U0[0][1, 0]/self.U0[0][2, 0], -self.U0[1][1, 0]/self.U0[1][2, 0], -self.U0[2][1, 0]/self.U0[2][2, 0], 1.0, 1.0, 1.0] #xyz的阻尼和刚度是求解的，其他三个维度暂时是写死的 m_x * u[1]
+        # command.k = [-self.U0[0][0, 0]/self.U0[0][2, 0], -self.U0[1][0, 0]/self.U0[1][2, 0], -self.U0[2][0, 0]/self.U0[2][2, 0], 0.8, 0.8, 0.8] #xyz的阻尼和刚度是求解的，其他三个维度暂时是写死的, m_x * u[0]
         
+        command.d = [-self.U0[0][1, 3]/self.U0[0][2, 3], -self.U0[1][1, 3]/self.U0[1][2, 3], -self.U0[2][1, 3]/self.U0[2][2, 3], 1.0, 1.0, 1.0] #xyz的阻尼和刚度是求解的，其他三个维度暂时是写死的 m_x * u[1]
+        command.k = [-self.U0[0][0, 3]/self.U0[0][2, 3], -self.U0[1][0, 3]/self.U0[1][2, 3], -self.U0[2][0, 3]/self.U0[2][2, 3], 0.8, 0.8, 0.8] #xyz的阻尼和刚度是求解的，其他三个维度暂时是写死的, m_x * u[0]
+
+
         self.command_pub.publish(command)
         print("****************************************")
 

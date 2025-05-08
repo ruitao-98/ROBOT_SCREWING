@@ -132,7 +132,10 @@
       <geom type="mesh" mesh="part7" contype='1' conaffinity='1' condim='6'  margin="0.0001" solref=".02 1" solimp=".6 .8 .001" friction="0.15 0.005 0.01" material = "gray" />
       <geom type="mesh" mesh="part8" contype='1' conaffinity='1' condim='6'  margin="0.0001" solref=".02 1" solimp=".6 .8 .001" friction="0.15 0.005 0.01" material = "gray" />
       <geom type="mesh" mesh="part9" contype='1' conaffinity='1' condim='6'  margin="0.0001" solref=".02 1" solimp=".6 .8 .001" friction="0.15 0.005 0.01" material = "gray" />
-
+      <geom type="mesh" mesh="part10" contype='1' conaffinity='1' condim='6'  margin="0.0001" solref=".02 1" solimp=".6 .8 .001" friction="0.15 0.005 0.01" material = "gray" />
+      <geom type="mesh" mesh="part11" contype='1' conaffinity='1' condim='6'  margin="0.0001" solref=".02 1" solimp=".6 .8 .001" friction="0.15 0.005 0.01" material = "gray" />
+      <geom type="mesh" mesh="part12" contype='1' conaffinity='1' condim='6'  margin="0.0001" solref=".02 1" solimp=".6 .8 .001" friction="0.15 0.005 0.01" material = "gray" />
+      <geom type="mesh" mesh="part13" contype='1' conaffinity='1' condim='6'  margin="0.0001" solref=".02 1" solimp=".6 .8 .001" friction="0.15 0.005 0.01" material = "gray" />
       <!-- <geom type="mesh" mesh="part14" contype='1' conaffinity='1' condim='6'  margin="0.0001" solref=".02 1" solimp=".6 .8 .001" friction="0.15 0.005 0.01" material = "gray" /> -->
       <!-- <freejoint/> -->
     </body>

@@ -67,7 +67,7 @@
     <mesh file="board_decomposed_dir2/part_13.stl" name="part13" scale="0.001 0.001 0.001"/> -->
     <!-- <mesh file="board_decomposed_dir2/part_14.stl" name="part14" scale="0.001 0.001 0.001"/> -->
 
-    <mesh file="board_decomposed_dir3/part_0.stl" name="part0" scale="0.001 0.001 0.001"/>
+    <!-- <mesh file="board_decomposed_dir3/part_0.stl" name="part0" scale="0.001 0.001 0.001"/>
     <mesh file="board_decomposed_dir3/part_1.stl" name="part1" scale="0.001 0.001 0.001"/>
     <mesh file="board_decomposed_dir3/part_2.stl" name="part2" scale="0.001 0.001 0.001"/>
     <mesh file="board_decomposed_dir3/part_3.stl" name="part3" scale="0.001 0.001 0.001"/>
@@ -76,7 +76,22 @@
     <mesh file="board_decomposed_dir3/part_6.stl" name="part6" scale="0.001 0.001 0.001"/>
     <mesh file="board_decomposed_dir3/part_7.stl" name="part7" scale="0.001 0.001 0.001"/>
     <mesh file="board_decomposed_dir3/part_8.stl" name="part8" scale="0.001 0.001 0.001"/>
-    <mesh file="board_decomposed_dir3/part_9.stl" name="part9" scale="0.001 0.001 0.001"/>
+    <mesh file="board_decomposed_dir3/part_9.stl" name="part9" scale="0.001 0.001 0.001"/> -->
+
+    <mesh file="board_decomposed_dir4/part_0.stl" name="part0" scale="0.001 0.001 0.001"/>
+    <mesh file="board_decomposed_dir4/part_1.stl" name="part1" scale="0.001 0.001 0.001"/>
+    <mesh file="board_decomposed_dir4/part_2.stl" name="part2" scale="0.001 0.001 0.001"/>
+    <mesh file="board_decomposed_dir4/part_3.stl" name="part3" scale="0.001 0.001 0.001"/>
+    <mesh file="board_decomposed_dir4/part_4.stl" name="part4" scale="0.001 0.001 0.001"/>
+    <mesh file="board_decomposed_dir4/part_5.stl" name="part5" scale="0.001 0.001 0.001"/>
+    <mesh file="board_decomposed_dir4/part_6.stl" name="part6" scale="0.001 0.001 0.001"/>
+    <mesh file="board_decomposed_dir4/part_7.stl" name="part7" scale="0.001 0.001 0.001"/>
+    <mesh file="board_decomposed_dir4/part_8.stl" name="part8" scale="0.001 0.001 0.001"/>
+    <mesh file="board_decomposed_dir4/part_9.stl" name="part9" scale="0.001 0.001 0.001"/>
+    <mesh file="board_decomposed_dir4/part_10.stl" name="part10" scale="0.001 0.001 0.001"/>
+    <mesh file="board_decomposed_dir4/part_11.stl" name="part11" scale="0.001 0.001 0.001"/>
+    <mesh file="board_decomposed_dir4/part_12.stl" name="part12" scale="0.001 0.001 0.001"/>
+    <mesh file="board_decomposed_dir4/part_13.stl" name="part13" scale="0.001 0.001 0.001"/>
 
 
 

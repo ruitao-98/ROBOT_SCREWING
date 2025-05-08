@@ -18,8 +18,8 @@ class SimpleSimConfig:
     Class for storing the Simplified Simulator configurations.
     """
     simulation_disturbances = {
-        "groove1": True, 
-        "groove2": False,  
+        "groove1": False, 
+        "groove2": True,  
         "screw1": False,                      
         "screw2": False,                               
     }
@@ -38,8 +38,8 @@ class ModelFitConfig:
     # ## Dataset loading ## #
     ds_name = "sim_dataset"
     ds_metadata = {
-        "groove1": True, 
-        "groove2": False,  
+        "groove1": False, 
+        "groove2": True,  
         "screw1": False,                      
         "screw2": False,   
     }
@@ -73,5 +73,5 @@ class ModelFitConfig:
     dense_training_points = 200
 
     # ## Clustering for multidimensional models ## #
-    clusters = 5  # 决定了使用几个GP模型
+    clusters = 3  # 决定了使用几个GP模型
     load_clusters = False

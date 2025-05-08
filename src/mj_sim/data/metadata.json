@@ -6,6 +6,12 @@
                 "groove2": false,
                 "screw1": false,
                 "screw2": false
+            },
+            "dataset_002": {
+                "groove1": false,
+                "groove2": true,
+                "screw1": false,
+                "screw2": false
             }
         }
     }
