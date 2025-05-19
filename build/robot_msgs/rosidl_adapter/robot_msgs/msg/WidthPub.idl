@@ -1,0 +1,12 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from robot_msgs/msg/WidthPub.msg
+// generated code does not contain a copyright notice
+
+
+module robot_msgs {
+  module msg {
+    struct WidthPub {
+      double width;
+    };
+  };
+};

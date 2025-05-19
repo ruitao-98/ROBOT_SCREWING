@@ -70,6 +70,9 @@ rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/ft_pub__type_
 rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/ft_pub__type_support.cpp: rosidl_adapter/robot_msgs/msg/ControlCommand.idl
 rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/ft_pub__type_support.cpp: rosidl_adapter/robot_msgs/msg/RefStatus.idl
 rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/ft_pub__type_support.cpp: rosidl_adapter/robot_msgs/srv/StartPose.idl
+rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/ft_pub__type_support.cpp: rosidl_adapter/robot_msgs/action/Screw.idl
+rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/ft_pub__type_support.cpp: rosidl_adapter/robot_msgs/msg/CurrentPub.idl
+rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/ft_pub__type_support.cpp: rosidl_adapter/robot_msgs/msg/WidthPub.idl
 rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/ft_pub__type_support.cpp: /opt/ros/foxy/share/std_msgs/msg/Bool.idl
 rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/ft_pub__type_support.cpp: /opt/ros/foxy/share/std_msgs/msg/Byte.idl
 rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/ft_pub__type_support.cpp: /opt/ros/foxy/share/std_msgs/msg/ByteMultiArray.idl
@@ -102,6 +105,11 @@ rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/ft_pub__type_
 rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/ft_pub__type_support.cpp: /opt/ros/foxy/share/std_msgs/msg/UInt8MultiArray.idl
 rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/ft_pub__type_support.cpp: /opt/ros/foxy/share/builtin_interfaces/msg/Duration.idl
 rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/ft_pub__type_support.cpp: /opt/ros/foxy/share/builtin_interfaces/msg/Time.idl
+rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/ft_pub__type_support.cpp: /opt/ros/foxy/share/action_msgs/msg/GoalInfo.idl
+rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/ft_pub__type_support.cpp: /opt/ros/foxy/share/action_msgs/msg/GoalStatus.idl
+rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/ft_pub__type_support.cpp: /opt/ros/foxy/share/action_msgs/msg/GoalStatusArray.idl
+rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/ft_pub__type_support.cpp: /opt/ros/foxy/share/action_msgs/srv/CancelGoal.idl
+rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/ft_pub__type_support.cpp: /opt/ros/foxy/share/unique_identifier_msgs/msg/UUID.idl
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/yanji/robot_screwing/build/robot_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C++ type support for eProsima Fast-RTPS"
 	/home/yanji/anaconda3/envs/screwrobot/bin/python3 /opt/ros/foxy/lib/rosidl_typesupport_fastrtps_cpp/rosidl_typesupport_fastrtps_cpp --generator-arguments-file /home/yanji/robot_screwing/build/robot_msgs/rosidl_typesupport_fastrtps_cpp__arguments.json
 
@@ -131,6 +139,24 @@ rosidl_typesupport_fastrtps_cpp/robot_msgs/srv/detail/dds_fastrtps/start_pose__t
 
 rosidl_typesupport_fastrtps_cpp/robot_msgs/srv/detail/start_pose__rosidl_typesupport_fastrtps_cpp.hpp: rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/ft_pub__type_support.cpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_fastrtps_cpp/robot_msgs/srv/detail/start_pose__rosidl_typesupport_fastrtps_cpp.hpp
+
+rosidl_typesupport_fastrtps_cpp/robot_msgs/action/detail/dds_fastrtps/screw__type_support.cpp: rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/ft_pub__type_support.cpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_fastrtps_cpp/robot_msgs/action/detail/dds_fastrtps/screw__type_support.cpp
+
+rosidl_typesupport_fastrtps_cpp/robot_msgs/action/detail/screw__rosidl_typesupport_fastrtps_cpp.hpp: rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/ft_pub__type_support.cpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_fastrtps_cpp/robot_msgs/action/detail/screw__rosidl_typesupport_fastrtps_cpp.hpp
+
+rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/current_pub__type_support.cpp: rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/ft_pub__type_support.cpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/current_pub__type_support.cpp
+
+rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/current_pub__rosidl_typesupport_fastrtps_cpp.hpp: rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/ft_pub__type_support.cpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/current_pub__rosidl_typesupport_fastrtps_cpp.hpp
+
+rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/width_pub__type_support.cpp: rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/ft_pub__type_support.cpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/width_pub__type_support.cpp
+
+rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/width_pub__rosidl_typesupport_fastrtps_cpp.hpp: rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/ft_pub__type_support.cpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/width_pub__rosidl_typesupport_fastrtps_cpp.hpp
 
 CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/ft_pub__type_support.cpp.o: CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/flags.make
 CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/ft_pub__type_support.cpp.o: rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/ft_pub__type_support.cpp
@@ -197,13 +223,55 @@ CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fa
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/srv/detail/dds_fastrtps/start_pose__type_support.cpp.s"
 	/usr/lib/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yanji/robot_screwing/build/robot_msgs/rosidl_typesupport_fastrtps_cpp/robot_msgs/srv/detail/dds_fastrtps/start_pose__type_support.cpp -o CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/srv/detail/dds_fastrtps/start_pose__type_support.cpp.s
 
+CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/action/detail/dds_fastrtps/screw__type_support.cpp.o: CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/flags.make
+CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/action/detail/dds_fastrtps/screw__type_support.cpp.o: rosidl_typesupport_fastrtps_cpp/robot_msgs/action/detail/dds_fastrtps/screw__type_support.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yanji/robot_screwing/build/robot_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/action/detail/dds_fastrtps/screw__type_support.cpp.o"
+	/usr/lib/ccache/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/action/detail/dds_fastrtps/screw__type_support.cpp.o -c /home/yanji/robot_screwing/build/robot_msgs/rosidl_typesupport_fastrtps_cpp/robot_msgs/action/detail/dds_fastrtps/screw__type_support.cpp
+
+CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/action/detail/dds_fastrtps/screw__type_support.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/action/detail/dds_fastrtps/screw__type_support.cpp.i"
+	/usr/lib/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yanji/robot_screwing/build/robot_msgs/rosidl_typesupport_fastrtps_cpp/robot_msgs/action/detail/dds_fastrtps/screw__type_support.cpp > CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/action/detail/dds_fastrtps/screw__type_support.cpp.i
+
+CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/action/detail/dds_fastrtps/screw__type_support.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/action/detail/dds_fastrtps/screw__type_support.cpp.s"
+	/usr/lib/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yanji/robot_screwing/build/robot_msgs/rosidl_typesupport_fastrtps_cpp/robot_msgs/action/detail/dds_fastrtps/screw__type_support.cpp -o CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/action/detail/dds_fastrtps/screw__type_support.cpp.s
+
+CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/current_pub__type_support.cpp.o: CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/flags.make
+CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/current_pub__type_support.cpp.o: rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/current_pub__type_support.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yanji/robot_screwing/build/robot_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/current_pub__type_support.cpp.o"
+	/usr/lib/ccache/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/current_pub__type_support.cpp.o -c /home/yanji/robot_screwing/build/robot_msgs/rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/current_pub__type_support.cpp
+
+CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/current_pub__type_support.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/current_pub__type_support.cpp.i"
+	/usr/lib/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yanji/robot_screwing/build/robot_msgs/rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/current_pub__type_support.cpp > CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/current_pub__type_support.cpp.i
+
+CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/current_pub__type_support.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/current_pub__type_support.cpp.s"
+	/usr/lib/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yanji/robot_screwing/build/robot_msgs/rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/current_pub__type_support.cpp -o CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/current_pub__type_support.cpp.s
+
+CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/width_pub__type_support.cpp.o: CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/flags.make
+CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/width_pub__type_support.cpp.o: rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/width_pub__type_support.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yanji/robot_screwing/build/robot_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/width_pub__type_support.cpp.o"
+	/usr/lib/ccache/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/width_pub__type_support.cpp.o -c /home/yanji/robot_screwing/build/robot_msgs/rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/width_pub__type_support.cpp
+
+CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/width_pub__type_support.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/width_pub__type_support.cpp.i"
+	/usr/lib/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yanji/robot_screwing/build/robot_msgs/rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/width_pub__type_support.cpp > CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/width_pub__type_support.cpp.i
+
+CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/width_pub__type_support.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/width_pub__type_support.cpp.s"
+	/usr/lib/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yanji/robot_screwing/build/robot_msgs/rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/width_pub__type_support.cpp -o CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/width_pub__type_support.cpp.s
+
 # Object files for target robot_msgs__rosidl_typesupport_fastrtps_cpp
 robot_msgs__rosidl_typesupport_fastrtps_cpp_OBJECTS = \
 "CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/ft_pub__type_support.cpp.o" \
 "CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/robot_status__type_support.cpp.o" \
 "CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/control_command__type_support.cpp.o" \
 "CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/ref_status__type_support.cpp.o" \
-"CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/srv/detail/dds_fastrtps/start_pose__type_support.cpp.o"
+"CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/srv/detail/dds_fastrtps/start_pose__type_support.cpp.o" \
+"CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/action/detail/dds_fastrtps/screw__type_support.cpp.o" \
+"CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/current_pub__type_support.cpp.o" \
+"CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/width_pub__type_support.cpp.o"
 
 # External object files for target robot_msgs__rosidl_typesupport_fastrtps_cpp
 robot_msgs__rosidl_typesupport_fastrtps_cpp_EXTERNAL_OBJECTS =
@@ -213,11 +281,16 @@ librobot_msgs__rosidl_typesupport_fastrtps_cpp.so: CMakeFiles/robot_msgs__rosidl
 librobot_msgs__rosidl_typesupport_fastrtps_cpp.so: CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/control_command__type_support.cpp.o
 librobot_msgs__rosidl_typesupport_fastrtps_cpp.so: CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/ref_status__type_support.cpp.o
 librobot_msgs__rosidl_typesupport_fastrtps_cpp.so: CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/srv/detail/dds_fastrtps/start_pose__type_support.cpp.o
+librobot_msgs__rosidl_typesupport_fastrtps_cpp.so: CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/action/detail/dds_fastrtps/screw__type_support.cpp.o
+librobot_msgs__rosidl_typesupport_fastrtps_cpp.so: CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/current_pub__type_support.cpp.o
+librobot_msgs__rosidl_typesupport_fastrtps_cpp.so: CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/width_pub__type_support.cpp.o
 librobot_msgs__rosidl_typesupport_fastrtps_cpp.so: CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/build.make
 librobot_msgs__rosidl_typesupport_fastrtps_cpp.so: /opt/ros/foxy/lib/librmw.so
 librobot_msgs__rosidl_typesupport_fastrtps_cpp.so: /opt/ros/foxy/lib/librosidl_typesupport_fastrtps_cpp.so
 librobot_msgs__rosidl_typesupport_fastrtps_cpp.so: /opt/ros/foxy/lib/libstd_msgs__rosidl_typesupport_fastrtps_cpp.so
 librobot_msgs__rosidl_typesupport_fastrtps_cpp.so: /opt/ros/foxy/lib/libbuiltin_interfaces__rosidl_typesupport_fastrtps_cpp.so
+librobot_msgs__rosidl_typesupport_fastrtps_cpp.so: /opt/ros/foxy/lib/libaction_msgs__rosidl_typesupport_fastrtps_cpp.so
+librobot_msgs__rosidl_typesupport_fastrtps_cpp.so: /opt/ros/foxy/lib/libunique_identifier_msgs__rosidl_typesupport_fastrtps_cpp.so
 librobot_msgs__rosidl_typesupport_fastrtps_cpp.so: /opt/ros/foxy/lib/libfastrtps.so.2.1.4
 librobot_msgs__rosidl_typesupport_fastrtps_cpp.so: /opt/ros/foxy/lib/libfastcdr.so.1.0.13
 librobot_msgs__rosidl_typesupport_fastrtps_cpp.so: /opt/ros/foxy/lib/libstd_msgs__rosidl_typesupport_introspection_c.so
@@ -225,13 +298,23 @@ librobot_msgs__rosidl_typesupport_fastrtps_cpp.so: /opt/ros/foxy/lib/libstd_msgs
 librobot_msgs__rosidl_typesupport_fastrtps_cpp.so: /opt/ros/foxy/lib/libstd_msgs__rosidl_typesupport_c.so
 librobot_msgs__rosidl_typesupport_fastrtps_cpp.so: /opt/ros/foxy/lib/libstd_msgs__rosidl_typesupport_introspection_cpp.so
 librobot_msgs__rosidl_typesupport_fastrtps_cpp.so: /opt/ros/foxy/lib/libstd_msgs__rosidl_typesupport_cpp.so
+librobot_msgs__rosidl_typesupport_fastrtps_cpp.so: /opt/ros/foxy/lib/libaction_msgs__rosidl_typesupport_introspection_c.so
+librobot_msgs__rosidl_typesupport_fastrtps_cpp.so: /opt/ros/foxy/lib/libaction_msgs__rosidl_generator_c.so
+librobot_msgs__rosidl_typesupport_fastrtps_cpp.so: /opt/ros/foxy/lib/libaction_msgs__rosidl_typesupport_c.so
+librobot_msgs__rosidl_typesupport_fastrtps_cpp.so: /opt/ros/foxy/lib/libaction_msgs__rosidl_typesupport_introspection_cpp.so
+librobot_msgs__rosidl_typesupport_fastrtps_cpp.so: /opt/ros/foxy/lib/libaction_msgs__rosidl_typesupport_cpp.so
 librobot_msgs__rosidl_typesupport_fastrtps_cpp.so: /opt/ros/foxy/lib/libbuiltin_interfaces__rosidl_typesupport_introspection_c.so
 librobot_msgs__rosidl_typesupport_fastrtps_cpp.so: /opt/ros/foxy/lib/libbuiltin_interfaces__rosidl_generator_c.so
 librobot_msgs__rosidl_typesupport_fastrtps_cpp.so: /opt/ros/foxy/lib/libbuiltin_interfaces__rosidl_typesupport_c.so
 librobot_msgs__rosidl_typesupport_fastrtps_cpp.so: /opt/ros/foxy/lib/libbuiltin_interfaces__rosidl_typesupport_introspection_cpp.so
+librobot_msgs__rosidl_typesupport_fastrtps_cpp.so: /opt/ros/foxy/lib/libbuiltin_interfaces__rosidl_typesupport_cpp.so
+librobot_msgs__rosidl_typesupport_fastrtps_cpp.so: /opt/ros/foxy/lib/libunique_identifier_msgs__rosidl_typesupport_introspection_c.so
+librobot_msgs__rosidl_typesupport_fastrtps_cpp.so: /opt/ros/foxy/lib/libunique_identifier_msgs__rosidl_generator_c.so
+librobot_msgs__rosidl_typesupport_fastrtps_cpp.so: /opt/ros/foxy/lib/libunique_identifier_msgs__rosidl_typesupport_c.so
+librobot_msgs__rosidl_typesupport_fastrtps_cpp.so: /opt/ros/foxy/lib/libunique_identifier_msgs__rosidl_typesupport_introspection_cpp.so
 librobot_msgs__rosidl_typesupport_fastrtps_cpp.so: /opt/ros/foxy/lib/librosidl_typesupport_introspection_cpp.so
 librobot_msgs__rosidl_typesupport_fastrtps_cpp.so: /opt/ros/foxy/lib/librosidl_typesupport_introspection_c.so
-librobot_msgs__rosidl_typesupport_fastrtps_cpp.so: /opt/ros/foxy/lib/libbuiltin_interfaces__rosidl_typesupport_cpp.so
+librobot_msgs__rosidl_typesupport_fastrtps_cpp.so: /opt/ros/foxy/lib/libunique_identifier_msgs__rosidl_typesupport_cpp.so
 librobot_msgs__rosidl_typesupport_fastrtps_cpp.so: /opt/ros/foxy/lib/librosidl_typesupport_cpp.so
 librobot_msgs__rosidl_typesupport_fastrtps_cpp.so: /opt/ros/foxy/lib/librosidl_typesupport_c.so
 librobot_msgs__rosidl_typesupport_fastrtps_cpp.so: /opt/ros/foxy/lib/librosidl_runtime_c.so
@@ -243,7 +326,7 @@ librobot_msgs__rosidl_typesupport_fastrtps_cpp.so: /usr/lib/x86_64-linux-gnu/lib
 librobot_msgs__rosidl_typesupport_fastrtps_cpp.so: /usr/lib/x86_64-linux-gnu/libssl.so
 librobot_msgs__rosidl_typesupport_fastrtps_cpp.so: /usr/lib/x86_64-linux-gnu/libcrypto.so
 librobot_msgs__rosidl_typesupport_fastrtps_cpp.so: CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/yanji/robot_screwing/build/robot_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX shared library librobot_msgs__rosidl_typesupport_fastrtps_cpp.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/yanji/robot_screwing/build/robot_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX shared library librobot_msgs__rosidl_typesupport_fastrtps_cpp.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -265,6 +348,12 @@ CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/depend: rosidl_typesu
 CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/depend: rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/ref_status__rosidl_typesupport_fastrtps_cpp.hpp
 CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/depend: rosidl_typesupport_fastrtps_cpp/robot_msgs/srv/detail/dds_fastrtps/start_pose__type_support.cpp
 CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/depend: rosidl_typesupport_fastrtps_cpp/robot_msgs/srv/detail/start_pose__rosidl_typesupport_fastrtps_cpp.hpp
+CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/depend: rosidl_typesupport_fastrtps_cpp/robot_msgs/action/detail/dds_fastrtps/screw__type_support.cpp
+CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/depend: rosidl_typesupport_fastrtps_cpp/robot_msgs/action/detail/screw__rosidl_typesupport_fastrtps_cpp.hpp
+CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/depend: rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/current_pub__type_support.cpp
+CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/depend: rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/current_pub__rosidl_typesupport_fastrtps_cpp.hpp
+CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/depend: rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/width_pub__type_support.cpp
+CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/depend: rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/width_pub__rosidl_typesupport_fastrtps_cpp.hpp
 	cd /home/yanji/robot_screwing/build/robot_msgs && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/yanji/robot_screwing/src/robot_msgs /home/yanji/robot_screwing/src/robot_msgs /home/yanji/robot_screwing/build/robot_msgs /home/yanji/robot_screwing/build/robot_msgs /home/yanji/robot_screwing/build/robot_msgs/CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/depend
 

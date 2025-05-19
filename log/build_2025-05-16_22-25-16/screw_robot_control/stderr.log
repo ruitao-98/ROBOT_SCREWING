@@ -1,0 +1,6 @@
+/usr/bin/ld: CMakeFiles/right_arm_control.dir/src/right_arm_control.cpp.o: in function `right_arm::RobotAdmittanceControl::updata_rotation(Eigen::Matrix<double, 3, 3, 0, 3, 3> const&, Eigen::Matrix<double, 3, 1, 0, 3, 1> const&, Eigen::Matrix<double, 3, 3, 0, 3, 3>&)':
+right_arm_control.cpp:(.text+0x4058): undefined reference to `right_arm::RobotAdmittanceControl::isRotationMatrix(Eigen::Matrix<double, 3, 3, 0, 3, 3> const&)'
+collect2: error: ld returned 1 exit status
+make[2]: *** [CMakeFiles/right_arm_control.dir/build.make:157：right_arm_control] 错误 1
+make[1]: *** [CMakeFiles/Makefile2:113：CMakeFiles/right_arm_control.dir/all] 错误 2
+make: *** [Makefile:141：all] 错误 2

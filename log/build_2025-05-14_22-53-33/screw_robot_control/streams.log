@@ -1,0 +1,60 @@
+[0.005s] Invoking command in '/home/yanji/robot_screwing/build/screw_robot_control': CMAKE_PREFIX_PATH=/home/yanji/robot_screwing/install/robot_msgs:/home/yanji/robot_screwing/install/screw_robot_control:/home/yanji/robot_screwing/install/real_robot:/home/yanji/robot_screwing/install/mj_sim:/opt/ros/foxy CONDA_PROMPT_MODIFIER=(screwrobot) LD_LIBRARY_PATH=/home/yanji/robot_screwing/install/robot_msgs/lib:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/home/yanji/robot_screwing/install/screw_robot_control/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/local/cuda/lib64:/usr/local/cuda/lib64 /usr/bin/cmake --build /home/yanji/robot_screwing/build/screw_robot_control -- -j24 -l24
+[0.024s] [35m[1mScanning dependencies of target SERVO_MOTOR[0m
+[0.030s] [ 12%] [32mBuilding CXX object CMakeFiles/SERVO_MOTOR.dir/src/servo_motor_function.cpp.o[0m
+[0.141s] /home/yanji/robot_screwing/src/screw_robot_control/src/servo_motor_function.cpp: In member function ‘void motors::open_port()’:
+[0.141s] /home/yanji/robot_screwing/src/screw_robot_control/src/servo_motor_function.cpp:13:23: warning: format not a string literal and no format arguments [-Wformat-security]
+[0.141s]    13 |                 printf(a);
+[0.141s]       |                 ~~~~~~^~~
+[0.141s] In file included from /home/yanji/robot_screwing/src/screw_robot_control/src/servo_motor_function.cpp:1:
+[0.141s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/servo_motor_function.hpp: In constructor ‘motors::motors()’:
+[0.141s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/servo_motor_function.hpp:59:33: warning: ‘motors::portHandler’ will be initialized after [-Wreorder]
+[0.141s]    59 |         dynamixel::PortHandler* portHandler;
+[0.141s]       |                                 ^~~~~~~~~~~
+[0.141s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/servo_motor_function.hpp:58:35: warning:   ‘dynamixel::PacketHandler* motors::packetHandler’ [-Wreorder]
+[0.141s]    58 |         dynamixel::PacketHandler* packetHandler;  //抽象类
+[0.141s]       |                                   ^~~~~~~~~~~~~
+[0.141s] /home/yanji/robot_screwing/src/screw_robot_control/src/servo_motor_function.cpp:161:1: warning:   when initialized here [-Wreorder]
+[0.141s]   161 | motors::motors(): portHandler(dynamixel::PortHandler::getPortHandler(device_port)),
+[0.141s]       | ^~~~~~
+[0.145s] [ 25%] [32m[1mLinking CXX shared library libSERVO_MOTOR.so[0m
+[0.181s] [ 25%] Built target SERVO_MOTOR
+[0.185s] [35m[1mScanning dependencies of target SCREWING_TOOL[0m
+[0.205s] [ 37%] [32mBuilding CXX object CMakeFiles/SCREWING_TOOL.dir/src/screwing_tool.cpp.o[0m
+[1.144s] /home/yanji/robot_screwing/src/screw_robot_control/src/screwing_tool.cpp: In member function ‘void endeffector::width_reduce(int, rclcpp::Publisher<robot_msgs::msg::CurrentPub_<std::allocator<void> > >::SharedPtr, robot_msgs::msg::CurrentPub&)’:
+[1.144s] /home/yanji/robot_screwing/src/screw_robot_control/src/screwing_tool.cpp:105:21: error: ‘put_time’ is not a member of ‘std’
+[1.144s]   105 |         oss << std::put_time(&time_info, "%Y-%m-%d_%H-%M-%S"); // 格式化时间 YYYY-MM-DD_HH-MM-SS
+[1.144s]       |                     ^~~~~~~~
+[1.144s] /home/yanji/robot_screwing/src/screw_robot_control/src/screwing_tool.cpp:4:1: note: ‘std::put_time’ is defined in header ‘<iomanip>’; did you forget to ‘#include <iomanip>’?
+[1.144s]     3 | #include <unistd.h>
+[1.144s]   +++ |+#include <iomanip>
+[1.144s]     4 | #include <thread>
+[1.144s] /home/yanji/robot_screwing/src/screw_robot_control/src/screwing_tool.cpp: In member function ‘int endeffector::width_reduce_or_increase_full(int)’:
+[1.144s] /home/yanji/robot_screwing/src/screw_robot_control/src/screwing_tool.cpp:252:13: warning: unused variable ‘fin_position’ [-Wunused-variable]
+[1.144s]   252 |         int fin_position;
+[1.144s]       |             ^~~~~~~~~~~~
+[1.144s] /home/yanji/robot_screwing/src/screw_robot_control/src/screwing_tool.cpp: In member function ‘int endeffector::width_reduce_full_for_handover(rclcpp::Publisher<robot_msgs::msg::CurrentPub_<std::allocator<void> > >::SharedPtr, robot_msgs::msg::CurrentPub&, rclcpp::Publisher<robot_msgs::msg::WidthPub_<std::allocator<void> > >::SharedPtr, robot_msgs::msg::WidthPub&)’:
+[1.144s] /home/yanji/robot_screwing/src/screw_robot_control/src/screwing_tool.cpp:395:25: error: ‘ros’ has not been declared
+[1.144s]   395 |                         ros::param::set("present_width", delta_position);
+[1.144s]       |                         ^~~
+[1.144s] /home/yanji/robot_screwing/src/screw_robot_control/src/screwing_tool.cpp:355:13: warning: unused variable ‘fin_position’ [-Wunused-variable]
+[1.144s]   355 |         int fin_position;
+[1.144s]       |             ^~~~~~~~~~~~
+[1.144s] /home/yanji/robot_screwing/src/screw_robot_control/src/screwing_tool.cpp: In member function ‘int endeffector::screwing_s1(int, float, rclcpp::Publisher<robot_msgs::msg::CurrentPub_<std::allocator<void> > >::SharedPtr, robot_msgs::msg::CurrentPub&)’:
+[1.144s] /home/yanji/robot_screwing/src/screw_robot_control/src/screwing_tool.cpp:534:21: warning: unused variable ‘pre_velo’ [-Wunused-variable]
+[1.144s]   534 |                 int pre_velo = this->get_presentvelocity(0);
+[1.144s]       |                     ^~~~~~~~
+[1.144s] /home/yanji/robot_screwing/src/screw_robot_control/src/screwing_tool.cpp: In member function ‘int endeffector::screwing_s3(int, int)’:
+[1.144s] /home/yanji/robot_screwing/src/screw_robot_control/src/screwing_tool.cpp:671:13: warning: unused variable ‘start_position’ [-Wunused-variable]
+[1.145s]   671 |         int start_position = this->get_presentposition(0);
+[1.145s]       |             ^~~~~~~~~~~~~~
+[1.145s] /home/yanji/robot_screwing/src/screw_robot_control/src/screwing_tool.cpp:685:13: warning: unused variable ‘num’ [-Wunused-variable]
+[1.145s]   685 |         int num = 0;
+[1.145s]       |             ^~~
+[1.145s] /home/yanji/robot_screwing/src/screw_robot_control/src/screwing_tool.cpp: In member function ‘int endeffector::unscrewing_s1(int, int)’:
+[1.145s] /home/yanji/robot_screwing/src/screw_robot_control/src/screwing_tool.cpp:789:1: warning: no return statement in function returning non-void [-Wreturn-type]
+[1.145s]   789 | }
+[1.145s]       | ^
+[1.145s] make[2]: *** [CMakeFiles/SCREWING_TOOL.dir/build.make:63：CMakeFiles/SCREWING_TOOL.dir/src/screwing_tool.cpp.o] 错误 1
+[1.145s] make[1]: *** [CMakeFiles/Makefile2:140：CMakeFiles/SCREWING_TOOL.dir/all] 错误 2
+[1.145s] make: *** [Makefile:141：all] 错误 2
+[1.146s] Invoked command in '/home/yanji/robot_screwing/build/screw_robot_control' returned '2': CMAKE_PREFIX_PATH=/home/yanji/robot_screwing/install/robot_msgs:/home/yanji/robot_screwing/install/screw_robot_control:/home/yanji/robot_screwing/install/real_robot:/home/yanji/robot_screwing/install/mj_sim:/opt/ros/foxy CONDA_PROMPT_MODIFIER=(screwrobot) LD_LIBRARY_PATH=/home/yanji/robot_screwing/install/robot_msgs/lib:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/home/yanji/robot_screwing/install/screw_robot_control/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/local/cuda/lib64:/usr/local/cuda/lib64 /usr/bin/cmake --build /home/yanji/robot_screwing/build/screw_robot_control -- -j24 -l24

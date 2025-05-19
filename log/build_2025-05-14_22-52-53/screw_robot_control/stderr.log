@@ -1,0 +1,8 @@
+In file included from [01m[K/home/yanji/robot_screwing/src/screw_robot_control/src/servo_motor_function.cpp:1[m[K:
+[01m[K/home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/servo_motor_function.hpp:4:10:[m[K [01;31m[Kfatal error: [m[Kdynamixel_sdk.h: 没有那个文件或目录
+    4 | #include [01;31m[K"dynamixel_sdk.h"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+make[2]: *** [CMakeFiles/SERVO_MOTOR.dir/build.make:63：CMakeFiles/SERVO_MOTOR.dir/src/servo_motor_function.cpp.o] 错误 1
+make[1]: *** [CMakeFiles/Makefile2:167：CMakeFiles/SERVO_MOTOR.dir/all] 错误 2
+make: *** [Makefile:141：all] 错误 2

@@ -1,0 +1,20 @@
+/home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control_tcp.cpp: In member function ‘void right_arm_test::RobotAdmittanceControl::status_publish()’:
+/home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control_tcp.cpp:146:31: error: ‘using robot_msgs::msg::RobotStatus_<std::allocator<void> >::_ft_vector_type = struct std::array<double, 6>’ {aka ‘struct std::array<double, 6>’} has no member named ‘resize’; did you mean ‘size’?
+  146 |         status_msg_.ft_vector.resize(tcp_force.size());
+      |                               ^~~~~~
+      |                               size
+/home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control_tcp.cpp:153:37: error: ‘using robot_msgs::msg::RobotStatus_<std::allocator<void> >::_rotation_matrix_type = struct std::array<double, 9>’ {aka ‘struct std::array<double, 9>’} has no member named ‘resize’; did you mean ‘size’?
+  153 |         status_msg_.rotation_matrix.resize(9);
+      |                                     ^~~~~~
+      |                                     size
+/home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control_tcp.cpp:161:32: error: ‘using robot_msgs::msg::RobotStatus_<std::allocator<void> >::_vel_vector_type = struct std::array<double, 6>’ {aka ‘struct std::array<double, 6>’} has no member named ‘resize’; did you mean ‘size’?
+  161 |         status_msg_.vel_vector.resize(eef_vel.size());
+      |                                ^~~~~~
+      |                                size
+/home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control_tcp.cpp: In member function ‘void right_arm_test::RobotAdmittanceControl::updata_rotation(const Eigen::Matrix3d&, const Eigen::Vector3d&, Eigen::Matrix3d&)’:
+/home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control_tcp.cpp:204:106: warning: unused parameter ‘angluar_disp’ [-Wunused-parameter]
+  204 | void RobotAdmittanceControl::updata_rotation(const Eigen::Matrix3d& current_rotm, const Eigen::Vector3d& angluar_disp, Eigen::Matrix3d& new_orientation){
+      |                                                                                   ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~
+make[2]: *** [CMakeFiles/right_arm_control_tcp.dir/build.make:63：CMakeFiles/right_arm_control_tcp.dir/src/right_arm_control_tcp.cpp.o] 错误 1
+make[1]: *** [CMakeFiles/Makefile2:223：CMakeFiles/right_arm_control_tcp.dir/all] 错误 2
+make: *** [Makefile:141：all] 错误 2

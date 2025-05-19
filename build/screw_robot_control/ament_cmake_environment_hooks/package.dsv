@@ -1,0 +1,4 @@
+source;share/screw_robot_control/local_setup.bash
+source;share/screw_robot_control/local_setup.dsv
+source;share/screw_robot_control/local_setup.sh
+source;share/screw_robot_control/local_setup.zsh

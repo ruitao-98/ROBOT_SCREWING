@@ -329,7 +329,7 @@ class Dual_arm_env(gym.Env):
     # tcp_force.tail<3>() = -eef_offset_to_sensor.cross(tcp_force.head<3>()) + eef_offset_rotm_to_sensor.transpose() * local_force.tail<3>();
 
         self.world_force[:3] = self.eef_offset_rotm_to_sensor.T @ self.force_sensor_data[:3] #变换到TCP坐标系
-        self.world_force[3:] = self.eef_offset_rotm_to_sensor.T @ self.force_sensor_data[3:] - np.cross(self.eef_offset_to_sensor, self.force_sensor_data[:3])
+        self.world_force[3:] = self.eef_offset_rotm_to_sensor.T @ self.force_sensor_data[3:] + np.cross(self.eef_offset_to_sensor, self.force_sensor_data[:3])
         self.world_force[:3] = self.eef_rotm @ self.world_force[:3] #变换到机器人的基坐标系
         self.world_force[3:] = self.eef_rotm @ self.world_force[3:]
         
@@ -362,7 +362,7 @@ class Dual_arm_env(gym.Env):
         # self.force_sensor_data[3:] = self.force_sensor_data[3:] - self.force_offset[3:]
         self.force_sensor_data[:3] = self.force_sensor_data[:3] #compensate gravity
         self.force_sensor_data[3:] = self.force_sensor_data[3:]
-        self.get_tcp_force() #变换为world_force
+        self.get_tcp_force() #变换为world_force 世界坐标系下的tcp的力
 
         # if self.force_noise:
         #     self.world_force = self.world_force + np.random.normal(0, self.force_noise_level, 6)

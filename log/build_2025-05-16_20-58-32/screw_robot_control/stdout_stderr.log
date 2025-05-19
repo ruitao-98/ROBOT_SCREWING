@@ -1,0 +1,16 @@
+[ 25%] Built target SERVO_MOTOR
+[ 50%] Built target SCREWING_TOOL
+[35m[1mScanning dependencies of target right_arm_control[0m
+[ 75%] Built target task_control_screw
+[ 87%] [32mBuilding CXX object CMakeFiles/right_arm_control.dir/src/right_arm_control.cpp.o[0m
+/home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp: In member function ‘void right_arm::RobotAdmittanceControl::updata_rotation(const Eigen::Matrix3d&, const Eigen::Vector3d&, Eigen::Matrix3d&)’:
+/home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:169:106: warning: unused parameter ‘angluar_disp’ [-Wunused-parameter]
+  169 | void RobotAdmittanceControl::updata_rotation(const Eigen::Matrix3d& current_rotm, const Eigen::Vector3d& angluar_disp, Eigen::Matrix3d& new_orientation){
+      |                                                                                   ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~
+/home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp: In member function ‘void right_arm::RobotAdmittanceControl::tcp_admittance_run()’:
+/home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:283:48: error: invalid operands of types ‘const char [30]’ and ‘<unresolved overloaded function type>’ to binary ‘operator<<’
+  283 |         cout < "_____________________________" << endl;
+      |                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~
+make[2]: *** [CMakeFiles/right_arm_control.dir/build.make:63：CMakeFiles/right_arm_control.dir/src/right_arm_control.cpp.o] 错误 1
+make[1]: *** [CMakeFiles/Makefile2:113：CMakeFiles/right_arm_control.dir/all] 错误 2
+make: *** [Makefile:141：all] 错误 2

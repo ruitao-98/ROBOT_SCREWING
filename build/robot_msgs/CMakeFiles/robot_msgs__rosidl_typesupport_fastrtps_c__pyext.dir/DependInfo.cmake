@@ -23,8 +23,9 @@ set(CMAKE_TARGET_DEFINITIONS_C
 set(CMAKE_C_TARGET_INCLUDE_PATH
   "rosidl_generator_c"
   "rosidl_generator_py"
-  "/usr/include/python3.8"
+  "/home/yanji/anaconda3/envs/screwrobot/include/python3.8"
   "rosidl_typesupport_c"
+  "/home/yanji/anaconda3/envs/screwrobot/lib/python3.8/site-packages/numpy/core/include"
   "rosidl_generator_cpp"
   "rosidl_typesupport_fastrtps_c"
   "rosidl_typesupport_fastrtps_cpp"
@@ -34,6 +35,12 @@ set(CMAKE_C_TARGET_INCLUDE_PATH
   "/opt/ros/foxy/include/builtin_interfaces/msg/dds_fastrtps_c"
   "/opt/ros/foxy/include/builtin_interfaces/srv/dds_fastrtps_c"
   "/opt/ros/foxy/include/builtin_interfaces/action/dds_fastrtps_c"
+  "/opt/ros/foxy/include/action_msgs/msg/dds_fastrtps_c"
+  "/opt/ros/foxy/include/action_msgs/srv/dds_fastrtps_c"
+  "/opt/ros/foxy/include/action_msgs/action/dds_fastrtps_c"
+  "/opt/ros/foxy/include/unique_identifier_msgs/msg/dds_fastrtps_c"
+  "/opt/ros/foxy/include/unique_identifier_msgs/srv/dds_fastrtps_c"
+  "/opt/ros/foxy/include/unique_identifier_msgs/action/dds_fastrtps_c"
   "/opt/ros/foxy/include"
   "/opt/ros/foxy/include/foonathan_memory"
   )

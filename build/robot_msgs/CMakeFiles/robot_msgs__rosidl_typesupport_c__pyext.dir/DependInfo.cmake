@@ -19,8 +19,9 @@ set(CMAKE_TARGET_DEFINITIONS_C
 set(CMAKE_C_TARGET_INCLUDE_PATH
   "rosidl_generator_c"
   "rosidl_generator_py"
-  "/usr/include/python3.8"
+  "/home/yanji/anaconda3/envs/screwrobot/include/python3.8"
   "rosidl_typesupport_c"
+  "/home/yanji/anaconda3/envs/screwrobot/lib/python3.8/site-packages/numpy/core/include"
   "/opt/ros/foxy/include"
   )
 

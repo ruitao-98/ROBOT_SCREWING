@@ -1,0 +1,344 @@
+[0.006s] Invoking command in '/home/yanji/robot_screwing/build/screw_robot_control': CMAKE_PREFIX_PATH=/home/yanji/robot_screwing/install/robot_msgs:/home/yanji/robot_screwing/install/screw_robot_control:/home/yanji/robot_screwing/install/real_robot:/home/yanji/robot_screwing/install/mj_sim:/opt/ros/foxy CONDA_PROMPT_MODIFIER=(screwrobot) LD_LIBRARY_PATH=/home/yanji/robot_screwing/install/robot_msgs/lib:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/home/yanji/robot_screwing/install/screw_robot_control/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/local/cuda/lib64:/usr/local/cuda/lib64 /usr/bin/cmake --build /home/yanji/robot_screwing/build/screw_robot_control -- -j24 -l24
+[0.031s] [ 25%] Built target SERVO_MOTOR
+[0.035s] [35m[1mScanning dependencies of target SCREWING_TOOL[0m
+[0.050s] [ 37%] [32mBuilding CXX object CMakeFiles/SCREWING_TOOL.dir/src/screwing_tool.cpp.o[0m
+[0.134s] /home/yanji/robot_screwing/src/screw_robot_control/src/screwing_tool.cpp: In member function ‘int endeffector::screwing_s1(int, float, rclcpp::Publisher<robot_msgs::msg::CurrentPub_<std::allocator<void> > >::SharedPtr, robot_msgs::msg::CurrentPub&)’:
+[0.134s] /home/yanji/robot_screwing/src/screw_robot_control/src/screwing_tool.cpp:530:21: warning: unused variable ‘pre_velo’ [-Wunused-variable]
+[0.134s]   530 |                 int pre_velo = this->get_presentvelocity(0);
+[0.134s]       |                     ^~~~~~~~
+[0.138s] [ 50%] [32m[1mLinking CXX shared library libSCREWING_TOOL.so[0m
+[0.180s] [ 50%] Built target SCREWING_TOOL
+[0.185s] [35m[1mScanning dependencies of target task_control_screw[0m
+[0.186s] [35m[1mScanning dependencies of target right_arm_control[0m
+[0.203s] [ 62%] [32mBuilding CXX object CMakeFiles/task_control_screw.dir/src/task_control_screw.cpp.o[0m
+[0.212s] [ 75%] [32mBuilding CXX object CMakeFiles/right_arm_control.dir/src/right_arm_control.cpp.o[0m
+[2.171s] [ 87%] [32m[1mLinking CXX executable task_control_screw[0m
+[2.263s] [ 87%] Built target task_control_screw
+[3.108s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp: In constructor ‘right_arm::RobotAdmittanceControl::RobotAdmittanceControl()’:
+[3.108s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:18:141: error: no matching function for call to ‘std::array<double, 3>::array(std::vector<double, std::allocator<double> >::const_iterator, std::vector<double, std::allocator<double> >::const_iterator)’
+[3.109s]    18 |     pos_para_ = std::array<double, 3>(get_parameter("pos_para").as_double_array().begin(), get_parameter("pos_para").as_double_array().end());
+[3.109s]       |                                                                                                                                             ^
+[3.109s] In file included from /usr/include/c++/13/functional:65,
+[3.109s]                  from /home/yanji/anaconda3/envs/screwrobot/include/eigen3/Eigen/Core:85,
+[3.109s]                  from /home/yanji/anaconda3/envs/screwrobot/include/eigen3/Eigen/Dense:1,
+[3.109s]                  from /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:5,
+[3.109s]                  from /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:1:
+[3.109s] /usr/include/c++/13/array:94:12: note: candidate: ‘std::array<double, 3>::array()’
+[3.109s]    94 |     struct array
+[3.109s]       |            ^~~~~
+[3.109s] /usr/include/c++/13/array:94:12: note:   candidate expects 0 arguments, 2 provided
+[3.109s] /usr/include/c++/13/array:94:12: note: candidate: ‘constexpr std::array<double, 3>::array(const std::array<double, 3>&)’
+[3.109s] /usr/include/c++/13/array:94:12: note:   candidate expects 1 argument, 2 provided
+[3.109s] /usr/include/c++/13/array:94:12: note: candidate: ‘constexpr std::array<double, 3>::array(std::array<double, 3>&&)’
+[3.109s] /usr/include/c++/13/array:94:12: note:   candidate expects 1 argument, 2 provided
+[3.109s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:19:141: error: no matching function for call to ‘std::array<double, 9>::array(std::vector<double, std::allocator<double> >::const_iterator, std::vector<double, std::allocator<double> >::const_iterator)’
+[3.109s]    19 |     ori_para_ = std::array<double, 9>(get_parameter("ori_para").as_double_array().begin(), get_parameter("ori_para").as_double_array().end());
+[3.109s]       |                                                                                                                                             ^
+[3.109s] /usr/include/c++/13/array:94:12: note: candidate: ‘std::array<double, 9>::array()’
+[3.109s]    94 |     struct array
+[3.109s]       |            ^~~~~
+[3.109s] /usr/include/c++/13/array:94:12: note:   candidate expects 0 arguments, 2 provided
+[3.109s] /usr/include/c++/13/array:94:12: note: candidate: ‘constexpr std::array<double, 9>::array(const std::array<double, 9>&)’
+[3.109s] /usr/include/c++/13/array:94:12: note:   candidate expects 1 argument, 2 provided
+[3.109s] /usr/include/c++/13/array:94:12: note: candidate: ‘constexpr std::array<double, 9>::array(std::array<double, 9>&&)’
+[3.109s] /usr/include/c++/13/array:94:12: note:   candidate expects 1 argument, 2 provided
+[3.109s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:71:5: error: ‘sleep’ was not declared in this scope
+[3.109s]    71 |     sleep(1);
+[3.109s]       |     ^~~~~
+[3.109s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp: In member function ‘void right_arm::RobotAdmittanceControl::done_cb(const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&)’:
+[3.109s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:94:10: error: ‘goal_handle’ was not declared in this scope
+[3.109s]    94 |     if (!goal_handle) {
+[3.110s]       |          ^~~~~~~~~~~
+[3.110s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:99:19: error: ‘goal_handle’ was not declared in this scope
+[3.110s]    99 |     auto status = goal_handle->get_status();
+[3.110s]       |                   ^~~~~~~~~~~
+[3.110s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:101:39: error: base operand of ‘->’ has non-pointer type ‘const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult’
+[3.110s]   101 |         screw_execute_result_ = result->result;
+[3.110s]       |                                       ^~
+[3.110s] In file included from /opt/ros/foxy/include/rclcpp/client.hpp:40,
+[3.110s]                  from /opt/ros/foxy/include/rclcpp/callback_group.hpp:23,
+[3.110s]                  from /opt/ros/foxy/include/rclcpp/any_executable.hpp:20,
+[3.110s]                  from /opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24,
+[3.110s]                  from /opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18,
+[3.110s]                  from /opt/ros/foxy/include/rclcpp/executor_options.hpp:20,
+[3.110s]                  from /opt/ros/foxy/include/rclcpp/executor.hpp:33,
+[3.110s]                  from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26,
+[3.110s]                  from /opt/ros/foxy/include/rclcpp/executors.hpp:21,
+[3.110s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146,
+[3.110s]                  from /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:11:
+[3.110s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:102:75: error: base operand of ‘->’ has non-pointer type ‘const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult’
+[3.110s]   102 |         RCLCPP_INFO(this->get_logger(), "screw_execute_result: %d", result->result);
+[3.110s]       |                                                                           ^~
+[3.110s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp: In member function ‘void right_arm::RobotAdmittanceControl::ready_callback(std::shared_ptr<robot_msgs::srv::StartPose_Request_<std::allocator<void> > >, std::shared_ptr<robot_msgs::srv::StartPose_Response_<std::allocator<void> > >)’:
+[3.110s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:132:141: error: no matching function for call to ‘std::array<double, 3>::array(std::vector<double, std::allocator<double> >::const_iterator, std::vector<double, std::allocator<double> >::const_iterator)’
+[3.110s]   132 |     pos_para_ = std::array<double, 3>(get_parameter("pos_para").as_double_array().begin(), get_parameter("pos_para").as_double_array().end());
+[3.110s]       |                                                                                                                                             ^
+[3.110s] /usr/include/c++/13/array:94:12: note: candidate: ‘std::array<double, 3>::array()’
+[3.110s]    94 |     struct array
+[3.110s]       |            ^~~~~
+[3.110s] /usr/include/c++/13/array:94:12: note:   candidate expects 0 arguments, 2 provided
+[3.110s] /usr/include/c++/13/array:94:12: note: candidate: ‘constexpr std::array<double, 3>::array(const std::array<double, 3>&)’
+[3.110s] /usr/include/c++/13/array:94:12: note:   candidate expects 1 argument, 2 provided
+[3.111s] /usr/include/c++/13/array:94:12: note: candidate: ‘constexpr std::array<double, 3>::array(std::array<double, 3>&&)’
+[3.111s] /usr/include/c++/13/array:94:12: note:   candidate expects 1 argument, 2 provided
+[3.111s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:133:141: error: no matching function for call to ‘std::array<double, 9>::array(std::vector<double, std::allocator<double> >::const_iterator, std::vector<double, std::allocator<double> >::const_iterator)’
+[3.111s]   133 |     ori_para_ = std::array<double, 9>(get_parameter("ori_para").as_double_array().begin(), get_parameter("ori_para").as_double_array().end());
+[3.111s]       |                                                                                                                                             ^
+[3.111s] /usr/include/c++/13/array:94:12: note: candidate: ‘std::array<double, 9>::array()’
+[3.111s]    94 |     struct array
+[3.111s]       |            ^~~~~
+[3.111s] /usr/include/c++/13/array:94:12: note:   candidate expects 0 arguments, 2 provided
+[3.111s] /usr/include/c++/13/array:94:12: note: candidate: ‘constexpr std::array<double, 9>::array(const std::array<double, 9>&)’
+[3.112s] /usr/include/c++/13/array:94:12: note:   candidate expects 1 argument, 2 provided
+[3.112s] /usr/include/c++/13/array:94:12: note: candidate: ‘constexpr std::array<double, 9>::array(std::array<double, 9>&&)’
+[3.112s] /usr/include/c++/13/array:94:12: note:   candidate expects 1 argument, 2 provided
+[3.112s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp: In member function ‘void right_arm::RobotAdmittanceControl::passive_fine()’:
+[3.112s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:479:3: error: ‘screw_execute_status’ was not declared in this scope; did you mean ‘screw_execute_status_’?
+[3.112s]   479 |   screw_execute_status = 2; //初始化，肯定是未运行的；
+[3.112s]       |   ^~~~~~~~~~~~~~~~~~~~
+[3.112s]       |   screw_execute_status_
+[3.112s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:482:3: error: ‘screw_execute_result’ was not declared in this scope; did you mean ‘screw_execute_result_’?
+[3.112s]   482 |   screw_execute_result = 9; //不需要对其进行初始化，一开始他没有结果
+[3.112s]       |   ^~~~~~~~~~~~~~~~~~~~
+[3.112s]       |   screw_execute_result_
+[3.112s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:483:3: error: ‘real_robot_control’ has not been declared
+[3.112s]   483 |   real_robot_control::screwGoal goal;
+[3.112s]       |   ^~~~~~~~~~~~~~~~~~
+[3.112s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:535:13: error: ‘goal_msg’ was not declared in this scope
+[3.112s]   535 |             goal_msg.num = flag; // 0 直接运行后续装配过程 1 运行第一阶段，接着搜索 2 出现错误，回退
+[3.112s]       |             ^~~~~~~~
+[3.112s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:540:115: error: no match for ‘operator=’ (operand types are ‘rclcpp_action::Client<robot_msgs::action::Screw>::FeedbackCallback’ {aka ‘std::function<void(std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >, std::shared_ptr<const robot_msgs::action::Screw_Feedback_<std::allocator<void> > >)>’} and ‘std::_Bind_helper<false, void (right_arm::RobotAdmittanceControl::*)(const std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >&, const std::shared_ptr<robot_msgs::action::Screw_Feedback_<std::allocator<void> > >&), right_arm::RobotAdmittanceControl*, const std::_Placeholder<1>&, const std::_Placeholder<2>&>::type’)
+[3.112s]   540 |                 std::bind(&RobotAdmittanceControl::feedback_cb, this, std::placeholders::_1, std::placeholders::_2);
+[3.112s]       |                                                                                                                   ^
+[3.112s] In file included from /usr/include/c++/13/functional:59:
+[3.112s] /usr/include/c++/13/bits/std_function.h:531:9: note: candidate: ‘template<class _Functor> std::function<_Res(_ArgTypes ...)>::_Requires<std::function<_Res(_ArgTypes ...)>::_Callable<_Functor>, std::function<_Res(_ArgTypes ...)>&> std::function<_Res(_ArgTypes ...)>::operator=(_Functor&&) [with _Res = void; _ArgTypes = {std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >, std::shared_ptr<const robot_msgs::action::Screw_Feedback_<std::allocator<void> > >}]’
+[3.112s]   531 |         operator=(_Functor&& __f)
+[3.112s]       |         ^~~~~~~~
+[3.112s] /usr/include/c++/13/bits/std_function.h:531:9: note:   template argument deduction/substitution failed:
+[3.113s] In file included from /usr/include/c++/13/bits/stl_pair.h:60,
+[3.113s]                  from /usr/include/c++/13/bits/stl_algobase.h:64,
+[3.113s]                  from /usr/include/c++/13/vector:62,
+[3.113s]                  from /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:1:
+[3.113s] /usr/include/c++/13/type_traits: In substitution of ‘template<bool _Cond, class _Tp> using std::__enable_if_t = typename std::enable_if::type [with bool _Cond = false; _Tp = std::function<void(std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >, std::shared_ptr<const robot_msgs::action::Screw_Feedback_<std::allocator<void> > >)>&]’:
+[3.113s] /usr/include/c++/13/bits/std_function.h:353:8:   required by substitution of ‘template<class _Res, class ... _ArgTypes> template<class _Cond, class _Tp> using std::function<_Res(_ArgTypes ...)>::_Requires = std::__enable_if_t<_Cond::value, _Tp> [with _Cond = std::function<void(std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >, std::shared_ptr<const robot_msgs::action::Screw_Feedback_<std::allocator<void> > >)>::_Callable<std::_Bind<void (right_arm::RobotAdmittanceControl::*(right_arm::RobotAdmittanceControl*, std::_Placeholder<1>, std::_Placeholder<2>))(const std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >&, const std::shared_ptr<robot_msgs::action::Screw_Feedback_<std::allocator<void> > >&)>, std::_Bind<void (right_arm::RobotAdmittanceControl::*(right_arm::RobotAdmittanceControl*, std::_Placeholder<1>, std::_Placeholder<2>))(const std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >&, const std::shared_ptr<robot_msgs::action::Screw_Feedback_<std::allocator<void> > >&)>, std::__invoke_result<std::_Bind<void (right_arm::RobotAdmittanceControl::*(right_arm::RobotAdmittanceControl*, std::_Placeholder<1>, std::_Placeholder<2>))(const std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >&, const std::shared_ptr<robot_msgs::action::Screw_Feedback_<std::allocator<void> > >&)>&, std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >, std::shared_ptr<const robot_msgs::action::Screw_Feedback_<std::allocator<void> > > > >; _Tp = std::function<void(std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >, std::shared_ptr<const robot_msgs::action::Screw_Feedback_<std::allocator<void> > >)>&; _Res = void; _ArgTypes = {std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >, std::shared_ptr<const robot_msgs::action::Screw_Feedback_<std::allocator<void> > >}]’
+[3.113s] /usr/include/c++/13/bits/std_function.h:531:2:   required by substitution of ‘template<class _Functor> std::function<void(std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >, std::shared_ptr<const robot_msgs::action::Screw_Feedback_<std::allocator<void> > >)>::_Requires<std::function<void(std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >, std::shared_ptr<const robot_msgs::action::Screw_Feedback_<std::allocator<void> > >)>::_Callable<_Functor, typename std::enable_if<(! std::is_same<typename std::remove_cv<typename std::remove_reference<_Tp>::type>::type, std::function<void(std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >, std::shared_ptr<const robot_msgs::action::Screw_Feedback_<std::allocator<void> > >)> >::value), std::decay<_Callable> >::type::type, std::__invoke_result<typename std::enable_if<(! std::is_same<typename std::remove_cv<typename std::remove_reference<_Tp>::type>::type, std::function<void(std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >, std::shared_ptr<const robot_msgs::action::Screw_Feedback_<std::allocator<void> > >)> >::value), std::decay<_Callable> >::type::type&, std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >, std::shared_ptr<const robot_msgs::action::Screw_Feedback_<std::allocator<void> > > > >, std::function<void(std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >, std::shared_ptr<const robot_msgs::action::Screw_Feedback_<std::allocator<void> > >)>&> std::function<void(std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >, std::shared_ptr<const robot_msgs::action::Screw_Feedback_<std::allocator<void> > >)>::operator=(_Functor&&) [with _Functor = std::_Bind<void (right_arm::RobotAdmittanceControl::*(right_arm::RobotAdmittanceControl*, std::_Placeholder<1>, std::_Placeholder<2>))(const std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >&, const std::shared_ptr<robot_msgs::action::Screw_Feedback_<std::allocator<void> > >&)>]’
+[3.113s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:540:115:   required from here
+[3.113s] /usr/include/c++/13/type_traits:116:11: error: no type named ‘type’ in ‘struct std::enable_if<false, std::function<void(std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >, std::shared_ptr<const robot_msgs::action::Screw_Feedback_<std::allocator<void> > >)>&>’
+[3.113s]   116 |     using __enable_if_t = typename enable_if<_Cond, _Tp>::type;
+[3.114s]       |           ^~~~~~~~~~~~~
+[3.114s] /usr/include/c++/13/bits/std_function.h:541:9: note: candidate: ‘template<class _Functor> std::function<_Res(_ArgTypes ...)>& std::function<_Res(_ArgTypes ...)>::operator=(std::reference_wrapper<_Functor>) [with _Res = void; _ArgTypes = {std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >, std::shared_ptr<const robot_msgs::action::Screw_Feedback_<std::allocator<void> > >}]’
+[3.114s]   541 |         operator=(reference_wrapper<_Functor> __f) noexcept
+[3.114s]       |         ^~~~~~~~
+[3.114s] /usr/include/c++/13/bits/std_function.h:541:9: note:   template argument deduction/substitution failed:
+[3.114s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:540:115: note:   ‘std::_Bind<void (right_arm::RobotAdmittanceControl::*(right_arm::RobotAdmittanceControl*, std::_Placeholder<1>, std::_Placeholder<2>))(const std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >&, const std::shared_ptr<robot_msgs::action::Screw_Feedback_<std::allocator<void> > >&)>’ is not derived from ‘std::reference_wrapper<_Tp>’
+[3.114s]   540 |                 std::bind(&RobotAdmittanceControl::feedback_cb, this, std::placeholders::_1, std::placeholders::_2);
+[3.114s]       |                                                                                                                   ^
+[3.114s] /usr/include/c++/13/bits/std_function.h:469:7: note: candidate: ‘std::function<_Res(_ArgTypes ...)>& std::function<_Res(_ArgTypes ...)>::operator=(const std::function<_Res(_ArgTypes ...)>&) [with _Res = void; _ArgTypes = {std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >, std::shared_ptr<const robot_msgs::action::Screw_Feedback_<std::allocator<void> > >}]’
+[3.114s]   469 |       operator=(const function& __x)
+[3.115s]       |       ^~~~~~~~
+[3.115s] /usr/include/c++/13/bits/std_function.h:469:33: note:   no known conversion for argument 1 from ‘std::_Bind_helper<false, void (right_arm::RobotAdmittanceControl::*)(const std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >&, const std::shared_ptr<robot_msgs::action::Screw_Feedback_<std::allocator<void> > >&), right_arm::RobotAdmittanceControl*, const std::_Placeholder<1>&, const std::_Placeholder<2>&>::type’ to ‘const std::function<void(std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >, std::shared_ptr<const robot_msgs::action::Screw_Feedback_<std::allocator<void> > >)>&’
+[3.115s]   469 |       operator=(const function& __x)
+[3.115s]       |                 ~~~~~~~~~~~~~~~~^~~
+[3.115s] /usr/include/c++/13/bits/std_function.h:487:7: note: candidate: ‘std::function<_Res(_ArgTypes ...)>& std::function<_Res(_ArgTypes ...)>::operator=(std::function<_Res(_ArgTypes ...)>&&) [with _Res = void; _ArgTypes = {std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >, std::shared_ptr<const robot_msgs::action::Screw_Feedback_<std::allocator<void> > >}]’
+[3.115s]   487 |       operator=(function&& __x) noexcept
+[3.116s]       |       ^~~~~~~~
+[3.116s] /usr/include/c++/13/bits/std_function.h:487:28: note:   no known conversion for argument 1 from ‘std::_Bind_helper<false, void (right_arm::RobotAdmittanceControl::*)(const std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >&, const std::shared_ptr<robot_msgs::action::Screw_Feedback_<std::allocator<void> > >&), right_arm::RobotAdmittanceControl*, const std::_Placeholder<1>&, const std::_Placeholder<2>&>::type’ to ‘std::function<void(std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >, std::shared_ptr<const robot_msgs::action::Screw_Feedback_<std::allocator<void> > >)>&&’
+[3.116s]   487 |       operator=(function&& __x) noexcept
+[3.116s]       |                 ~~~~~~~~~~~^~~
+[3.116s] /usr/include/c++/13/bits/std_function.h:501:7: note: candidate: ‘std::function<_Res(_ArgTypes ...)>& std::function<_Res(_ArgTypes ...)>::operator=(std::nullptr_t) [with _Res = void; _ArgTypes = {std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >, std::shared_ptr<const robot_msgs::action::Screw_Feedback_<std::allocator<void> > >}; std::nullptr_t = std::nullptr_t]’
+[3.116s]   501 |       operator=(nullptr_t) noexcept
+[3.116s]       |       ^~~~~~~~
+[3.116s] /usr/include/c++/13/bits/std_function.h:501:17: note:   no known conversion for argument 1 from ‘std::_Bind_helper<false, void (right_arm::RobotAdmittanceControl::*)(const std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >&, const std::shared_ptr<robot_msgs::action::Screw_Feedback_<std::allocator<void> > >&), right_arm::RobotAdmittanceControl*, const std::_Placeholder<1>&, const std::_Placeholder<2>&>::type’ to ‘std::nullptr_t’
+[3.116s]   501 |       operator=(nullptr_t) noexcept
+[3.116s]       |                 ^~~~~~~~~
+[3.116s] /usr/include/c++/13/functional: In instantiation of ‘struct std::_Bind_check_arity<void (right_arm::RobotAdmittanceControl::*)(const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&), right_arm::RobotAdmittanceControl*, const std::_Placeholder<1>&, const std::_Placeholder<2>&>’:
+[3.116s] /usr/include/c++/13/functional:859:12:   required from ‘struct std::_Bind_helper<false, void (right_arm::RobotAdmittanceControl::*)(const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&), right_arm::RobotAdmittanceControl*, const std::_Placeholder<1>&, const std::_Placeholder<2>&>’
+[3.116s] /usr/include/c++/13/functional:881:5:   required by substitution of ‘template<class _Func, class ... _BoundArgs> typename std::_Bind_helper<std::__is_socketlike<_Func>::value, _Func, _BoundArgs ...>::type std::bind(_Func&&, _BoundArgs&& ...) [with _Func = void (right_arm::RobotAdmittanceControl::*)(const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&); _BoundArgs = {right_arm::RobotAdmittanceControl*, const std::_Placeholder<1>&, const std::_Placeholder<2>&}]’
+[3.116s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:542:26:   required from here
+[3.117s] /usr/include/c++/13/functional:847:21: error: static assertion failed: Wrong number of arguments for pointer-to-member
+[3.117s]   846 |       static_assert(_Varargs::value
+[3.117s]       |                               ~~~~~
+[3.117s]   847 |                     ? sizeof...(_BoundArgs) >= _Arity::value + 1
+[3.117s]       |                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[3.117s]   848 |                     : sizeof...(_BoundArgs) == _Arity::value + 1,
+[3.117s]       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[3.117s] /usr/include/c++/13/functional:847:21: note: ‘(false ? (3 >= (((long unsigned int)std::integral_constant<long unsigned int, 1>::value) + 1)) : (3 == (((long unsigned int)std::integral_constant<long unsigned int, 1>::value) + 1)))’ evaluates to false
+[3.117s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:542:111: error: no match for ‘operator=’ (operand types are ‘rclcpp_action::Client<robot_msgs::action::Screw>::ResultCallback’ {aka ‘std::function<void(const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&)>’} and ‘std::_Bind_helper<false, void (right_arm::RobotAdmittanceControl::*)(const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&), right_arm::RobotAdmittanceControl*, const std::_Placeholder<1>&, const std::_Placeholder<2>&>::type’)
+[3.117s]   542 |                 std::bind(&RobotAdmittanceControl::done_cb, this, std::placeholders::_1, std::placeholders::_2);
+[3.117s]       |                                                                                                               ^
+[3.117s] /usr/include/c++/13/bits/std_function.h:531:9: note: candidate: ‘template<class _Functor> std::function<_Res(_ArgTypes ...)>::_Requires<std::function<_Res(_ArgTypes ...)>::_Callable<_Functor>, std::function<_Res(_ArgTypes ...)>&> std::function<_Res(_ArgTypes ...)>::operator=(_Functor&&) [with _Res = void; _ArgTypes = {const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&}]’
+[3.117s]   531 |         operator=(_Functor&& __f)
+[3.117s]       |         ^~~~~~~~
+[3.117s] /usr/include/c++/13/bits/std_function.h:531:9: note:   template argument deduction/substitution failed:
+[3.117s] /usr/include/c++/13/type_traits: In substitution of ‘template<bool _Cond, class _Tp> using std::__enable_if_t = typename std::enable_if::type [with bool _Cond = false; _Tp = std::function<void(const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&)>&]’:
+[3.117s] /usr/include/c++/13/bits/std_function.h:353:8:   required by substitution of ‘template<class _Res, class ... _ArgTypes> template<class _Cond, class _Tp> using std::function<_Res(_ArgTypes ...)>::_Requires = std::__enable_if_t<_Cond::value, _Tp> [with _Cond = std::function<void(const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&)>::_Callable<std::_Bind<void (right_arm::RobotAdmittanceControl::*(right_arm::RobotAdmittanceControl*, std::_Placeholder<1>, std::_Placeholder<2>))(const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&)>, std::_Bind<void (right_arm::RobotAdmittanceControl::*(right_arm::RobotAdmittanceControl*, std::_Placeholder<1>, std::_Placeholder<2>))(const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&)>, std::__invoke_result<std::_Bind<void (right_arm::RobotAdmittanceControl::*(right_arm::RobotAdmittanceControl*, std::_Placeholder<1>, std::_Placeholder<2>))(const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&)>&, const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&> >; _Tp = std::function<void(const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&)>&; _Res = void; _ArgTypes = {const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&}]’
+[3.117s] /usr/include/c++/13/bits/std_function.h:531:2:   required by substitution of ‘template<class _Functor> std::function<void(const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&)>::_Requires<std::function<void(const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&)>::_Callable<_Functor, typename std::enable_if<(! std::is_same<typename std::remove_cv<typename std::remove_reference<_Tp>::type>::type, std::function<void(const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&)> >::value), std::decay<_Callable> >::type::type, std::__invoke_result<typename std::enable_if<(! std::is_same<typename std::remove_cv<typename std::remove_reference<_Tp>::type>::type, std::function<void(const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&)> >::value), std::decay<_Callable> >::type::type&, const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&> >, std::function<void(const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&)>&> std::function<void(const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&)>::operator=(_Functor&&) [with _Functor = std::_Bind<void (right_arm::RobotAdmittanceControl::*(right_arm::RobotAdmittanceControl*, std::_Placeholder<1>, std::_Placeholder<2>))(const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&)>]’
+[3.117s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:542:111:   required from here
+[3.117s] /usr/include/c++/13/type_traits:116:11: error: no type named ‘type’ in ‘struct std::enable_if<false, std::function<void(const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&)>&>’
+[3.117s]   116 |     using __enable_if_t = typename enable_if<_Cond, _Tp>::type;
+[3.117s]       |           ^~~~~~~~~~~~~
+[3.117s] /usr/include/c++/13/bits/std_function.h:541:9: note: candidate: ‘template<class _Functor> std::function<_Res(_ArgTypes ...)>& std::function<_Res(_ArgTypes ...)>::operator=(std::reference_wrapper<_Functor>) [with _Res = void; _ArgTypes = {const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&}]’
+[3.117s]   541 |         operator=(reference_wrapper<_Functor> __f) noexcept
+[3.117s]       |         ^~~~~~~~
+[3.117s] /usr/include/c++/13/bits/std_function.h:541:9: note:   template argument deduction/substitution failed:
+[3.117s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:542:111: note:   ‘std::_Bind<void (right_arm::RobotAdmittanceControl::*(right_arm::RobotAdmittanceControl*, std::_Placeholder<1>, std::_Placeholder<2>))(const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&)>’ is not derived from ‘std::reference_wrapper<_Tp>’
+[3.117s]   542 |                 std::bind(&RobotAdmittanceControl::done_cb, this, std::placeholders::_1, std::placeholders::_2);
+[3.117s]       |                                                                                                               ^
+[3.117s] /usr/include/c++/13/bits/std_function.h:469:7: note: candidate: ‘std::function<_Res(_ArgTypes ...)>& std::function<_Res(_ArgTypes ...)>::operator=(const std::function<_Res(_ArgTypes ...)>&) [with _Res = void; _ArgTypes = {const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&}]’
+[3.117s]   469 |       operator=(const function& __x)
+[3.117s]       |       ^~~~~~~~
+[3.117s] /usr/include/c++/13/bits/std_function.h:469:33: note:   no known conversion for argument 1 from ‘std::_Bind_helper<false, void (right_arm::RobotAdmittanceControl::*)(const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&), right_arm::RobotAdmittanceControl*, const std::_Placeholder<1>&, const std::_Placeholder<2>&>::type’ to ‘const std::function<void(const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&)>&’
+[3.117s]   469 |       operator=(const function& __x)
+[3.117s]       |                 ~~~~~~~~~~~~~~~~^~~
+[3.117s] /usr/include/c++/13/bits/std_function.h:487:7: note: candidate: ‘std::function<_Res(_ArgTypes ...)>& std::function<_Res(_ArgTypes ...)>::operator=(std::function<_Res(_ArgTypes ...)>&&) [with _Res = void; _ArgTypes = {const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&}]’
+[3.117s]   487 |       operator=(function&& __x) noexcept
+[3.117s]       |       ^~~~~~~~
+[3.117s] /usr/include/c++/13/bits/std_function.h:487:28: note:   no known conversion for argument 1 from ‘std::_Bind_helper<false, void (right_arm::RobotAdmittanceControl::*)(const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&), right_arm::RobotAdmittanceControl*, const std::_Placeholder<1>&, const std::_Placeholder<2>&>::type’ to ‘std::function<void(const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&)>&&’
+[3.117s]   487 |       operator=(function&& __x) noexcept
+[3.117s]       |                 ~~~~~~~~~~~^~~
+[3.117s] /usr/include/c++/13/bits/std_function.h:501:7: note: candidate: ‘std::function<_Res(_ArgTypes ...)>& std::function<_Res(_ArgTypes ...)>::operator=(std::nullptr_t) [with _Res = void; _ArgTypes = {const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&}; std::nullptr_t = std::nullptr_t]’
+[3.117s]   501 |       operator=(nullptr_t) noexcept
+[3.117s]       |       ^~~~~~~~
+[3.117s] /usr/include/c++/13/bits/std_function.h:501:17: note:   no known conversion for argument 1 from ‘std::_Bind_helper<false, void (right_arm::RobotAdmittanceControl::*)(const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&), right_arm::RobotAdmittanceControl*, const std::_Placeholder<1>&, const std::_Placeholder<2>&>::type’ to ‘std::nullptr_t’
+[3.118s]   501 |       operator=(nullptr_t) noexcept
+[3.118s]       |                 ^~~~~~~~~
+[3.118s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp: In member function ‘void right_arm::RobotAdmittanceControl::grasp_obj()’:
+[3.118s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:614:5: error: ‘goal_msg’ was not declared in this scope
+[3.118s]   614 |     goal_msg.num = 5;
+[3.118s]       |     ^~~~~~~~
+[3.118s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:619:107: error: no match for ‘operator=’ (operand types are ‘rclcpp_action::Client<robot_msgs::action::Screw>::FeedbackCallback’ {aka ‘std::function<void(std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >, std::shared_ptr<const robot_msgs::action::Screw_Feedback_<std::allocator<void> > >)>’} and ‘std::_Bind_helper<false, void (right_arm::RobotAdmittanceControl::*)(const std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >&, const std::shared_ptr<robot_msgs::action::Screw_Feedback_<std::allocator<void> > >&), right_arm::RobotAdmittanceControl*, const std::_Placeholder<1>&, const std::_Placeholder<2>&>::type’)
+[3.118s]   619 |         std::bind(&RobotAdmittanceControl::feedback_cb, this, std::placeholders::_1, std::placeholders::_2);
+[3.118s]       |                                                                                                           ^
+[3.118s] /usr/include/c++/13/bits/std_function.h:531:9: note: candidate: ‘template<class _Functor> std::function<_Res(_ArgTypes ...)>::_Requires<std::function<_Res(_ArgTypes ...)>::_Callable<_Functor>, std::function<_Res(_ArgTypes ...)>&> std::function<_Res(_ArgTypes ...)>::operator=(_Functor&&) [with _Res = void; _ArgTypes = {std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >, std::shared_ptr<const robot_msgs::action::Screw_Feedback_<std::allocator<void> > >}]’
+[3.118s]   531 |         operator=(_Functor&& __f)
+[3.118s]       |         ^~~~~~~~
+[3.118s] /usr/include/c++/13/bits/std_function.h:531:9: note:   template argument deduction/substitution failed:
+[3.118s] /usr/include/c++/13/bits/std_function.h:541:9: note: candidate: ‘template<class _Functor> std::function<_Res(_ArgTypes ...)>& std::function<_Res(_ArgTypes ...)>::operator=(std::reference_wrapper<_Functor>) [with _Res = void; _ArgTypes = {std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >, std::shared_ptr<const robot_msgs::action::Screw_Feedback_<std::allocator<void> > >}]’
+[3.118s]   541 |         operator=(reference_wrapper<_Functor> __f) noexcept
+[3.118s]       |         ^~~~~~~~
+[3.118s] /usr/include/c++/13/bits/std_function.h:541:9: note:   template argument deduction/substitution failed:
+[3.118s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:619:107: note:   ‘std::_Bind<void (right_arm::RobotAdmittanceControl::*(right_arm::RobotAdmittanceControl*, std::_Placeholder<1>, std::_Placeholder<2>))(const std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >&, const std::shared_ptr<robot_msgs::action::Screw_Feedback_<std::allocator<void> > >&)>’ is not derived from ‘std::reference_wrapper<_Tp>’
+[3.118s]   619 |         std::bind(&RobotAdmittanceControl::feedback_cb, this, std::placeholders::_1, std::placeholders::_2);
+[3.118s]       |                                                                                                           ^
+[3.118s] /usr/include/c++/13/bits/std_function.h:469:7: note: candidate: ‘std::function<_Res(_ArgTypes ...)>& std::function<_Res(_ArgTypes ...)>::operator=(const std::function<_Res(_ArgTypes ...)>&) [with _Res = void; _ArgTypes = {std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >, std::shared_ptr<const robot_msgs::action::Screw_Feedback_<std::allocator<void> > >}]’
+[3.118s]   469 |       operator=(const function& __x)
+[3.118s]       |       ^~~~~~~~
+[3.118s] /usr/include/c++/13/bits/std_function.h:469:33: note:   no known conversion for argument 1 from ‘std::_Bind_helper<false, void (right_arm::RobotAdmittanceControl::*)(const std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >&, const std::shared_ptr<robot_msgs::action::Screw_Feedback_<std::allocator<void> > >&), right_arm::RobotAdmittanceControl*, const std::_Placeholder<1>&, const std::_Placeholder<2>&>::type’ to ‘const std::function<void(std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >, std::shared_ptr<const robot_msgs::action::Screw_Feedback_<std::allocator<void> > >)>&’
+[3.118s]   469 |       operator=(const function& __x)
+[3.118s]       |                 ~~~~~~~~~~~~~~~~^~~
+[3.118s] /usr/include/c++/13/bits/std_function.h:487:7: note: candidate: ‘std::function<_Res(_ArgTypes ...)>& std::function<_Res(_ArgTypes ...)>::operator=(std::function<_Res(_ArgTypes ...)>&&) [with _Res = void; _ArgTypes = {std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >, std::shared_ptr<const robot_msgs::action::Screw_Feedback_<std::allocator<void> > >}]’
+[3.118s]   487 |       operator=(function&& __x) noexcept
+[3.118s]       |       ^~~~~~~~
+[3.118s] /usr/include/c++/13/bits/std_function.h:487:28: note:   no known conversion for argument 1 from ‘std::_Bind_helper<false, void (right_arm::RobotAdmittanceControl::*)(const std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >&, const std::shared_ptr<robot_msgs::action::Screw_Feedback_<std::allocator<void> > >&), right_arm::RobotAdmittanceControl*, const std::_Placeholder<1>&, const std::_Placeholder<2>&>::type’ to ‘std::function<void(std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >, std::shared_ptr<const robot_msgs::action::Screw_Feedback_<std::allocator<void> > >)>&&’
+[3.118s]   487 |       operator=(function&& __x) noexcept
+[3.118s]       |                 ~~~~~~~~~~~^~~
+[3.118s] /usr/include/c++/13/bits/std_function.h:501:7: note: candidate: ‘std::function<_Res(_ArgTypes ...)>& std::function<_Res(_ArgTypes ...)>::operator=(std::nullptr_t) [with _Res = void; _ArgTypes = {std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >, std::shared_ptr<const robot_msgs::action::Screw_Feedback_<std::allocator<void> > >}; std::nullptr_t = std::nullptr_t]’
+[3.118s]   501 |       operator=(nullptr_t) noexcept
+[3.118s]       |       ^~~~~~~~
+[3.118s] /usr/include/c++/13/bits/std_function.h:501:17: note:   no known conversion for argument 1 from ‘std::_Bind_helper<false, void (right_arm::RobotAdmittanceControl::*)(const std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >&, const std::shared_ptr<robot_msgs::action::Screw_Feedback_<std::allocator<void> > >&), right_arm::RobotAdmittanceControl*, const std::_Placeholder<1>&, const std::_Placeholder<2>&>::type’ to ‘std::nullptr_t’
+[3.118s]   501 |       operator=(nullptr_t) noexcept
+[3.118s]       |                 ^~~~~~~~~
+[3.118s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:621:103: error: no match for ‘operator=’ (operand types are ‘rclcpp_action::Client<robot_msgs::action::Screw>::ResultCallback’ {aka ‘std::function<void(const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&)>’} and ‘std::_Bind_helper<false, void (right_arm::RobotAdmittanceControl::*)(const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&), right_arm::RobotAdmittanceControl*, const std::_Placeholder<1>&, const std::_Placeholder<2>&>::type’)
+[3.118s]   621 |         std::bind(&RobotAdmittanceControl::done_cb, this, std::placeholders::_1, std::placeholders::_2);
+[3.118s]       |                                                                                                       ^
+[3.118s] /usr/include/c++/13/bits/std_function.h:531:9: note: candidate: ‘template<class _Functor> std::function<_Res(_ArgTypes ...)>::_Requires<std::function<_Res(_ArgTypes ...)>::_Callable<_Functor>, std::function<_Res(_ArgTypes ...)>&> std::function<_Res(_ArgTypes ...)>::operator=(_Functor&&) [with _Res = void; _ArgTypes = {const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&}]’
+[3.118s]   531 |         operator=(_Functor&& __f)
+[3.118s]       |         ^~~~~~~~
+[3.118s] /usr/include/c++/13/bits/std_function.h:531:9: note:   template argument deduction/substitution failed:
+[3.118s] /usr/include/c++/13/bits/std_function.h:541:9: note: candidate: ‘template<class _Functor> std::function<_Res(_ArgTypes ...)>& std::function<_Res(_ArgTypes ...)>::operator=(std::reference_wrapper<_Functor>) [with _Res = void; _ArgTypes = {const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&}]’
+[3.119s]   541 |         operator=(reference_wrapper<_Functor> __f) noexcept
+[3.119s]       |         ^~~~~~~~
+[3.119s] /usr/include/c++/13/bits/std_function.h:541:9: note:   template argument deduction/substitution failed:
+[3.119s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:621:103: note:   ‘std::_Bind<void (right_arm::RobotAdmittanceControl::*(right_arm::RobotAdmittanceControl*, std::_Placeholder<1>, std::_Placeholder<2>))(const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&)>’ is not derived from ‘std::reference_wrapper<_Tp>’
+[3.119s]   621 |         std::bind(&RobotAdmittanceControl::done_cb, this, std::placeholders::_1, std::placeholders::_2);
+[3.119s]       |                                                                                                       ^
+[3.119s] /usr/include/c++/13/bits/std_function.h:469:7: note: candidate: ‘std::function<_Res(_ArgTypes ...)>& std::function<_Res(_ArgTypes ...)>::operator=(const std::function<_Res(_ArgTypes ...)>&) [with _Res = void; _ArgTypes = {const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&}]’
+[3.119s]   469 |       operator=(const function& __x)
+[3.119s]       |       ^~~~~~~~
+[3.119s] /usr/include/c++/13/bits/std_function.h:469:33: note:   no known conversion for argument 1 from ‘std::_Bind_helper<false, void (right_arm::RobotAdmittanceControl::*)(const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&), right_arm::RobotAdmittanceControl*, const std::_Placeholder<1>&, const std::_Placeholder<2>&>::type’ to ‘const std::function<void(const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&)>&’
+[3.119s]   469 |       operator=(const function& __x)
+[3.119s]       |                 ~~~~~~~~~~~~~~~~^~~
+[3.119s] /usr/include/c++/13/bits/std_function.h:487:7: note: candidate: ‘std::function<_Res(_ArgTypes ...)>& std::function<_Res(_ArgTypes ...)>::operator=(std::function<_Res(_ArgTypes ...)>&&) [with _Res = void; _ArgTypes = {const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&}]’
+[3.119s]   487 |       operator=(function&& __x) noexcept
+[3.119s]       |       ^~~~~~~~
+[3.119s] /usr/include/c++/13/bits/std_function.h:487:28: note:   no known conversion for argument 1 from ‘std::_Bind_helper<false, void (right_arm::RobotAdmittanceControl::*)(const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&), right_arm::RobotAdmittanceControl*, const std::_Placeholder<1>&, const std::_Placeholder<2>&>::type’ to ‘std::function<void(const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&)>&&’
+[3.119s]   487 |       operator=(function&& __x) noexcept
+[3.119s]       |                 ~~~~~~~~~~~^~~
+[3.119s] /usr/include/c++/13/bits/std_function.h:501:7: note: candidate: ‘std::function<_Res(_ArgTypes ...)>& std::function<_Res(_ArgTypes ...)>::operator=(std::nullptr_t) [with _Res = void; _ArgTypes = {const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&}; std::nullptr_t = std::nullptr_t]’
+[3.119s]   501 |       operator=(nullptr_t) noexcept
+[3.119s]       |       ^~~~~~~~
+[3.119s] /usr/include/c++/13/bits/std_function.h:501:17: note:   no known conversion for argument 1 from ‘std::_Bind_helper<false, void (right_arm::RobotAdmittanceControl::*)(const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&), right_arm::RobotAdmittanceControl*, const std::_Placeholder<1>&, const std::_Placeholder<2>&>::type’ to ‘std::nullptr_t’
+[3.119s]   501 |       operator=(nullptr_t) noexcept
+[3.119s]       |                 ^~~~~~~~~
+[3.119s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp: In member function ‘void right_arm::RobotAdmittanceControl::robot_finish()’:
+[3.119s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:647:5: error: ‘goal_msg’ was not declared in this scope
+[3.119s]   647 |     goal_msg.num = 4;
+[3.119s]       |     ^~~~~~~~
+[3.119s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:652:107: error: no match for ‘operator=’ (operand types are ‘rclcpp_action::Client<robot_msgs::action::Screw>::FeedbackCallback’ {aka ‘std::function<void(std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >, std::shared_ptr<const robot_msgs::action::Screw_Feedback_<std::allocator<void> > >)>’} and ‘std::_Bind_helper<false, void (right_arm::RobotAdmittanceControl::*)(const std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >&, const std::shared_ptr<robot_msgs::action::Screw_Feedback_<std::allocator<void> > >&), right_arm::RobotAdmittanceControl*, const std::_Placeholder<1>&, const std::_Placeholder<2>&>::type’)
+[3.119s]   652 |         std::bind(&RobotAdmittanceControl::feedback_cb, this, std::placeholders::_1, std::placeholders::_2);
+[3.119s]       |                                                                                                           ^
+[3.119s] /usr/include/c++/13/bits/std_function.h:531:9: note: candidate: ‘template<class _Functor> std::function<_Res(_ArgTypes ...)>::_Requires<std::function<_Res(_ArgTypes ...)>::_Callable<_Functor>, std::function<_Res(_ArgTypes ...)>&> std::function<_Res(_ArgTypes ...)>::operator=(_Functor&&) [with _Res = void; _ArgTypes = {std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >, std::shared_ptr<const robot_msgs::action::Screw_Feedback_<std::allocator<void> > >}]’
+[3.119s]   531 |         operator=(_Functor&& __f)
+[3.119s]       |         ^~~~~~~~
+[3.119s] /usr/include/c++/13/bits/std_function.h:531:9: note:   template argument deduction/substitution failed:
+[3.119s] /usr/include/c++/13/bits/std_function.h:541:9: note: candidate: ‘template<class _Functor> std::function<_Res(_ArgTypes ...)>& std::function<_Res(_ArgTypes ...)>::operator=(std::reference_wrapper<_Functor>) [with _Res = void; _ArgTypes = {std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >, std::shared_ptr<const robot_msgs::action::Screw_Feedback_<std::allocator<void> > >}]’
+[3.119s]   541 |         operator=(reference_wrapper<_Functor> __f) noexcept
+[3.119s]       |         ^~~~~~~~
+[3.119s] /usr/include/c++/13/bits/std_function.h:541:9: note:   template argument deduction/substitution failed:
+[3.119s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:652:107: note:   ‘std::_Bind<void (right_arm::RobotAdmittanceControl::*(right_arm::RobotAdmittanceControl*, std::_Placeholder<1>, std::_Placeholder<2>))(const std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >&, const std::shared_ptr<robot_msgs::action::Screw_Feedback_<std::allocator<void> > >&)>’ is not derived from ‘std::reference_wrapper<_Tp>’
+[3.119s]   652 |         std::bind(&RobotAdmittanceControl::feedback_cb, this, std::placeholders::_1, std::placeholders::_2);
+[3.119s]       |                                                                                                           ^
+[3.119s] /usr/include/c++/13/bits/std_function.h:469:7: note: candidate: ‘std::function<_Res(_ArgTypes ...)>& std::function<_Res(_ArgTypes ...)>::operator=(const std::function<_Res(_ArgTypes ...)>&) [with _Res = void; _ArgTypes = {std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >, std::shared_ptr<const robot_msgs::action::Screw_Feedback_<std::allocator<void> > >}]’
+[3.119s]   469 |       operator=(const function& __x)
+[3.119s]       |       ^~~~~~~~
+[3.120s] /usr/include/c++/13/bits/std_function.h:469:33: note:   no known conversion for argument 1 from ‘std::_Bind_helper<false, void (right_arm::RobotAdmittanceControl::*)(const std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >&, const std::shared_ptr<robot_msgs::action::Screw_Feedback_<std::allocator<void> > >&), right_arm::RobotAdmittanceControl*, const std::_Placeholder<1>&, const std::_Placeholder<2>&>::type’ to ‘const std::function<void(std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >, std::shared_ptr<const robot_msgs::action::Screw_Feedback_<std::allocator<void> > >)>&’
+[3.120s]   469 |       operator=(const function& __x)
+[3.120s]       |                 ~~~~~~~~~~~~~~~~^~~
+[3.120s] /usr/include/c++/13/bits/std_function.h:487:7: note: candidate: ‘std::function<_Res(_ArgTypes ...)>& std::function<_Res(_ArgTypes ...)>::operator=(std::function<_Res(_ArgTypes ...)>&&) [with _Res = void; _ArgTypes = {std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >, std::shared_ptr<const robot_msgs::action::Screw_Feedback_<std::allocator<void> > >}]’
+[3.120s]   487 |       operator=(function&& __x) noexcept
+[3.120s]       |       ^~~~~~~~
+[3.120s] /usr/include/c++/13/bits/std_function.h:487:28: note:   no known conversion for argument 1 from ‘std::_Bind_helper<false, void (right_arm::RobotAdmittanceControl::*)(const std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >&, const std::shared_ptr<robot_msgs::action::Screw_Feedback_<std::allocator<void> > >&), right_arm::RobotAdmittanceControl*, const std::_Placeholder<1>&, const std::_Placeholder<2>&>::type’ to ‘std::function<void(std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >, std::shared_ptr<const robot_msgs::action::Screw_Feedback_<std::allocator<void> > >)>&&’
+[3.120s]   487 |       operator=(function&& __x) noexcept
+[3.120s]       |                 ~~~~~~~~~~~^~~
+[3.120s] /usr/include/c++/13/bits/std_function.h:501:7: note: candidate: ‘std::function<_Res(_ArgTypes ...)>& std::function<_Res(_ArgTypes ...)>::operator=(std::nullptr_t) [with _Res = void; _ArgTypes = {std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >, std::shared_ptr<const robot_msgs::action::Screw_Feedback_<std::allocator<void> > >}; std::nullptr_t = std::nullptr_t]’
+[3.120s]   501 |       operator=(nullptr_t) noexcept
+[3.120s]       |       ^~~~~~~~
+[3.120s] /usr/include/c++/13/bits/std_function.h:501:17: note:   no known conversion for argument 1 from ‘std::_Bind_helper<false, void (right_arm::RobotAdmittanceControl::*)(const std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >&, const std::shared_ptr<robot_msgs::action::Screw_Feedback_<std::allocator<void> > >&), right_arm::RobotAdmittanceControl*, const std::_Placeholder<1>&, const std::_Placeholder<2>&>::type’ to ‘std::nullptr_t’
+[3.120s]   501 |       operator=(nullptr_t) noexcept
+[3.120s]       |                 ^~~~~~~~~
+[3.120s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:654:103: error: no match for ‘operator=’ (operand types are ‘rclcpp_action::Client<robot_msgs::action::Screw>::ResultCallback’ {aka ‘std::function<void(const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&)>’} and ‘std::_Bind_helper<false, void (right_arm::RobotAdmittanceControl::*)(const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&), right_arm::RobotAdmittanceControl*, const std::_Placeholder<1>&, const std::_Placeholder<2>&>::type’)
+[3.120s]   654 |         std::bind(&RobotAdmittanceControl::done_cb, this, std::placeholders::_1, std::placeholders::_2);
+[3.120s]       |                                                                                                       ^
+[3.120s] /usr/include/c++/13/bits/std_function.h:531:9: note: candidate: ‘template<class _Functor> std::function<_Res(_ArgTypes ...)>::_Requires<std::function<_Res(_ArgTypes ...)>::_Callable<_Functor>, std::function<_Res(_ArgTypes ...)>&> std::function<_Res(_ArgTypes ...)>::operator=(_Functor&&) [with _Res = void; _ArgTypes = {const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&}]’
+[3.120s]   531 |         operator=(_Functor&& __f)
+[3.120s]       |         ^~~~~~~~
+[3.120s] /usr/include/c++/13/bits/std_function.h:531:9: note:   template argument deduction/substitution failed:
+[3.120s] /usr/include/c++/13/bits/std_function.h:541:9: note: candidate: ‘template<class _Functor> std::function<_Res(_ArgTypes ...)>& std::function<_Res(_ArgTypes ...)>::operator=(std::reference_wrapper<_Functor>) [with _Res = void; _ArgTypes = {const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&}]’
+[3.120s]   541 |         operator=(reference_wrapper<_Functor> __f) noexcept
+[3.120s]       |         ^~~~~~~~
+[3.120s] /usr/include/c++/13/bits/std_function.h:541:9: note:   template argument deduction/substitution failed:
+[3.120s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:654:103: note:   ‘std::_Bind<void (right_arm::RobotAdmittanceControl::*(right_arm::RobotAdmittanceControl*, std::_Placeholder<1>, std::_Placeholder<2>))(const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&)>’ is not derived from ‘std::reference_wrapper<_Tp>’
+[3.120s]   654 |         std::bind(&RobotAdmittanceControl::done_cb, this, std::placeholders::_1, std::placeholders::_2);
+[3.120s]       |                                                                                                       ^
+[3.120s] /usr/include/c++/13/bits/std_function.h:469:7: note: candidate: ‘std::function<_Res(_ArgTypes ...)>& std::function<_Res(_ArgTypes ...)>::operator=(const std::function<_Res(_ArgTypes ...)>&) [with _Res = void; _ArgTypes = {const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&}]’
+[3.120s]   469 |       operator=(const function& __x)
+[3.120s]       |       ^~~~~~~~
+[3.120s] /usr/include/c++/13/bits/std_function.h:469:33: note:   no known conversion for argument 1 from ‘std::_Bind_helper<false, void (right_arm::RobotAdmittanceControl::*)(const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&), right_arm::RobotAdmittanceControl*, const std::_Placeholder<1>&, const std::_Placeholder<2>&>::type’ to ‘const std::function<void(const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&)>&’
+[3.120s]   469 |       operator=(const function& __x)
+[3.120s]       |                 ~~~~~~~~~~~~~~~~^~~
+[3.120s] /usr/include/c++/13/bits/std_function.h:487:7: note: candidate: ‘std::function<_Res(_ArgTypes ...)>& std::function<_Res(_ArgTypes ...)>::operator=(std::function<_Res(_ArgTypes ...)>&&) [with _Res = void; _ArgTypes = {const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&}]’
+[3.120s]   487 |       operator=(function&& __x) noexcept
+[3.120s]       |       ^~~~~~~~
+[3.120s] /usr/include/c++/13/bits/std_function.h:487:28: note:   no known conversion for argument 1 from ‘std::_Bind_helper<false, void (right_arm::RobotAdmittanceControl::*)(const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&), right_arm::RobotAdmittanceControl*, const std::_Placeholder<1>&, const std::_Placeholder<2>&>::type’ to ‘std::function<void(const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&)>&&’
+[3.120s]   487 |       operator=(function&& __x) noexcept
+[3.120s]       |                 ~~~~~~~~~~~^~~
+[3.120s] /usr/include/c++/13/bits/std_function.h:501:7: note: candidate: ‘std::function<_Res(_ArgTypes ...)>& std::function<_Res(_ArgTypes ...)>::operator=(std::nullptr_t) [with _Res = void; _ArgTypes = {const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&}; std::nullptr_t = std::nullptr_t]’
+[3.120s]   501 |       operator=(nullptr_t) noexcept
+[3.120s]       |       ^~~~~~~~
+[3.120s] /usr/include/c++/13/bits/std_function.h:501:17: note:   no known conversion for argument 1 from ‘std::_Bind_helper<false, void (right_arm::RobotAdmittanceControl::*)(const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&), right_arm::RobotAdmittanceControl*, const std::_Placeholder<1>&, const std::_Placeholder<2>&>::type’ to ‘std::nullptr_t’
+[3.121s]   501 |       operator=(nullptr_t) noexcept
+[3.121s]       |                 ^~~~~~~~~
+[3.121s] make[2]: *** [CMakeFiles/right_arm_control.dir/build.make:63：CMakeFiles/right_arm_control.dir/src/right_arm_control.cpp.o] 错误 1
+[3.121s] make[1]: *** [CMakeFiles/Makefile2:113：CMakeFiles/right_arm_control.dir/all] 错误 2
+[3.121s] make: *** [Makefile:141：all] 错误 2
+[3.121s] Invoked command in '/home/yanji/robot_screwing/build/screw_robot_control' returned '2': CMAKE_PREFIX_PATH=/home/yanji/robot_screwing/install/robot_msgs:/home/yanji/robot_screwing/install/screw_robot_control:/home/yanji/robot_screwing/install/real_robot:/home/yanji/robot_screwing/install/mj_sim:/opt/ros/foxy CONDA_PROMPT_MODIFIER=(screwrobot) LD_LIBRARY_PATH=/home/yanji/robot_screwing/install/robot_msgs/lib:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/home/yanji/robot_screwing/install/screw_robot_control/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/local/cuda/lib64:/usr/local/cuda/lib64 /usr/bin/cmake --build /home/yanji/robot_screwing/build/screw_robot_control -- -j24 -l24

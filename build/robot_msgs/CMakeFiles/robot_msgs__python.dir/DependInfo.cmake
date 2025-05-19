@@ -4,10 +4,13 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
+  "/home/yanji/robot_screwing/build/robot_msgs/rosidl_generator_py/robot_msgs/action/_screw_s.c" "/home/yanji/robot_screwing/build/robot_msgs/CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/action/_screw_s.c.o"
   "/home/yanji/robot_screwing/build/robot_msgs/rosidl_generator_py/robot_msgs/msg/_control_command_s.c" "/home/yanji/robot_screwing/build/robot_msgs/CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/msg/_control_command_s.c.o"
+  "/home/yanji/robot_screwing/build/robot_msgs/rosidl_generator_py/robot_msgs/msg/_current_pub_s.c" "/home/yanji/robot_screwing/build/robot_msgs/CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/msg/_current_pub_s.c.o"
   "/home/yanji/robot_screwing/build/robot_msgs/rosidl_generator_py/robot_msgs/msg/_ft_pub_s.c" "/home/yanji/robot_screwing/build/robot_msgs/CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/msg/_ft_pub_s.c.o"
   "/home/yanji/robot_screwing/build/robot_msgs/rosidl_generator_py/robot_msgs/msg/_ref_status_s.c" "/home/yanji/robot_screwing/build/robot_msgs/CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/msg/_ref_status_s.c.o"
   "/home/yanji/robot_screwing/build/robot_msgs/rosidl_generator_py/robot_msgs/msg/_robot_status_s.c" "/home/yanji/robot_screwing/build/robot_msgs/CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/msg/_robot_status_s.c.o"
+  "/home/yanji/robot_screwing/build/robot_msgs/rosidl_generator_py/robot_msgs/msg/_width_pub_s.c" "/home/yanji/robot_screwing/build/robot_msgs/CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/msg/_width_pub_s.c.o"
   "/home/yanji/robot_screwing/build/robot_msgs/rosidl_generator_py/robot_msgs/srv/_start_pose_s.c" "/home/yanji/robot_screwing/build/robot_msgs/CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/srv/_start_pose_s.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
@@ -23,7 +26,8 @@ set(CMAKE_TARGET_DEFINITIONS_C
 set(CMAKE_C_TARGET_INCLUDE_PATH
   "rosidl_generator_c"
   "rosidl_generator_py"
-  "/usr/include/python3.8"
+  "/home/yanji/anaconda3/envs/screwrobot/include/python3.8"
+  "/home/yanji/anaconda3/envs/screwrobot/lib/python3.8/site-packages/numpy/core/include"
   "rosidl_typesupport_c"
   "/opt/ros/foxy/include"
   )

@@ -1,0 +1,6 @@
+[ 20%] Built target SERVO_MOTOR
+[ 40%] Built target SCREWING_TOOL
+[35m[1mScanning dependencies of target right_arm_control_test[0m
+[ 60%] Built target task_control_screw
+[ 80%] Built target right_arm_control
+[ 90%] [32mBuilding CXX object CMakeFiles/right_arm_control_test.dir/src/right_arm_control_test.cpp.o[0m

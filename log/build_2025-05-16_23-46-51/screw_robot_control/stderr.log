@@ -1,0 +1,8 @@
+/home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp: In member function ‘void right_arm::RobotAdmittanceControl::updata_rotation(const Eigen::Matrix3d&, const Eigen::Vector3d&, Eigen::Matrix3d&)’:
+/home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:180:106: warning: unused parameter ‘angluar_disp’ [-Wunused-parameter]
+  180 | void RobotAdmittanceControl::updata_rotation(const Eigen::Matrix3d& current_rotm, const Eigen::Vector3d& angluar_disp, Eigen::Matrix3d& new_orientation){
+      |                                                                                   ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~
+/home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control_test.cpp: In member function ‘void right_arm::RobotAdmittanceControl::updata_rotation(const Eigen::Matrix3d&, const Eigen::Vector3d&, Eigen::Matrix3d&)’:
+/home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control_test.cpp:180:106: warning: unused parameter ‘angluar_disp’ [-Wunused-parameter]
+  180 | void RobotAdmittanceControl::updata_rotation(const Eigen::Matrix3d& current_rotm, const Eigen::Vector3d& angluar_disp, Eigen::Matrix3d& new_orientation){
+      |                                                                                   ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~

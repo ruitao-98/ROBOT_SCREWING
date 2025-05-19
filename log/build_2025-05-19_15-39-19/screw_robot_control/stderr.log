@@ -1,0 +1,7 @@
+[01m[K/home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control_tcp.cpp:1:10:[m[K [01;31m[Kfatal error: [m[Kjaka/right_arm_control_test.hpp: 没有那个文件或目录
+    1 | #include [01;31m[K"jaka/right_arm_control_test.hpp"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+make[2]: *** [CMakeFiles/right_arm_control_tcp.dir/build.make:63：CMakeFiles/right_arm_control_tcp.dir/src/right_arm_control_tcp.cpp.o] 错误 1
+make[1]: *** [CMakeFiles/Makefile2:223：CMakeFiles/right_arm_control_tcp.dir/all] 错误 2
+make: *** [Makefile:141：all] 错误 2

@@ -1,0 +1,19 @@
+[0.005s] Invoking command in '/home/yanji/robot_screwing/build/screw_robot_control': CMAKE_PREFIX_PATH=/home/yanji/robot_screwing/install/robot_msgs:/home/yanji/robot_screwing/install/screw_robot_control:/home/yanji/robot_screwing/install/real_robot:/home/yanji/robot_screwing/install/mj_sim:/opt/ros/foxy CONDA_PROMPT_MODIFIER=(screwrobot) LD_LIBRARY_PATH=/home/yanji/robot_screwing/install/robot_msgs/lib:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/home/yanji/robot_screwing/install/screw_robot_control/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/local/cuda/lib64:/usr/local/cuda/lib64 /usr/bin/cmake --build /home/yanji/robot_screwing/build/screw_robot_control -- -j24 -l24
+[0.029s] [ 25%] Built target SERVO_MOTOR
+[0.043s] [ 50%] Built target SCREWING_TOOL
+[0.049s] [35m[1mScanning dependencies of target right_arm_control[0m
+[0.057s] [ 75%] Built target task_control_screw
+[0.071s] [ 87%] [32mBuilding CXX object CMakeFiles/right_arm_control.dir/src/right_arm_control.cpp.o[0m
+[2.973s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp: In lambda function:
+[2.973s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:530:45: error: cannot convert ‘const std::shared_ptr<const robot_msgs::action::Screw_Feedback_<std::allocator<void> > >’ to ‘const robot_msgs::action::Screw_Feedback_<std::allocator<void> >::SharedPtr&’ {aka ‘const std::shared_ptr<robot_msgs::action::Screw_Feedback_<std::allocator<void> > >&’}
+[2.973s]   530 |                   this->feedback_cb(handle, feedback);
+[2.973s]       |                                             ^~~~~~~~
+[2.973s]       |                                             |
+[2.973s]       |                                             const std::shared_ptr<const robot_msgs::action::Screw_Feedback_<std::allocator<void> > >
+[2.973s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:104:59: note:   initializing argument 2 of ‘void right_arm::RobotAdmittanceControl::feedback_cb(const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::SharedPtr&, const robot_msgs::action::Screw_Feedback_<std::allocator<void> >::SharedPtr&)’
+[2.974s]   104 |     const robot_msgs::action::Screw::Feedback::SharedPtr &feedback) {
+[2.974s]       |     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~
+[2.974s] make[2]: *** [CMakeFiles/right_arm_control.dir/build.make:63：CMakeFiles/right_arm_control.dir/src/right_arm_control.cpp.o] 错误 1
+[2.974s] make[1]: *** [CMakeFiles/Makefile2:113：CMakeFiles/right_arm_control.dir/all] 错误 2
+[2.974s] make: *** [Makefile:141：all] 错误 2
+[2.975s] Invoked command in '/home/yanji/robot_screwing/build/screw_robot_control' returned '2': CMAKE_PREFIX_PATH=/home/yanji/robot_screwing/install/robot_msgs:/home/yanji/robot_screwing/install/screw_robot_control:/home/yanji/robot_screwing/install/real_robot:/home/yanji/robot_screwing/install/mj_sim:/opt/ros/foxy CONDA_PROMPT_MODIFIER=(screwrobot) LD_LIBRARY_PATH=/home/yanji/robot_screwing/install/robot_msgs/lib:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/home/yanji/robot_screwing/install/screw_robot_control/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/local/cuda/lib64:/usr/local/cuda/lib64 /usr/bin/cmake --build /home/yanji/robot_screwing/build/screw_robot_control -- -j24 -l24

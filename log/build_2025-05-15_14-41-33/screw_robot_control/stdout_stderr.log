@@ -1,0 +1,15 @@
+[ 25%] Built target SERVO_MOTOR
+[ 50%] Built target SCREWING_TOOL
+[35m[1mScanning dependencies of target right_arm_control[0m
+[ 75%] Built target task_control_screw
+[ 87%] [32mBuilding CXX object CMakeFiles/right_arm_control.dir/src/right_arm_control.cpp.o[0m
+/home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp: In member function ‘void right_arm::RobotAdmittanceControl::get_tcp_force()’:
+/home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:208:55: error: expected ‘;’ before ‘tcp_force’
+  208 |   tcp_force.head<3>() = eef_rotm * tcp_force.head<3>()
+      |                                                       ^
+      |                                                       ;
+  209 |   tcp_force.tail<3>() = eef_rotm * tcp_force.tail<3>()
+      |   ~~~~~~~~~                                            
+make[2]: *** [CMakeFiles/right_arm_control.dir/build.make:63：CMakeFiles/right_arm_control.dir/src/right_arm_control.cpp.o] 错误 1
+make[1]: *** [CMakeFiles/Makefile2:113：CMakeFiles/right_arm_control.dir/all] 错误 2
+make: *** [Makefile:141：all] 错误 2

@@ -1,0 +1,956 @@
+[0.006s] Invoking command in '/home/yanji/robot_screwing/build/screw_robot_control': CMAKE_PREFIX_PATH=/home/yanji/robot_screwing/install/robot_msgs:/home/yanji/robot_screwing/install/screw_robot_control:/home/yanji/robot_screwing/install/real_robot:/home/yanji/robot_screwing/install/mj_sim:/opt/ros/foxy CONDA_PROMPT_MODIFIER=(screwrobot) LD_LIBRARY_PATH=/home/yanji/robot_screwing/install/robot_msgs/lib:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/home/yanji/robot_screwing/install/screw_robot_control/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/local/cuda/lib64:/usr/local/cuda/lib64 /usr/bin/cmake --build /home/yanji/robot_screwing/build/screw_robot_control -- -j24 -l24
+[0.020s] -- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.031s] -- Using PYTHON_EXECUTABLE: /home/yanji/anaconda3/envs/screwrobot/bin/python3
+[0.105s] -- Found rclcpp: 2.4.3 (/opt/ros/foxy/share/rclcpp/cmake)
+[0.124s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.125s] -- Found rosidl_adapter: 1.3.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[0.191s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.217s] -- Found rmw_implementation_cmake: 1.0.4 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+[0.218s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.291s] -- Found geometry_msgs: 2.0.5 (/opt/ros/foxy/share/geometry_msgs/cmake)
+[0.309s] -- Found robot_msgs: 0.0.0 (/home/yanji/robot_screwing/install/robot_msgs/share/robot_msgs/cmake)
+[0.388s] -- Found rclcpp_action: 2.4.3 (/opt/ros/foxy/share/rclcpp_action/cmake)
+[0.404s] -- Found ament_lint_auto: 0.9.8 (/opt/ros/foxy/share/ament_lint_auto/cmake)
+[0.445s] -- Added test 'copyright' to check source files copyright and LICENSE
+[0.446s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[0.446s] -- Configured cppcheck include dirs: /home/yanji/robot_screwing/src/screw_robot_control/include;/home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control
+[0.446s] -- Configured cppcheck exclude dirs and/or files: 
+[0.447s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[0.447s] -- Configured cpplint exclude dirs and/or files: 
+[0.447s] -- Added test 'lint_cmake' to check CMake code style
+[0.448s] -- Added test 'uncrustify' to check C / C++ code style
+[0.448s] -- Configured uncrustify additional arguments: 
+[0.448s] -- Added test 'xmllint' to check XML markup files
+[0.450s] -- Configuring done
+[0.456s] -- Generating done
+[0.459s] -- Build files have been written to: /home/yanji/robot_screwing/build/screw_robot_control
+[0.475s] [35m[1mScanning dependencies of target right_arm_control[0m
+[0.501s] [ 50%] [32mBuilding CXX object CMakeFiles/right_arm_control.dir/src/right_arm_control.cpp.o[0m
+[2.953s] In file included from /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:8:
+[2.953s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:85:40: error: ‘RobotStatus’ is not a member of ‘robot_msgs::msg’; did you mean ‘RobotStatus’?
+[2.953s]    85 |     rclcpp::Publisher<robot_msgs::msg::RobotStatus>::SharedPtr status_pub_;
+[2.953s]       |                                        ^~~~~~~~~~~
+[2.954s] In file included from /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/JAKAZuRobot.h:12,
+[2.954s]                  from /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:6:
+[2.954s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/jktypes.h:245:3: note: ‘RobotStatus’ declared here
+[2.954s]   245 | } RobotStatus;
+[2.954s]       |   ^~~~~~~~~~~
+[2.954s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:85:40: error: ‘RobotStatus’ is not a member of ‘robot_msgs::msg’; did you mean ‘RobotStatus’?
+[2.954s]    85 |     rclcpp::Publisher<robot_msgs::msg::RobotStatus>::SharedPtr status_pub_;
+[2.954s]       |                                        ^~~~~~~~~~~
+[2.954s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/jktypes.h:245:3: note: ‘RobotStatus’ declared here
+[2.954s]   245 | } RobotStatus;
+[2.954s]       |   ^~~~~~~~~~~
+[2.955s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:85:51: error: template argument 1 is invalid
+[2.955s]    85 |     rclcpp::Publisher<robot_msgs::msg::RobotStatus>::SharedPtr status_pub_;
+[2.955s]       |                                                   ^
+[2.955s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:85:54: error: expected ‘;’ at end of member declaration
+[2.955s]    85 |     rclcpp::Publisher<robot_msgs::msg::RobotStatus>::SharedPtr status_pub_;
+[2.955s]       |                                                      ^~~~~~~~~
+[2.955s]       |                                                               ;
+[2.955s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:85:64: error: ‘status_pub_’ does not name a type
+[2.955s]    85 |     rclcpp::Publisher<robot_msgs::msg::RobotStatus>::SharedPtr status_pub_;
+[2.955s]       |                                                                ^~~~~~~~~~~
+[2.955s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:86:40: error: ‘RefStatus’ is not a member of ‘robot_msgs::msg’
+[2.955s]    86 |     rclcpp::Publisher<robot_msgs::msg::RefStatus>::SharedPtr ref_pub_;
+[2.955s]       |                                        ^~~~~~~~~
+[2.955s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:86:40: error: ‘RefStatus’ is not a member of ‘robot_msgs::msg’
+[2.955s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:86:49: error: template argument 1 is invalid
+[2.955s]    86 |     rclcpp::Publisher<robot_msgs::msg::RefStatus>::SharedPtr ref_pub_;
+[2.955s]       |                                                 ^
+[2.955s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:86:52: error: expected ‘;’ at end of member declaration
+[2.955s]    86 |     rclcpp::Publisher<robot_msgs::msg::RefStatus>::SharedPtr ref_pub_;
+[2.955s]       |                                                    ^~~~~~~~~
+[2.955s]       |                                                             ;
+[2.955s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:86:52: error: redeclaration of ‘int right_arm::RobotAdmittanceControl::SharedPtr’
+[2.955s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:85:54: note: previous declaration ‘int right_arm::RobotAdmittanceControl::SharedPtr’
+[2.955s]    85 |     rclcpp::Publisher<robot_msgs::msg::RobotStatus>::SharedPtr status_pub_;
+[2.955s]       |                                                      ^~~~~~~~~
+[2.955s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:86:62: error: ‘ref_pub_’ does not name a type
+[2.955s]    86 |     rclcpp::Publisher<robot_msgs::msg::RefStatus>::SharedPtr ref_pub_;
+[2.955s]       |                                                              ^~~~~~~~
+[2.955s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:87:40: error: ‘ControlCommand’ is not a member of ‘robot_msgs::msg’
+[2.955s]    87 |     rclcpp::Publisher<robot_msgs::msg::ControlCommand>::SharedPtr cmd_pub_;
+[2.955s]       |                                        ^~~~~~~~~~~~~~
+[2.955s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:87:40: error: ‘ControlCommand’ is not a member of ‘robot_msgs::msg’
+[2.955s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:87:54: error: template argument 1 is invalid
+[2.955s]    87 |     rclcpp::Publisher<robot_msgs::msg::ControlCommand>::SharedPtr cmd_pub_;
+[2.955s]       |                                                      ^
+[2.955s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:87:57: error: expected ‘;’ at end of member declaration
+[2.955s]    87 |     rclcpp::Publisher<robot_msgs::msg::ControlCommand>::SharedPtr cmd_pub_;
+[2.955s]       |                                                         ^~~~~~~~~
+[2.955s]       |                                                                  ;
+[2.955s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:87:57: error: redeclaration of ‘int right_arm::RobotAdmittanceControl::SharedPtr’
+[2.955s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:85:54: note: previous declaration ‘int right_arm::RobotAdmittanceControl::SharedPtr’
+[2.955s]    85 |     rclcpp::Publisher<robot_msgs::msg::RobotStatus>::SharedPtr status_pub_;
+[2.955s]       |                                                      ^~~~~~~~~
+[2.955s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:87:67: error: ‘cmd_pub_’ does not name a type
+[2.956s]    87 |     rclcpp::Publisher<robot_msgs::msg::ControlCommand>::SharedPtr cmd_pub_;
+[2.956s]       |                                                                   ^~~~~~~~
+[2.956s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:89:43: error: ‘ControlCommand’ is not a member of ‘robot_msgs::msg’
+[2.956s]    89 |     rclcpp::Subscription<robot_msgs::msg::ControlCommand>::SharedPtr command_subs_;
+[2.956s]       |                                           ^~~~~~~~~~~~~~
+[2.956s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:89:43: error: ‘ControlCommand’ is not a member of ‘robot_msgs::msg’
+[2.956s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:89:57: error: template argument 1 is invalid
+[2.956s]    89 |     rclcpp::Subscription<robot_msgs::msg::ControlCommand>::SharedPtr command_subs_;
+[2.956s]       |                                                         ^
+[2.956s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:89:57: error: template argument 3 is invalid
+[2.956s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:89:60: error: expected ‘;’ at end of member declaration
+[2.956s]    89 |     rclcpp::Subscription<robot_msgs::msg::ControlCommand>::SharedPtr command_subs_;
+[2.956s]       |                                                            ^~~~~~~~~
+[2.956s]       |                                                                     ;
+[2.956s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:89:60: error: redeclaration of ‘int right_arm::RobotAdmittanceControl::SharedPtr’
+[2.956s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:85:54: note: previous declaration ‘int right_arm::RobotAdmittanceControl::SharedPtr’
+[2.956s]    85 |     rclcpp::Publisher<robot_msgs::msg::RobotStatus>::SharedPtr status_pub_;
+[2.956s]       |                                                      ^~~~~~~~~
+[2.956s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:89:70: error: ‘command_subs_’ does not name a type
+[2.956s]    89 |     rclcpp::Subscription<robot_msgs::msg::ControlCommand>::SharedPtr command_subs_;
+[2.956s]       |                                                                      ^~~~~~~~~~~~~
+[2.956s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:91:33: error: ‘srv’ is not a member of ‘robot_msgs’
+[2.956s]    91 |     rclcpp::Service<robot_msgs::srv::StartPose>::SharedPtr srv_;
+[2.956s]       |                                 ^~~
+[2.956s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:91:33: note: suggested alternatives:
+[2.956s] In file included from /opt/ros/foxy/include/rcl_interfaces/srv/describe_parameters.hpp:7,
+[2.956s]                  from /opt/ros/foxy/include/rclcpp/parameter_client.hpp:26,
+[2.956s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:151,
+[2.956s]                  from /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:1:
+[2.956s] /opt/ros/foxy/include/rcl_interfaces/srv/detail/describe_parameters__struct.hpp:26:11: note:   ‘rcl_interfaces::srv’
+[2.956s]    26 | namespace srv
+[2.957s]       |           ^~~
+[2.957s] In file included from /opt/ros/foxy/include/action_msgs/srv/cancel_goal.hpp:7,
+[2.957s]                  from /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/action/detail/screw__struct.hpp:1021,
+[2.957s]                  from /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/action/screw.hpp:7,
+[2.957s]                  from /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:16:
+[2.957s] /opt/ros/foxy/include/action_msgs/srv/detail/cancel_goal__struct.hpp:30:11: note:   ‘action_msgs::srv’
+[2.957s]    30 | namespace srv
+[2.957s]       |           ^~~
+[2.958s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:91:33: error: ‘srv’ is not a member of ‘robot_msgs’
+[2.958s]    91 |     rclcpp::Service<robot_msgs::srv::StartPose>::SharedPtr srv_;
+[2.958s]       |                                 ^~~
+[2.958s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:91:33: note: suggested alternatives:
+[2.958s] /opt/ros/foxy/include/rcl_interfaces/srv/detail/describe_parameters__struct.hpp:26:11: note:   ‘rcl_interfaces::srv’
+[2.958s]    26 | namespace srv
+[2.958s]       |           ^~~
+[2.958s] /opt/ros/foxy/include/action_msgs/srv/detail/cancel_goal__struct.hpp:30:11: note:   ‘action_msgs::srv’
+[2.958s]    30 | namespace srv
+[2.958s]       |           ^~~
+[2.958s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:91:47: error: template argument 1 is invalid
+[2.958s]    91 |     rclcpp::Service<robot_msgs::srv::StartPose>::SharedPtr srv_;
+[2.958s]       |                                               ^
+[2.958s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:91:50: error: expected ‘;’ at end of member declaration
+[2.958s]    91 |     rclcpp::Service<robot_msgs::srv::StartPose>::SharedPtr srv_;
+[2.958s]       |                                                  ^~~~~~~~~
+[2.958s]       |                                                           ;
+[2.958s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:91:50: error: redeclaration of ‘int right_arm::RobotAdmittanceControl::SharedPtr’
+[2.958s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:85:54: note: previous declaration ‘int right_arm::RobotAdmittanceControl::SharedPtr’
+[2.958s]    85 |     rclcpp::Publisher<robot_msgs::msg::RobotStatus>::SharedPtr status_pub_;
+[2.959s]       |                                                      ^~~~~~~~~
+[2.959s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:91:60: error: ‘srv_’ does not name a type
+[2.959s]    91 |     rclcpp::Service<robot_msgs::srv::StartPose>::SharedPtr srv_;
+[2.959s]       |                                                            ^~~~
+[2.959s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:94:22: error: ‘RobotStatus’ in namespace ‘robot_msgs::msg’ does not name a type
+[2.959s]    94 |     robot_msgs::msg::RobotStatus status_msg_;
+[2.959s]       |                      ^~~~~~~~~~~
+[2.959s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:95:22: error: ‘RefStatus’ in namespace ‘robot_msgs::msg’ does not name a type
+[2.959s]    95 |     robot_msgs::msg::RefStatus ref_msg_;
+[2.959s]       |                      ^~~~~~~~~
+[2.959s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:108:50: error: ‘ControlCommand’ in namespace ‘robot_msgs::msg’ does not name a type
+[2.959s]   108 |     void command_callback(const robot_msgs::msg::ControlCommand::SharedPtr msg);
+[2.959s]       |                                                  ^~~~~~~~~~~~~~
+[2.959s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:108:76: error: expected unqualified-id before ‘msg’
+[2.960s]   108 |     void command_callback(const robot_msgs::msg::ControlCommand::SharedPtr msg);
+[2.960s]       |                                                                            ^~~
+[2.960s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:108:75: error: expected ‘)’ before ‘msg’
+[2.960s]   108 |     void command_callback(const robot_msgs::msg::ControlCommand::SharedPtr msg);
+[2.960s]       |                          ~                                                ^~~~
+[2.960s]       |                                                                           )
+[2.960s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:108:66: error: expected ‘;’ at end of member declaration
+[2.960s]   108 |     void command_callback(const robot_msgs::msg::ControlCommand::SharedPtr msg);
+[2.960s]       |                                                                  ^~~~~~~~~
+[2.960s]       |                                                                           ;
+[2.961s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:108:76: error: ‘msg’ does not name a type
+[2.961s]   108 |     void command_callback(const robot_msgs::msg::ControlCommand::SharedPtr msg);
+[2.961s]       |                                                                            ^~~
+[2.961s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:110:43: error: ‘srv’ is not a member of ‘robot_msgs’
+[2.961s]   110 |         const std::shared_ptr<robot_msgs::srv::StartPose::Request> request,
+[2.961s]       |                                           ^~~
+[2.961s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:110:43: note: suggested alternatives:
+[2.961s] /opt/ros/foxy/include/rcl_interfaces/srv/detail/describe_parameters__struct.hpp:26:11: note:   ‘rcl_interfaces::srv’
+[2.961s]    26 | namespace srv
+[2.961s]       |           ^~~
+[2.961s] /opt/ros/foxy/include/action_msgs/srv/detail/cancel_goal__struct.hpp:30:11: note:   ‘action_msgs::srv’
+[2.961s]    30 | namespace srv
+[2.962s]       |           ^~~
+[2.962s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:110:43: error: ‘srv’ is not a member of ‘robot_msgs’
+[2.962s]   110 |         const std::shared_ptr<robot_msgs::srv::StartPose::Request> request,
+[2.962s]       |                                           ^~~
+[2.962s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:110:43: note: suggested alternatives:
+[2.962s] /opt/ros/foxy/include/rcl_interfaces/srv/detail/describe_parameters__struct.hpp:26:11: note:   ‘rcl_interfaces::srv’
+[2.962s]    26 | namespace srv
+[2.962s]       |           ^~~
+[2.963s] /opt/ros/foxy/include/action_msgs/srv/detail/cancel_goal__struct.hpp:30:11: note:   ‘action_msgs::srv’
+[2.963s]    30 | namespace srv
+[2.963s]       |           ^~~
+[2.963s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:110:66: error: template argument 1 is invalid
+[2.963s]   110 |         const std::shared_ptr<robot_msgs::srv::StartPose::Request> request,
+[2.963s]       |                                                                  ^
+[2.963s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:110:43: error: ‘srv’ is not a member of ‘robot_msgs’
+[2.963s]   110 |         const std::shared_ptr<robot_msgs::srv::StartPose::Request> request,
+[2.963s]       |                                           ^~~
+[2.963s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:110:43: note: suggested alternatives:
+[2.963s] /opt/ros/foxy/include/rcl_interfaces/srv/detail/describe_parameters__struct.hpp:26:11: note:   ‘rcl_interfaces::srv’
+[2.964s]    26 | namespace srv
+[2.964s]       |           ^~~
+[2.964s] /opt/ros/foxy/include/action_msgs/srv/detail/cancel_goal__struct.hpp:30:11: note:   ‘action_msgs::srv’
+[2.964s]    30 | namespace srv
+[2.964s]       |           ^~~
+[2.964s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:110:43: error: ‘srv’ is not a member of ‘robot_msgs’
+[2.964s]   110 |         const std::shared_ptr<robot_msgs::srv::StartPose::Request> request,
+[2.964s]       |                                           ^~~
+[2.964s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:110:43: note: suggested alternatives:
+[2.964s] /opt/ros/foxy/include/rcl_interfaces/srv/detail/describe_parameters__struct.hpp:26:11: note:   ‘rcl_interfaces::srv’
+[2.964s]    26 | namespace srv
+[2.964s]       |           ^~~
+[2.964s] /opt/ros/foxy/include/action_msgs/srv/detail/cancel_goal__struct.hpp:30:11: note:   ‘action_msgs::srv’
+[2.964s]    30 | namespace srv
+[2.964s]       |           ^~~
+[2.964s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:110:66: error: template argument 1 is invalid
+[2.964s]   110 |         const std::shared_ptr<robot_msgs::srv::StartPose::Request> request,
+[2.964s]       |                                                                  ^
+[2.964s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:110:43: error: ‘srv’ is not a member of ‘robot_msgs’
+[2.964s]   110 |         const std::shared_ptr<robot_msgs::srv::StartPose::Request> request,
+[2.964s]       |                                           ^~~
+[2.964s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:110:43: note: suggested alternatives:
+[2.964s] /opt/ros/foxy/include/rcl_interfaces/srv/detail/describe_parameters__struct.hpp:26:11: note:   ‘rcl_interfaces::srv’
+[2.964s]    26 | namespace srv
+[2.964s]       |           ^~~
+[2.964s] /opt/ros/foxy/include/action_msgs/srv/detail/cancel_goal__struct.hpp:30:11: note:   ‘action_msgs::srv’
+[2.964s]    30 | namespace srv
+[2.964s]       |           ^~~
+[2.964s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:110:43: error: ‘srv’ is not a member of ‘robot_msgs’
+[2.964s]   110 |         const std::shared_ptr<robot_msgs::srv::StartPose::Request> request,
+[2.964s]       |                                           ^~~
+[2.964s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:110:43: note: suggested alternatives:
+[2.964s] /opt/ros/foxy/include/rcl_interfaces/srv/detail/describe_parameters__struct.hpp:26:11: note:   ‘rcl_interfaces::srv’
+[2.964s]    26 | namespace srv
+[2.964s]       |           ^~~
+[2.964s] /opt/ros/foxy/include/action_msgs/srv/detail/cancel_goal__struct.hpp:30:11: note:   ‘action_msgs::srv’
+[2.964s]    30 | namespace srv
+[2.965s]       |           ^~~
+[2.965s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:110:66: error: template argument 1 is invalid
+[2.965s]   110 |         const std::shared_ptr<robot_msgs::srv::StartPose::Request> request,
+[2.965s]       |                                                                  ^
+[2.965s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:110:43: error: ‘srv’ is not a member of ‘robot_msgs’
+[2.965s]   110 |         const std::shared_ptr<robot_msgs::srv::StartPose::Request> request,
+[2.965s]       |                                           ^~~
+[2.965s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:110:43: note: suggested alternatives:
+[2.965s] /opt/ros/foxy/include/rcl_interfaces/srv/detail/describe_parameters__struct.hpp:26:11: note:   ‘rcl_interfaces::srv’
+[2.965s]    26 | namespace srv
+[2.965s]       |           ^~~
+[2.965s] /opt/ros/foxy/include/action_msgs/srv/detail/cancel_goal__struct.hpp:30:11: note:   ‘action_msgs::srv’
+[2.965s]    30 | namespace srv
+[2.965s]       |           ^~~
+[2.965s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:110:43: error: ‘srv’ is not a member of ‘robot_msgs’
+[2.965s]   110 |         const std::shared_ptr<robot_msgs::srv::StartPose::Request> request,
+[2.965s]       |                                           ^~~
+[2.965s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:110:43: note: suggested alternatives:
+[2.965s] /opt/ros/foxy/include/rcl_interfaces/srv/detail/describe_parameters__struct.hpp:26:11: note:   ‘rcl_interfaces::srv’
+[2.965s]    26 | namespace srv
+[2.965s]       |           ^~~
+[2.965s] /opt/ros/foxy/include/action_msgs/srv/detail/cancel_goal__struct.hpp:30:11: note:   ‘action_msgs::srv’
+[2.965s]    30 | namespace srv
+[2.965s]       |           ^~~
+[2.965s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:110:66: error: template argument 1 is invalid
+[2.965s]   110 |         const std::shared_ptr<robot_msgs::srv::StartPose::Request> request,
+[2.965s]       |                                                                  ^
+[2.965s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:110:43: error: ‘srv’ is not a member of ‘robot_msgs’
+[2.965s]   110 |         const std::shared_ptr<robot_msgs::srv::StartPose::Request> request,
+[2.965s]       |                                           ^~~
+[2.965s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:110:43: note: suggested alternatives:
+[2.965s] /opt/ros/foxy/include/rcl_interfaces/srv/detail/describe_parameters__struct.hpp:26:11: note:   ‘rcl_interfaces::srv’
+[2.965s]    26 | namespace srv
+[2.965s]       |           ^~~
+[2.965s] /opt/ros/foxy/include/action_msgs/srv/detail/cancel_goal__struct.hpp:30:11: note:   ‘action_msgs::srv’
+[2.965s]    30 | namespace srv
+[2.965s]       |           ^~~
+[2.965s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:110:43: error: ‘srv’ is not a member of ‘robot_msgs’
+[2.965s]   110 |         const std::shared_ptr<robot_msgs::srv::StartPose::Request> request,
+[2.965s]       |                                           ^~~
+[2.965s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:110:43: note: suggested alternatives:
+[2.965s] /opt/ros/foxy/include/rcl_interfaces/srv/detail/describe_parameters__struct.hpp:26:11: note:   ‘rcl_interfaces::srv’
+[2.965s]    26 | namespace srv
+[2.965s]       |           ^~~
+[2.965s] /opt/ros/foxy/include/action_msgs/srv/detail/cancel_goal__struct.hpp:30:11: note:   ‘action_msgs::srv’
+[2.966s]    30 | namespace srv
+[2.966s]       |           ^~~
+[2.966s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:110:66: error: template argument 1 is invalid
+[2.966s]   110 |         const std::shared_ptr<robot_msgs::srv::StartPose::Request> request,
+[2.966s]       |                                                                  ^
+[2.966s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:110:15: error: invalid use of template-name ‘std::shared_ptr’ without an argument list
+[2.966s]   110 |         const std::shared_ptr<robot_msgs::srv::StartPose::Request> request,
+[2.966s]       |               ^~~
+[2.966s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:110:15: note: class template argument deduction is only available with ‘-std=c++17’ or ‘-std=gnu++17’
+[2.966s] In file included from /usr/include/c++/13/bits/shared_ptr.h:53,
+[2.966s]                  from /usr/include/c++/13/memory:80,
+[2.966s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:144:
+[2.966s] /usr/include/c++/13/bits/shared_ptr_base.h:395:11: note: ‘template<class _Tp> class std::shared_ptr’ declared here
+[2.966s]   395 |     class shared_ptr;
+[2.966s]       |           ^~~~~~~~~~
+[2.966s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp:110:30: error: expected ‘,’ or ‘...’ before ‘<’ token
+[2.966s]   110 |         const std::shared_ptr<robot_msgs::srv::StartPose::Request> request,
+[2.966s]       |                              ^
+[2.966s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp: In constructor ‘right_arm::RobotAdmittanceControl::RobotAdmittanceControl()’:
+[2.966s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:19:5: error: ‘status_pub_’ was not declared in this scope
+[2.966s]    19 |     status_pub_ = this->create_publisher<robot_msgs::msg::RobotStatus>("rob_status", 5);
+[2.966s]       |     ^~~~~~~~~~~
+[2.966s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:19:59: error: ‘RobotStatus’ is not a member of ‘robot_msgs::msg’; did you mean ‘RobotStatus’?
+[2.966s]    19 |     status_pub_ = this->create_publisher<robot_msgs::msg::RobotStatus>("rob_status", 5);
+[2.966s]       |                                                           ^~~~~~~~~~~
+[2.966s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/jktypes.h:245:3: note: ‘RobotStatus’ declared here
+[2.966s]   245 | } RobotStatus;
+[2.966s]       |   ^~~~~~~~~~~
+[2.966s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:19:59: error: ‘RobotStatus’ is not a member of ‘robot_msgs::msg’; did you mean ‘RobotStatus’?
+[2.966s]    19 |     status_pub_ = this->create_publisher<robot_msgs::msg::RobotStatus>("rob_status", 5);
+[2.966s]       |                                                           ^~~~~~~~~~~
+[2.966s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/jktypes.h:245:3: note: ‘RobotStatus’ declared here
+[2.966s]   245 | } RobotStatus;
+[2.966s]       |   ^~~~~~~~~~~
+[2.966s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:19:71: error: no matching function for call to ‘right_arm::RobotAdmittanceControl::create_publisher<<expression error> >(const char [11], int)’
+[2.966s]    19 |     status_pub_ = this->create_publisher<robot_msgs::msg::RobotStatus>("rob_status", 5);
+[2.966s]       |                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~
+[2.966s] In file included from /opt/ros/foxy/include/rclcpp/node.hpp:1224,
+[2.966s]                  from /opt/ros/foxy/include/rclcpp/executors/single_threaded_executor.hpp:28,
+[2.966s]                  from /opt/ros/foxy/include/rclcpp/executors.hpp:22,
+[2.966s]                  from /opt/ros/foxy/include/rclcpp/rclcpp.hpp:146:
+[2.966s] /opt/ros/foxy/include/rclcpp/node_impl.hpp:71:1: note: candidate: ‘template<class MessageT, class AllocatorT, class PublisherT> std::shared_ptr<PublisherT> rclcpp::Node::create_publisher(const std::string&, const rclcpp::QoS&, const rclcpp::PublisherOptionsWithAllocator<AllocatorT>&)’
+[2.966s]    71 | Node::create_publisher(
+[2.966s]       | ^~~~
+[2.967s] /opt/ros/foxy/include/rclcpp/node_impl.hpp:71:1: note:   template argument deduction/substitution failed:
+[2.967s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:19:71: error: template argument 1 is invalid
+[2.967s]    19 |     status_pub_ = this->create_publisher<robot_msgs::msg::RobotStatus>("rob_status", 5);
+[2.967s]       |                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~
+[2.967s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:20:5: error: ‘ref_pub_’ was not declared in this scope
+[2.967s]    20 |     ref_pub_ = this->create_publisher<robot_msgs::msg::RefStatus>("ref_status", 5);
+[2.967s]       |     ^~~~~~~~
+[2.967s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:20:56: error: ‘RefStatus’ is not a member of ‘robot_msgs::msg’
+[2.967s]    20 |     ref_pub_ = this->create_publisher<robot_msgs::msg::RefStatus>("ref_status", 5);
+[2.967s]       |                                                        ^~~~~~~~~
+[2.967s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:20:56: error: ‘RefStatus’ is not a member of ‘robot_msgs::msg’
+[2.967s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:20:66: error: no matching function for call to ‘right_arm::RobotAdmittanceControl::create_publisher<<expression error> >(const char [11], int)’
+[2.967s]    20 |     ref_pub_ = this->create_publisher<robot_msgs::msg::RefStatus>("ref_status", 5);
+[2.967s]       |                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~
+[2.967s] /opt/ros/foxy/include/rclcpp/node_impl.hpp:71:1: note: candidate: ‘template<class MessageT, class AllocatorT, class PublisherT> std::shared_ptr<PublisherT> rclcpp::Node::create_publisher(const std::string&, const rclcpp::QoS&, const rclcpp::PublisherOptionsWithAllocator<AllocatorT>&)’
+[2.967s]    71 | Node::create_publisher(
+[2.967s]       | ^~~~
+[2.967s] /opt/ros/foxy/include/rclcpp/node_impl.hpp:71:1: note:   template argument deduction/substitution failed:
+[2.967s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:20:66: error: template argument 1 is invalid
+[2.967s]    20 |     ref_pub_ = this->create_publisher<robot_msgs::msg::RefStatus>("ref_status", 5);
+[2.967s]       |                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~
+[2.967s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:21:5: error: ‘cmd_pub_’ was not declared in this scope
+[2.967s]    21 |     cmd_pub_ = this->create_publisher<robot_msgs::msg::ControlCommand>("cmd_status", 5);
+[2.967s]       |     ^~~~~~~~
+[2.967s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:21:56: error: ‘ControlCommand’ is not a member of ‘robot_msgs::msg’
+[2.967s]    21 |     cmd_pub_ = this->create_publisher<robot_msgs::msg::ControlCommand>("cmd_status", 5);
+[2.967s]       |                                                        ^~~~~~~~~~~~~~
+[2.967s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:21:56: error: ‘ControlCommand’ is not a member of ‘robot_msgs::msg’
+[2.967s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:21:71: error: no matching function for call to ‘right_arm::RobotAdmittanceControl::create_publisher<<expression error> >(const char [11], int)’
+[2.967s]    21 |     cmd_pub_ = this->create_publisher<robot_msgs::msg::ControlCommand>("cmd_status", 5);
+[2.967s]       |                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~
+[2.967s] /opt/ros/foxy/include/rclcpp/node_impl.hpp:71:1: note: candidate: ‘template<class MessageT, class AllocatorT, class PublisherT> std::shared_ptr<PublisherT> rclcpp::Node::create_publisher(const std::string&, const rclcpp::QoS&, const rclcpp::PublisherOptionsWithAllocator<AllocatorT>&)’
+[2.967s]    71 | Node::create_publisher(
+[2.967s]       | ^~~~
+[2.967s] /opt/ros/foxy/include/rclcpp/node_impl.hpp:71:1: note:   template argument deduction/substitution failed:
+[2.967s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:21:71: error: template argument 1 is invalid
+[2.967s]    21 |     cmd_pub_ = this->create_publisher<robot_msgs::msg::ControlCommand>("cmd_status", 5);
+[2.967s]       |                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~
+[2.967s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:23:5: error: ‘command_subs_’ was not declared in this scope
+[2.967s]    23 |     command_subs_ = this->create_subscription<robot_msgs::msg::ControlCommand>(
+[2.967s]       |     ^~~~~~~~~~~~~
+[2.967s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:23:64: error: ‘ControlCommand’ is not a member of ‘robot_msgs::msg’
+[2.967s]    23 |     command_subs_ = this->create_subscription<robot_msgs::msg::ControlCommand>(
+[2.967s]       |                                                                ^~~~~~~~~~~~~~
+[2.968s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:23:64: error: ‘ControlCommand’ is not a member of ‘robot_msgs::msg’
+[2.968s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:23:79: error: no matching function for call to ‘right_arm::RobotAdmittanceControl::create_subscription<<expression error> >(const char [12], int, std::_Bind_helper<false, void (right_arm::RobotAdmittanceControl::*)(...), right_arm::RobotAdmittanceControl*, const std::_Placeholder<1>&>::type)’
+[2.968s]    23 |     command_subs_ = this->create_subscription<robot_msgs::msg::ControlCommand>(
+[2.968s]       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+[2.968s]    24 |       "rob_command", 1, std::bind(&RobotAdmittanceControl::command_callback, this, std::placeholders::_1));
+[2.968s]       |       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[2.968s] /opt/ros/foxy/include/rclcpp/node.hpp:213:3: note: candidate: ‘template<class MessageT, class CallbackT, class AllocatorT, class CallbackMessageT, class SubscriptionT, class MessageMemoryStrategyT> std::shared_ptr<SubscriptionT> rclcpp::Node::create_subscription(const std::string&, const rclcpp::QoS&, CallbackT&&, const rclcpp::SubscriptionOptionsWithAllocator<AllocatorT>&, typename MessageMemoryStrategyT::SharedPtr)’
+[2.968s]   213 |   create_subscription(
+[2.968s]       |   ^~~~~~~~~~~~~~~~~~~
+[2.968s] /opt/ros/foxy/include/rclcpp/node.hpp:213:3: note:   template argument deduction/substitution failed:
+[2.968s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:23:79: error: template argument 1 is invalid
+[2.968s]    23 |     command_subs_ = this->create_subscription<robot_msgs::msg::ControlCommand>(
+[2.968s]       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+[2.968s]    24 |       "rob_command", 1, std::bind(&RobotAdmittanceControl::command_callback, this, std::placeholders::_1));
+[2.968s]       |       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[2.968s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:26:5: error: ‘srv_’ was not declared in this scope
+[2.968s]    26 |     srv_ = this->create_service<robot_msgs::srv::StartPose>(
+[2.968s]       |     ^~~~
+[2.968s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:26:45: error: ‘srv’ is not a member of ‘robot_msgs’
+[2.968s]    26 |     srv_ = this->create_service<robot_msgs::srv::StartPose>(
+[2.968s]       |                                             ^~~
+[2.968s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:26:45: note: suggested alternatives:
+[2.968s] /opt/ros/foxy/include/rcl_interfaces/srv/detail/describe_parameters__struct.hpp:26:11: note:   ‘rcl_interfaces::srv’
+[2.968s]    26 | namespace srv
+[2.968s]       |           ^~~
+[2.968s] /opt/ros/foxy/include/action_msgs/srv/detail/cancel_goal__struct.hpp:30:11: note:   ‘action_msgs::srv’
+[2.968s]    30 | namespace srv
+[2.968s]       |           ^~~
+[2.968s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:26:45: error: ‘srv’ is not a member of ‘robot_msgs’
+[2.968s]    26 |     srv_ = this->create_service<robot_msgs::srv::StartPose>(
+[2.968s]       |                                             ^~~
+[2.968s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:26:45: note: suggested alternatives:
+[2.968s] /opt/ros/foxy/include/rcl_interfaces/srv/detail/describe_parameters__struct.hpp:26:11: note:   ‘rcl_interfaces::srv’
+[2.968s]    26 | namespace srv
+[2.968s]       |           ^~~
+[2.968s] /opt/ros/foxy/include/action_msgs/srv/detail/cancel_goal__struct.hpp:30:11: note:   ‘action_msgs::srv’
+[2.968s]    30 | namespace srv
+[2.968s]       |           ^~~
+[2.968s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:26:18: error: parse error in template argument list
+[2.968s]    26 |     srv_ = this->create_service<robot_msgs::srv::StartPose>(
+[2.968s]       |                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[2.968s] In file included from /opt/ros/foxy/include/rclcpp/context.hpp:19,
+[2.968s]                  from /opt/ros/foxy/include/rclcpp/contexts/default_context.hpp:18,
+[2.968s]                  from /opt/ros/foxy/include/rclcpp/executor.hpp:32,
+[2.969s]                  from /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26,
+[2.969s]                  from /opt/ros/foxy/include/rclcpp/executors.hpp:21:
+[2.969s] /usr/include/c++/13/functional: In instantiation of ‘struct std::_Bind_check_arity<void (right_arm::RobotAdmittanceControl::*)(int), right_arm::RobotAdmittanceControl*, const std::_Placeholder<1>&, const std::_Placeholder<2>&>’:
+[2.969s] /usr/include/c++/13/functional:859:12:   required from ‘struct std::_Bind_helper<false, void (right_arm::RobotAdmittanceControl::*)(int), right_arm::RobotAdmittanceControl*, const std::_Placeholder<1>&, const std::_Placeholder<2>&>’
+[2.969s] /usr/include/c++/13/functional:881:5:   required by substitution of ‘template<class _Func, class ... _BoundArgs> typename std::_Bind_helper<std::__is_socketlike<_Func>::value, _Func, _BoundArgs ...>::type std::bind(_Func&&, _BoundArgs&& ...) [with _Func = void (right_arm::RobotAdmittanceControl::*)(int); _BoundArgs = {right_arm::RobotAdmittanceControl*, const std::_Placeholder<1>&, const std::_Placeholder<2>&}]’
+[2.969s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:27:27:   required from here
+[2.969s] /usr/include/c++/13/functional:847:21: error: static assertion failed: Wrong number of arguments for pointer-to-member
+[2.969s]   846 |       static_assert(_Varargs::value
+[2.969s]       |                               ~~~~~
+[2.969s]   847 |                     ? sizeof...(_BoundArgs) >= _Arity::value + 1
+[2.969s]       |                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[2.969s]   848 |                     : sizeof...(_BoundArgs) == _Arity::value + 1,
+[2.969s]       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[2.969s] /usr/include/c++/13/functional:847:21: note: ‘(false ? (3 >= (((long unsigned int)std::integral_constant<long unsigned int, 1>::value) + 1)) : (3 == (((long unsigned int)std::integral_constant<long unsigned int, 1>::value) + 1)))’ evaluates to false
+[2.969s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:26:60: error: no matching function for call to ‘right_arm::RobotAdmittanceControl::create_service<<expression error> >(const char [10], std::_Bind_helper<false, void (right_arm::RobotAdmittanceControl::*)(int), right_arm::RobotAdmittanceControl*, const std::_Placeholder<1>&, const std::_Placeholder<2>&>::type)’
+[2.969s]    26 |     srv_ = this->create_service<robot_msgs::srv::StartPose>(
+[2.969s]       |            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+[2.969s]    27 |     "get_param", std::bind(&RobotAdmittanceControl::ready_callback, this, std::placeholders::_1, std::placeholders::_2));
+[2.969s]       |     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[2.969s] /opt/ros/foxy/include/rclcpp/node.hpp:261:3: note: candidate: ‘template<class ServiceT, class CallbackT> typename rclcpp::Service<ServiceT>::SharedPtr rclcpp::Node::create_service(const std::string&, CallbackT&&, const rmw_qos_profile_t&, rclcpp::CallbackGroup::SharedPtr)’
+[2.969s]   261 |   create_service(
+[2.969s]       |   ^~~~~~~~~~~~~~
+[2.969s] /opt/ros/foxy/include/rclcpp/node.hpp:261:3: note:   template argument deduction/substitution failed:
+[2.969s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:26:60: error: template argument 1 is invalid
+[2.969s]    26 |     srv_ = this->create_service<robot_msgs::srv::StartPose>(
+[2.969s]       |            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+[2.969s]    27 |     "get_param", std::bind(&RobotAdmittanceControl::ready_callback, this, std::placeholders::_1, std::placeholders::_2));
+[2.969s]       |     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[2.969s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:53:5: error: ‘cout’ was not declared in this scope; did you mean ‘std::cout’?
+[2.969s]    53 |     cout << "k" << adm_k[0] <<endl;
+[2.969s]       |     ^~~~
+[2.969s]       |     std::cout
+[2.969s] In file included from /opt/ros/foxy/include/rclcpp/executor.hpp:22:
+[2.969s] /usr/include/c++/13/iostream:63:18: note: ‘std::cout’ declared here
+[2.969s]    63 |   extern ostream cout;          ///< Linked to standard output
+[2.969s]       |                  ^~~~
+[2.969s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:53:31: error: ‘endl’ was not declared in this scope; did you mean ‘std::endl’?
+[2.969s]    53 |     cout << "k" << adm_k[0] <<endl;
+[2.969s]       |                               ^~~~
+[2.969s]       |                               std::endl
+[2.969s] In file included from /usr/include/c++/13/iostream:41:
+[2.969s] /usr/include/c++/13/ostream:735:5: note: ‘std::endl’ declared here
+[2.969s]   735 |     endl(basic_ostream<_CharT, _Traits>& __os)
+[2.969s]       |     ^~~~
+[2.970s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:68:5: error: ‘sleep’ was not declared in this scope
+[2.970s]    68 |     sleep(1);
+[2.970s]       |     ^~~~~
+[2.970s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp: At global scope:
+[2.970s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:117:70: error: ‘ControlCommand’ in namespace ‘robot_msgs::msg’ does not name a type
+[2.970s]   117 | void RobotAdmittanceControl::command_callback(const robot_msgs::msg::ControlCommand::SharedPtr msg) {
+[2.970s]       |                                                                      ^~~~~~~~~~~~~~
+[2.970s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:117:96: error: expected unqualified-id before ‘msg’
+[2.970s]   117 | void RobotAdmittanceControl::command_callback(const robot_msgs::msg::ControlCommand::SharedPtr msg) {
+[2.970s]       |                                                                                                ^~~
+[2.970s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:117:95: error: expected ‘)’ before ‘msg’
+[2.970s]   117 | void RobotAdmittanceControl::command_callback(const robot_msgs::msg::ControlCommand::SharedPtr msg) {
+[2.970s]       |                                              ~                                                ^~~~
+[2.970s]       |                                                                                               )
+[2.970s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:117:96: error: expected initializer before ‘msg’
+[2.970s]   117 | void RobotAdmittanceControl::command_callback(const robot_msgs::msg::ControlCommand::SharedPtr msg) {
+[2.970s]       |                                                                                                ^~~
+[2.970s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:125:41: error: ‘srv’ is not a member of ‘robot_msgs’
+[2.970s]   125 |       const std::shared_ptr<robot_msgs::srv::StartPose::Request>,
+[2.970s]       |                                         ^~~
+[2.970s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:125:41: note: suggested alternatives:
+[2.970s] /opt/ros/foxy/include/rcl_interfaces/srv/detail/describe_parameters__struct.hpp:26:11: note:   ‘rcl_interfaces::srv’
+[2.970s]    26 | namespace srv
+[2.970s]       |           ^~~
+[2.970s] /opt/ros/foxy/include/action_msgs/srv/detail/cancel_goal__struct.hpp:30:11: note:   ‘action_msgs::srv’
+[2.970s]    30 | namespace srv
+[2.970s]       |           ^~~
+[2.970s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:125:41: error: ‘srv’ is not a member of ‘robot_msgs’
+[2.970s]   125 |       const std::shared_ptr<robot_msgs::srv::StartPose::Request>,
+[2.970s]       |                                         ^~~
+[2.970s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:125:41: note: suggested alternatives:
+[2.970s] /opt/ros/foxy/include/rcl_interfaces/srv/detail/describe_parameters__struct.hpp:26:11: note:   ‘rcl_interfaces::srv’
+[2.970s]    26 | namespace srv
+[2.970s]       |           ^~~
+[2.970s] /opt/ros/foxy/include/action_msgs/srv/detail/cancel_goal__struct.hpp:30:11: note:   ‘action_msgs::srv’
+[2.970s]    30 | namespace srv
+[2.970s]       |           ^~~
+[2.970s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:125:64: error: template argument 1 is invalid
+[2.970s]   125 |       const std::shared_ptr<robot_msgs::srv::StartPose::Request>,
+[2.970s]       |                                                                ^
+[2.970s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:125:41: error: ‘srv’ is not a member of ‘robot_msgs’
+[2.970s]   125 |       const std::shared_ptr<robot_msgs::srv::StartPose::Request>,
+[2.970s]       |                                         ^~~
+[2.970s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:125:41: note: suggested alternatives:
+[2.970s] /opt/ros/foxy/include/rcl_interfaces/srv/detail/describe_parameters__struct.hpp:26:11: note:   ‘rcl_interfaces::srv’
+[2.971s]    26 | namespace srv
+[2.971s]       |           ^~~
+[2.971s] /opt/ros/foxy/include/action_msgs/srv/detail/cancel_goal__struct.hpp:30:11: note:   ‘action_msgs::srv’
+[2.971s]    30 | namespace srv
+[2.971s]       |           ^~~
+[2.971s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:125:41: error: ‘srv’ is not a member of ‘robot_msgs’
+[2.971s]   125 |       const std::shared_ptr<robot_msgs::srv::StartPose::Request>,
+[2.971s]       |                                         ^~~
+[2.971s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:125:41: note: suggested alternatives:
+[2.971s] /opt/ros/foxy/include/rcl_interfaces/srv/detail/describe_parameters__struct.hpp:26:11: note:   ‘rcl_interfaces::srv’
+[2.971s]    26 | namespace srv
+[2.971s]       |           ^~~
+[2.971s] /opt/ros/foxy/include/action_msgs/srv/detail/cancel_goal__struct.hpp:30:11: note:   ‘action_msgs::srv’
+[2.971s]    30 | namespace srv
+[2.971s]       |           ^~~
+[2.971s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:125:64: error: template argument 1 is invalid
+[2.971s]   125 |       const std::shared_ptr<robot_msgs::srv::StartPose::Request>,
+[2.971s]       |                                                                ^
+[2.971s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:125:41: error: ‘srv’ is not a member of ‘robot_msgs’
+[2.971s]   125 |       const std::shared_ptr<robot_msgs::srv::StartPose::Request>,
+[2.971s]       |                                         ^~~
+[2.971s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:125:41: note: suggested alternatives:
+[2.971s] /opt/ros/foxy/include/rcl_interfaces/srv/detail/describe_parameters__struct.hpp:26:11: note:   ‘rcl_interfaces::srv’
+[2.971s]    26 | namespace srv
+[2.971s]       |           ^~~
+[2.971s] /opt/ros/foxy/include/action_msgs/srv/detail/cancel_goal__struct.hpp:30:11: note:   ‘action_msgs::srv’
+[2.971s]    30 | namespace srv
+[2.971s]       |           ^~~
+[2.971s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:125:41: error: ‘srv’ is not a member of ‘robot_msgs’
+[2.971s]   125 |       const std::shared_ptr<robot_msgs::srv::StartPose::Request>,
+[2.971s]       |                                         ^~~
+[2.971s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:125:41: note: suggested alternatives:
+[2.971s] /opt/ros/foxy/include/rcl_interfaces/srv/detail/describe_parameters__struct.hpp:26:11: note:   ‘rcl_interfaces::srv’
+[2.971s]    26 | namespace srv
+[2.971s]       |           ^~~
+[2.971s] /opt/ros/foxy/include/action_msgs/srv/detail/cancel_goal__struct.hpp:30:11: note:   ‘action_msgs::srv’
+[2.971s]    30 | namespace srv
+[2.971s]       |           ^~~
+[2.971s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:125:64: error: template argument 1 is invalid
+[2.971s]   125 |       const std::shared_ptr<robot_msgs::srv::StartPose::Request>,
+[2.971s]       |                                                                ^
+[2.971s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:125:41: error: ‘srv’ is not a member of ‘robot_msgs’
+[2.971s]   125 |       const std::shared_ptr<robot_msgs::srv::StartPose::Request>,
+[2.971s]       |                                         ^~~
+[2.971s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:125:41: note: suggested alternatives:
+[2.972s] /opt/ros/foxy/include/rcl_interfaces/srv/detail/describe_parameters__struct.hpp:26:11: note:   ‘rcl_interfaces::srv’
+[2.972s]    26 | namespace srv
+[2.972s]       |           ^~~
+[2.972s] /opt/ros/foxy/include/action_msgs/srv/detail/cancel_goal__struct.hpp:30:11: note:   ‘action_msgs::srv’
+[2.972s]    30 | namespace srv
+[2.972s]       |           ^~~
+[2.972s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:125:41: error: ‘srv’ is not a member of ‘robot_msgs’
+[2.972s]   125 |       const std::shared_ptr<robot_msgs::srv::StartPose::Request>,
+[2.972s]       |                                         ^~~
+[2.972s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:125:41: note: suggested alternatives:
+[2.972s] /opt/ros/foxy/include/rcl_interfaces/srv/detail/describe_parameters__struct.hpp:26:11: note:   ‘rcl_interfaces::srv’
+[2.972s]    26 | namespace srv
+[2.972s]       |           ^~~
+[2.972s] /opt/ros/foxy/include/action_msgs/srv/detail/cancel_goal__struct.hpp:30:11: note:   ‘action_msgs::srv’
+[2.972s]    30 | namespace srv
+[2.972s]       |           ^~~
+[2.972s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:125:64: error: template argument 1 is invalid
+[2.972s]   125 |       const std::shared_ptr<robot_msgs::srv::StartPose::Request>,
+[2.972s]       |                                                                ^
+[2.972s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:125:41: error: ‘srv’ is not a member of ‘robot_msgs’
+[2.972s]   125 |       const std::shared_ptr<robot_msgs::srv::StartPose::Request>,
+[2.972s]       |                                         ^~~
+[2.972s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:125:41: note: suggested alternatives:
+[2.972s] /opt/ros/foxy/include/rcl_interfaces/srv/detail/describe_parameters__struct.hpp:26:11: note:   ‘rcl_interfaces::srv’
+[2.972s]    26 | namespace srv
+[2.972s]       |           ^~~
+[2.972s] /opt/ros/foxy/include/action_msgs/srv/detail/cancel_goal__struct.hpp:30:11: note:   ‘action_msgs::srv’
+[2.972s]    30 | namespace srv
+[2.972s]       |           ^~~
+[2.972s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:125:41: error: ‘srv’ is not a member of ‘robot_msgs’
+[2.972s]   125 |       const std::shared_ptr<robot_msgs::srv::StartPose::Request>,
+[2.972s]       |                                         ^~~
+[2.972s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:125:41: note: suggested alternatives:
+[2.972s] /opt/ros/foxy/include/rcl_interfaces/srv/detail/describe_parameters__struct.hpp:26:11: note:   ‘rcl_interfaces::srv’
+[2.972s]    26 | namespace srv
+[2.972s]       |           ^~~
+[2.972s] /opt/ros/foxy/include/action_msgs/srv/detail/cancel_goal__struct.hpp:30:11: note:   ‘action_msgs::srv’
+[2.972s]    30 | namespace srv
+[2.972s]       |           ^~~
+[2.972s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:125:64: error: template argument 1 is invalid
+[2.972s]   125 |       const std::shared_ptr<robot_msgs::srv::StartPose::Request>,
+[2.972s]       |                                                                ^
+[2.972s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:125:13: error: invalid use of template-name ‘std::shared_ptr’ without an argument list
+[2.972s]   125 |       const std::shared_ptr<robot_msgs::srv::StartPose::Request>,
+[2.972s]       |             ^~~
+[2.972s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:125:13: note: class template argument deduction is only available with ‘-std=c++17’ or ‘-std=gnu++17’
+[2.973s] /usr/include/c++/13/bits/shared_ptr_base.h:395:11: note: ‘template<class _Tp> class std::shared_ptr’ declared here
+[2.973s]   395 |     class shared_ptr;
+[2.973s]       |           ^~~~~~~~~~
+[2.973s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:125:28: error: expected ‘,’ or ‘...’ before ‘<’ token
+[2.973s]   125 |       const std::shared_ptr<robot_msgs::srv::StartPose::Request>,
+[2.973s]       |                            ^
+[2.973s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp: In member function ‘void right_arm::RobotAdmittanceControl::ready_callback(int)’:
+[2.973s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:134:5: error: ‘response’ was not declared in this scope
+[2.973s]   134 |     response->success = true;
+[2.973s]       |     ^~~~~~~~
+[2.973s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp: In member function ‘void right_arm::RobotAdmittanceControl::print_eef(char)’:
+[2.973s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:268:3: error: ‘cout’ was not declared in this scope; did you mean ‘std::cout’?
+[2.973s]   268 |   cout << "eef_offset" << eef_offset << endl;
+[2.973s]       |   ^~~~
+[2.973s]       |   std::cout
+[2.973s] /usr/include/c++/13/iostream:63:18: note: ‘std::cout’ declared here
+[2.973s]    63 |   extern ostream cout;          ///< Linked to standard output
+[2.973s]       |                  ^~~~
+[2.973s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:268:41: error: ‘endl’ was not declared in this scope; did you mean ‘std::endl’?
+[2.973s]   268 |   cout << "eef_offset" << eef_offset << endl;
+[2.973s]       |                                         ^~~~
+[2.973s]       |                                         std::endl
+[2.973s] /usr/include/c++/13/ostream:735:5: note: ‘std::endl’ declared here
+[2.973s]   735 |     endl(basic_ostream<_CharT, _Traits>& __os)
+[2.973s]       |     ^~~~
+[2.973s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp: In member function ‘void right_arm::RobotAdmittanceControl::tcp_admittance_run()’:
+[2.973s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:287:3: error: ‘cout’ was not declared in this scope; did you mean ‘std::cout’?
+[2.973s]   287 |   cout << "eef_offset" << eef_offset << endl;
+[2.973s]       |   ^~~~
+[2.973s]       |   std::cout
+[2.973s] /usr/include/c++/13/iostream:63:18: note: ‘std::cout’ declared here
+[2.973s]    63 |   extern ostream cout;          ///< Linked to standard output
+[2.973s]       |                  ^~~~
+[2.973s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:287:41: error: ‘endl’ was not declared in this scope; did you mean ‘std::endl’?
+[2.973s]   287 |   cout << "eef_offset" << eef_offset << endl;
+[2.973s]       |                                         ^~~~
+[2.973s]       |                                         std::endl
+[2.973s] /usr/include/c++/13/ostream:735:5: note: ‘std::endl’ declared here
+[2.973s]   735 |     endl(basic_ostream<_CharT, _Traits>& __os)
+[2.973s]       |     ^~~~
+[2.973s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:296:29: error: ‘ros’ has not been declared
+[2.973s]   296 |   while ((item < 7000) &&  (ros::ok()))
+[2.973s]       |                             ^~~
+[2.973s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp: In member function ‘void right_arm::RobotAdmittanceControl::linear_search(char)’:
+[2.973s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:385:3: error: ‘cout’ was not declared in this scope; did you mean ‘std::cout’?
+[2.974s]   385 |   cout << "eef_offset" << eef_offset << endl;
+[2.974s]       |   ^~~~
+[2.974s]       |   std::cout
+[2.974s] /usr/include/c++/13/iostream:63:18: note: ‘std::cout’ declared here
+[2.974s]    63 |   extern ostream cout;          ///< Linked to standard output
+[2.974s]       |                  ^~~~
+[2.974s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:385:41: error: ‘endl’ was not declared in this scope; did you mean ‘std::endl’?
+[2.974s]   385 |   cout << "eef_offset" << eef_offset << endl;
+[2.974s]       |                                         ^~~~
+[2.974s]       |                                         std::endl
+[2.974s] /usr/include/c++/13/ostream:735:5: note: ‘std::endl’ declared here
+[2.974s]   735 |     endl(basic_ostream<_CharT, _Traits>& __os)
+[2.974s]       |     ^~~~
+[2.974s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:398:28: error: ‘ros’ has not been declared
+[2.974s]   398 |   while ((item < 7000) && (ros::ok()))
+[2.974s]       |                            ^~~
+[2.974s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:417:7: error: ‘pose_p’ was not declared in this scope
+[2.974s]   417 |       pose_p.X = eef_pos[0];
+[2.974s]       |       ^~~~~~
+[2.974s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:427:7: error: ‘pos_pub_6’ was not declared in this scope
+[2.974s]   427 |       pos_pub_6.publish(pose_p);
+[2.974s]       |       ^~~~~~~~~
+[2.974s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp: In member function ‘void right_arm::RobotAdmittanceControl::passive_fine()’:
+[2.974s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:478:3: error: ‘screw_execute_status’ was not declared in this scope; did you mean ‘screw_execute_status_’?
+[2.974s]   478 |   screw_execute_status = 2; //初始化，肯定是未运行的；
+[2.974s]       |   ^~~~~~~~~~~~~~~~~~~~
+[2.974s]       |   screw_execute_status_
+[2.974s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:481:3: error: ‘screw_execute_result’ was not declared in this scope; did you mean ‘screw_execute_result_’?
+[2.974s]   481 |   screw_execute_result = 9; //不需要对其进行初始化，一开始他没有结果
+[2.974s]       |   ^~~~~~~~~~~~~~~~~~~~
+[2.974s]       |   screw_execute_result_
+[2.974s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:482:3: error: ‘real_robot_control’ has not been declared
+[2.974s]   482 |   real_robot_control::screwGoal goal;
+[2.974s]       |   ^~~~~~~~~~~~~~~~~~
+[2.974s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:487:10: error: ‘ros’ has not been declared
+[2.974s]   487 |   while (ros::ok()){
+[2.974s]       |          ^~~
+[2.974s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:491:11: error: ‘cout’ was not declared in this scope; did you mean ‘std::cout’?
+[2.974s]   491 |           cout << "装配完成，退出" << endl;
+[2.974s]       |           ^~~~
+[2.974s]       |           std::cout
+[2.974s] /usr/include/c++/13/iostream:63:18: note: ‘std::cout’ declared here
+[2.974s]    63 |   extern ostream cout;          ///< Linked to standard output
+[2.974s]       |                  ^~~~
+[2.975s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:491:39: error: ‘endl’ was not declared in this scope; did you mean ‘std::endl’?
+[2.975s]   491 |           cout << "装配完成，退出" << endl;
+[2.975s]       |                                       ^~~~
+[2.975s]       |                                       std::endl
+[2.975s] /usr/include/c++/13/ostream:735:5: note: ‘std::endl’ declared here
+[2.975s]   735 |     endl(basic_ostream<_CharT, _Traits>& __os)
+[2.975s]       |     ^~~~
+[2.975s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:497:11: error: ‘cout’ was not declared in this scope; did you mean ‘std::cout’?
+[2.975s]   497 |           cout << "delta_height[2] = " << delta_height[2] << endl;
+[2.975s]       |           ^~~~
+[2.975s]       |           std::cout
+[2.975s] /usr/include/c++/13/iostream:63:18: note: ‘std::cout’ declared here
+[2.975s]    63 |   extern ostream cout;          ///< Linked to standard output
+[2.975s]       |                  ^~~~
+[2.975s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:497:62: error: ‘endl’ was not declared in this scope; did you mean ‘std::endl’?
+[2.975s]   497 |           cout << "delta_height[2] = " << delta_height[2] << endl;
+[2.975s]       |                                                              ^~~~
+[2.975s]       |                                                              std::endl
+[2.975s] /usr/include/c++/13/ostream:735:5: note: ‘std::endl’ declared here
+[2.975s]   735 |     endl(basic_ostream<_CharT, _Traits>& __os)
+[2.975s]       |     ^~~~
+[2.975s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:508:11: error: ‘cout’ was not declared in this scope; did you mean ‘std::cout’?
+[2.975s]   508 |           cout << "delta_height[2] = " << delta_height[2] << endl;
+[2.975s]       |           ^~~~
+[2.975s]       |           std::cout
+[2.975s] /usr/include/c++/13/iostream:63:18: note: ‘std::cout’ declared here
+[2.975s]    63 |   extern ostream cout;          ///< Linked to standard output
+[2.975s]       |                  ^~~~
+[2.975s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:508:62: error: ‘endl’ was not declared in this scope; did you mean ‘std::endl’?
+[2.975s]   508 |           cout << "delta_height[2] = " << delta_height[2] << endl;
+[2.975s]       |                                                              ^~~~
+[2.975s]       |                                                              std::endl
+[2.975s] /usr/include/c++/13/ostream:735:5: note: ‘std::endl’ declared here
+[2.975s]   735 |     endl(basic_ostream<_CharT, _Traits>& __os)
+[2.975s]       |     ^~~~
+[2.975s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:514:11: error: ‘cout’ was not declared in this scope; did you mean ‘std::cout’?
+[2.975s]   514 |           cout << "flag = 2, 卡住了，回退，进入下一个搜索" << endl;
+[2.975s]       |           ^~~~
+[2.975s]       |           std::cout
+[2.975s] /usr/include/c++/13/iostream:63:18: note: ‘std::cout’ declared here
+[2.975s]    63 |   extern ostream cout;          ///< Linked to standard output
+[2.975s]       |                  ^~~~
+[2.975s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:514:63: error: ‘endl’ was not declared in this scope; did you mean ‘std::endl’?
+[2.975s]   514 |           cout << "flag = 2, 卡住了，回退，进入下一个搜索" << endl;
+[2.976s]       |                                                               ^~~~
+[2.976s]       |                                                               std::endl
+[2.976s] /usr/include/c++/13/ostream:735:5: note: ‘std::endl’ declared here
+[2.976s]   735 |     endl(basic_ostream<_CharT, _Traits>& __os)
+[2.976s]       |     ^~~~
+[2.976s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:522:7: error: ‘cout’ was not declared in this scope; did you mean ‘std::cout’?
+[2.976s]   522 |       cout << "开始运行" << endl;
+[2.976s]       |       ^~~~
+[2.976s]       |       std::cout
+[2.976s] /usr/include/c++/13/iostream:63:18: note: ‘std::cout’ declared here
+[2.976s]    63 |   extern ostream cout;          ///< Linked to standard output
+[2.976s]       |                  ^~~~
+[2.976s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:522:29: error: ‘endl’ was not declared in this scope; did you mean ‘std::endl’?
+[2.976s]   522 |       cout << "开始运行" << endl;
+[2.976s]       |                             ^~~~
+[2.976s]       |                             std::endl
+[2.976s] /usr/include/c++/13/ostream:735:5: note: ‘std::endl’ declared here
+[2.976s]   735 |     endl(basic_ostream<_CharT, _Traits>& __os)
+[2.976s]       |     ^~~~
+[2.976s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:526:32: error: ‘ros’ has not been declared
+[2.976s]   526 |       while ((item < 5000)&&  (ros::ok()))
+[2.976s]       |                                ^~~
+[2.976s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:530:57: error: ‘flush’ was not declared in this scope; did you mean ‘std::flush’?
+[2.976s]   530 |             cout << "\r" <<" start to send message " << flush;
+[2.976s]       |                                                         ^~~~~
+[2.976s]       |                                                         std::flush
+[2.976s] /usr/include/c++/13/ostream:757:5: note: ‘std::flush’ declared here
+[2.976s]   757 |     flush(basic_ostream<_CharT, _Traits>& __os)
+[2.976s]       |     ^~~~~
+[2.976s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:534:13: error: ‘goal_msg’ was not declared in this scope
+[2.976s]   534 |             goal_msg.num = flag; // 0 直接运行后续装配过程 1 运行第一阶段，接着搜索 2 出现错误，回退
+[2.976s]       |             ^~~~~~~~
+[2.976s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:539:115: error: no match for ‘operator=’ (operand types are ‘rclcpp_action::Client<robot_msgs::action::Screw>::FeedbackCallback’ {aka ‘std::function<void(std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >, std::shared_ptr<const robot_msgs::action::Screw_Feedback_<std::allocator<void> > >)>’} and ‘std::_Bind_helper<false, void (right_arm::RobotAdmittanceControl::*)(const std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >&, const std::shared_ptr<robot_msgs::action::Screw_Feedback_<std::allocator<void> > >&), right_arm::RobotAdmittanceControl*, const std::_Placeholder<1>&, const std::_Placeholder<2>&>::type’)
+[2.976s]   539 |                 std::bind(&RobotAdmittanceControl::feedback_cb, this, std::placeholders::_1, std::placeholders::_2);
+[2.976s]       |                                                                                                                   ^
+[2.976s] In file included from /usr/include/c++/13/future:50,
+[2.976s]                  from /opt/ros/foxy/include/rclcpp/executors.hpp:18:
+[2.976s] /usr/include/c++/13/bits/std_function.h:531:9: note: candidate: ‘template<class _Functor> std::function<_Res(_ArgTypes ...)>::_Requires<std::function<_Res(_ArgTypes ...)>::_Callable<_Functor>, std::function<_Res(_ArgTypes ...)>&> std::function<_Res(_ArgTypes ...)>::operator=(_Functor&&) [with _Res = void; _ArgTypes = {std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >, std::shared_ptr<const robot_msgs::action::Screw_Feedback_<std::allocator<void> > >}]’
+[2.976s]   531 |         operator=(_Functor&& __f)
+[2.976s]       |         ^~~~~~~~
+[2.976s] /usr/include/c++/13/bits/std_function.h:531:9: note:   template argument deduction/substitution failed:
+[2.976s] In file included from /usr/include/c++/13/bits/move.h:37,
+[2.976s]                  from /usr/include/c++/13/bits/new_allocator.h:36,
+[2.976s]                  from /usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h:33,
+[2.976s]                  from /usr/include/c++/13/bits/allocator.h:46,
+[2.977s]                  from /usr/include/c++/13/memory:65:
+[2.977s] /usr/include/c++/13/type_traits: In substitution of ‘template<bool _Cond, class _Tp> using std::__enable_if_t = typename std::enable_if::type [with bool _Cond = false; _Tp = std::function<void(std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >, std::shared_ptr<const robot_msgs::action::Screw_Feedback_<std::allocator<void> > >)>&]’:
+[2.977s] /usr/include/c++/13/bits/std_function.h:353:8:   required by substitution of ‘template<class _Res, class ... _ArgTypes> template<class _Cond, class _Tp> using std::function<_Res(_ArgTypes ...)>::_Requires = std::__enable_if_t<_Cond::value, _Tp> [with _Cond = std::function<void(std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >, std::shared_ptr<const robot_msgs::action::Screw_Feedback_<std::allocator<void> > >)>::_Callable<std::_Bind<void (right_arm::RobotAdmittanceControl::*(right_arm::RobotAdmittanceControl*, std::_Placeholder<1>, std::_Placeholder<2>))(const std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >&, const std::shared_ptr<robot_msgs::action::Screw_Feedback_<std::allocator<void> > >&)>, std::_Bind<void (right_arm::RobotAdmittanceControl::*(right_arm::RobotAdmittanceControl*, std::_Placeholder<1>, std::_Placeholder<2>))(const std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >&, const std::shared_ptr<robot_msgs::action::Screw_Feedback_<std::allocator<void> > >&)>, std::__invoke_result<std::_Bind<void (right_arm::RobotAdmittanceControl::*(right_arm::RobotAdmittanceControl*, std::_Placeholder<1>, std::_Placeholder<2>))(const std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >&, const std::shared_ptr<robot_msgs::action::Screw_Feedback_<std::allocator<void> > >&)>&, std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >, std::shared_ptr<const robot_msgs::action::Screw_Feedback_<std::allocator<void> > > > >; _Tp = std::function<void(std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >, std::shared_ptr<const robot_msgs::action::Screw_Feedback_<std::allocator<void> > >)>&; _Res = void; _ArgTypes = {std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >, std::shared_ptr<const robot_msgs::action::Screw_Feedback_<std::allocator<void> > >}]’
+[2.977s] /usr/include/c++/13/bits/std_function.h:531:2:   required by substitution of ‘template<class _Functor> std::function<void(std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >, std::shared_ptr<const robot_msgs::action::Screw_Feedback_<std::allocator<void> > >)>::_Requires<std::function<void(std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >, std::shared_ptr<const robot_msgs::action::Screw_Feedback_<std::allocator<void> > >)>::_Callable<_Functor, typename std::enable_if<(! std::is_same<typename std::remove_cv<typename std::remove_reference<_Tp>::type>::type, std::function<void(std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >, std::shared_ptr<const robot_msgs::action::Screw_Feedback_<std::allocator<void> > >)> >::value), std::decay<_Ex> >::type::type, std::__invoke_result<typename std::enable_if<(! std::is_same<typename std::remove_cv<typename std::remove_reference<_Tp>::type>::type, std::function<void(std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >, std::shared_ptr<const robot_msgs::action::Screw_Feedback_<std::allocator<void> > >)> >::value), std::decay<_Ex> >::type::type&, std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >, std::shared_ptr<const robot_msgs::action::Screw_Feedback_<std::allocator<void> > > > >, std::function<void(std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >, std::shared_ptr<const robot_msgs::action::Screw_Feedback_<std::allocator<void> > >)>&> std::function<void(std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >, std::shared_ptr<const robot_msgs::action::Screw_Feedback_<std::allocator<void> > >)>::operator=(_Functor&&) [with _Functor = std::_Bind<void (right_arm::RobotAdmittanceControl::*(right_arm::RobotAdmittanceControl*, std::_Placeholder<1>, std::_Placeholder<2>))(const std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >&, const std::shared_ptr<robot_msgs::action::Screw_Feedback_<std::allocator<void> > >&)>]’
+[2.977s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:539:115:   required from here
+[2.977s] /usr/include/c++/13/type_traits:116:11: error: no type named ‘type’ in ‘struct std::enable_if<false, std::function<void(std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >, std::shared_ptr<const robot_msgs::action::Screw_Feedback_<std::allocator<void> > >)>&>’
+[2.977s]   116 |     using __enable_if_t = typename enable_if<_Cond, _Tp>::type;
+[2.977s]       |           ^~~~~~~~~~~~~
+[2.977s] /usr/include/c++/13/bits/std_function.h:541:9: note: candidate: ‘template<class _Functor> std::function<_Res(_ArgTypes ...)>& std::function<_Res(_ArgTypes ...)>::operator=(std::reference_wrapper<_Functor>) [with _Res = void; _ArgTypes = {std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >, std::shared_ptr<const robot_msgs::action::Screw_Feedback_<std::allocator<void> > >}]’
+[2.977s]   541 |         operator=(reference_wrapper<_Functor> __f) noexcept
+[2.977s]       |         ^~~~~~~~
+[2.977s] /usr/include/c++/13/bits/std_function.h:541:9: note:   template argument deduction/substitution failed:
+[2.977s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:539:115: note:   ‘std::_Bind<void (right_arm::RobotAdmittanceControl::*(right_arm::RobotAdmittanceControl*, std::_Placeholder<1>, std::_Placeholder<2>))(const std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >&, const std::shared_ptr<robot_msgs::action::Screw_Feedback_<std::allocator<void> > >&)>’ is not derived from ‘std::reference_wrapper<_Tp>’
+[2.977s]   539 |                 std::bind(&RobotAdmittanceControl::feedback_cb, this, std::placeholders::_1, std::placeholders::_2);
+[2.977s]       |                                                                                                                   ^
+[2.977s] /usr/include/c++/13/bits/std_function.h:469:7: note: candidate: ‘std::function<_Res(_ArgTypes ...)>& std::function<_Res(_ArgTypes ...)>::operator=(const std::function<_Res(_ArgTypes ...)>&) [with _Res = void; _ArgTypes = {std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >, std::shared_ptr<const robot_msgs::action::Screw_Feedback_<std::allocator<void> > >}]’
+[2.977s]   469 |       operator=(const function& __x)
+[2.977s]       |       ^~~~~~~~
+[2.977s] /usr/include/c++/13/bits/std_function.h:469:33: note:   no known conversion for argument 1 from ‘std::_Bind_helper<false, void (right_arm::RobotAdmittanceControl::*)(const std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >&, const std::shared_ptr<robot_msgs::action::Screw_Feedback_<std::allocator<void> > >&), right_arm::RobotAdmittanceControl*, const std::_Placeholder<1>&, const std::_Placeholder<2>&>::type’ to ‘const std::function<void(std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >, std::shared_ptr<const robot_msgs::action::Screw_Feedback_<std::allocator<void> > >)>&’
+[2.977s]   469 |       operator=(const function& __x)
+[2.977s]       |                 ~~~~~~~~~~~~~~~~^~~
+[2.977s] /usr/include/c++/13/bits/std_function.h:487:7: note: candidate: ‘std::function<_Res(_ArgTypes ...)>& std::function<_Res(_ArgTypes ...)>::operator=(std::function<_Res(_ArgTypes ...)>&&) [with _Res = void; _ArgTypes = {std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >, std::shared_ptr<const robot_msgs::action::Screw_Feedback_<std::allocator<void> > >}]’
+[2.977s]   487 |       operator=(function&& __x) noexcept
+[2.977s]       |       ^~~~~~~~
+[2.977s] /usr/include/c++/13/bits/std_function.h:487:28: note:   no known conversion for argument 1 from ‘std::_Bind_helper<false, void (right_arm::RobotAdmittanceControl::*)(const std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >&, const std::shared_ptr<robot_msgs::action::Screw_Feedback_<std::allocator<void> > >&), right_arm::RobotAdmittanceControl*, const std::_Placeholder<1>&, const std::_Placeholder<2>&>::type’ to ‘std::function<void(std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >, std::shared_ptr<const robot_msgs::action::Screw_Feedback_<std::allocator<void> > >)>&&’
+[2.977s]   487 |       operator=(function&& __x) noexcept
+[2.977s]       |                 ~~~~~~~~~~~^~~
+[2.977s] /usr/include/c++/13/bits/std_function.h:501:7: note: candidate: ‘std::function<_Res(_ArgTypes ...)>& std::function<_Res(_ArgTypes ...)>::operator=(std::nullptr_t) [with _Res = void; _ArgTypes = {std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >, std::shared_ptr<const robot_msgs::action::Screw_Feedback_<std::allocator<void> > >}; std::nullptr_t = std::nullptr_t]’
+[2.977s]   501 |       operator=(nullptr_t) noexcept
+[2.977s]       |       ^~~~~~~~
+[2.977s] /usr/include/c++/13/bits/std_function.h:501:17: note:   no known conversion for argument 1 from ‘std::_Bind_helper<false, void (right_arm::RobotAdmittanceControl::*)(const std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >&, const std::shared_ptr<robot_msgs::action::Screw_Feedback_<std::allocator<void> > >&), right_arm::RobotAdmittanceControl*, const std::_Placeholder<1>&, const std::_Placeholder<2>&>::type’ to ‘std::nullptr_t’
+[2.977s]   501 |       operator=(nullptr_t) noexcept
+[2.977s]       |                 ^~~~~~~~~
+[2.977s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:541:111: error: no match for ‘operator=’ (operand types are ‘rclcpp_action::Client<robot_msgs::action::Screw>::ResultCallback’ {aka ‘std::function<void(const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&)>’} and ‘std::_Bind_helper<false, void (right_arm::RobotAdmittanceControl::*)(const std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >&, const std::shared_ptr<robot_msgs::action::Screw_Result_<std::allocator<void> > >&), right_arm::RobotAdmittanceControl*, const std::_Placeholder<1>&, const std::_Placeholder<2>&>::type’)
+[2.977s]   541 |                 std::bind(&RobotAdmittanceControl::done_cb, this, std::placeholders::_1, std::placeholders::_2);
+[2.977s]       |                                                                                                               ^
+[2.977s] /usr/include/c++/13/bits/std_function.h:531:9: note: candidate: ‘template<class _Functor> std::function<_Res(_ArgTypes ...)>::_Requires<std::function<_Res(_ArgTypes ...)>::_Callable<_Functor>, std::function<_Res(_ArgTypes ...)>&> std::function<_Res(_ArgTypes ...)>::operator=(_Functor&&) [with _Res = void; _ArgTypes = {const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&}]’
+[2.977s]   531 |         operator=(_Functor&& __f)
+[2.977s]       |         ^~~~~~~~
+[2.977s] /usr/include/c++/13/bits/std_function.h:531:9: note:   template argument deduction/substitution failed:
+[2.977s] /usr/include/c++/13/type_traits: In substitution of ‘template<bool _Cond, class _Tp> using std::__enable_if_t = typename std::enable_if::type [with bool _Cond = false; _Tp = std::function<void(const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&)>&]’:
+[2.977s] /usr/include/c++/13/bits/std_function.h:353:8:   required by substitution of ‘template<class _Res, class ... _ArgTypes> template<class _Cond, class _Tp> using std::function<_Res(_ArgTypes ...)>::_Requires = std::__enable_if_t<_Cond::value, _Tp> [with _Cond = std::function<void(const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&)>::_Callable<std::_Bind<void (right_arm::RobotAdmittanceControl::*(right_arm::RobotAdmittanceControl*, std::_Placeholder<1>, std::_Placeholder<2>))(const std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >&, const std::shared_ptr<robot_msgs::action::Screw_Result_<std::allocator<void> > >&)>, std::_Bind<void (right_arm::RobotAdmittanceControl::*(right_arm::RobotAdmittanceControl*, std::_Placeholder<1>, std::_Placeholder<2>))(const std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >&, const std::shared_ptr<robot_msgs::action::Screw_Result_<std::allocator<void> > >&)>, std::__invoke_result<std::_Bind<void (right_arm::RobotAdmittanceControl::*(right_arm::RobotAdmittanceControl*, std::_Placeholder<1>, std::_Placeholder<2>))(const std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >&, const std::shared_ptr<robot_msgs::action::Screw_Result_<std::allocator<void> > >&)>&, const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&> >; _Tp = std::function<void(const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&)>&; _Res = void; _ArgTypes = {const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&}]’
+[2.977s] /usr/include/c++/13/bits/std_function.h:531:2:   required by substitution of ‘template<class _Functor> std::function<void(const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&)>::_Requires<std::function<void(const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&)>::_Callable<_Functor, typename std::enable_if<(! std::is_same<typename std::remove_cv<typename std::remove_reference<_Tp>::type>::type, std::function<void(const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&)> >::value), std::decay<_Ex> >::type::type, std::__invoke_result<typename std::enable_if<(! std::is_same<typename std::remove_cv<typename std::remove_reference<_Tp>::type>::type, std::function<void(const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&)> >::value), std::decay<_Ex> >::type::type&, const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&> >, std::function<void(const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&)>&> std::function<void(const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&)>::operator=(_Functor&&) [with _Functor = std::_Bind<void (right_arm::RobotAdmittanceControl::*(right_arm::RobotAdmittanceControl*, std::_Placeholder<1>, std::_Placeholder<2>))(const std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >&, const std::shared_ptr<robot_msgs::action::Screw_Result_<std::allocator<void> > >&)>]’
+[2.978s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:541:111:   required from here
+[2.978s] /usr/include/c++/13/type_traits:116:11: error: no type named ‘type’ in ‘struct std::enable_if<false, std::function<void(const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&)>&>’
+[2.978s]   116 |     using __enable_if_t = typename enable_if<_Cond, _Tp>::type;
+[2.978s]       |           ^~~~~~~~~~~~~
+[2.978s] /usr/include/c++/13/bits/std_function.h:541:9: note: candidate: ‘template<class _Functor> std::function<_Res(_ArgTypes ...)>& std::function<_Res(_ArgTypes ...)>::operator=(std::reference_wrapper<_Functor>) [with _Res = void; _ArgTypes = {const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&}]’
+[2.978s]   541 |         operator=(reference_wrapper<_Functor> __f) noexcept
+[2.978s]       |         ^~~~~~~~
+[2.978s] /usr/include/c++/13/bits/std_function.h:541:9: note:   template argument deduction/substitution failed:
+[2.978s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:541:111: note:   ‘std::_Bind<void (right_arm::RobotAdmittanceControl::*(right_arm::RobotAdmittanceControl*, std::_Placeholder<1>, std::_Placeholder<2>))(const std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >&, const std::shared_ptr<robot_msgs::action::Screw_Result_<std::allocator<void> > >&)>’ is not derived from ‘std::reference_wrapper<_Tp>’
+[2.978s]   541 |                 std::bind(&RobotAdmittanceControl::done_cb, this, std::placeholders::_1, std::placeholders::_2);
+[2.978s]       |                                                                                                               ^
+[2.978s] /usr/include/c++/13/bits/std_function.h:469:7: note: candidate: ‘std::function<_Res(_ArgTypes ...)>& std::function<_Res(_ArgTypes ...)>::operator=(const std::function<_Res(_ArgTypes ...)>&) [with _Res = void; _ArgTypes = {const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&}]’
+[2.978s]   469 |       operator=(const function& __x)
+[2.978s]       |       ^~~~~~~~
+[2.978s] /usr/include/c++/13/bits/std_function.h:469:33: note:   no known conversion for argument 1 from ‘std::_Bind_helper<false, void (right_arm::RobotAdmittanceControl::*)(const std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >&, const std::shared_ptr<robot_msgs::action::Screw_Result_<std::allocator<void> > >&), right_arm::RobotAdmittanceControl*, const std::_Placeholder<1>&, const std::_Placeholder<2>&>::type’ to ‘const std::function<void(const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&)>&’
+[2.978s]   469 |       operator=(const function& __x)
+[2.978s]       |                 ~~~~~~~~~~~~~~~~^~~
+[2.978s] /usr/include/c++/13/bits/std_function.h:487:7: note: candidate: ‘std::function<_Res(_ArgTypes ...)>& std::function<_Res(_ArgTypes ...)>::operator=(std::function<_Res(_ArgTypes ...)>&&) [with _Res = void; _ArgTypes = {const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&}]’
+[2.978s]   487 |       operator=(function&& __x) noexcept
+[2.978s]       |       ^~~~~~~~
+[2.978s] /usr/include/c++/13/bits/std_function.h:487:28: note:   no known conversion for argument 1 from ‘std::_Bind_helper<false, void (right_arm::RobotAdmittanceControl::*)(const std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >&, const std::shared_ptr<robot_msgs::action::Screw_Result_<std::allocator<void> > >&), right_arm::RobotAdmittanceControl*, const std::_Placeholder<1>&, const std::_Placeholder<2>&>::type’ to ‘std::function<void(const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&)>&&’
+[2.978s]   487 |       operator=(function&& __x) noexcept
+[2.978s]       |                 ~~~~~~~~~~~^~~
+[2.978s] /usr/include/c++/13/bits/std_function.h:501:7: note: candidate: ‘std::function<_Res(_ArgTypes ...)>& std::function<_Res(_ArgTypes ...)>::operator=(std::nullptr_t) [with _Res = void; _ArgTypes = {const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult&}; std::nullptr_t = std::nullptr_t]’
+[2.978s]   501 |       operator=(nullptr_t) noexcept
+[2.978s]       |       ^~~~~~~~
+[2.978s] /usr/include/c++/13/bits/std_function.h:501:17: note:   no known conversion for argument 1 from ‘std::_Bind_helper<false, void (right_arm::RobotAdmittanceControl::*)(const std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >&, const std::shared_ptr<robot_msgs::action::Screw_Result_<std::allocator<void> > >&), right_arm::RobotAdmittanceControl*, const std::_Placeholder<1>&, const std::_Placeholder<2>&>::type’ to ‘std::nullptr_t’
+[2.978s]   501 |       operator=(nullptr_t) noexcept
+[2.978s]       |                 ^~~~~~~~~
+[2.978s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:570:11: error: ‘pose_p’ was not declared in this scope
+[2.978s]   570 |           pose_p.X = eef_pos[0];
+[2.978s]       |           ^~~~~~
+[2.978s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:580:11: error: ‘pos_pub_6’ was not declared in this scope
+[2.978s]   580 |           pos_pub_6.publish(pose_p);
+[2.978s]       |           ^~~~~~~~~
+[2.978s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:607:11: error: ‘ros’ has not been declared
+[2.978s]   607 |           ros::spinOnce();
+[2.978s]       |           ^~~
+[2.978s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp: In member function ‘void right_arm::RobotAdmittanceControl::grasp_obj()’:
+[2.978s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:613:3: error: ‘real_robot_control’ has not been declared
+[2.978s]   613 |   real_robot_control::screwGoal goal;
+[2.978s]       |   ^~~~~~~~~~~~~~~~~~
+[2.978s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:615:3: error: ‘goal’ was not declared in this scope
+[2.978s]   615 |   goal.num = 5;
+[2.979s]       |   ^~~~
+[2.979s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:616:3: error: ‘client’ was not declared in this scope; did you mean ‘client_’?
+[2.979s]   616 |   client.sendGoal(goal,
+[2.979s]       |   ^~~~~~
+[2.979s]       |   client_
+[2.979s] /usr/include/c++/13/functional: In instantiation of ‘struct std::_Bind_check_arity<void (right_arm::RobotAdmittanceControl::*)(const std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >&, const std::shared_ptr<robot_msgs::action::Screw_Feedback_<std::allocator<void> > >&), right_arm::RobotAdmittanceControl*, const std::_Placeholder<1>&>’:
+[2.979s] /usr/include/c++/13/functional:859:12:   required from ‘struct std::_Bind_helper<false, void (right_arm::RobotAdmittanceControl::*)(const std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >&, const std::shared_ptr<robot_msgs::action::Screw_Feedback_<std::allocator<void> > >&), right_arm::RobotAdmittanceControl*, const std::_Placeholder<1>&>’
+[2.979s] /usr/include/c++/13/functional:881:5:   required by substitution of ‘template<class _Func, class ... _BoundArgs> typename std::_Bind_helper<std::__is_socketlike<_Func>::value, _Func, _BoundArgs ...>::type std::bind(_Func&&, _BoundArgs&& ...) [with _Func = void (right_arm::RobotAdmittanceControl::*)(const std::shared_ptr<rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw> >&, const std::shared_ptr<robot_msgs::action::Screw_Feedback_<std::allocator<void> > >&); _BoundArgs = {right_arm::RobotAdmittanceControl*, const std::_Placeholder<1>&}]’
+[2.979s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:619:28:   required from here
+[2.979s] /usr/include/c++/13/functional:847:21: error: static assertion failed: Wrong number of arguments for pointer-to-member
+[2.979s]   846 |       static_assert(_Varargs::value
+[2.979s]       |                               ~~~~~
+[2.979s]   847 |                     ? sizeof...(_BoundArgs) >= _Arity::value + 1
+[2.979s]       |                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[2.979s]   848 |                     : sizeof...(_BoundArgs) == _Arity::value + 1,
+[2.979s]       |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[2.979s] /usr/include/c++/13/functional:847:21: note: ‘(false ? (2 >= (((long unsigned int)std::integral_constant<long unsigned int, 2>::value) + 1)) : (2 == (((long unsigned int)std::integral_constant<long unsigned int, 2>::value) + 1)))’ evaluates to false
+[2.979s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:621:10: error: ‘ros’ has not been declared
+[2.979s]   621 |   while (ros::ok()){
+[2.979s]       |          ^~~
+[2.979s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:622:7: error: ‘ros’ has not been declared
+[2.979s]   622 |       ros::spinOnce(); //处理一下上面的回调函数
+[2.979s]       |       ^~~
+[2.979s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:623:11: error: ‘screw_execute_status’ was not declared in this scope; did you mean ‘screw_execute_status_’?
+[2.979s]   623 |       if (screw_execute_status == 0){
+[2.979s]       |           ^~~~~~~~~~~~~~~~~~~~
+[2.979s]       |           screw_execute_status_
+[2.979s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:624:11: error: ‘cout’ was not declared in this scope; did you mean ‘std::cout’?
+[2.979s]   624 |           cout<<"the obj is grasped"<<endl; break;}}
+[2.979s]       |           ^~~~
+[2.979s]       |           std::cout
+[2.979s] /usr/include/c++/13/iostream:63:18: note: ‘std::cout’ declared here
+[2.979s]    63 |   extern ostream cout;          ///< Linked to standard output
+[2.979s]       |                  ^~~~
+[2.979s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:624:39: error: ‘endl’ was not declared in this scope; did you mean ‘std::endl’?
+[2.979s]   624 |           cout<<"the obj is grasped"<<endl; break;}}
+[2.979s]       |                                       ^~~~
+[2.979s]       |                                       std::endl
+[2.979s] /usr/include/c++/13/ostream:735:5: note: ‘std::endl’ declared here
+[2.979s]   735 |     endl(basic_ostream<_CharT, _Traits>& __os)
+[2.979s]       |     ^~~~
+[2.979s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp: In member function ‘void right_arm::RobotAdmittanceControl::robot_finish()’:
+[2.979s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:628:3: error: ‘real_robot_control’ has not been declared
+[2.979s]   628 |   real_robot_control::screwGoal goal;
+[2.979s]       |   ^~~~~~~~~~~~~~~~~~
+[2.979s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:643:3: error: ‘goal’ was not declared in this scope
+[2.980s]   643 |   goal.num = 4;
+[2.980s]       |   ^~~~
+[2.980s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:644:3: error: ‘client’ was not declared in this scope; did you mean ‘client_’?
+[2.980s]   644 |   client.sendGoal(goal,
+[2.980s]       |   ^~~~~~
+[2.980s]       |   client_
+[2.980s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:648:10: error: ‘ros’ has not been declared
+[2.980s]   648 |   while (ros::ok()){
+[2.980s]       |          ^~~
+[2.980s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:649:7: error: ‘ros’ has not been declared
+[2.980s]   649 |       ros::spinOnce(); //处理一下上面的回调函数
+[2.980s]       |       ^~~
+[2.980s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:650:11: error: ‘screw_execute_result’ was not declared in this scope; did you mean ‘screw_execute_result_’?
+[2.980s]   650 |       if (screw_execute_result == 4){
+[2.980s]       |           ^~~~~~~~~~~~~~~~~~~~
+[2.980s]       |           screw_execute_result_
+[2.980s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp: In member function ‘void right_arm::RobotAdmittanceControl::go_to_pose(char)’:
+[2.980s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:775:7: error: ‘cout’ was not declared in this scope; did you mean ‘std::cout’?
+[2.980s]   775 |       cout << new_pos.tran.x <<" "<< new_pos.tran.y <<" "<< new_pos.tran.z << endl;
+[2.980s]       |       ^~~~
+[2.980s]       |       std::cout
+[2.980s] /usr/include/c++/13/iostream:63:18: note: ‘std::cout’ declared here
+[2.980s]    63 |   extern ostream cout;          ///< Linked to standard output
+[2.980s]       |                  ^~~~
+[2.980s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:775:79: error: ‘endl’ was not declared in this scope; did you mean ‘std::endl’?
+[2.980s]   775 |       cout << new_pos.tran.x <<" "<< new_pos.tran.y <<" "<< new_pos.tran.z << endl;
+[2.980s]       |                                                                               ^~~~
+[2.980s]       |                                                                               std::endl
+[2.980s] /usr/include/c++/13/ostream:735:5: note: ‘std::endl’ declared here
+[2.980s]   735 |     endl(basic_ostream<_CharT, _Traits>& __os)
+[2.980s]       |     ^~~~
+[2.980s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp: In member function ‘void right_arm::RobotAdmittanceControl::reset()’:
+[2.980s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:783:3: error: ‘cout’ was not declared in this scope; did you mean ‘std::cout’?
+[2.980s]   783 |   cout<< "reset the robot"<<endl;
+[2.980s]       |   ^~~~
+[2.980s]       |   std::cout
+[2.980s] /usr/include/c++/13/iostream:63:18: note: ‘std::cout’ declared here
+[2.980s]    63 |   extern ostream cout;          ///< Linked to standard output
+[2.980s]       |                  ^~~~
+[2.980s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:783:29: error: ‘endl’ was not declared in this scope; did you mean ‘std::endl’?
+[2.980s]   783 |   cout<< "reset the robot"<<endl;
+[2.980s]       |                             ^~~~
+[2.980s]       |                             std::endl
+[2.980s] /usr/include/c++/13/ostream:735:5: note: ‘std::endl’ declared here
+[2.980s]   735 |     endl(basic_ostream<_CharT, _Traits>& __os)
+[2.980s]       |     ^~~~
+[2.981s] make[2]: *** [CMakeFiles/right_arm_control.dir/build.make:63：CMakeFiles/right_arm_control.dir/src/right_arm_control.cpp.o] 错误 1
+[2.981s] make[1]: *** [CMakeFiles/Makefile2:78：CMakeFiles/right_arm_control.dir/all] 错误 2
+[2.981s] make: *** [Makefile:141：all] 错误 2
+[2.981s] Invoked command in '/home/yanji/robot_screwing/build/screw_robot_control' returned '2': CMAKE_PREFIX_PATH=/home/yanji/robot_screwing/install/robot_msgs:/home/yanji/robot_screwing/install/screw_robot_control:/home/yanji/robot_screwing/install/real_robot:/home/yanji/robot_screwing/install/mj_sim:/opt/ros/foxy CONDA_PROMPT_MODIFIER=(screwrobot) LD_LIBRARY_PATH=/home/yanji/robot_screwing/install/robot_msgs/lib:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/home/yanji/robot_screwing/install/screw_robot_control/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/local/cuda/lib64:/usr/local/cuda/lib64 /usr/bin/cmake --build /home/yanji/robot_screwing/build/screw_robot_control -- -j24 -l24

@@ -60,6 +60,9 @@ CMakeFiles/robot_msgs: /home/yanji/robot_screwing/src/robot_msgs/msg/RefStatus.m
 CMakeFiles/robot_msgs: /home/yanji/robot_screwing/src/robot_msgs/srv/StartPose.srv
 CMakeFiles/robot_msgs: rosidl_cmake/srv/StartPose_Request.msg
 CMakeFiles/robot_msgs: rosidl_cmake/srv/StartPose_Response.msg
+CMakeFiles/robot_msgs: /home/yanji/robot_screwing/src/robot_msgs/action/Screw.action
+CMakeFiles/robot_msgs: /home/yanji/robot_screwing/src/robot_msgs/msg/CurrentPub.msg
+CMakeFiles/robot_msgs: /home/yanji/robot_screwing/src/robot_msgs/msg/WidthPub.msg
 CMakeFiles/robot_msgs: /opt/ros/foxy/share/std_msgs/msg/Bool.idl
 CMakeFiles/robot_msgs: /opt/ros/foxy/share/std_msgs/msg/Byte.idl
 CMakeFiles/robot_msgs: /opt/ros/foxy/share/std_msgs/msg/ByteMultiArray.idl
@@ -90,6 +93,10 @@ CMakeFiles/robot_msgs: /opt/ros/foxy/share/std_msgs/msg/UInt64.idl
 CMakeFiles/robot_msgs: /opt/ros/foxy/share/std_msgs/msg/UInt64MultiArray.idl
 CMakeFiles/robot_msgs: /opt/ros/foxy/share/std_msgs/msg/UInt8.idl
 CMakeFiles/robot_msgs: /opt/ros/foxy/share/std_msgs/msg/UInt8MultiArray.idl
+CMakeFiles/robot_msgs: /opt/ros/foxy/share/action_msgs/msg/GoalInfo.idl
+CMakeFiles/robot_msgs: /opt/ros/foxy/share/action_msgs/msg/GoalStatus.idl
+CMakeFiles/robot_msgs: /opt/ros/foxy/share/action_msgs/msg/GoalStatusArray.idl
+CMakeFiles/robot_msgs: /opt/ros/foxy/share/action_msgs/srv/CancelGoal.idl
 
 
 robot_msgs: CMakeFiles/robot_msgs

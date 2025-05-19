@@ -1,0 +1,4 @@
+/home/yanji/robot_screwing/src/screw_robot_control/src/screwing_tool.cpp: In member function ‘int endeffector::screwing_s1(int, float, rclcpp::Publisher<robot_msgs::msg::CurrentPub_<std::allocator<void> > >::SharedPtr, robot_msgs::msg::CurrentPub&)’:
+/home/yanji/robot_screwing/src/screw_robot_control/src/screwing_tool.cpp:531:21: warning: unused variable ‘pre_velo’ [-Wunused-variable]
+  531 |                 int pre_velo = this->get_presentvelocity(0);
+      |                     ^~~~~~~~

@@ -61,13 +61,20 @@ robot_msgs__py/CMakeFiles/robot_msgs__py: rosidl_generator_py/robot_msgs/msg/_ro
 robot_msgs__py/CMakeFiles/robot_msgs__py: rosidl_generator_py/robot_msgs/msg/_control_command.py
 robot_msgs__py/CMakeFiles/robot_msgs__py: rosidl_generator_py/robot_msgs/msg/_ref_status.py
 robot_msgs__py/CMakeFiles/robot_msgs__py: rosidl_generator_py/robot_msgs/srv/_start_pose.py
+robot_msgs__py/CMakeFiles/robot_msgs__py: rosidl_generator_py/robot_msgs/action/_screw.py
+robot_msgs__py/CMakeFiles/robot_msgs__py: rosidl_generator_py/robot_msgs/msg/_current_pub.py
+robot_msgs__py/CMakeFiles/robot_msgs__py: rosidl_generator_py/robot_msgs/msg/_width_pub.py
 robot_msgs__py/CMakeFiles/robot_msgs__py: rosidl_generator_py/robot_msgs/msg/__init__.py
 robot_msgs__py/CMakeFiles/robot_msgs__py: rosidl_generator_py/robot_msgs/srv/__init__.py
+robot_msgs__py/CMakeFiles/robot_msgs__py: rosidl_generator_py/robot_msgs/action/__init__.py
 robot_msgs__py/CMakeFiles/robot_msgs__py: rosidl_generator_py/robot_msgs/msg/_ft_pub_s.c
 robot_msgs__py/CMakeFiles/robot_msgs__py: rosidl_generator_py/robot_msgs/msg/_robot_status_s.c
 robot_msgs__py/CMakeFiles/robot_msgs__py: rosidl_generator_py/robot_msgs/msg/_control_command_s.c
 robot_msgs__py/CMakeFiles/robot_msgs__py: rosidl_generator_py/robot_msgs/msg/_ref_status_s.c
 robot_msgs__py/CMakeFiles/robot_msgs__py: rosidl_generator_py/robot_msgs/srv/_start_pose_s.c
+robot_msgs__py/CMakeFiles/robot_msgs__py: rosidl_generator_py/robot_msgs/action/_screw_s.c
+robot_msgs__py/CMakeFiles/robot_msgs__py: rosidl_generator_py/robot_msgs/msg/_current_pub_s.c
+robot_msgs__py/CMakeFiles/robot_msgs__py: rosidl_generator_py/robot_msgs/msg/_width_pub_s.c
 
 
 rosidl_generator_py/robot_msgs/_robot_msgs_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/foxy/lib/rosidl_generator_py/rosidl_generator_py
@@ -88,6 +95,9 @@ rosidl_generator_py/robot_msgs/_robot_msgs_s.ep.rosidl_typesupport_fastrtps_c.c:
 rosidl_generator_py/robot_msgs/_robot_msgs_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/robot_msgs/msg/ControlCommand.idl
 rosidl_generator_py/robot_msgs/_robot_msgs_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/robot_msgs/msg/RefStatus.idl
 rosidl_generator_py/robot_msgs/_robot_msgs_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/robot_msgs/srv/StartPose.idl
+rosidl_generator_py/robot_msgs/_robot_msgs_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/robot_msgs/action/Screw.idl
+rosidl_generator_py/robot_msgs/_robot_msgs_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/robot_msgs/msg/CurrentPub.idl
+rosidl_generator_py/robot_msgs/_robot_msgs_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/robot_msgs/msg/WidthPub.idl
 rosidl_generator_py/robot_msgs/_robot_msgs_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/foxy/share/std_msgs/msg/Bool.idl
 rosidl_generator_py/robot_msgs/_robot_msgs_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/foxy/share/std_msgs/msg/Byte.idl
 rosidl_generator_py/robot_msgs/_robot_msgs_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/foxy/share/std_msgs/msg/ByteMultiArray.idl
@@ -120,6 +130,11 @@ rosidl_generator_py/robot_msgs/_robot_msgs_s.ep.rosidl_typesupport_fastrtps_c.c:
 rosidl_generator_py/robot_msgs/_robot_msgs_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/foxy/share/std_msgs/msg/UInt8MultiArray.idl
 rosidl_generator_py/robot_msgs/_robot_msgs_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/foxy/share/builtin_interfaces/msg/Duration.idl
 rosidl_generator_py/robot_msgs/_robot_msgs_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/foxy/share/builtin_interfaces/msg/Time.idl
+rosidl_generator_py/robot_msgs/_robot_msgs_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/foxy/share/action_msgs/msg/GoalInfo.idl
+rosidl_generator_py/robot_msgs/_robot_msgs_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/foxy/share/action_msgs/msg/GoalStatus.idl
+rosidl_generator_py/robot_msgs/_robot_msgs_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/foxy/share/action_msgs/msg/GoalStatusArray.idl
+rosidl_generator_py/robot_msgs/_robot_msgs_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/foxy/share/action_msgs/srv/CancelGoal.idl
+rosidl_generator_py/robot_msgs/_robot_msgs_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/foxy/share/unique_identifier_msgs/msg/UUID.idl
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/yanji/robot_screwing/build/robot_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Python code for ROS interfaces"
 	cd /home/yanji/robot_screwing/build/robot_msgs/robot_msgs__py && /home/yanji/anaconda3/envs/screwrobot/bin/python3 /opt/ros/foxy/share/rosidl_generator_py/cmake/../../../lib/rosidl_generator_py/rosidl_generator_py --generator-arguments-file /home/yanji/robot_screwing/build/robot_msgs/rosidl_generator_py__arguments.json --typesupport-impls "rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c;rosidl_typesupport_c"
 
@@ -144,11 +159,23 @@ rosidl_generator_py/robot_msgs/msg/_ref_status.py: rosidl_generator_py/robot_msg
 rosidl_generator_py/robot_msgs/srv/_start_pose.py: rosidl_generator_py/robot_msgs/_robot_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/robot_msgs/srv/_start_pose.py
 
+rosidl_generator_py/robot_msgs/action/_screw.py: rosidl_generator_py/robot_msgs/_robot_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/robot_msgs/action/_screw.py
+
+rosidl_generator_py/robot_msgs/msg/_current_pub.py: rosidl_generator_py/robot_msgs/_robot_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/robot_msgs/msg/_current_pub.py
+
+rosidl_generator_py/robot_msgs/msg/_width_pub.py: rosidl_generator_py/robot_msgs/_robot_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/robot_msgs/msg/_width_pub.py
+
 rosidl_generator_py/robot_msgs/msg/__init__.py: rosidl_generator_py/robot_msgs/_robot_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/robot_msgs/msg/__init__.py
 
 rosidl_generator_py/robot_msgs/srv/__init__.py: rosidl_generator_py/robot_msgs/_robot_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/robot_msgs/srv/__init__.py
+
+rosidl_generator_py/robot_msgs/action/__init__.py: rosidl_generator_py/robot_msgs/_robot_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/robot_msgs/action/__init__.py
 
 rosidl_generator_py/robot_msgs/msg/_ft_pub_s.c: rosidl_generator_py/robot_msgs/_robot_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/robot_msgs/msg/_ft_pub_s.c
@@ -165,6 +192,15 @@ rosidl_generator_py/robot_msgs/msg/_ref_status_s.c: rosidl_generator_py/robot_ms
 rosidl_generator_py/robot_msgs/srv/_start_pose_s.c: rosidl_generator_py/robot_msgs/_robot_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/robot_msgs/srv/_start_pose_s.c
 
+rosidl_generator_py/robot_msgs/action/_screw_s.c: rosidl_generator_py/robot_msgs/_robot_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/robot_msgs/action/_screw_s.c
+
+rosidl_generator_py/robot_msgs/msg/_current_pub_s.c: rosidl_generator_py/robot_msgs/_robot_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/robot_msgs/msg/_current_pub_s.c
+
+rosidl_generator_py/robot_msgs/msg/_width_pub_s.c: rosidl_generator_py/robot_msgs/_robot_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/robot_msgs/msg/_width_pub_s.c
+
 robot_msgs__py: robot_msgs__py/CMakeFiles/robot_msgs__py
 robot_msgs__py: rosidl_generator_py/robot_msgs/_robot_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
 robot_msgs__py: rosidl_generator_py/robot_msgs/_robot_msgs_s.ep.rosidl_typesupport_introspection_c.c
@@ -174,13 +210,20 @@ robot_msgs__py: rosidl_generator_py/robot_msgs/msg/_robot_status.py
 robot_msgs__py: rosidl_generator_py/robot_msgs/msg/_control_command.py
 robot_msgs__py: rosidl_generator_py/robot_msgs/msg/_ref_status.py
 robot_msgs__py: rosidl_generator_py/robot_msgs/srv/_start_pose.py
+robot_msgs__py: rosidl_generator_py/robot_msgs/action/_screw.py
+robot_msgs__py: rosidl_generator_py/robot_msgs/msg/_current_pub.py
+robot_msgs__py: rosidl_generator_py/robot_msgs/msg/_width_pub.py
 robot_msgs__py: rosidl_generator_py/robot_msgs/msg/__init__.py
 robot_msgs__py: rosidl_generator_py/robot_msgs/srv/__init__.py
+robot_msgs__py: rosidl_generator_py/robot_msgs/action/__init__.py
 robot_msgs__py: rosidl_generator_py/robot_msgs/msg/_ft_pub_s.c
 robot_msgs__py: rosidl_generator_py/robot_msgs/msg/_robot_status_s.c
 robot_msgs__py: rosidl_generator_py/robot_msgs/msg/_control_command_s.c
 robot_msgs__py: rosidl_generator_py/robot_msgs/msg/_ref_status_s.c
 robot_msgs__py: rosidl_generator_py/robot_msgs/srv/_start_pose_s.c
+robot_msgs__py: rosidl_generator_py/robot_msgs/action/_screw_s.c
+robot_msgs__py: rosidl_generator_py/robot_msgs/msg/_current_pub_s.c
+robot_msgs__py: rosidl_generator_py/robot_msgs/msg/_width_pub_s.c
 robot_msgs__py: robot_msgs__py/CMakeFiles/robot_msgs__py.dir/build.make
 
 .PHONY : robot_msgs__py

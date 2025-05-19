@@ -3,3 +3,6 @@
 /home/yanji/robot_screwing/build/robot_msgs/rosidl_adapter/robot_msgs:msg/ControlCommand.idl
 /home/yanji/robot_screwing/build/robot_msgs/rosidl_adapter/robot_msgs:msg/RefStatus.idl
 /home/yanji/robot_screwing/build/robot_msgs/rosidl_adapter/robot_msgs:srv/StartPose.idl
+/home/yanji/robot_screwing/build/robot_msgs/rosidl_adapter/robot_msgs:action/Screw.idl
+/home/yanji/robot_screwing/build/robot_msgs/rosidl_adapter/robot_msgs:msg/CurrentPub.idl
+/home/yanji/robot_screwing/build/robot_msgs/rosidl_adapter/robot_msgs:msg/WidthPub.idl

@@ -3,12 +3,6 @@
         {
             "name": "Linux",
             "includePath": [
-                // "/opt/ros/foxy/include/**",
-                // "/opt/ros/foxy/lib/**/include/**",
-                // "${workspaceFolder}/install/**/include/**",
-                // "/usr/include/**",
-                // "/usr/include/c++/9/**",
-                // "/usr/include/x86_64-linux-gnu/c++/9/**",
 
                  // ROS2 核心头文件路径
                  "/opt/ros/foxy/include/**",
@@ -16,21 +10,25 @@
                  "/opt/ros/foxy/lib/**/include/**",
                  // 工作空间路径（如果有）
                  "${workspaceFolder}/install/**/include/**",
+                 "${workspaceFolder}/src/screw_robot_control/include/**",
                  // 标准库路径
                  "/usr/include/**",
                  "/usr/include/c++/9/**",
-                 "/usr/include/x86_64-linux-gnu/c++/9/**"
-                // "/home/yanji/mujoco/mujoco-3.1.1/my_project/ros_dual_robot_planing/src/real_robot_control/include",
-                // "/home/yanji/dual_arm_control/devel/include/**",
-                // "/home/yanji/dual_arm_control/src/real_robot_control/include/**",
-                // "/home/yanji/dual_arm_control/src/real_robot_control/include/real_robot_control/**"
+                 "/usr/include/x86_64-linux-gnu/c++/9/**",
+                 "${workspaceFolder}/src/**/include/**"
+                //  "/home/yanji/robot_screwing/install/robot_msgs/include/**",
+                //  "/home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg/**",
+                //  "/home/yanji/robot_screwing/src/screw_robot_control/include/**"
             ],
             "browse": {
                 "path": [
                     "/opt/ros/foxy/include",  // 明确指定 ROS2 核心路径
-                    "${workspaceFolder}/src/**" //项目源码
+                    "${workspaceFolder}/src/**", //项目源码
+                    "${workspaceFolder}/install/**",
+                    "${workspaceFolder}/src/screw_robot_control/include",
+                    "${workspaceFolder}/install/**"
                 ],
-                "limitSymbolsToIncludedHeaders": true  // 性能优化关键
+                "limitSymbolsToIncludedHeaders": false  // 性能优化关键
                 // true：仅索引 实际被项目包含的头文件（通过 #include 引入的符号）
                 // false：索引 browse.path 中所有头文件（无论是否被项目包含）
             },

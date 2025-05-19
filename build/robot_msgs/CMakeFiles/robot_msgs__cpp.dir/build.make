@@ -78,6 +78,21 @@ CMakeFiles/robot_msgs__cpp: rosidl_generator_cpp/robot_msgs/srv/detail/start_pos
 CMakeFiles/robot_msgs__cpp: rosidl_generator_cpp/robot_msgs/srv/detail/start_pose__struct.hpp
 CMakeFiles/robot_msgs__cpp: rosidl_generator_cpp/robot_msgs/srv/detail/start_pose__traits.hpp
 CMakeFiles/robot_msgs__cpp: rosidl_generator_cpp/robot_msgs/srv/detail/start_pose__type_support.hpp
+CMakeFiles/robot_msgs__cpp: rosidl_generator_cpp/robot_msgs/action/screw.hpp
+CMakeFiles/robot_msgs__cpp: rosidl_generator_cpp/robot_msgs/action/detail/screw__builder.hpp
+CMakeFiles/robot_msgs__cpp: rosidl_generator_cpp/robot_msgs/action/detail/screw__struct.hpp
+CMakeFiles/robot_msgs__cpp: rosidl_generator_cpp/robot_msgs/action/detail/screw__traits.hpp
+CMakeFiles/robot_msgs__cpp: rosidl_generator_cpp/robot_msgs/action/detail/screw__type_support.hpp
+CMakeFiles/robot_msgs__cpp: rosidl_generator_cpp/robot_msgs/msg/current_pub.hpp
+CMakeFiles/robot_msgs__cpp: rosidl_generator_cpp/robot_msgs/msg/detail/current_pub__builder.hpp
+CMakeFiles/robot_msgs__cpp: rosidl_generator_cpp/robot_msgs/msg/detail/current_pub__struct.hpp
+CMakeFiles/robot_msgs__cpp: rosidl_generator_cpp/robot_msgs/msg/detail/current_pub__traits.hpp
+CMakeFiles/robot_msgs__cpp: rosidl_generator_cpp/robot_msgs/msg/detail/current_pub__type_support.hpp
+CMakeFiles/robot_msgs__cpp: rosidl_generator_cpp/robot_msgs/msg/width_pub.hpp
+CMakeFiles/robot_msgs__cpp: rosidl_generator_cpp/robot_msgs/msg/detail/width_pub__builder.hpp
+CMakeFiles/robot_msgs__cpp: rosidl_generator_cpp/robot_msgs/msg/detail/width_pub__struct.hpp
+CMakeFiles/robot_msgs__cpp: rosidl_generator_cpp/robot_msgs/msg/detail/width_pub__traits.hpp
+CMakeFiles/robot_msgs__cpp: rosidl_generator_cpp/robot_msgs/msg/detail/width_pub__type_support.hpp
 CMakeFiles/robot_msgs__cpp: rosidl_generator_cpp/robot_msgs/msg/rosidl_generator_cpp__visibility_control.hpp
 
 
@@ -105,6 +120,9 @@ rosidl_generator_cpp/robot_msgs/msg/ft_pub.hpp: rosidl_adapter/robot_msgs/msg/Ro
 rosidl_generator_cpp/robot_msgs/msg/ft_pub.hpp: rosidl_adapter/robot_msgs/msg/ControlCommand.idl
 rosidl_generator_cpp/robot_msgs/msg/ft_pub.hpp: rosidl_adapter/robot_msgs/msg/RefStatus.idl
 rosidl_generator_cpp/robot_msgs/msg/ft_pub.hpp: rosidl_adapter/robot_msgs/srv/StartPose.idl
+rosidl_generator_cpp/robot_msgs/msg/ft_pub.hpp: rosidl_adapter/robot_msgs/action/Screw.idl
+rosidl_generator_cpp/robot_msgs/msg/ft_pub.hpp: rosidl_adapter/robot_msgs/msg/CurrentPub.idl
+rosidl_generator_cpp/robot_msgs/msg/ft_pub.hpp: rosidl_adapter/robot_msgs/msg/WidthPub.idl
 rosidl_generator_cpp/robot_msgs/msg/ft_pub.hpp: /opt/ros/foxy/share/std_msgs/msg/Bool.idl
 rosidl_generator_cpp/robot_msgs/msg/ft_pub.hpp: /opt/ros/foxy/share/std_msgs/msg/Byte.idl
 rosidl_generator_cpp/robot_msgs/msg/ft_pub.hpp: /opt/ros/foxy/share/std_msgs/msg/ByteMultiArray.idl
@@ -137,6 +155,11 @@ rosidl_generator_cpp/robot_msgs/msg/ft_pub.hpp: /opt/ros/foxy/share/std_msgs/msg
 rosidl_generator_cpp/robot_msgs/msg/ft_pub.hpp: /opt/ros/foxy/share/std_msgs/msg/UInt8MultiArray.idl
 rosidl_generator_cpp/robot_msgs/msg/ft_pub.hpp: /opt/ros/foxy/share/builtin_interfaces/msg/Duration.idl
 rosidl_generator_cpp/robot_msgs/msg/ft_pub.hpp: /opt/ros/foxy/share/builtin_interfaces/msg/Time.idl
+rosidl_generator_cpp/robot_msgs/msg/ft_pub.hpp: /opt/ros/foxy/share/action_msgs/msg/GoalInfo.idl
+rosidl_generator_cpp/robot_msgs/msg/ft_pub.hpp: /opt/ros/foxy/share/action_msgs/msg/GoalStatus.idl
+rosidl_generator_cpp/robot_msgs/msg/ft_pub.hpp: /opt/ros/foxy/share/action_msgs/msg/GoalStatusArray.idl
+rosidl_generator_cpp/robot_msgs/msg/ft_pub.hpp: /opt/ros/foxy/share/action_msgs/srv/CancelGoal.idl
+rosidl_generator_cpp/robot_msgs/msg/ft_pub.hpp: /opt/ros/foxy/share/unique_identifier_msgs/msg/UUID.idl
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/yanji/robot_screwing/build/robot_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C++ code for ROS interfaces"
 	/home/yanji/anaconda3/envs/screwrobot/bin/python3 /opt/ros/foxy/share/rosidl_generator_cpp/cmake/../../../lib/rosidl_generator_cpp/rosidl_generator_cpp --generator-arguments-file /home/yanji/robot_screwing/build/robot_msgs/rosidl_generator_cpp__arguments.json
 
@@ -212,6 +235,51 @@ rosidl_generator_cpp/robot_msgs/srv/detail/start_pose__traits.hpp: rosidl_genera
 rosidl_generator_cpp/robot_msgs/srv/detail/start_pose__type_support.hpp: rosidl_generator_cpp/robot_msgs/msg/ft_pub.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/robot_msgs/srv/detail/start_pose__type_support.hpp
 
+rosidl_generator_cpp/robot_msgs/action/screw.hpp: rosidl_generator_cpp/robot_msgs/msg/ft_pub.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/robot_msgs/action/screw.hpp
+
+rosidl_generator_cpp/robot_msgs/action/detail/screw__builder.hpp: rosidl_generator_cpp/robot_msgs/msg/ft_pub.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/robot_msgs/action/detail/screw__builder.hpp
+
+rosidl_generator_cpp/robot_msgs/action/detail/screw__struct.hpp: rosidl_generator_cpp/robot_msgs/msg/ft_pub.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/robot_msgs/action/detail/screw__struct.hpp
+
+rosidl_generator_cpp/robot_msgs/action/detail/screw__traits.hpp: rosidl_generator_cpp/robot_msgs/msg/ft_pub.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/robot_msgs/action/detail/screw__traits.hpp
+
+rosidl_generator_cpp/robot_msgs/action/detail/screw__type_support.hpp: rosidl_generator_cpp/robot_msgs/msg/ft_pub.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/robot_msgs/action/detail/screw__type_support.hpp
+
+rosidl_generator_cpp/robot_msgs/msg/current_pub.hpp: rosidl_generator_cpp/robot_msgs/msg/ft_pub.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/robot_msgs/msg/current_pub.hpp
+
+rosidl_generator_cpp/robot_msgs/msg/detail/current_pub__builder.hpp: rosidl_generator_cpp/robot_msgs/msg/ft_pub.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/robot_msgs/msg/detail/current_pub__builder.hpp
+
+rosidl_generator_cpp/robot_msgs/msg/detail/current_pub__struct.hpp: rosidl_generator_cpp/robot_msgs/msg/ft_pub.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/robot_msgs/msg/detail/current_pub__struct.hpp
+
+rosidl_generator_cpp/robot_msgs/msg/detail/current_pub__traits.hpp: rosidl_generator_cpp/robot_msgs/msg/ft_pub.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/robot_msgs/msg/detail/current_pub__traits.hpp
+
+rosidl_generator_cpp/robot_msgs/msg/detail/current_pub__type_support.hpp: rosidl_generator_cpp/robot_msgs/msg/ft_pub.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/robot_msgs/msg/detail/current_pub__type_support.hpp
+
+rosidl_generator_cpp/robot_msgs/msg/width_pub.hpp: rosidl_generator_cpp/robot_msgs/msg/ft_pub.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/robot_msgs/msg/width_pub.hpp
+
+rosidl_generator_cpp/robot_msgs/msg/detail/width_pub__builder.hpp: rosidl_generator_cpp/robot_msgs/msg/ft_pub.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/robot_msgs/msg/detail/width_pub__builder.hpp
+
+rosidl_generator_cpp/robot_msgs/msg/detail/width_pub__struct.hpp: rosidl_generator_cpp/robot_msgs/msg/ft_pub.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/robot_msgs/msg/detail/width_pub__struct.hpp
+
+rosidl_generator_cpp/robot_msgs/msg/detail/width_pub__traits.hpp: rosidl_generator_cpp/robot_msgs/msg/ft_pub.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/robot_msgs/msg/detail/width_pub__traits.hpp
+
+rosidl_generator_cpp/robot_msgs/msg/detail/width_pub__type_support.hpp: rosidl_generator_cpp/robot_msgs/msg/ft_pub.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/robot_msgs/msg/detail/width_pub__type_support.hpp
+
 robot_msgs__cpp: CMakeFiles/robot_msgs__cpp
 robot_msgs__cpp: rosidl_generator_cpp/robot_msgs/msg/ft_pub.hpp
 robot_msgs__cpp: rosidl_generator_cpp/robot_msgs/msg/detail/ft_pub__builder.hpp
@@ -238,6 +306,21 @@ robot_msgs__cpp: rosidl_generator_cpp/robot_msgs/srv/detail/start_pose__builder.
 robot_msgs__cpp: rosidl_generator_cpp/robot_msgs/srv/detail/start_pose__struct.hpp
 robot_msgs__cpp: rosidl_generator_cpp/robot_msgs/srv/detail/start_pose__traits.hpp
 robot_msgs__cpp: rosidl_generator_cpp/robot_msgs/srv/detail/start_pose__type_support.hpp
+robot_msgs__cpp: rosidl_generator_cpp/robot_msgs/action/screw.hpp
+robot_msgs__cpp: rosidl_generator_cpp/robot_msgs/action/detail/screw__builder.hpp
+robot_msgs__cpp: rosidl_generator_cpp/robot_msgs/action/detail/screw__struct.hpp
+robot_msgs__cpp: rosidl_generator_cpp/robot_msgs/action/detail/screw__traits.hpp
+robot_msgs__cpp: rosidl_generator_cpp/robot_msgs/action/detail/screw__type_support.hpp
+robot_msgs__cpp: rosidl_generator_cpp/robot_msgs/msg/current_pub.hpp
+robot_msgs__cpp: rosidl_generator_cpp/robot_msgs/msg/detail/current_pub__builder.hpp
+robot_msgs__cpp: rosidl_generator_cpp/robot_msgs/msg/detail/current_pub__struct.hpp
+robot_msgs__cpp: rosidl_generator_cpp/robot_msgs/msg/detail/current_pub__traits.hpp
+robot_msgs__cpp: rosidl_generator_cpp/robot_msgs/msg/detail/current_pub__type_support.hpp
+robot_msgs__cpp: rosidl_generator_cpp/robot_msgs/msg/width_pub.hpp
+robot_msgs__cpp: rosidl_generator_cpp/robot_msgs/msg/detail/width_pub__builder.hpp
+robot_msgs__cpp: rosidl_generator_cpp/robot_msgs/msg/detail/width_pub__struct.hpp
+robot_msgs__cpp: rosidl_generator_cpp/robot_msgs/msg/detail/width_pub__traits.hpp
+robot_msgs__cpp: rosidl_generator_cpp/robot_msgs/msg/detail/width_pub__type_support.hpp
 robot_msgs__cpp: CMakeFiles/robot_msgs__cpp.dir/build.make
 
 .PHONY : robot_msgs__cpp

@@ -1,0 +1,63 @@
+[ 25%] Built target SERVO_MOTOR
+[ 50%] Built target SCREWING_TOOL
+[35m[1mScanning dependencies of target task_control_screw[0m
+[ 75%] Built target right_arm_control
+[ 87%] [32mBuilding CXX object CMakeFiles/task_control_screw.dir/src/task_control_screw.cpp.o[0m
+/home/yanji/robot_screwing/src/screw_robot_control/src/task_control_screw.cpp: In constructor ‘screw_control::ScrewControlServer::ScrewControlServer()’:
+/home/yanji/robot_screwing/src/screw_robot_control/src/task_control_screw.cpp:14:8: warning: unused variable ‘running’ [-Wunused-variable]
+   14 |   bool running = true;
+      |        ^~~~~~~
+/home/yanji/robot_screwing/src/screw_robot_control/src/task_control_screw.cpp:15:8: warning: unused variable ‘input’ [-Wunused-variable]
+   15 |   char input;
+      |        ^~~~~
+[100%] [32m[1mLinking CXX executable task_control_screw[0m
+[100%] Built target task_control_screw
+-- Install configuration: ""
+-- Up-to-date: /home/yanji/robot_screwing/install/screw_robot_control/lib/libSERVO_MOTOR.so
+-- Up-to-date: /home/yanji/robot_screwing/install/screw_robot_control/lib/libSCREWING_TOOL.so
+-- Up-to-date: /home/yanji/robot_screwing/install/screw_robot_control/lib/screw_robot_control/right_arm_control
+-- Installing: /home/yanji/robot_screwing/install/screw_robot_control/lib/screw_robot_control/task_control_screw
+-- Set runtime path of "/home/yanji/robot_screwing/install/screw_robot_control/lib/screw_robot_control/task_control_screw" to ""
+-- Up-to-date: /home/yanji/robot_screwing/install/screw_robot_control/lib/libjakaAPI.so
+-- Up-to-date: /home/yanji/robot_screwing/install/screw_robot_control/lib/libdxl_x64_cpp.so
+-- Up-to-date: /home/yanji/robot_screwing/install/screw_robot_control/include
+-- Up-to-date: /home/yanji/robot_screwing/install/screw_robot_control/include/screw_robot_control
+-- Up-to-date: /home/yanji/robot_screwing/install/screw_robot_control/include/screw_robot_control/dynamixel
+-- Up-to-date: /home/yanji/robot_screwing/install/screw_robot_control/include/screw_robot_control/dynamixel/dynamixel_sdk.h
+-- Up-to-date: /home/yanji/robot_screwing/install/screw_robot_control/include/screw_robot_control/dynamixel/port_handler.h
+-- Up-to-date: /home/yanji/robot_screwing/install/screw_robot_control/include/screw_robot_control/dynamixel/packet_handler.h
+-- Up-to-date: /home/yanji/robot_screwing/install/screw_robot_control/include/screw_robot_control/dynamixel/group_bulk_read.h
+-- Up-to-date: /home/yanji/robot_screwing/install/screw_robot_control/include/screw_robot_control/dynamixel/protocol1_packet_handler.h
+-- Up-to-date: /home/yanji/robot_screwing/install/screw_robot_control/include/screw_robot_control/dynamixel/port_handler_arduino.h
+-- Up-to-date: /home/yanji/robot_screwing/install/screw_robot_control/include/screw_robot_control/dynamixel/group_sync_write.h
+-- Up-to-date: /home/yanji/robot_screwing/install/screw_robot_control/include/screw_robot_control/dynamixel/port_handler_linux.h
+-- Up-to-date: /home/yanji/robot_screwing/install/screw_robot_control/include/screw_robot_control/dynamixel/port_handler_windows.h
+-- Up-to-date: /home/yanji/robot_screwing/install/screw_robot_control/include/screw_robot_control/dynamixel/protocol2_packet_handler.h
+-- Up-to-date: /home/yanji/robot_screwing/install/screw_robot_control/include/screw_robot_control/dynamixel/port_handler_mac.h
+-- Up-to-date: /home/yanji/robot_screwing/install/screw_robot_control/include/screw_robot_control/dynamixel/group_sync_read.h
+-- Up-to-date: /home/yanji/robot_screwing/install/screw_robot_control/include/screw_robot_control/dynamixel/group_bulk_write.h
+-- Up-to-date: /home/yanji/robot_screwing/install/screw_robot_control/include/screw_robot_control/jaka
+-- Up-to-date: /home/yanji/robot_screwing/install/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp
+-- Up-to-date: /home/yanji/robot_screwing/install/screw_robot_control/include/screw_robot_control/jaka/servo_motor_function.hpp
+-- Up-to-date: /home/yanji/robot_screwing/install/screw_robot_control/include/screw_robot_control/jaka/JAKAZuRobot.h
+-- Up-to-date: /home/yanji/robot_screwing/install/screw_robot_control/include/screw_robot_control/jaka/jktypes.h
+-- Up-to-date: /home/yanji/robot_screwing/install/screw_robot_control/include/screw_robot_control/jaka/task_control_screw.hpp
+-- Up-to-date: /home/yanji/robot_screwing/install/screw_robot_control/include/screw_robot_control/jaka/jkerr.h
+-- Up-to-date: /home/yanji/robot_screwing/install/screw_robot_control/include/screw_robot_control/jaka/screwing_tool.hpp
+-- Up-to-date: /home/yanji/robot_screwing/install/screw_robot_control/share/screw_robot_control/launch
+-- Up-to-date: /home/yanji/robot_screwing/install/screw_robot_control/share/screw_robot_control/launch/right_arm_control.launch.py
+-- Up-to-date: /home/yanji/robot_screwing/install/screw_robot_control/share/ament_index/resource_index/package_run_dependencies/screw_robot_control
+-- Up-to-date: /home/yanji/robot_screwing/install/screw_robot_control/share/ament_index/resource_index/parent_prefix_path/screw_robot_control
+-- Up-to-date: /home/yanji/robot_screwing/install/screw_robot_control/share/screw_robot_control/environment/ament_prefix_path.sh
+-- Up-to-date: /home/yanji/robot_screwing/install/screw_robot_control/share/screw_robot_control/environment/ament_prefix_path.dsv
+-- Up-to-date: /home/yanji/robot_screwing/install/screw_robot_control/share/screw_robot_control/environment/path.sh
+-- Up-to-date: /home/yanji/robot_screwing/install/screw_robot_control/share/screw_robot_control/environment/path.dsv
+-- Up-to-date: /home/yanji/robot_screwing/install/screw_robot_control/share/screw_robot_control/local_setup.bash
+-- Up-to-date: /home/yanji/robot_screwing/install/screw_robot_control/share/screw_robot_control/local_setup.sh
+-- Up-to-date: /home/yanji/robot_screwing/install/screw_robot_control/share/screw_robot_control/local_setup.zsh
+-- Up-to-date: /home/yanji/robot_screwing/install/screw_robot_control/share/screw_robot_control/local_setup.dsv
+-- Installing: /home/yanji/robot_screwing/install/screw_robot_control/share/screw_robot_control/package.dsv
+-- Up-to-date: /home/yanji/robot_screwing/install/screw_robot_control/share/ament_index/resource_index/packages/screw_robot_control
+-- Up-to-date: /home/yanji/robot_screwing/install/screw_robot_control/share/screw_robot_control/cmake/screw_robot_controlConfig.cmake
+-- Up-to-date: /home/yanji/robot_screwing/install/screw_robot_control/share/screw_robot_control/cmake/screw_robot_controlConfig-version.cmake
+-- Up-to-date: /home/yanji/robot_screwing/install/screw_robot_control/share/screw_robot_control/package.xml

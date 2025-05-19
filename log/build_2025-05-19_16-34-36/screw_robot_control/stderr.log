@@ -1,0 +1,20 @@
+/home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control_tcp.cpp:144:6: error: no declaration matches ‘void right_arm_test::RobotAdmittanceControl::status_publish()’
+  144 | void RobotAdmittanceControl::status_publish(){
+      |      ^~~~~~~~~~~~~~~~~~~~~~
+/home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control_tcp.cpp:144:6: note: no functions named ‘void right_arm_test::RobotAdmittanceControl::status_publish()’
+In file included from /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control_tcp.cpp:1:
+/home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control_tcp.hpp:27:7: note: ‘class right_arm_test::RobotAdmittanceControl’ defined here
+   27 | class RobotAdmittanceControl : public rclcpp::Node {
+      |       ^~~~~~~~~~~~~~~~~~~~~~
+/home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control_tcp.cpp: In member function ‘void right_arm_test::RobotAdmittanceControl::updata_rotation(const Eigen::Matrix3d&, const Eigen::Vector3d&, Eigen::Matrix3d&)’:
+/home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control_tcp.cpp:204:106: warning: unused parameter ‘angluar_disp’ [-Wunused-parameter]
+  204 | void RobotAdmittanceControl::updata_rotation(const Eigen::Matrix3d& current_rotm, const Eigen::Vector3d& angluar_disp, Eigen::Matrix3d& new_orientation){
+      |                                                                                   ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~
+make[2]: *** [CMakeFiles/right_arm_control_tcp.dir/build.make:63：CMakeFiles/right_arm_control_tcp.dir/src/right_arm_control_tcp.cpp.o] 错误 1
+make[1]: *** [CMakeFiles/Makefile2:223：CMakeFiles/right_arm_control_tcp.dir/all] 错误 2
+make[1]: *** 正在等待未完成的任务....
+/home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp: In member function ‘void right_arm::RobotAdmittanceControl::updata_rotation(const Eigen::Matrix3d&, const Eigen::Vector3d&, Eigen::Matrix3d&)’:
+/home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control.cpp:180:106: warning: unused parameter ‘angluar_disp’ [-Wunused-parameter]
+  180 | void RobotAdmittanceControl::updata_rotation(const Eigen::Matrix3d& current_rotm, const Eigen::Vector3d& angluar_disp, Eigen::Matrix3d& new_orientation){
+      |                                                                                   ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~
+make: *** [Makefile:141：all] 错误 2

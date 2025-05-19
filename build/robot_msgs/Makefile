@@ -375,6 +375,33 @@ robot_msgs__py/fast:
 	$(MAKE) -f robot_msgs__py/CMakeFiles/robot_msgs__py.dir/build.make robot_msgs__py/CMakeFiles/robot_msgs__py.dir/build
 .PHONY : robot_msgs__py/fast
 
+rosidl_generator_c/robot_msgs/action/detail/screw__functions.o: rosidl_generator_c/robot_msgs/action/detail/screw__functions.c.o
+
+.PHONY : rosidl_generator_c/robot_msgs/action/detail/screw__functions.o
+
+# target to build an object file
+rosidl_generator_c/robot_msgs/action/detail/screw__functions.c.o:
+	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_generator_c.dir/build.make CMakeFiles/robot_msgs__rosidl_generator_c.dir/rosidl_generator_c/robot_msgs/action/detail/screw__functions.c.o
+.PHONY : rosidl_generator_c/robot_msgs/action/detail/screw__functions.c.o
+
+rosidl_generator_c/robot_msgs/action/detail/screw__functions.i: rosidl_generator_c/robot_msgs/action/detail/screw__functions.c.i
+
+.PHONY : rosidl_generator_c/robot_msgs/action/detail/screw__functions.i
+
+# target to preprocess a source file
+rosidl_generator_c/robot_msgs/action/detail/screw__functions.c.i:
+	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_generator_c.dir/build.make CMakeFiles/robot_msgs__rosidl_generator_c.dir/rosidl_generator_c/robot_msgs/action/detail/screw__functions.c.i
+.PHONY : rosidl_generator_c/robot_msgs/action/detail/screw__functions.c.i
+
+rosidl_generator_c/robot_msgs/action/detail/screw__functions.s: rosidl_generator_c/robot_msgs/action/detail/screw__functions.c.s
+
+.PHONY : rosidl_generator_c/robot_msgs/action/detail/screw__functions.s
+
+# target to generate assembly for a file
+rosidl_generator_c/robot_msgs/action/detail/screw__functions.c.s:
+	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_generator_c.dir/build.make CMakeFiles/robot_msgs__rosidl_generator_c.dir/rosidl_generator_c/robot_msgs/action/detail/screw__functions.c.s
+.PHONY : rosidl_generator_c/robot_msgs/action/detail/screw__functions.c.s
+
 rosidl_generator_c/robot_msgs/msg/detail/control_command__functions.o: rosidl_generator_c/robot_msgs/msg/detail/control_command__functions.c.o
 
 .PHONY : rosidl_generator_c/robot_msgs/msg/detail/control_command__functions.o
@@ -401,6 +428,33 @@ rosidl_generator_c/robot_msgs/msg/detail/control_command__functions.s: rosidl_ge
 rosidl_generator_c/robot_msgs/msg/detail/control_command__functions.c.s:
 	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_generator_c.dir/build.make CMakeFiles/robot_msgs__rosidl_generator_c.dir/rosidl_generator_c/robot_msgs/msg/detail/control_command__functions.c.s
 .PHONY : rosidl_generator_c/robot_msgs/msg/detail/control_command__functions.c.s
+
+rosidl_generator_c/robot_msgs/msg/detail/current_pub__functions.o: rosidl_generator_c/robot_msgs/msg/detail/current_pub__functions.c.o
+
+.PHONY : rosidl_generator_c/robot_msgs/msg/detail/current_pub__functions.o
+
+# target to build an object file
+rosidl_generator_c/robot_msgs/msg/detail/current_pub__functions.c.o:
+	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_generator_c.dir/build.make CMakeFiles/robot_msgs__rosidl_generator_c.dir/rosidl_generator_c/robot_msgs/msg/detail/current_pub__functions.c.o
+.PHONY : rosidl_generator_c/robot_msgs/msg/detail/current_pub__functions.c.o
+
+rosidl_generator_c/robot_msgs/msg/detail/current_pub__functions.i: rosidl_generator_c/robot_msgs/msg/detail/current_pub__functions.c.i
+
+.PHONY : rosidl_generator_c/robot_msgs/msg/detail/current_pub__functions.i
+
+# target to preprocess a source file
+rosidl_generator_c/robot_msgs/msg/detail/current_pub__functions.c.i:
+	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_generator_c.dir/build.make CMakeFiles/robot_msgs__rosidl_generator_c.dir/rosidl_generator_c/robot_msgs/msg/detail/current_pub__functions.c.i
+.PHONY : rosidl_generator_c/robot_msgs/msg/detail/current_pub__functions.c.i
+
+rosidl_generator_c/robot_msgs/msg/detail/current_pub__functions.s: rosidl_generator_c/robot_msgs/msg/detail/current_pub__functions.c.s
+
+.PHONY : rosidl_generator_c/robot_msgs/msg/detail/current_pub__functions.s
+
+# target to generate assembly for a file
+rosidl_generator_c/robot_msgs/msg/detail/current_pub__functions.c.s:
+	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_generator_c.dir/build.make CMakeFiles/robot_msgs__rosidl_generator_c.dir/rosidl_generator_c/robot_msgs/msg/detail/current_pub__functions.c.s
+.PHONY : rosidl_generator_c/robot_msgs/msg/detail/current_pub__functions.c.s
 
 rosidl_generator_c/robot_msgs/msg/detail/ft_pub__functions.o: rosidl_generator_c/robot_msgs/msg/detail/ft_pub__functions.c.o
 
@@ -482,6 +536,33 @@ rosidl_generator_c/robot_msgs/msg/detail/robot_status__functions.s: rosidl_gener
 rosidl_generator_c/robot_msgs/msg/detail/robot_status__functions.c.s:
 	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_generator_c.dir/build.make CMakeFiles/robot_msgs__rosidl_generator_c.dir/rosidl_generator_c/robot_msgs/msg/detail/robot_status__functions.c.s
 .PHONY : rosidl_generator_c/robot_msgs/msg/detail/robot_status__functions.c.s
+
+rosidl_generator_c/robot_msgs/msg/detail/width_pub__functions.o: rosidl_generator_c/robot_msgs/msg/detail/width_pub__functions.c.o
+
+.PHONY : rosidl_generator_c/robot_msgs/msg/detail/width_pub__functions.o
+
+# target to build an object file
+rosidl_generator_c/robot_msgs/msg/detail/width_pub__functions.c.o:
+	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_generator_c.dir/build.make CMakeFiles/robot_msgs__rosidl_generator_c.dir/rosidl_generator_c/robot_msgs/msg/detail/width_pub__functions.c.o
+.PHONY : rosidl_generator_c/robot_msgs/msg/detail/width_pub__functions.c.o
+
+rosidl_generator_c/robot_msgs/msg/detail/width_pub__functions.i: rosidl_generator_c/robot_msgs/msg/detail/width_pub__functions.c.i
+
+.PHONY : rosidl_generator_c/robot_msgs/msg/detail/width_pub__functions.i
+
+# target to preprocess a source file
+rosidl_generator_c/robot_msgs/msg/detail/width_pub__functions.c.i:
+	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_generator_c.dir/build.make CMakeFiles/robot_msgs__rosidl_generator_c.dir/rosidl_generator_c/robot_msgs/msg/detail/width_pub__functions.c.i
+.PHONY : rosidl_generator_c/robot_msgs/msg/detail/width_pub__functions.c.i
+
+rosidl_generator_c/robot_msgs/msg/detail/width_pub__functions.s: rosidl_generator_c/robot_msgs/msg/detail/width_pub__functions.c.s
+
+.PHONY : rosidl_generator_c/robot_msgs/msg/detail/width_pub__functions.s
+
+# target to generate assembly for a file
+rosidl_generator_c/robot_msgs/msg/detail/width_pub__functions.c.s:
+	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_generator_c.dir/build.make CMakeFiles/robot_msgs__rosidl_generator_c.dir/rosidl_generator_c/robot_msgs/msg/detail/width_pub__functions.c.s
+.PHONY : rosidl_generator_c/robot_msgs/msg/detail/width_pub__functions.c.s
 
 rosidl_generator_c/robot_msgs/srv/detail/start_pose__functions.o: rosidl_generator_c/robot_msgs/srv/detail/start_pose__functions.c.o
 
@@ -591,6 +672,33 @@ rosidl_generator_py/robot_msgs/_robot_msgs_s.ep.rosidl_typesupport_introspection
 	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_introspection_c__pyext.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/robot_msgs/_robot_msgs_s.ep.rosidl_typesupport_introspection_c.c.s
 .PHONY : rosidl_generator_py/robot_msgs/_robot_msgs_s.ep.rosidl_typesupport_introspection_c.c.s
 
+rosidl_generator_py/robot_msgs/action/_screw_s.o: rosidl_generator_py/robot_msgs/action/_screw_s.c.o
+
+.PHONY : rosidl_generator_py/robot_msgs/action/_screw_s.o
+
+# target to build an object file
+rosidl_generator_py/robot_msgs/action/_screw_s.c.o:
+	$(MAKE) -f CMakeFiles/robot_msgs__python.dir/build.make CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/action/_screw_s.c.o
+.PHONY : rosidl_generator_py/robot_msgs/action/_screw_s.c.o
+
+rosidl_generator_py/robot_msgs/action/_screw_s.i: rosidl_generator_py/robot_msgs/action/_screw_s.c.i
+
+.PHONY : rosidl_generator_py/robot_msgs/action/_screw_s.i
+
+# target to preprocess a source file
+rosidl_generator_py/robot_msgs/action/_screw_s.c.i:
+	$(MAKE) -f CMakeFiles/robot_msgs__python.dir/build.make CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/action/_screw_s.c.i
+.PHONY : rosidl_generator_py/robot_msgs/action/_screw_s.c.i
+
+rosidl_generator_py/robot_msgs/action/_screw_s.s: rosidl_generator_py/robot_msgs/action/_screw_s.c.s
+
+.PHONY : rosidl_generator_py/robot_msgs/action/_screw_s.s
+
+# target to generate assembly for a file
+rosidl_generator_py/robot_msgs/action/_screw_s.c.s:
+	$(MAKE) -f CMakeFiles/robot_msgs__python.dir/build.make CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/action/_screw_s.c.s
+.PHONY : rosidl_generator_py/robot_msgs/action/_screw_s.c.s
+
 rosidl_generator_py/robot_msgs/msg/_control_command_s.o: rosidl_generator_py/robot_msgs/msg/_control_command_s.c.o
 
 .PHONY : rosidl_generator_py/robot_msgs/msg/_control_command_s.o
@@ -617,6 +725,33 @@ rosidl_generator_py/robot_msgs/msg/_control_command_s.s: rosidl_generator_py/rob
 rosidl_generator_py/robot_msgs/msg/_control_command_s.c.s:
 	$(MAKE) -f CMakeFiles/robot_msgs__python.dir/build.make CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/msg/_control_command_s.c.s
 .PHONY : rosidl_generator_py/robot_msgs/msg/_control_command_s.c.s
+
+rosidl_generator_py/robot_msgs/msg/_current_pub_s.o: rosidl_generator_py/robot_msgs/msg/_current_pub_s.c.o
+
+.PHONY : rosidl_generator_py/robot_msgs/msg/_current_pub_s.o
+
+# target to build an object file
+rosidl_generator_py/robot_msgs/msg/_current_pub_s.c.o:
+	$(MAKE) -f CMakeFiles/robot_msgs__python.dir/build.make CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/msg/_current_pub_s.c.o
+.PHONY : rosidl_generator_py/robot_msgs/msg/_current_pub_s.c.o
+
+rosidl_generator_py/robot_msgs/msg/_current_pub_s.i: rosidl_generator_py/robot_msgs/msg/_current_pub_s.c.i
+
+.PHONY : rosidl_generator_py/robot_msgs/msg/_current_pub_s.i
+
+# target to preprocess a source file
+rosidl_generator_py/robot_msgs/msg/_current_pub_s.c.i:
+	$(MAKE) -f CMakeFiles/robot_msgs__python.dir/build.make CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/msg/_current_pub_s.c.i
+.PHONY : rosidl_generator_py/robot_msgs/msg/_current_pub_s.c.i
+
+rosidl_generator_py/robot_msgs/msg/_current_pub_s.s: rosidl_generator_py/robot_msgs/msg/_current_pub_s.c.s
+
+.PHONY : rosidl_generator_py/robot_msgs/msg/_current_pub_s.s
+
+# target to generate assembly for a file
+rosidl_generator_py/robot_msgs/msg/_current_pub_s.c.s:
+	$(MAKE) -f CMakeFiles/robot_msgs__python.dir/build.make CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/msg/_current_pub_s.c.s
+.PHONY : rosidl_generator_py/robot_msgs/msg/_current_pub_s.c.s
 
 rosidl_generator_py/robot_msgs/msg/_ft_pub_s.o: rosidl_generator_py/robot_msgs/msg/_ft_pub_s.c.o
 
@@ -699,6 +834,33 @@ rosidl_generator_py/robot_msgs/msg/_robot_status_s.c.s:
 	$(MAKE) -f CMakeFiles/robot_msgs__python.dir/build.make CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/msg/_robot_status_s.c.s
 .PHONY : rosidl_generator_py/robot_msgs/msg/_robot_status_s.c.s
 
+rosidl_generator_py/robot_msgs/msg/_width_pub_s.o: rosidl_generator_py/robot_msgs/msg/_width_pub_s.c.o
+
+.PHONY : rosidl_generator_py/robot_msgs/msg/_width_pub_s.o
+
+# target to build an object file
+rosidl_generator_py/robot_msgs/msg/_width_pub_s.c.o:
+	$(MAKE) -f CMakeFiles/robot_msgs__python.dir/build.make CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/msg/_width_pub_s.c.o
+.PHONY : rosidl_generator_py/robot_msgs/msg/_width_pub_s.c.o
+
+rosidl_generator_py/robot_msgs/msg/_width_pub_s.i: rosidl_generator_py/robot_msgs/msg/_width_pub_s.c.i
+
+.PHONY : rosidl_generator_py/robot_msgs/msg/_width_pub_s.i
+
+# target to preprocess a source file
+rosidl_generator_py/robot_msgs/msg/_width_pub_s.c.i:
+	$(MAKE) -f CMakeFiles/robot_msgs__python.dir/build.make CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/msg/_width_pub_s.c.i
+.PHONY : rosidl_generator_py/robot_msgs/msg/_width_pub_s.c.i
+
+rosidl_generator_py/robot_msgs/msg/_width_pub_s.s: rosidl_generator_py/robot_msgs/msg/_width_pub_s.c.s
+
+.PHONY : rosidl_generator_py/robot_msgs/msg/_width_pub_s.s
+
+# target to generate assembly for a file
+rosidl_generator_py/robot_msgs/msg/_width_pub_s.c.s:
+	$(MAKE) -f CMakeFiles/robot_msgs__python.dir/build.make CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/msg/_width_pub_s.c.s
+.PHONY : rosidl_generator_py/robot_msgs/msg/_width_pub_s.c.s
+
 rosidl_generator_py/robot_msgs/srv/_start_pose_s.o: rosidl_generator_py/robot_msgs/srv/_start_pose_s.c.o
 
 .PHONY : rosidl_generator_py/robot_msgs/srv/_start_pose_s.o
@@ -726,6 +888,33 @@ rosidl_generator_py/robot_msgs/srv/_start_pose_s.c.s:
 	$(MAKE) -f CMakeFiles/robot_msgs__python.dir/build.make CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/srv/_start_pose_s.c.s
 .PHONY : rosidl_generator_py/robot_msgs/srv/_start_pose_s.c.s
 
+rosidl_typesupport_c/robot_msgs/action/screw__type_support.o: rosidl_typesupport_c/robot_msgs/action/screw__type_support.cpp.o
+
+.PHONY : rosidl_typesupport_c/robot_msgs/action/screw__type_support.o
+
+# target to build an object file
+rosidl_typesupport_c/robot_msgs/action/screw__type_support.cpp.o:
+	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_c.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/robot_msgs/action/screw__type_support.cpp.o
+.PHONY : rosidl_typesupport_c/robot_msgs/action/screw__type_support.cpp.o
+
+rosidl_typesupport_c/robot_msgs/action/screw__type_support.i: rosidl_typesupport_c/robot_msgs/action/screw__type_support.cpp.i
+
+.PHONY : rosidl_typesupport_c/robot_msgs/action/screw__type_support.i
+
+# target to preprocess a source file
+rosidl_typesupport_c/robot_msgs/action/screw__type_support.cpp.i:
+	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_c.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/robot_msgs/action/screw__type_support.cpp.i
+.PHONY : rosidl_typesupport_c/robot_msgs/action/screw__type_support.cpp.i
+
+rosidl_typesupport_c/robot_msgs/action/screw__type_support.s: rosidl_typesupport_c/robot_msgs/action/screw__type_support.cpp.s
+
+.PHONY : rosidl_typesupport_c/robot_msgs/action/screw__type_support.s
+
+# target to generate assembly for a file
+rosidl_typesupport_c/robot_msgs/action/screw__type_support.cpp.s:
+	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_c.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/robot_msgs/action/screw__type_support.cpp.s
+.PHONY : rosidl_typesupport_c/robot_msgs/action/screw__type_support.cpp.s
+
 rosidl_typesupport_c/robot_msgs/msg/control_command__type_support.o: rosidl_typesupport_c/robot_msgs/msg/control_command__type_support.cpp.o
 
 .PHONY : rosidl_typesupport_c/robot_msgs/msg/control_command__type_support.o
@@ -752,6 +941,33 @@ rosidl_typesupport_c/robot_msgs/msg/control_command__type_support.s: rosidl_type
 rosidl_typesupport_c/robot_msgs/msg/control_command__type_support.cpp.s:
 	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_c.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/robot_msgs/msg/control_command__type_support.cpp.s
 .PHONY : rosidl_typesupport_c/robot_msgs/msg/control_command__type_support.cpp.s
+
+rosidl_typesupport_c/robot_msgs/msg/current_pub__type_support.o: rosidl_typesupport_c/robot_msgs/msg/current_pub__type_support.cpp.o
+
+.PHONY : rosidl_typesupport_c/robot_msgs/msg/current_pub__type_support.o
+
+# target to build an object file
+rosidl_typesupport_c/robot_msgs/msg/current_pub__type_support.cpp.o:
+	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_c.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/robot_msgs/msg/current_pub__type_support.cpp.o
+.PHONY : rosidl_typesupport_c/robot_msgs/msg/current_pub__type_support.cpp.o
+
+rosidl_typesupport_c/robot_msgs/msg/current_pub__type_support.i: rosidl_typesupport_c/robot_msgs/msg/current_pub__type_support.cpp.i
+
+.PHONY : rosidl_typesupport_c/robot_msgs/msg/current_pub__type_support.i
+
+# target to preprocess a source file
+rosidl_typesupport_c/robot_msgs/msg/current_pub__type_support.cpp.i:
+	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_c.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/robot_msgs/msg/current_pub__type_support.cpp.i
+.PHONY : rosidl_typesupport_c/robot_msgs/msg/current_pub__type_support.cpp.i
+
+rosidl_typesupport_c/robot_msgs/msg/current_pub__type_support.s: rosidl_typesupport_c/robot_msgs/msg/current_pub__type_support.cpp.s
+
+.PHONY : rosidl_typesupport_c/robot_msgs/msg/current_pub__type_support.s
+
+# target to generate assembly for a file
+rosidl_typesupport_c/robot_msgs/msg/current_pub__type_support.cpp.s:
+	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_c.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/robot_msgs/msg/current_pub__type_support.cpp.s
+.PHONY : rosidl_typesupport_c/robot_msgs/msg/current_pub__type_support.cpp.s
 
 rosidl_typesupport_c/robot_msgs/msg/ft_pub__type_support.o: rosidl_typesupport_c/robot_msgs/msg/ft_pub__type_support.cpp.o
 
@@ -834,6 +1050,33 @@ rosidl_typesupport_c/robot_msgs/msg/robot_status__type_support.cpp.s:
 	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_c.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/robot_msgs/msg/robot_status__type_support.cpp.s
 .PHONY : rosidl_typesupport_c/robot_msgs/msg/robot_status__type_support.cpp.s
 
+rosidl_typesupport_c/robot_msgs/msg/width_pub__type_support.o: rosidl_typesupport_c/robot_msgs/msg/width_pub__type_support.cpp.o
+
+.PHONY : rosidl_typesupport_c/robot_msgs/msg/width_pub__type_support.o
+
+# target to build an object file
+rosidl_typesupport_c/robot_msgs/msg/width_pub__type_support.cpp.o:
+	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_c.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/robot_msgs/msg/width_pub__type_support.cpp.o
+.PHONY : rosidl_typesupport_c/robot_msgs/msg/width_pub__type_support.cpp.o
+
+rosidl_typesupport_c/robot_msgs/msg/width_pub__type_support.i: rosidl_typesupport_c/robot_msgs/msg/width_pub__type_support.cpp.i
+
+.PHONY : rosidl_typesupport_c/robot_msgs/msg/width_pub__type_support.i
+
+# target to preprocess a source file
+rosidl_typesupport_c/robot_msgs/msg/width_pub__type_support.cpp.i:
+	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_c.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/robot_msgs/msg/width_pub__type_support.cpp.i
+.PHONY : rosidl_typesupport_c/robot_msgs/msg/width_pub__type_support.cpp.i
+
+rosidl_typesupport_c/robot_msgs/msg/width_pub__type_support.s: rosidl_typesupport_c/robot_msgs/msg/width_pub__type_support.cpp.s
+
+.PHONY : rosidl_typesupport_c/robot_msgs/msg/width_pub__type_support.s
+
+# target to generate assembly for a file
+rosidl_typesupport_c/robot_msgs/msg/width_pub__type_support.cpp.s:
+	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_c.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/robot_msgs/msg/width_pub__type_support.cpp.s
+.PHONY : rosidl_typesupport_c/robot_msgs/msg/width_pub__type_support.cpp.s
+
 rosidl_typesupport_c/robot_msgs/srv/start_pose__type_support.o: rosidl_typesupport_c/robot_msgs/srv/start_pose__type_support.cpp.o
 
 .PHONY : rosidl_typesupport_c/robot_msgs/srv/start_pose__type_support.o
@@ -861,6 +1104,33 @@ rosidl_typesupport_c/robot_msgs/srv/start_pose__type_support.cpp.s:
 	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_c.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/robot_msgs/srv/start_pose__type_support.cpp.s
 .PHONY : rosidl_typesupport_c/robot_msgs/srv/start_pose__type_support.cpp.s
 
+rosidl_typesupport_cpp/robot_msgs/action/screw__type_support.o: rosidl_typesupport_cpp/robot_msgs/action/screw__type_support.cpp.o
+
+.PHONY : rosidl_typesupport_cpp/robot_msgs/action/screw__type_support.o
+
+# target to build an object file
+rosidl_typesupport_cpp/robot_msgs/action/screw__type_support.cpp.o:
+	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_cpp.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robot_msgs/action/screw__type_support.cpp.o
+.PHONY : rosidl_typesupport_cpp/robot_msgs/action/screw__type_support.cpp.o
+
+rosidl_typesupport_cpp/robot_msgs/action/screw__type_support.i: rosidl_typesupport_cpp/robot_msgs/action/screw__type_support.cpp.i
+
+.PHONY : rosidl_typesupport_cpp/robot_msgs/action/screw__type_support.i
+
+# target to preprocess a source file
+rosidl_typesupport_cpp/robot_msgs/action/screw__type_support.cpp.i:
+	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_cpp.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robot_msgs/action/screw__type_support.cpp.i
+.PHONY : rosidl_typesupport_cpp/robot_msgs/action/screw__type_support.cpp.i
+
+rosidl_typesupport_cpp/robot_msgs/action/screw__type_support.s: rosidl_typesupport_cpp/robot_msgs/action/screw__type_support.cpp.s
+
+.PHONY : rosidl_typesupport_cpp/robot_msgs/action/screw__type_support.s
+
+# target to generate assembly for a file
+rosidl_typesupport_cpp/robot_msgs/action/screw__type_support.cpp.s:
+	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_cpp.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robot_msgs/action/screw__type_support.cpp.s
+.PHONY : rosidl_typesupport_cpp/robot_msgs/action/screw__type_support.cpp.s
+
 rosidl_typesupport_cpp/robot_msgs/msg/control_command__type_support.o: rosidl_typesupport_cpp/robot_msgs/msg/control_command__type_support.cpp.o
 
 .PHONY : rosidl_typesupport_cpp/robot_msgs/msg/control_command__type_support.o
@@ -887,6 +1157,33 @@ rosidl_typesupport_cpp/robot_msgs/msg/control_command__type_support.s: rosidl_ty
 rosidl_typesupport_cpp/robot_msgs/msg/control_command__type_support.cpp.s:
 	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_cpp.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robot_msgs/msg/control_command__type_support.cpp.s
 .PHONY : rosidl_typesupport_cpp/robot_msgs/msg/control_command__type_support.cpp.s
+
+rosidl_typesupport_cpp/robot_msgs/msg/current_pub__type_support.o: rosidl_typesupport_cpp/robot_msgs/msg/current_pub__type_support.cpp.o
+
+.PHONY : rosidl_typesupport_cpp/robot_msgs/msg/current_pub__type_support.o
+
+# target to build an object file
+rosidl_typesupport_cpp/robot_msgs/msg/current_pub__type_support.cpp.o:
+	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_cpp.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robot_msgs/msg/current_pub__type_support.cpp.o
+.PHONY : rosidl_typesupport_cpp/robot_msgs/msg/current_pub__type_support.cpp.o
+
+rosidl_typesupport_cpp/robot_msgs/msg/current_pub__type_support.i: rosidl_typesupport_cpp/robot_msgs/msg/current_pub__type_support.cpp.i
+
+.PHONY : rosidl_typesupport_cpp/robot_msgs/msg/current_pub__type_support.i
+
+# target to preprocess a source file
+rosidl_typesupport_cpp/robot_msgs/msg/current_pub__type_support.cpp.i:
+	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_cpp.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robot_msgs/msg/current_pub__type_support.cpp.i
+.PHONY : rosidl_typesupport_cpp/robot_msgs/msg/current_pub__type_support.cpp.i
+
+rosidl_typesupport_cpp/robot_msgs/msg/current_pub__type_support.s: rosidl_typesupport_cpp/robot_msgs/msg/current_pub__type_support.cpp.s
+
+.PHONY : rosidl_typesupport_cpp/robot_msgs/msg/current_pub__type_support.s
+
+# target to generate assembly for a file
+rosidl_typesupport_cpp/robot_msgs/msg/current_pub__type_support.cpp.s:
+	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_cpp.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robot_msgs/msg/current_pub__type_support.cpp.s
+.PHONY : rosidl_typesupport_cpp/robot_msgs/msg/current_pub__type_support.cpp.s
 
 rosidl_typesupport_cpp/robot_msgs/msg/ft_pub__type_support.o: rosidl_typesupport_cpp/robot_msgs/msg/ft_pub__type_support.cpp.o
 
@@ -969,6 +1266,33 @@ rosidl_typesupport_cpp/robot_msgs/msg/robot_status__type_support.cpp.s:
 	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_cpp.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robot_msgs/msg/robot_status__type_support.cpp.s
 .PHONY : rosidl_typesupport_cpp/robot_msgs/msg/robot_status__type_support.cpp.s
 
+rosidl_typesupport_cpp/robot_msgs/msg/width_pub__type_support.o: rosidl_typesupport_cpp/robot_msgs/msg/width_pub__type_support.cpp.o
+
+.PHONY : rosidl_typesupport_cpp/robot_msgs/msg/width_pub__type_support.o
+
+# target to build an object file
+rosidl_typesupport_cpp/robot_msgs/msg/width_pub__type_support.cpp.o:
+	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_cpp.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robot_msgs/msg/width_pub__type_support.cpp.o
+.PHONY : rosidl_typesupport_cpp/robot_msgs/msg/width_pub__type_support.cpp.o
+
+rosidl_typesupport_cpp/robot_msgs/msg/width_pub__type_support.i: rosidl_typesupport_cpp/robot_msgs/msg/width_pub__type_support.cpp.i
+
+.PHONY : rosidl_typesupport_cpp/robot_msgs/msg/width_pub__type_support.i
+
+# target to preprocess a source file
+rosidl_typesupport_cpp/robot_msgs/msg/width_pub__type_support.cpp.i:
+	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_cpp.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robot_msgs/msg/width_pub__type_support.cpp.i
+.PHONY : rosidl_typesupport_cpp/robot_msgs/msg/width_pub__type_support.cpp.i
+
+rosidl_typesupport_cpp/robot_msgs/msg/width_pub__type_support.s: rosidl_typesupport_cpp/robot_msgs/msg/width_pub__type_support.cpp.s
+
+.PHONY : rosidl_typesupport_cpp/robot_msgs/msg/width_pub__type_support.s
+
+# target to generate assembly for a file
+rosidl_typesupport_cpp/robot_msgs/msg/width_pub__type_support.cpp.s:
+	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_cpp.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robot_msgs/msg/width_pub__type_support.cpp.s
+.PHONY : rosidl_typesupport_cpp/robot_msgs/msg/width_pub__type_support.cpp.s
+
 rosidl_typesupport_cpp/robot_msgs/srv/start_pose__type_support.o: rosidl_typesupport_cpp/robot_msgs/srv/start_pose__type_support.cpp.o
 
 .PHONY : rosidl_typesupport_cpp/robot_msgs/srv/start_pose__type_support.o
@@ -996,6 +1320,33 @@ rosidl_typesupport_cpp/robot_msgs/srv/start_pose__type_support.cpp.s:
 	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_cpp.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robot_msgs/srv/start_pose__type_support.cpp.s
 .PHONY : rosidl_typesupport_cpp/robot_msgs/srv/start_pose__type_support.cpp.s
 
+rosidl_typesupport_fastrtps_c/robot_msgs/action/detail/screw__type_support_c.o: rosidl_typesupport_fastrtps_c/robot_msgs/action/detail/screw__type_support_c.cpp.o
+
+.PHONY : rosidl_typesupport_fastrtps_c/robot_msgs/action/detail/screw__type_support_c.o
+
+# target to build an object file
+rosidl_typesupport_fastrtps_c/robot_msgs/action/detail/screw__type_support_c.cpp.o:
+	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_c.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robot_msgs/action/detail/screw__type_support_c.cpp.o
+.PHONY : rosidl_typesupport_fastrtps_c/robot_msgs/action/detail/screw__type_support_c.cpp.o
+
+rosidl_typesupport_fastrtps_c/robot_msgs/action/detail/screw__type_support_c.i: rosidl_typesupport_fastrtps_c/robot_msgs/action/detail/screw__type_support_c.cpp.i
+
+.PHONY : rosidl_typesupport_fastrtps_c/robot_msgs/action/detail/screw__type_support_c.i
+
+# target to preprocess a source file
+rosidl_typesupport_fastrtps_c/robot_msgs/action/detail/screw__type_support_c.cpp.i:
+	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_c.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robot_msgs/action/detail/screw__type_support_c.cpp.i
+.PHONY : rosidl_typesupport_fastrtps_c/robot_msgs/action/detail/screw__type_support_c.cpp.i
+
+rosidl_typesupport_fastrtps_c/robot_msgs/action/detail/screw__type_support_c.s: rosidl_typesupport_fastrtps_c/robot_msgs/action/detail/screw__type_support_c.cpp.s
+
+.PHONY : rosidl_typesupport_fastrtps_c/robot_msgs/action/detail/screw__type_support_c.s
+
+# target to generate assembly for a file
+rosidl_typesupport_fastrtps_c/robot_msgs/action/detail/screw__type_support_c.cpp.s:
+	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_c.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robot_msgs/action/detail/screw__type_support_c.cpp.s
+.PHONY : rosidl_typesupport_fastrtps_c/robot_msgs/action/detail/screw__type_support_c.cpp.s
+
 rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/control_command__type_support_c.o: rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/control_command__type_support_c.cpp.o
 
 .PHONY : rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/control_command__type_support_c.o
@@ -1022,6 +1373,33 @@ rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/control_command__type_suppor
 rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/control_command__type_support_c.cpp.s:
 	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_c.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/control_command__type_support_c.cpp.s
 .PHONY : rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/control_command__type_support_c.cpp.s
+
+rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/current_pub__type_support_c.o: rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/current_pub__type_support_c.cpp.o
+
+.PHONY : rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/current_pub__type_support_c.o
+
+# target to build an object file
+rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/current_pub__type_support_c.cpp.o:
+	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_c.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/current_pub__type_support_c.cpp.o
+.PHONY : rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/current_pub__type_support_c.cpp.o
+
+rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/current_pub__type_support_c.i: rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/current_pub__type_support_c.cpp.i
+
+.PHONY : rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/current_pub__type_support_c.i
+
+# target to preprocess a source file
+rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/current_pub__type_support_c.cpp.i:
+	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_c.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/current_pub__type_support_c.cpp.i
+.PHONY : rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/current_pub__type_support_c.cpp.i
+
+rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/current_pub__type_support_c.s: rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/current_pub__type_support_c.cpp.s
+
+.PHONY : rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/current_pub__type_support_c.s
+
+# target to generate assembly for a file
+rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/current_pub__type_support_c.cpp.s:
+	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_c.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/current_pub__type_support_c.cpp.s
+.PHONY : rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/current_pub__type_support_c.cpp.s
 
 rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/ft_pub__type_support_c.o: rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/ft_pub__type_support_c.cpp.o
 
@@ -1104,6 +1482,33 @@ rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/robot_status__type_support_c
 	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_c.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/robot_status__type_support_c.cpp.s
 .PHONY : rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/robot_status__type_support_c.cpp.s
 
+rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/width_pub__type_support_c.o: rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/width_pub__type_support_c.cpp.o
+
+.PHONY : rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/width_pub__type_support_c.o
+
+# target to build an object file
+rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/width_pub__type_support_c.cpp.o:
+	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_c.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/width_pub__type_support_c.cpp.o
+.PHONY : rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/width_pub__type_support_c.cpp.o
+
+rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/width_pub__type_support_c.i: rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/width_pub__type_support_c.cpp.i
+
+.PHONY : rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/width_pub__type_support_c.i
+
+# target to preprocess a source file
+rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/width_pub__type_support_c.cpp.i:
+	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_c.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/width_pub__type_support_c.cpp.i
+.PHONY : rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/width_pub__type_support_c.cpp.i
+
+rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/width_pub__type_support_c.s: rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/width_pub__type_support_c.cpp.s
+
+.PHONY : rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/width_pub__type_support_c.s
+
+# target to generate assembly for a file
+rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/width_pub__type_support_c.cpp.s:
+	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_c.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/width_pub__type_support_c.cpp.s
+.PHONY : rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/width_pub__type_support_c.cpp.s
+
 rosidl_typesupport_fastrtps_c/robot_msgs/srv/detail/start_pose__type_support_c.o: rosidl_typesupport_fastrtps_c/robot_msgs/srv/detail/start_pose__type_support_c.cpp.o
 
 .PHONY : rosidl_typesupport_fastrtps_c/robot_msgs/srv/detail/start_pose__type_support_c.o
@@ -1131,6 +1536,33 @@ rosidl_typesupport_fastrtps_c/robot_msgs/srv/detail/start_pose__type_support_c.c
 	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_c.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robot_msgs/srv/detail/start_pose__type_support_c.cpp.s
 .PHONY : rosidl_typesupport_fastrtps_c/robot_msgs/srv/detail/start_pose__type_support_c.cpp.s
 
+rosidl_typesupport_fastrtps_cpp/robot_msgs/action/detail/dds_fastrtps/screw__type_support.o: rosidl_typesupport_fastrtps_cpp/robot_msgs/action/detail/dds_fastrtps/screw__type_support.cpp.o
+
+.PHONY : rosidl_typesupport_fastrtps_cpp/robot_msgs/action/detail/dds_fastrtps/screw__type_support.o
+
+# target to build an object file
+rosidl_typesupport_fastrtps_cpp/robot_msgs/action/detail/dds_fastrtps/screw__type_support.cpp.o:
+	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/action/detail/dds_fastrtps/screw__type_support.cpp.o
+.PHONY : rosidl_typesupport_fastrtps_cpp/robot_msgs/action/detail/dds_fastrtps/screw__type_support.cpp.o
+
+rosidl_typesupport_fastrtps_cpp/robot_msgs/action/detail/dds_fastrtps/screw__type_support.i: rosidl_typesupport_fastrtps_cpp/robot_msgs/action/detail/dds_fastrtps/screw__type_support.cpp.i
+
+.PHONY : rosidl_typesupport_fastrtps_cpp/robot_msgs/action/detail/dds_fastrtps/screw__type_support.i
+
+# target to preprocess a source file
+rosidl_typesupport_fastrtps_cpp/robot_msgs/action/detail/dds_fastrtps/screw__type_support.cpp.i:
+	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/action/detail/dds_fastrtps/screw__type_support.cpp.i
+.PHONY : rosidl_typesupport_fastrtps_cpp/robot_msgs/action/detail/dds_fastrtps/screw__type_support.cpp.i
+
+rosidl_typesupport_fastrtps_cpp/robot_msgs/action/detail/dds_fastrtps/screw__type_support.s: rosidl_typesupport_fastrtps_cpp/robot_msgs/action/detail/dds_fastrtps/screw__type_support.cpp.s
+
+.PHONY : rosidl_typesupport_fastrtps_cpp/robot_msgs/action/detail/dds_fastrtps/screw__type_support.s
+
+# target to generate assembly for a file
+rosidl_typesupport_fastrtps_cpp/robot_msgs/action/detail/dds_fastrtps/screw__type_support.cpp.s:
+	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/action/detail/dds_fastrtps/screw__type_support.cpp.s
+.PHONY : rosidl_typesupport_fastrtps_cpp/robot_msgs/action/detail/dds_fastrtps/screw__type_support.cpp.s
+
 rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/control_command__type_support.o: rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/control_command__type_support.cpp.o
 
 .PHONY : rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/control_command__type_support.o
@@ -1157,6 +1589,33 @@ rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/control_comma
 rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/control_command__type_support.cpp.s:
 	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/control_command__type_support.cpp.s
 .PHONY : rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/control_command__type_support.cpp.s
+
+rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/current_pub__type_support.o: rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/current_pub__type_support.cpp.o
+
+.PHONY : rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/current_pub__type_support.o
+
+# target to build an object file
+rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/current_pub__type_support.cpp.o:
+	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/current_pub__type_support.cpp.o
+.PHONY : rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/current_pub__type_support.cpp.o
+
+rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/current_pub__type_support.i: rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/current_pub__type_support.cpp.i
+
+.PHONY : rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/current_pub__type_support.i
+
+# target to preprocess a source file
+rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/current_pub__type_support.cpp.i:
+	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/current_pub__type_support.cpp.i
+.PHONY : rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/current_pub__type_support.cpp.i
+
+rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/current_pub__type_support.s: rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/current_pub__type_support.cpp.s
+
+.PHONY : rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/current_pub__type_support.s
+
+# target to generate assembly for a file
+rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/current_pub__type_support.cpp.s:
+	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/current_pub__type_support.cpp.s
+.PHONY : rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/current_pub__type_support.cpp.s
 
 rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/ft_pub__type_support.o: rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/ft_pub__type_support.cpp.o
 
@@ -1239,6 +1698,33 @@ rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/robot_status_
 	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/robot_status__type_support.cpp.s
 .PHONY : rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/robot_status__type_support.cpp.s
 
+rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/width_pub__type_support.o: rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/width_pub__type_support.cpp.o
+
+.PHONY : rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/width_pub__type_support.o
+
+# target to build an object file
+rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/width_pub__type_support.cpp.o:
+	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/width_pub__type_support.cpp.o
+.PHONY : rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/width_pub__type_support.cpp.o
+
+rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/width_pub__type_support.i: rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/width_pub__type_support.cpp.i
+
+.PHONY : rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/width_pub__type_support.i
+
+# target to preprocess a source file
+rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/width_pub__type_support.cpp.i:
+	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/width_pub__type_support.cpp.i
+.PHONY : rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/width_pub__type_support.cpp.i
+
+rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/width_pub__type_support.s: rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/width_pub__type_support.cpp.s
+
+.PHONY : rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/width_pub__type_support.s
+
+# target to generate assembly for a file
+rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/width_pub__type_support.cpp.s:
+	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/width_pub__type_support.cpp.s
+.PHONY : rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/width_pub__type_support.cpp.s
+
 rosidl_typesupport_fastrtps_cpp/robot_msgs/srv/detail/dds_fastrtps/start_pose__type_support.o: rosidl_typesupport_fastrtps_cpp/robot_msgs/srv/detail/dds_fastrtps/start_pose__type_support.cpp.o
 
 .PHONY : rosidl_typesupport_fastrtps_cpp/robot_msgs/srv/detail/dds_fastrtps/start_pose__type_support.o
@@ -1266,6 +1752,33 @@ rosidl_typesupport_fastrtps_cpp/robot_msgs/srv/detail/dds_fastrtps/start_pose__t
 	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robot_msgs/srv/detail/dds_fastrtps/start_pose__type_support.cpp.s
 .PHONY : rosidl_typesupport_fastrtps_cpp/robot_msgs/srv/detail/dds_fastrtps/start_pose__type_support.cpp.s
 
+rosidl_typesupport_introspection_c/robot_msgs/action/detail/screw__type_support.o: rosidl_typesupport_introspection_c/robot_msgs/action/detail/screw__type_support.c.o
+
+.PHONY : rosidl_typesupport_introspection_c/robot_msgs/action/detail/screw__type_support.o
+
+# target to build an object file
+rosidl_typesupport_introspection_c/robot_msgs/action/detail/screw__type_support.c.o:
+	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_introspection_c.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/robot_msgs/action/detail/screw__type_support.c.o
+.PHONY : rosidl_typesupport_introspection_c/robot_msgs/action/detail/screw__type_support.c.o
+
+rosidl_typesupport_introspection_c/robot_msgs/action/detail/screw__type_support.i: rosidl_typesupport_introspection_c/robot_msgs/action/detail/screw__type_support.c.i
+
+.PHONY : rosidl_typesupport_introspection_c/robot_msgs/action/detail/screw__type_support.i
+
+# target to preprocess a source file
+rosidl_typesupport_introspection_c/robot_msgs/action/detail/screw__type_support.c.i:
+	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_introspection_c.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/robot_msgs/action/detail/screw__type_support.c.i
+.PHONY : rosidl_typesupport_introspection_c/robot_msgs/action/detail/screw__type_support.c.i
+
+rosidl_typesupport_introspection_c/robot_msgs/action/detail/screw__type_support.s: rosidl_typesupport_introspection_c/robot_msgs/action/detail/screw__type_support.c.s
+
+.PHONY : rosidl_typesupport_introspection_c/robot_msgs/action/detail/screw__type_support.s
+
+# target to generate assembly for a file
+rosidl_typesupport_introspection_c/robot_msgs/action/detail/screw__type_support.c.s:
+	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_introspection_c.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/robot_msgs/action/detail/screw__type_support.c.s
+.PHONY : rosidl_typesupport_introspection_c/robot_msgs/action/detail/screw__type_support.c.s
+
 rosidl_typesupport_introspection_c/robot_msgs/msg/detail/control_command__type_support.o: rosidl_typesupport_introspection_c/robot_msgs/msg/detail/control_command__type_support.c.o
 
 .PHONY : rosidl_typesupport_introspection_c/robot_msgs/msg/detail/control_command__type_support.o
@@ -1292,6 +1805,33 @@ rosidl_typesupport_introspection_c/robot_msgs/msg/detail/control_command__type_s
 rosidl_typesupport_introspection_c/robot_msgs/msg/detail/control_command__type_support.c.s:
 	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_introspection_c.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/robot_msgs/msg/detail/control_command__type_support.c.s
 .PHONY : rosidl_typesupport_introspection_c/robot_msgs/msg/detail/control_command__type_support.c.s
+
+rosidl_typesupport_introspection_c/robot_msgs/msg/detail/current_pub__type_support.o: rosidl_typesupport_introspection_c/robot_msgs/msg/detail/current_pub__type_support.c.o
+
+.PHONY : rosidl_typesupport_introspection_c/robot_msgs/msg/detail/current_pub__type_support.o
+
+# target to build an object file
+rosidl_typesupport_introspection_c/robot_msgs/msg/detail/current_pub__type_support.c.o:
+	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_introspection_c.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/robot_msgs/msg/detail/current_pub__type_support.c.o
+.PHONY : rosidl_typesupport_introspection_c/robot_msgs/msg/detail/current_pub__type_support.c.o
+
+rosidl_typesupport_introspection_c/robot_msgs/msg/detail/current_pub__type_support.i: rosidl_typesupport_introspection_c/robot_msgs/msg/detail/current_pub__type_support.c.i
+
+.PHONY : rosidl_typesupport_introspection_c/robot_msgs/msg/detail/current_pub__type_support.i
+
+# target to preprocess a source file
+rosidl_typesupport_introspection_c/robot_msgs/msg/detail/current_pub__type_support.c.i:
+	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_introspection_c.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/robot_msgs/msg/detail/current_pub__type_support.c.i
+.PHONY : rosidl_typesupport_introspection_c/robot_msgs/msg/detail/current_pub__type_support.c.i
+
+rosidl_typesupport_introspection_c/robot_msgs/msg/detail/current_pub__type_support.s: rosidl_typesupport_introspection_c/robot_msgs/msg/detail/current_pub__type_support.c.s
+
+.PHONY : rosidl_typesupport_introspection_c/robot_msgs/msg/detail/current_pub__type_support.s
+
+# target to generate assembly for a file
+rosidl_typesupport_introspection_c/robot_msgs/msg/detail/current_pub__type_support.c.s:
+	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_introspection_c.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/robot_msgs/msg/detail/current_pub__type_support.c.s
+.PHONY : rosidl_typesupport_introspection_c/robot_msgs/msg/detail/current_pub__type_support.c.s
 
 rosidl_typesupport_introspection_c/robot_msgs/msg/detail/ft_pub__type_support.o: rosidl_typesupport_introspection_c/robot_msgs/msg/detail/ft_pub__type_support.c.o
 
@@ -1374,6 +1914,33 @@ rosidl_typesupport_introspection_c/robot_msgs/msg/detail/robot_status__type_supp
 	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_introspection_c.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/robot_msgs/msg/detail/robot_status__type_support.c.s
 .PHONY : rosidl_typesupport_introspection_c/robot_msgs/msg/detail/robot_status__type_support.c.s
 
+rosidl_typesupport_introspection_c/robot_msgs/msg/detail/width_pub__type_support.o: rosidl_typesupport_introspection_c/robot_msgs/msg/detail/width_pub__type_support.c.o
+
+.PHONY : rosidl_typesupport_introspection_c/robot_msgs/msg/detail/width_pub__type_support.o
+
+# target to build an object file
+rosidl_typesupport_introspection_c/robot_msgs/msg/detail/width_pub__type_support.c.o:
+	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_introspection_c.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/robot_msgs/msg/detail/width_pub__type_support.c.o
+.PHONY : rosidl_typesupport_introspection_c/robot_msgs/msg/detail/width_pub__type_support.c.o
+
+rosidl_typesupport_introspection_c/robot_msgs/msg/detail/width_pub__type_support.i: rosidl_typesupport_introspection_c/robot_msgs/msg/detail/width_pub__type_support.c.i
+
+.PHONY : rosidl_typesupport_introspection_c/robot_msgs/msg/detail/width_pub__type_support.i
+
+# target to preprocess a source file
+rosidl_typesupport_introspection_c/robot_msgs/msg/detail/width_pub__type_support.c.i:
+	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_introspection_c.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/robot_msgs/msg/detail/width_pub__type_support.c.i
+.PHONY : rosidl_typesupport_introspection_c/robot_msgs/msg/detail/width_pub__type_support.c.i
+
+rosidl_typesupport_introspection_c/robot_msgs/msg/detail/width_pub__type_support.s: rosidl_typesupport_introspection_c/robot_msgs/msg/detail/width_pub__type_support.c.s
+
+.PHONY : rosidl_typesupport_introspection_c/robot_msgs/msg/detail/width_pub__type_support.s
+
+# target to generate assembly for a file
+rosidl_typesupport_introspection_c/robot_msgs/msg/detail/width_pub__type_support.c.s:
+	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_introspection_c.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/robot_msgs/msg/detail/width_pub__type_support.c.s
+.PHONY : rosidl_typesupport_introspection_c/robot_msgs/msg/detail/width_pub__type_support.c.s
+
 rosidl_typesupport_introspection_c/robot_msgs/srv/detail/start_pose__type_support.o: rosidl_typesupport_introspection_c/robot_msgs/srv/detail/start_pose__type_support.c.o
 
 .PHONY : rosidl_typesupport_introspection_c/robot_msgs/srv/detail/start_pose__type_support.o
@@ -1401,6 +1968,33 @@ rosidl_typesupport_introspection_c/robot_msgs/srv/detail/start_pose__type_suppor
 	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_introspection_c.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/robot_msgs/srv/detail/start_pose__type_support.c.s
 .PHONY : rosidl_typesupport_introspection_c/robot_msgs/srv/detail/start_pose__type_support.c.s
 
+rosidl_typesupport_introspection_cpp/robot_msgs/action/detail/screw__type_support.o: rosidl_typesupport_introspection_cpp/robot_msgs/action/detail/screw__type_support.cpp.o
+
+.PHONY : rosidl_typesupport_introspection_cpp/robot_msgs/action/detail/screw__type_support.o
+
+# target to build an object file
+rosidl_typesupport_introspection_cpp/robot_msgs/action/detail/screw__type_support.cpp.o:
+	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robot_msgs/action/detail/screw__type_support.cpp.o
+.PHONY : rosidl_typesupport_introspection_cpp/robot_msgs/action/detail/screw__type_support.cpp.o
+
+rosidl_typesupport_introspection_cpp/robot_msgs/action/detail/screw__type_support.i: rosidl_typesupport_introspection_cpp/robot_msgs/action/detail/screw__type_support.cpp.i
+
+.PHONY : rosidl_typesupport_introspection_cpp/robot_msgs/action/detail/screw__type_support.i
+
+# target to preprocess a source file
+rosidl_typesupport_introspection_cpp/robot_msgs/action/detail/screw__type_support.cpp.i:
+	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robot_msgs/action/detail/screw__type_support.cpp.i
+.PHONY : rosidl_typesupport_introspection_cpp/robot_msgs/action/detail/screw__type_support.cpp.i
+
+rosidl_typesupport_introspection_cpp/robot_msgs/action/detail/screw__type_support.s: rosidl_typesupport_introspection_cpp/robot_msgs/action/detail/screw__type_support.cpp.s
+
+.PHONY : rosidl_typesupport_introspection_cpp/robot_msgs/action/detail/screw__type_support.s
+
+# target to generate assembly for a file
+rosidl_typesupport_introspection_cpp/robot_msgs/action/detail/screw__type_support.cpp.s:
+	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robot_msgs/action/detail/screw__type_support.cpp.s
+.PHONY : rosidl_typesupport_introspection_cpp/robot_msgs/action/detail/screw__type_support.cpp.s
+
 rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/control_command__type_support.o: rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/control_command__type_support.cpp.o
 
 .PHONY : rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/control_command__type_support.o
@@ -1427,6 +2021,33 @@ rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/control_command__type
 rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/control_command__type_support.cpp.s:
 	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/control_command__type_support.cpp.s
 .PHONY : rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/control_command__type_support.cpp.s
+
+rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/current_pub__type_support.o: rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/current_pub__type_support.cpp.o
+
+.PHONY : rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/current_pub__type_support.o
+
+# target to build an object file
+rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/current_pub__type_support.cpp.o:
+	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/current_pub__type_support.cpp.o
+.PHONY : rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/current_pub__type_support.cpp.o
+
+rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/current_pub__type_support.i: rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/current_pub__type_support.cpp.i
+
+.PHONY : rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/current_pub__type_support.i
+
+# target to preprocess a source file
+rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/current_pub__type_support.cpp.i:
+	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/current_pub__type_support.cpp.i
+.PHONY : rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/current_pub__type_support.cpp.i
+
+rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/current_pub__type_support.s: rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/current_pub__type_support.cpp.s
+
+.PHONY : rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/current_pub__type_support.s
+
+# target to generate assembly for a file
+rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/current_pub__type_support.cpp.s:
+	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/current_pub__type_support.cpp.s
+.PHONY : rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/current_pub__type_support.cpp.s
 
 rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/ft_pub__type_support.o: rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/ft_pub__type_support.cpp.o
 
@@ -1509,6 +2130,33 @@ rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/robot_status__type_su
 	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/robot_status__type_support.cpp.s
 .PHONY : rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/robot_status__type_support.cpp.s
 
+rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/width_pub__type_support.o: rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/width_pub__type_support.cpp.o
+
+.PHONY : rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/width_pub__type_support.o
+
+# target to build an object file
+rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/width_pub__type_support.cpp.o:
+	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/width_pub__type_support.cpp.o
+.PHONY : rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/width_pub__type_support.cpp.o
+
+rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/width_pub__type_support.i: rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/width_pub__type_support.cpp.i
+
+.PHONY : rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/width_pub__type_support.i
+
+# target to preprocess a source file
+rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/width_pub__type_support.cpp.i:
+	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/width_pub__type_support.cpp.i
+.PHONY : rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/width_pub__type_support.cpp.i
+
+rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/width_pub__type_support.s: rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/width_pub__type_support.cpp.s
+
+.PHONY : rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/width_pub__type_support.s
+
+# target to generate assembly for a file
+rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/width_pub__type_support.cpp.s:
+	$(MAKE) -f CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/build.make CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/width_pub__type_support.cpp.s
+.PHONY : rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/width_pub__type_support.cpp.s
+
 rosidl_typesupport_introspection_cpp/robot_msgs/srv/detail/start_pose__type_support.o: rosidl_typesupport_introspection_cpp/robot_msgs/srv/detail/start_pose__type_support.cpp.o
 
 .PHONY : rosidl_typesupport_introspection_cpp/robot_msgs/srv/detail/start_pose__type_support.o
@@ -1565,9 +2213,15 @@ help:
 	@echo "... robot_msgs__python"
 	@echo "... robot_msgs__rosidl_typesupport_cpp"
 	@echo "... robot_msgs__py"
+	@echo "... rosidl_generator_c/robot_msgs/action/detail/screw__functions.o"
+	@echo "... rosidl_generator_c/robot_msgs/action/detail/screw__functions.i"
+	@echo "... rosidl_generator_c/robot_msgs/action/detail/screw__functions.s"
 	@echo "... rosidl_generator_c/robot_msgs/msg/detail/control_command__functions.o"
 	@echo "... rosidl_generator_c/robot_msgs/msg/detail/control_command__functions.i"
 	@echo "... rosidl_generator_c/robot_msgs/msg/detail/control_command__functions.s"
+	@echo "... rosidl_generator_c/robot_msgs/msg/detail/current_pub__functions.o"
+	@echo "... rosidl_generator_c/robot_msgs/msg/detail/current_pub__functions.i"
+	@echo "... rosidl_generator_c/robot_msgs/msg/detail/current_pub__functions.s"
 	@echo "... rosidl_generator_c/robot_msgs/msg/detail/ft_pub__functions.o"
 	@echo "... rosidl_generator_c/robot_msgs/msg/detail/ft_pub__functions.i"
 	@echo "... rosidl_generator_c/robot_msgs/msg/detail/ft_pub__functions.s"
@@ -1577,6 +2231,9 @@ help:
 	@echo "... rosidl_generator_c/robot_msgs/msg/detail/robot_status__functions.o"
 	@echo "... rosidl_generator_c/robot_msgs/msg/detail/robot_status__functions.i"
 	@echo "... rosidl_generator_c/robot_msgs/msg/detail/robot_status__functions.s"
+	@echo "... rosidl_generator_c/robot_msgs/msg/detail/width_pub__functions.o"
+	@echo "... rosidl_generator_c/robot_msgs/msg/detail/width_pub__functions.i"
+	@echo "... rosidl_generator_c/robot_msgs/msg/detail/width_pub__functions.s"
 	@echo "... rosidl_generator_c/robot_msgs/srv/detail/start_pose__functions.o"
 	@echo "... rosidl_generator_c/robot_msgs/srv/detail/start_pose__functions.i"
 	@echo "... rosidl_generator_c/robot_msgs/srv/detail/start_pose__functions.s"
@@ -1589,9 +2246,15 @@ help:
 	@echo "... rosidl_generator_py/robot_msgs/_robot_msgs_s.ep.rosidl_typesupport_introspection_c.o"
 	@echo "... rosidl_generator_py/robot_msgs/_robot_msgs_s.ep.rosidl_typesupport_introspection_c.i"
 	@echo "... rosidl_generator_py/robot_msgs/_robot_msgs_s.ep.rosidl_typesupport_introspection_c.s"
+	@echo "... rosidl_generator_py/robot_msgs/action/_screw_s.o"
+	@echo "... rosidl_generator_py/robot_msgs/action/_screw_s.i"
+	@echo "... rosidl_generator_py/robot_msgs/action/_screw_s.s"
 	@echo "... rosidl_generator_py/robot_msgs/msg/_control_command_s.o"
 	@echo "... rosidl_generator_py/robot_msgs/msg/_control_command_s.i"
 	@echo "... rosidl_generator_py/robot_msgs/msg/_control_command_s.s"
+	@echo "... rosidl_generator_py/robot_msgs/msg/_current_pub_s.o"
+	@echo "... rosidl_generator_py/robot_msgs/msg/_current_pub_s.i"
+	@echo "... rosidl_generator_py/robot_msgs/msg/_current_pub_s.s"
 	@echo "... rosidl_generator_py/robot_msgs/msg/_ft_pub_s.o"
 	@echo "... rosidl_generator_py/robot_msgs/msg/_ft_pub_s.i"
 	@echo "... rosidl_generator_py/robot_msgs/msg/_ft_pub_s.s"
@@ -1601,12 +2264,21 @@ help:
 	@echo "... rosidl_generator_py/robot_msgs/msg/_robot_status_s.o"
 	@echo "... rosidl_generator_py/robot_msgs/msg/_robot_status_s.i"
 	@echo "... rosidl_generator_py/robot_msgs/msg/_robot_status_s.s"
+	@echo "... rosidl_generator_py/robot_msgs/msg/_width_pub_s.o"
+	@echo "... rosidl_generator_py/robot_msgs/msg/_width_pub_s.i"
+	@echo "... rosidl_generator_py/robot_msgs/msg/_width_pub_s.s"
 	@echo "... rosidl_generator_py/robot_msgs/srv/_start_pose_s.o"
 	@echo "... rosidl_generator_py/robot_msgs/srv/_start_pose_s.i"
 	@echo "... rosidl_generator_py/robot_msgs/srv/_start_pose_s.s"
+	@echo "... rosidl_typesupport_c/robot_msgs/action/screw__type_support.o"
+	@echo "... rosidl_typesupport_c/robot_msgs/action/screw__type_support.i"
+	@echo "... rosidl_typesupport_c/robot_msgs/action/screw__type_support.s"
 	@echo "... rosidl_typesupport_c/robot_msgs/msg/control_command__type_support.o"
 	@echo "... rosidl_typesupport_c/robot_msgs/msg/control_command__type_support.i"
 	@echo "... rosidl_typesupport_c/robot_msgs/msg/control_command__type_support.s"
+	@echo "... rosidl_typesupport_c/robot_msgs/msg/current_pub__type_support.o"
+	@echo "... rosidl_typesupport_c/robot_msgs/msg/current_pub__type_support.i"
+	@echo "... rosidl_typesupport_c/robot_msgs/msg/current_pub__type_support.s"
 	@echo "... rosidl_typesupport_c/robot_msgs/msg/ft_pub__type_support.o"
 	@echo "... rosidl_typesupport_c/robot_msgs/msg/ft_pub__type_support.i"
 	@echo "... rosidl_typesupport_c/robot_msgs/msg/ft_pub__type_support.s"
@@ -1616,12 +2288,21 @@ help:
 	@echo "... rosidl_typesupport_c/robot_msgs/msg/robot_status__type_support.o"
 	@echo "... rosidl_typesupport_c/robot_msgs/msg/robot_status__type_support.i"
 	@echo "... rosidl_typesupport_c/robot_msgs/msg/robot_status__type_support.s"
+	@echo "... rosidl_typesupport_c/robot_msgs/msg/width_pub__type_support.o"
+	@echo "... rosidl_typesupport_c/robot_msgs/msg/width_pub__type_support.i"
+	@echo "... rosidl_typesupport_c/robot_msgs/msg/width_pub__type_support.s"
 	@echo "... rosidl_typesupport_c/robot_msgs/srv/start_pose__type_support.o"
 	@echo "... rosidl_typesupport_c/robot_msgs/srv/start_pose__type_support.i"
 	@echo "... rosidl_typesupport_c/robot_msgs/srv/start_pose__type_support.s"
+	@echo "... rosidl_typesupport_cpp/robot_msgs/action/screw__type_support.o"
+	@echo "... rosidl_typesupport_cpp/robot_msgs/action/screw__type_support.i"
+	@echo "... rosidl_typesupport_cpp/robot_msgs/action/screw__type_support.s"
 	@echo "... rosidl_typesupport_cpp/robot_msgs/msg/control_command__type_support.o"
 	@echo "... rosidl_typesupport_cpp/robot_msgs/msg/control_command__type_support.i"
 	@echo "... rosidl_typesupport_cpp/robot_msgs/msg/control_command__type_support.s"
+	@echo "... rosidl_typesupport_cpp/robot_msgs/msg/current_pub__type_support.o"
+	@echo "... rosidl_typesupport_cpp/robot_msgs/msg/current_pub__type_support.i"
+	@echo "... rosidl_typesupport_cpp/robot_msgs/msg/current_pub__type_support.s"
 	@echo "... rosidl_typesupport_cpp/robot_msgs/msg/ft_pub__type_support.o"
 	@echo "... rosidl_typesupport_cpp/robot_msgs/msg/ft_pub__type_support.i"
 	@echo "... rosidl_typesupport_cpp/robot_msgs/msg/ft_pub__type_support.s"
@@ -1631,12 +2312,21 @@ help:
 	@echo "... rosidl_typesupport_cpp/robot_msgs/msg/robot_status__type_support.o"
 	@echo "... rosidl_typesupport_cpp/robot_msgs/msg/robot_status__type_support.i"
 	@echo "... rosidl_typesupport_cpp/robot_msgs/msg/robot_status__type_support.s"
+	@echo "... rosidl_typesupport_cpp/robot_msgs/msg/width_pub__type_support.o"
+	@echo "... rosidl_typesupport_cpp/robot_msgs/msg/width_pub__type_support.i"
+	@echo "... rosidl_typesupport_cpp/robot_msgs/msg/width_pub__type_support.s"
 	@echo "... rosidl_typesupport_cpp/robot_msgs/srv/start_pose__type_support.o"
 	@echo "... rosidl_typesupport_cpp/robot_msgs/srv/start_pose__type_support.i"
 	@echo "... rosidl_typesupport_cpp/robot_msgs/srv/start_pose__type_support.s"
+	@echo "... rosidl_typesupport_fastrtps_c/robot_msgs/action/detail/screw__type_support_c.o"
+	@echo "... rosidl_typesupport_fastrtps_c/robot_msgs/action/detail/screw__type_support_c.i"
+	@echo "... rosidl_typesupport_fastrtps_c/robot_msgs/action/detail/screw__type_support_c.s"
 	@echo "... rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/control_command__type_support_c.o"
 	@echo "... rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/control_command__type_support_c.i"
 	@echo "... rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/control_command__type_support_c.s"
+	@echo "... rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/current_pub__type_support_c.o"
+	@echo "... rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/current_pub__type_support_c.i"
+	@echo "... rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/current_pub__type_support_c.s"
 	@echo "... rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/ft_pub__type_support_c.o"
 	@echo "... rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/ft_pub__type_support_c.i"
 	@echo "... rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/ft_pub__type_support_c.s"
@@ -1646,12 +2336,21 @@ help:
 	@echo "... rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/robot_status__type_support_c.o"
 	@echo "... rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/robot_status__type_support_c.i"
 	@echo "... rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/robot_status__type_support_c.s"
+	@echo "... rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/width_pub__type_support_c.o"
+	@echo "... rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/width_pub__type_support_c.i"
+	@echo "... rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/width_pub__type_support_c.s"
 	@echo "... rosidl_typesupport_fastrtps_c/robot_msgs/srv/detail/start_pose__type_support_c.o"
 	@echo "... rosidl_typesupport_fastrtps_c/robot_msgs/srv/detail/start_pose__type_support_c.i"
 	@echo "... rosidl_typesupport_fastrtps_c/robot_msgs/srv/detail/start_pose__type_support_c.s"
+	@echo "... rosidl_typesupport_fastrtps_cpp/robot_msgs/action/detail/dds_fastrtps/screw__type_support.o"
+	@echo "... rosidl_typesupport_fastrtps_cpp/robot_msgs/action/detail/dds_fastrtps/screw__type_support.i"
+	@echo "... rosidl_typesupport_fastrtps_cpp/robot_msgs/action/detail/dds_fastrtps/screw__type_support.s"
 	@echo "... rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/control_command__type_support.o"
 	@echo "... rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/control_command__type_support.i"
 	@echo "... rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/control_command__type_support.s"
+	@echo "... rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/current_pub__type_support.o"
+	@echo "... rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/current_pub__type_support.i"
+	@echo "... rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/current_pub__type_support.s"
 	@echo "... rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/ft_pub__type_support.o"
 	@echo "... rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/ft_pub__type_support.i"
 	@echo "... rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/ft_pub__type_support.s"
@@ -1661,12 +2360,21 @@ help:
 	@echo "... rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/robot_status__type_support.o"
 	@echo "... rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/robot_status__type_support.i"
 	@echo "... rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/robot_status__type_support.s"
+	@echo "... rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/width_pub__type_support.o"
+	@echo "... rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/width_pub__type_support.i"
+	@echo "... rosidl_typesupport_fastrtps_cpp/robot_msgs/msg/detail/dds_fastrtps/width_pub__type_support.s"
 	@echo "... rosidl_typesupport_fastrtps_cpp/robot_msgs/srv/detail/dds_fastrtps/start_pose__type_support.o"
 	@echo "... rosidl_typesupport_fastrtps_cpp/robot_msgs/srv/detail/dds_fastrtps/start_pose__type_support.i"
 	@echo "... rosidl_typesupport_fastrtps_cpp/robot_msgs/srv/detail/dds_fastrtps/start_pose__type_support.s"
+	@echo "... rosidl_typesupport_introspection_c/robot_msgs/action/detail/screw__type_support.o"
+	@echo "... rosidl_typesupport_introspection_c/robot_msgs/action/detail/screw__type_support.i"
+	@echo "... rosidl_typesupport_introspection_c/robot_msgs/action/detail/screw__type_support.s"
 	@echo "... rosidl_typesupport_introspection_c/robot_msgs/msg/detail/control_command__type_support.o"
 	@echo "... rosidl_typesupport_introspection_c/robot_msgs/msg/detail/control_command__type_support.i"
 	@echo "... rosidl_typesupport_introspection_c/robot_msgs/msg/detail/control_command__type_support.s"
+	@echo "... rosidl_typesupport_introspection_c/robot_msgs/msg/detail/current_pub__type_support.o"
+	@echo "... rosidl_typesupport_introspection_c/robot_msgs/msg/detail/current_pub__type_support.i"
+	@echo "... rosidl_typesupport_introspection_c/robot_msgs/msg/detail/current_pub__type_support.s"
 	@echo "... rosidl_typesupport_introspection_c/robot_msgs/msg/detail/ft_pub__type_support.o"
 	@echo "... rosidl_typesupport_introspection_c/robot_msgs/msg/detail/ft_pub__type_support.i"
 	@echo "... rosidl_typesupport_introspection_c/robot_msgs/msg/detail/ft_pub__type_support.s"
@@ -1676,12 +2384,21 @@ help:
 	@echo "... rosidl_typesupport_introspection_c/robot_msgs/msg/detail/robot_status__type_support.o"
 	@echo "... rosidl_typesupport_introspection_c/robot_msgs/msg/detail/robot_status__type_support.i"
 	@echo "... rosidl_typesupport_introspection_c/robot_msgs/msg/detail/robot_status__type_support.s"
+	@echo "... rosidl_typesupport_introspection_c/robot_msgs/msg/detail/width_pub__type_support.o"
+	@echo "... rosidl_typesupport_introspection_c/robot_msgs/msg/detail/width_pub__type_support.i"
+	@echo "... rosidl_typesupport_introspection_c/robot_msgs/msg/detail/width_pub__type_support.s"
 	@echo "... rosidl_typesupport_introspection_c/robot_msgs/srv/detail/start_pose__type_support.o"
 	@echo "... rosidl_typesupport_introspection_c/robot_msgs/srv/detail/start_pose__type_support.i"
 	@echo "... rosidl_typesupport_introspection_c/robot_msgs/srv/detail/start_pose__type_support.s"
+	@echo "... rosidl_typesupport_introspection_cpp/robot_msgs/action/detail/screw__type_support.o"
+	@echo "... rosidl_typesupport_introspection_cpp/robot_msgs/action/detail/screw__type_support.i"
+	@echo "... rosidl_typesupport_introspection_cpp/robot_msgs/action/detail/screw__type_support.s"
 	@echo "... rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/control_command__type_support.o"
 	@echo "... rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/control_command__type_support.i"
 	@echo "... rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/control_command__type_support.s"
+	@echo "... rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/current_pub__type_support.o"
+	@echo "... rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/current_pub__type_support.i"
+	@echo "... rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/current_pub__type_support.s"
 	@echo "... rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/ft_pub__type_support.o"
 	@echo "... rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/ft_pub__type_support.i"
 	@echo "... rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/ft_pub__type_support.s"
@@ -1691,6 +2408,9 @@ help:
 	@echo "... rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/robot_status__type_support.o"
 	@echo "... rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/robot_status__type_support.i"
 	@echo "... rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/robot_status__type_support.s"
+	@echo "... rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/width_pub__type_support.o"
+	@echo "... rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/width_pub__type_support.i"
+	@echo "... rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/width_pub__type_support.s"
 	@echo "... rosidl_typesupport_introspection_cpp/robot_msgs/srv/detail/start_pose__type_support.o"
 	@echo "... rosidl_typesupport_introspection_cpp/robot_msgs/srv/detail/start_pose__type_support.i"
 	@echo "... rosidl_typesupport_introspection_cpp/robot_msgs/srv/detail/start_pose__type_support.s"
