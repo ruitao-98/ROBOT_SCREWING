@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
-
-
+from scipy.spatial.transform import Rotation as R
+import transforms3d.quaternions as trans_quat
 
 def generate_straight_trajectory(length, control_dt, speed, position_sequence, orientation_sequence):
     """
@@ -31,8 +31,6 @@ def generate_straight_trajectory(length, control_dt, speed, position_sequence, o
     # 提取初始位置和姿态
     start_position = position_sequence[0]
     start_orientation = orientation_sequence[0]
-
-
     # 在 z 轴上沿正方向生成轨迹
     for i in range(num_points):
         # 位置更新
@@ -41,10 +39,50 @@ def generate_straight_trajectory(length, control_dt, speed, position_sequence, o
 
         # 姿态保持不变
         trajectory_orientations[i, :] = start_orientation
-
         trajectory_velocities[i, :] = [speed, 0, 0]
-
         # 姿态不发生变化，所以角速度为零
+        trajectory_angular_velocities[i, :] = [0, 0, 0]
+
+
+    return trajectory_positions, trajectory_orientations, trajectory_velocities, trajectory_angular_velocities
+
+def online_generate_straight_trajectory(num_points, control_dt, speed, position_sequence, orientation_sequence):
+    """
+    生成沿着z轴正方向的直线轨迹，保持姿态不变。
+
+    :param length: 轨迹的长度 (m)
+    :param speed: 速度 (m/s)
+    :param control_dt: 控制周期 (s)
+    :param position_sequence: 初始位置序列，包含 xyz (例如：[[x0, y0, z0]])
+    :param orientation_sequence: 初始姿态序列，包含 rotation_matrix (例如：[[3*3]])
+
+    :return: 轨迹位置和姿态序列
+    """
+
+    # 初始化轨迹数组
+    trajectory_positions = np.zeros((num_points, 3))  # 位置 [x, y, z]
+    trajectory_orientations = np.zeros((num_points, 4))  # 姿态 [w, x, y, z]
+    trajectory_velocities = np.zeros((num_points, 3))  # 线速度 [vx, vy, vz]
+    trajectory_angular_velocities = np.zeros((num_points, 3))  # 角速度 [wx, wy, wz]
+
+    # 提取初始位置和姿态
+    start_position = position_sequence[0]
+    start_orientation = orientation_sequence[0]
+    # 末端坐标系的z轴负方向单位向量
+    z_negative = np.array([0, 0, -1])
+    # 转换到世界坐标系的方向向量
+    direction = start_orientation @ z_negative
+
+    # 在 z 轴上沿正方向生成轨迹
+    for i in range(num_points):
+        # 位置更新：起点 + 距离（速度 × 时间）× 方向
+        distance = i * speed * control_dt
+        trajectory_positions[i, :] = start_position + distance * direction
+        # 姿态保持不变
+        trajectory_orientations[i, :] = start_orientation
+        # 线速度：速度 × 方向
+        trajectory_velocities[i, :] = speed * direction
+        # 姿态不发生变化，角速度为零
         trajectory_angular_velocities[i, :] = [0, 0, 0]
 
 
