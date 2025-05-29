@@ -46,45 +46,45 @@ def generate_straight_trajectory(length, control_dt, speed, position_sequence, o
 
     return trajectory_positions, trajectory_orientations, trajectory_velocities, trajectory_angular_velocities
 
-def online_generate_straight_trajectory(num_points, control_dt, speed, position_sequence, orientation_sequence):
-    """
-    生成沿着z轴正方向的直线轨迹，保持姿态不变。
-
-    :param length: 轨迹的长度 (m)
-    :param speed: 速度 (m/s)
-    :param control_dt: 控制周期 (s)
-    :param position_sequence: 初始位置序列，包含 xyz (例如：[[x0, y0, z0]])
-    :param orientation_sequence: 初始姿态序列，包含 rotation_matrix (例如：[[3*3]])
-
-    :return: 轨迹位置和姿态序列
-    """
-
+def online_generate_straight_trajectory(num_points, control_dt, speed, position, orientation, present_position):
+ 
     # 初始化轨迹数组
-    trajectory_positions = np.zeros((num_points, 3))  # 位置 [x, y, z]
-    trajectory_orientations = np.zeros((num_points, 4))  # 姿态 [w, x, y, z]
-    trajectory_velocities = np.zeros((num_points, 3))  # 线速度 [vx, vy, vz]
-    trajectory_angular_velocities = np.zeros((num_points, 3))  # 角速度 [wx, wy, wz]
+    trajectory_positions = np.zeros((num_points + 1, 3))  # 位置 [x, y, z]
+    trajectory_orientations = np.zeros((num_points + 1, 4))  # 姿态 [w, x, y, z]
+    trajectory_velocities = np.zeros((num_points + 1, 3))  # 线速度 [vx, vy, vz]
+    trajectory_angular_velocities = np.zeros((num_points + 1, 3))  # 角速度 [wx, wy, wz]
 
     # 提取初始位置和姿态
-    start_position = position_sequence[0]
-    start_orientation = orientation_sequence[0]
+    start_position = position
+    start_orientation = orientation
     # 末端坐标系的z轴负方向单位向量
     z_negative = np.array([0, 0, -1])
     # 转换到世界坐标系的方向向量
     direction = start_orientation @ z_negative
+    quaternion = trans_quat.mat2quat(start_orientation)
 
     # 在 z 轴上沿正方向生成轨迹
-    for i in range(num_points):
-        # 位置更新：起点 + 距离（速度 × 时间）× 方向
+    for i in range(num_points + 1):
+        # 距离（速度 × 时间）
         distance = i * speed * control_dt
-        trajectory_positions[i, :] = start_position + distance * direction
+        # 位置更新：
+        # x: 初始x坐标
+        # y: 初始y坐标
+        # z: 当前z坐标 + 沿z负方向的位移
+        trajectory_positions[i, :] = np.array([
+            start_position[0],                       # 初始x
+            start_position[1],                       # 初始y
+            present_position[2] + distance * direction[2]  # 当前z + z方向位移
+        ]) + np.array([distance * direction[0], distance * direction[1], 0])
+
+        # trajectory_positions[i, :] = start_position + distance * direction
         # 姿态保持不变
-        trajectory_orientations[i, :] = start_orientation
+        trajectory_orientations[i, :] = quaternion
         # 线速度：速度 × 方向
         trajectory_velocities[i, :] = speed * direction
         # 姿态不发生变化，角速度为零
         trajectory_angular_velocities[i, :] = [0, 0, 0]
-
+ 
 
     return trajectory_positions, trajectory_orientations, trajectory_velocities, trajectory_angular_velocities
 

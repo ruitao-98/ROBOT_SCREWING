@@ -271,3 +271,24 @@ from matplotlib.font_manager import FontManager
 fm = FontManager()
 available_fonts = [f.name for f in fm.ttflist]
 print(available_fonts)
+
+print(np.eye(3))
+
+
+
+error_x = np.array([0, 1, 2])
+error_y = np.array([10, 11, 12])
+error_z = np.array([20, 21, 22]) 
+
+# rx, ry 状态（旋转向量 x, y 分量）
+error_rx = np.array([30, 31, 32])  # rx
+error_ry = np.array([40, 41, 42])  # ry
+error_xyz = np.concatenate((error_x, error_y, error_z, error_rx, error_ry)).reshape(1, 3*5)
+print(error_xyz)
+
+X_features = [[0, 1, 2],
+                [3, 4, 5],
+                [6, 7, 8],
+                [9, 10, 11],
+                [12, 13, 14]]
+print(X_features[1])

@@ -19,16 +19,18 @@ class SimpleSimConfig:
     """
     simulation_disturbances = {
         "groove1": False, 
-        "groove2": True,  
-        "screw1": False,                      
+        "groove2": False,  
+        "screw1": True,                      
         "screw2": False,                               
     }
 
 class RecordingOptions:
     recording_options = {
-        "dataset_name": "sim_dataset",
+        # "dataset_name": "sim_dataset",
+        "dataset_name": "real_dataset",
         "training_split": True,
     }
+
 
 class ModelFitConfig:
     """
@@ -36,11 +38,12 @@ class ModelFitConfig:
     """
 
     # ## Dataset loading ## #
-    ds_name = "sim_dataset"
+    ds_name = "real_dataset"
+    # ds_name = "sim_dataset"
     ds_metadata = {
         "groove1": False, 
-        "groove2": True,  
-        "screw1": False,                      
+        "groove2": False,  
+        "screw1": True,                      
         "screw2": False,   
     }
 

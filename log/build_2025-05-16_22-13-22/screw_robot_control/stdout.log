@@ -1,4 +1,0 @@
-[ 25%] Built target SERVO_MOTOR
-[ 50%] Built target SCREWING_TOOL
-[ 87%] Built target task_control_screw
-[ 87%] [32mBuilding CXX object CMakeFiles/right_arm_control.dir/src/right_arm_control.cpp.o[0m

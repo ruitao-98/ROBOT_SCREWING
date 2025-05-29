@@ -12,6 +12,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/yanji/robot_screwing/build/robot_msgs/rosidl_typesupport_c/robot_msgs/msg/robot_status__type_support.cpp" "/home/yanji/robot_screwing/build/robot_msgs/CMakeFiles/robot_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/robot_msgs/msg/robot_status__type_support.cpp.o"
   "/home/yanji/robot_screwing/build/robot_msgs/rosidl_typesupport_c/robot_msgs/msg/width_pub__type_support.cpp" "/home/yanji/robot_screwing/build/robot_msgs/CMakeFiles/robot_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/robot_msgs/msg/width_pub__type_support.cpp.o"
   "/home/yanji/robot_screwing/build/robot_msgs/rosidl_typesupport_c/robot_msgs/srv/start_pose__type_support.cpp" "/home/yanji/robot_screwing/build/robot_msgs/CMakeFiles/robot_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/robot_msgs/srv/start_pose__type_support.cpp.o"
+  "/home/yanji/robot_screwing/build/robot_msgs/rosidl_typesupport_c/robot_msgs/srv/start_rotation__type_support.cpp" "/home/yanji/robot_screwing/build/robot_msgs/CMakeFiles/robot_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/robot_msgs/srv/start_rotation__type_support.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -38,6 +39,7 @@ set(CMAKE_MULTIPLE_OUTPUT_PAIRS
   "/home/yanji/robot_screwing/build/robot_msgs/rosidl_typesupport_c/robot_msgs/msg/robot_status__type_support.cpp" "/home/yanji/robot_screwing/build/robot_msgs/rosidl_typesupport_c/robot_msgs/msg/ft_pub__type_support.cpp"
   "/home/yanji/robot_screwing/build/robot_msgs/rosidl_typesupport_c/robot_msgs/msg/width_pub__type_support.cpp" "/home/yanji/robot_screwing/build/robot_msgs/rosidl_typesupport_c/robot_msgs/msg/ft_pub__type_support.cpp"
   "/home/yanji/robot_screwing/build/robot_msgs/rosidl_typesupport_c/robot_msgs/srv/start_pose__type_support.cpp" "/home/yanji/robot_screwing/build/robot_msgs/rosidl_typesupport_c/robot_msgs/msg/ft_pub__type_support.cpp"
+  "/home/yanji/robot_screwing/build/robot_msgs/rosidl_typesupport_c/robot_msgs/srv/start_rotation__type_support.cpp" "/home/yanji/robot_screwing/build/robot_msgs/rosidl_typesupport_c/robot_msgs/msg/ft_pub__type_support.cpp"
   )
 
 

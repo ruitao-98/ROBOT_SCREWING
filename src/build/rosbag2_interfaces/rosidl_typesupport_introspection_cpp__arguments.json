@@ -1,0 +1,53 @@
+{
+  "package_name": "rosbag2_interfaces",
+  "output_dir": "/home/yanji/robot_screwing/src/build/rosbag2_interfaces/rosidl_typesupport_introspection_cpp/rosbag2_interfaces",
+  "template_dir": "/opt/ros/foxy/share/rosidl_typesupport_introspection_cpp/resource",
+  "idl_tuples": [
+    "/home/yanji/robot_screwing/src/build/rosbag2_interfaces/rosidl_adapter/rosbag2_interfaces:msg/ReadSplitEvent.idl",
+    "/home/yanji/robot_screwing/src/build/rosbag2_interfaces/rosidl_adapter/rosbag2_interfaces:msg/WriteSplitEvent.idl",
+    "/home/yanji/robot_screwing/src/build/rosbag2_interfaces/rosidl_adapter/rosbag2_interfaces:srv/Burst.idl",
+    "/home/yanji/robot_screwing/src/build/rosbag2_interfaces/rosidl_adapter/rosbag2_interfaces:srv/GetRate.idl",
+    "/home/yanji/robot_screwing/src/build/rosbag2_interfaces/rosidl_adapter/rosbag2_interfaces:srv/IsPaused.idl",
+    "/home/yanji/robot_screwing/src/build/rosbag2_interfaces/rosidl_adapter/rosbag2_interfaces:srv/Pause.idl",
+    "/home/yanji/robot_screwing/src/build/rosbag2_interfaces/rosidl_adapter/rosbag2_interfaces:srv/Play.idl",
+    "/home/yanji/robot_screwing/src/build/rosbag2_interfaces/rosidl_adapter/rosbag2_interfaces:srv/PlayNext.idl",
+    "/home/yanji/robot_screwing/src/build/rosbag2_interfaces/rosidl_adapter/rosbag2_interfaces:srv/Resume.idl",
+    "/home/yanji/robot_screwing/src/build/rosbag2_interfaces/rosidl_adapter/rosbag2_interfaces:srv/Seek.idl",
+    "/home/yanji/robot_screwing/src/build/rosbag2_interfaces/rosidl_adapter/rosbag2_interfaces:srv/SetRate.idl",
+    "/home/yanji/robot_screwing/src/build/rosbag2_interfaces/rosidl_adapter/rosbag2_interfaces:srv/Snapshot.idl",
+    "/home/yanji/robot_screwing/src/build/rosbag2_interfaces/rosidl_adapter/rosbag2_interfaces:srv/SplitBagfile.idl",
+    "/home/yanji/robot_screwing/src/build/rosbag2_interfaces/rosidl_adapter/rosbag2_interfaces:srv/Stop.idl",
+    "/home/yanji/robot_screwing/src/build/rosbag2_interfaces/rosidl_adapter/rosbag2_interfaces:srv/TogglePaused.idl"
+  ],
+  "ros_interface_dependencies": [
+    "builtin_interfaces:/opt/ros/foxy/share/builtin_interfaces/msg/Duration.idl",
+    "builtin_interfaces:/opt/ros/foxy/share/builtin_interfaces/msg/Time.idl"
+  ],
+  "target_dependencies": [
+    "/opt/ros/foxy/lib/rosidl_typesupport_introspection_cpp/rosidl_typesupport_introspection_cpp",
+    "/opt/ros/foxy/lib/python3.8/site-packages/rosidl_typesupport_introspection_cpp/__init__.py",
+    "/opt/ros/foxy/share/rosidl_typesupport_introspection_cpp/resource/idl__rosidl_typesupport_introspection_cpp.hpp.em",
+    "/opt/ros/foxy/share/rosidl_typesupport_introspection_cpp/resource/idl__type_support.cpp.em",
+    "/opt/ros/foxy/share/rosidl_typesupport_introspection_cpp/resource/msg__rosidl_typesupport_introspection_cpp.hpp.em",
+    "/opt/ros/foxy/share/rosidl_typesupport_introspection_cpp/resource/msg__type_support.cpp.em",
+    "/opt/ros/foxy/share/rosidl_typesupport_introspection_cpp/resource/srv__rosidl_typesupport_introspection_cpp.hpp.em",
+    "/opt/ros/foxy/share/rosidl_typesupport_introspection_cpp/resource/srv__type_support.cpp.em",
+    "/home/yanji/robot_screwing/src/build/rosbag2_interfaces/rosidl_adapter/rosbag2_interfaces/msg/ReadSplitEvent.idl",
+    "/home/yanji/robot_screwing/src/build/rosbag2_interfaces/rosidl_adapter/rosbag2_interfaces/msg/WriteSplitEvent.idl",
+    "/home/yanji/robot_screwing/src/build/rosbag2_interfaces/rosidl_adapter/rosbag2_interfaces/srv/Burst.idl",
+    "/home/yanji/robot_screwing/src/build/rosbag2_interfaces/rosidl_adapter/rosbag2_interfaces/srv/GetRate.idl",
+    "/home/yanji/robot_screwing/src/build/rosbag2_interfaces/rosidl_adapter/rosbag2_interfaces/srv/IsPaused.idl",
+    "/home/yanji/robot_screwing/src/build/rosbag2_interfaces/rosidl_adapter/rosbag2_interfaces/srv/Pause.idl",
+    "/home/yanji/robot_screwing/src/build/rosbag2_interfaces/rosidl_adapter/rosbag2_interfaces/srv/Play.idl",
+    "/home/yanji/robot_screwing/src/build/rosbag2_interfaces/rosidl_adapter/rosbag2_interfaces/srv/PlayNext.idl",
+    "/home/yanji/robot_screwing/src/build/rosbag2_interfaces/rosidl_adapter/rosbag2_interfaces/srv/Resume.idl",
+    "/home/yanji/robot_screwing/src/build/rosbag2_interfaces/rosidl_adapter/rosbag2_interfaces/srv/Seek.idl",
+    "/home/yanji/robot_screwing/src/build/rosbag2_interfaces/rosidl_adapter/rosbag2_interfaces/srv/SetRate.idl",
+    "/home/yanji/robot_screwing/src/build/rosbag2_interfaces/rosidl_adapter/rosbag2_interfaces/srv/Snapshot.idl",
+    "/home/yanji/robot_screwing/src/build/rosbag2_interfaces/rosidl_adapter/rosbag2_interfaces/srv/SplitBagfile.idl",
+    "/home/yanji/robot_screwing/src/build/rosbag2_interfaces/rosidl_adapter/rosbag2_interfaces/srv/Stop.idl",
+    "/home/yanji/robot_screwing/src/build/rosbag2_interfaces/rosidl_adapter/rosbag2_interfaces/srv/TogglePaused.idl",
+    "/opt/ros/foxy/share/builtin_interfaces/msg/Duration.idl",
+    "/opt/ros/foxy/share/builtin_interfaces/msg/Time.idl"
+  ]
+}

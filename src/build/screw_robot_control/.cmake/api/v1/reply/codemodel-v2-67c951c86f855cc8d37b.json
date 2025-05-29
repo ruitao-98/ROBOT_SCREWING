@@ -1,0 +1,114 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "screw_robot_control",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "SCREWING_TOOL::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-SCREWING_TOOL-aa65603a56b239d2ae01.json",
+					"name" : "SCREWING_TOOL",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "SERVO_MOTOR::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-SERVO_MOTOR-6c8d251336db74e2c55a.json",
+					"name" : "SERVO_MOTOR",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "right_arm_control::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-right_arm_control-49b1e7287923fc44651a.json",
+					"name" : "right_arm_control",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "right_arm_control_tcp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-right_arm_control_tcp-e9b7fd68026a9f9804f8.json",
+					"name" : "right_arm_control_tcp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "screw_robot_control_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-screw_robot_control_uninstall-f9b3fcb274dc191069ed.json",
+					"name" : "screw_robot_control_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "task_control_screw::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-task_control_screw-b81c73e877108143a188.json",
+					"name" : "task_control_screw",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-efca3ce5e5825ddc1709.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/yanji/robot_screwing/src/build/screw_robot_control",
+		"source" : "/home/yanji/robot_screwing/src/screw_robot_control"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 0
+	}
+}

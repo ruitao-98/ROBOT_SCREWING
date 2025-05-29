@@ -450,8 +450,6 @@ int endeffector::width_recovery(){
 	}
 
   	this->close_port();
-
-
   	return 3;	
 }
 
@@ -521,6 +519,7 @@ int endeffector::screwing_s1(int speed, float circle, rclcpp::Publisher<robot_ms
 		int realtime_position = this->get_presentposition(0);
 		if (i<=10){
 			ave_current = start_current;
+			msg.current = ave_current;
 		}
 		if (i > 10){
 			ave_current = average_function(present_cu, 10);
@@ -528,7 +527,7 @@ int endeffector::screwing_s1(int speed, float circle, rclcpp::Publisher<robot_ms
 			// cout << msg.current << endl;
 		}
 		// printf("ֹͣthe present current %.3f\n", ave_current);
-		int pre_velo = this->get_presentvelocity(0);
+		// int pre_velo = this->get_presentvelocity(0);
 		// printf("ֹͣthe present velocity %d\n", pre_velo);
 		pub->publish(msg);
 		if ((fabs(ave_current - start_current) > yuzhi) && (i > 10))
@@ -551,7 +550,7 @@ int endeffector::screwing_s1(int speed, float circle, rclcpp::Publisher<robot_ms
 			return 1;
 			break;
 		}
-		else if (realtime_position<=goal_position+2)
+		else if (realtime_position<=goal_position+15)
 		{
 			fin_position = this->get_presentposition(0);
 			// 存储位置
@@ -602,7 +601,7 @@ int endeffector::screwing_s2(int speed, rclcpp::Publisher<robot_msgs::msg::Curre
 	// for (int m = 0; m < 15; m++) {
 	// 	std::cout << base_current[m] << std::endl;
 	// }
-	int yuzhi = 23;
+	int yuzhi = 26;
 	int goal_position = int(start_position - 4095 * 6.238 * 2);
 	int present_cu[10] = { 0 };
 	int i = 0;
@@ -635,7 +634,7 @@ int endeffector::screwing_s2(int speed, rclcpp::Publisher<robot_msgs::msg::Curre
 			return 2; // 表示所有任务都结束了
 			break;
 		}
-		else if (present_position <= goal_position)
+		else if (present_position <= goal_position+10)
 		{
 			printf("final contact\n");
 			this->set_goalvelocity(0, 0);

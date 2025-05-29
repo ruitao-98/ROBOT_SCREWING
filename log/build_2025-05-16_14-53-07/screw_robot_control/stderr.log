@@ -1,7 +1,0 @@
-/home/yanji/robot_screwing/src/screw_robot_control/src/task_control_screw.cpp: In constructor ‘screw_control::ScrewControlServer::ScrewControlServer()’:
-/home/yanji/robot_screwing/src/screw_robot_control/src/task_control_screw.cpp:14:8: warning: unused variable ‘running’ [-Wunused-variable]
-   14 |   bool running = true;
-      |        ^~~~~~~
-/home/yanji/robot_screwing/src/screw_robot_control/src/task_control_screw.cpp:15:8: warning: unused variable ‘input’ [-Wunused-variable]
-   15 |   char input;
-      |        ^~~~~

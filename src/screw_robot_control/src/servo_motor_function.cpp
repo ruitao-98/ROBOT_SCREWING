@@ -9,8 +9,8 @@ void motors::open_port()
 	}
 	else
 	{
-		char* a = portHandler->getPortName();
-		printf(a);
+		portHandler->getPortName();
+		// printf(a);
 		printf("\n");
 		printf("Motor %d: Failed to open the port!\n", m_ID);
 	}

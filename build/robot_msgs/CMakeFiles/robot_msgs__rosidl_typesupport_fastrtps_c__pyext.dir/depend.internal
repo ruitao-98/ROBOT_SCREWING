@@ -124,3 +124,6 @@ CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator
  rosidl_generator_c/robot_msgs/srv/detail/start_pose__functions.h
  rosidl_generator_c/robot_msgs/srv/detail/start_pose__struct.h
  rosidl_generator_c/robot_msgs/srv/detail/start_pose__type_support.h
+ rosidl_generator_c/robot_msgs/srv/detail/start_rotation__functions.h
+ rosidl_generator_c/robot_msgs/srv/detail/start_rotation__struct.h
+ rosidl_generator_c/robot_msgs/srv/detail/start_rotation__type_support.h

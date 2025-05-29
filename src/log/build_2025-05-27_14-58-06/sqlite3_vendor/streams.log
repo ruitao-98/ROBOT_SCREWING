@@ -1,0 +1,40 @@
+[0.026s] Invoking command in '/home/yanji/robot_screwing/src/build/sqlite3_vendor': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/yanji/robot_screwing/install/real_robot:/home/yanji/robot_screwing/install/mj_sim:/opt/ros/foxy CONDA_PROMPT_MODIFIER=(screwrobot) /usr/bin/cmake /home/yanji/robot_screwing/src/rosbag2/sqlite3_vendor -DCMAKE_INSTALL_PREFIX=/home/yanji/robot_screwing/src/install/sqlite3_vendor
+[0.287s] -- The C compiler identification is GNU 9.4.0
+[0.287s] -- The CXX compiler identification is GNU 13.1.0
+[0.287s] -- Check for working C compiler: /usr/lib/ccache/cc
+[0.287s] -- Check for working C compiler: /usr/lib/ccache/cc -- works
+[0.287s] -- Detecting C compiler ABI info
+[0.287s] -- Detecting C compiler ABI info - done
+[0.287s] -- Detecting C compile features
+[0.287s] -- Detecting C compile features - done
+[0.287s] -- Check for working CXX compiler: /usr/lib/ccache/c++
+[0.288s] -- Check for working CXX compiler: /usr/lib/ccache/c++ -- works
+[0.288s] -- Detecting CXX compiler ABI info
+[0.292s] -- Detecting CXX compiler ABI info - done
+[0.298s] -- Detecting CXX compile features
+[0.298s] -- Detecting CXX compile features - done
+[0.300s] -- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.315s] -- Found PythonInterp: /home/yanji/anaconda3/envs/screwrobot/bin/python3 (found suitable version "3.8.20", minimum required is "3") 
+[0.315s] -- Using PYTHON_EXECUTABLE: /home/yanji/anaconda3/envs/screwrobot/bin/python3
+[0.424s] CMake Error at CMakeLists.txt:5 (find_package):
+[0.424s]   By not providing "Findament_cmake_vendor_package.cmake" in
+[0.424s]   CMAKE_MODULE_PATH this project has asked CMake to find a package
+[0.424s]   configuration file provided by "ament_cmake_vendor_package", but CMake did
+[0.424s]   not find one.
+[0.424s] 
+[0.424s]   Could not find a package configuration file provided by
+[0.424s]   "ament_cmake_vendor_package" with any of the following names:
+[0.425s] 
+[0.425s]     ament_cmake_vendor_packageConfig.cmake
+[0.425s]     ament_cmake_vendor_package-config.cmake
+[0.425s] 
+[0.425s]   Add the installation prefix of "ament_cmake_vendor_package" to
+[0.425s]   CMAKE_PREFIX_PATH or set "ament_cmake_vendor_package_DIR" to a directory
+[0.425s]   containing one of the above files.  If "ament_cmake_vendor_package"
+[0.425s]   provides a separate development package or SDK, be sure it has been
+[0.425s]   installed.
+[0.425s] 
+[0.425s] 
+[0.425s] -- Configuring incomplete, errors occurred!
+[0.425s] See also "/home/yanji/robot_screwing/src/build/sqlite3_vendor/CMakeFiles/CMakeOutput.log".
+[0.427s] Invoked command in '/home/yanji/robot_screwing/src/build/sqlite3_vendor' returned '1': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/yanji/robot_screwing/install/real_robot:/home/yanji/robot_screwing/install/mj_sim:/opt/ros/foxy CONDA_PROMPT_MODIFIER=(screwrobot) /usr/bin/cmake /home/yanji/robot_screwing/src/rosbag2/sqlite3_vendor -DCMAKE_INSTALL_PREFIX=/home/yanji/robot_screwing/src/install/sqlite3_vendor

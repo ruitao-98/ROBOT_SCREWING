@@ -122,9 +122,22 @@ CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/srv/_start_pose
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/srv/_start_pose_s.c.s"
 	/usr/lib/ccache/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/yanji/robot_screwing/build/robot_msgs/rosidl_generator_py/robot_msgs/srv/_start_pose_s.c -o CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/srv/_start_pose_s.c.s
 
+CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/srv/_start_rotation_s.c.o: CMakeFiles/robot_msgs__python.dir/flags.make
+CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/srv/_start_rotation_s.c.o: rosidl_generator_py/robot_msgs/srv/_start_rotation_s.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yanji/robot_screwing/build/robot_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/srv/_start_rotation_s.c.o"
+	/usr/lib/ccache/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/srv/_start_rotation_s.c.o   -c /home/yanji/robot_screwing/build/robot_msgs/rosidl_generator_py/robot_msgs/srv/_start_rotation_s.c
+
+CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/srv/_start_rotation_s.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/srv/_start_rotation_s.c.i"
+	/usr/lib/ccache/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/yanji/robot_screwing/build/robot_msgs/rosidl_generator_py/robot_msgs/srv/_start_rotation_s.c > CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/srv/_start_rotation_s.c.i
+
+CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/srv/_start_rotation_s.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/srv/_start_rotation_s.c.s"
+	/usr/lib/ccache/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/yanji/robot_screwing/build/robot_msgs/rosidl_generator_py/robot_msgs/srv/_start_rotation_s.c -o CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/srv/_start_rotation_s.c.s
+
 CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/action/_screw_s.c.o: CMakeFiles/robot_msgs__python.dir/flags.make
 CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/action/_screw_s.c.o: rosidl_generator_py/robot_msgs/action/_screw_s.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yanji/robot_screwing/build/robot_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/action/_screw_s.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yanji/robot_screwing/build/robot_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/action/_screw_s.c.o"
 	/usr/lib/ccache/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/action/_screw_s.c.o   -c /home/yanji/robot_screwing/build/robot_msgs/rosidl_generator_py/robot_msgs/action/_screw_s.c
 
 CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/action/_screw_s.c.i: cmake_force
@@ -137,7 +150,7 @@ CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/action/_screw_s
 
 CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/msg/_current_pub_s.c.o: CMakeFiles/robot_msgs__python.dir/flags.make
 CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/msg/_current_pub_s.c.o: rosidl_generator_py/robot_msgs/msg/_current_pub_s.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yanji/robot_screwing/build/robot_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/msg/_current_pub_s.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yanji/robot_screwing/build/robot_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/msg/_current_pub_s.c.o"
 	/usr/lib/ccache/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/msg/_current_pub_s.c.o   -c /home/yanji/robot_screwing/build/robot_msgs/rosidl_generator_py/robot_msgs/msg/_current_pub_s.c
 
 CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/msg/_current_pub_s.c.i: cmake_force
@@ -150,7 +163,7 @@ CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/msg/_current_pu
 
 CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/msg/_width_pub_s.c.o: CMakeFiles/robot_msgs__python.dir/flags.make
 CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/msg/_width_pub_s.c.o: rosidl_generator_py/robot_msgs/msg/_width_pub_s.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yanji/robot_screwing/build/robot_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/msg/_width_pub_s.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yanji/robot_screwing/build/robot_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/msg/_width_pub_s.c.o"
 	/usr/lib/ccache/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/msg/_width_pub_s.c.o   -c /home/yanji/robot_screwing/build/robot_msgs/rosidl_generator_py/robot_msgs/msg/_width_pub_s.c
 
 CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/msg/_width_pub_s.c.i: cmake_force
@@ -168,6 +181,7 @@ robot_msgs__python_OBJECTS = \
 "CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/msg/_control_command_s.c.o" \
 "CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/msg/_ref_status_s.c.o" \
 "CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/srv/_start_pose_s.c.o" \
+"CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/srv/_start_rotation_s.c.o" \
 "CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/action/_screw_s.c.o" \
 "CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/msg/_current_pub_s.c.o" \
 "CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/msg/_width_pub_s.c.o"
@@ -180,6 +194,7 @@ rosidl_generator_py/robot_msgs/librobot_msgs__python.so: CMakeFiles/robot_msgs__
 rosidl_generator_py/robot_msgs/librobot_msgs__python.so: CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/msg/_control_command_s.c.o
 rosidl_generator_py/robot_msgs/librobot_msgs__python.so: CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/msg/_ref_status_s.c.o
 rosidl_generator_py/robot_msgs/librobot_msgs__python.so: CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/srv/_start_pose_s.c.o
+rosidl_generator_py/robot_msgs/librobot_msgs__python.so: CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/srv/_start_rotation_s.c.o
 rosidl_generator_py/robot_msgs/librobot_msgs__python.so: CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/action/_screw_s.c.o
 rosidl_generator_py/robot_msgs/librobot_msgs__python.so: CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/msg/_current_pub_s.c.o
 rosidl_generator_py/robot_msgs/librobot_msgs__python.so: CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/msg/_width_pub_s.c.o
@@ -219,7 +234,7 @@ rosidl_generator_py/robot_msgs/librobot_msgs__python.so: /opt/ros/foxy/lib/libro
 rosidl_generator_py/robot_msgs/librobot_msgs__python.so: /opt/ros/foxy/lib/librcpputils.so
 rosidl_generator_py/robot_msgs/librobot_msgs__python.so: /opt/ros/foxy/lib/librcutils.so
 rosidl_generator_py/robot_msgs/librobot_msgs__python.so: CMakeFiles/robot_msgs__python.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/yanji/robot_screwing/build/robot_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking C shared library rosidl_generator_py/robot_msgs/librobot_msgs__python.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/yanji/robot_screwing/build/robot_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking C shared library rosidl_generator_py/robot_msgs/librobot_msgs__python.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/robot_msgs__python.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

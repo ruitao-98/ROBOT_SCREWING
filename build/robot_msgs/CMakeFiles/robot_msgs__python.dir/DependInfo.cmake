@@ -12,6 +12,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/home/yanji/robot_screwing/build/robot_msgs/rosidl_generator_py/robot_msgs/msg/_robot_status_s.c" "/home/yanji/robot_screwing/build/robot_msgs/CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/msg/_robot_status_s.c.o"
   "/home/yanji/robot_screwing/build/robot_msgs/rosidl_generator_py/robot_msgs/msg/_width_pub_s.c" "/home/yanji/robot_screwing/build/robot_msgs/CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/msg/_width_pub_s.c.o"
   "/home/yanji/robot_screwing/build/robot_msgs/rosidl_generator_py/robot_msgs/srv/_start_pose_s.c" "/home/yanji/robot_screwing/build/robot_msgs/CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/srv/_start_pose_s.c.o"
+  "/home/yanji/robot_screwing/build/robot_msgs/rosidl_generator_py/robot_msgs/srv/_start_rotation_s.c" "/home/yanji/robot_screwing/build/robot_msgs/CMakeFiles/robot_msgs__python.dir/rosidl_generator_py/robot_msgs/srv/_start_rotation_s.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

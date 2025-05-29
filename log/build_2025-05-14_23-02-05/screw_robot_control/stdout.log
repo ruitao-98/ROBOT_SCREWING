@@ -1,9 +1,0 @@
-[ 25%] Built target SERVO_MOTOR
-[35m[1mScanning dependencies of target SCREWING_TOOL[0m
-[ 37%] [32mBuilding CXX object CMakeFiles/SCREWING_TOOL.dir/src/screwing_tool.cpp.o[0m
-[ 50%] [32m[1mLinking CXX shared library libSCREWING_TOOL.so[0m
-[ 50%] Built target SCREWING_TOOL
-[35m[1mScanning dependencies of target task_control_screw[0m
-[35m[1mScanning dependencies of target right_arm_control[0m
-[ 62%] [32mBuilding CXX object CMakeFiles/task_control_screw.dir/src/task_control_screw.cpp.o[0m
-[ 75%] [32mBuilding CXX object CMakeFiles/right_arm_control.dir/src/right_arm_control.cpp.o[0m

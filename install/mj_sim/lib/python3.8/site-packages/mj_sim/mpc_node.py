@@ -199,8 +199,6 @@ class MPCWrapper(Node):
         # self.mpc_thread.start()
         # self.optimize_next = False
     
-    
-    
     def run_mpc(self):
         ref_traj = self.set_reference()
 

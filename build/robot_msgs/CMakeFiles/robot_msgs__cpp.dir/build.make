@@ -78,6 +78,11 @@ CMakeFiles/robot_msgs__cpp: rosidl_generator_cpp/robot_msgs/srv/detail/start_pos
 CMakeFiles/robot_msgs__cpp: rosidl_generator_cpp/robot_msgs/srv/detail/start_pose__struct.hpp
 CMakeFiles/robot_msgs__cpp: rosidl_generator_cpp/robot_msgs/srv/detail/start_pose__traits.hpp
 CMakeFiles/robot_msgs__cpp: rosidl_generator_cpp/robot_msgs/srv/detail/start_pose__type_support.hpp
+CMakeFiles/robot_msgs__cpp: rosidl_generator_cpp/robot_msgs/srv/start_rotation.hpp
+CMakeFiles/robot_msgs__cpp: rosidl_generator_cpp/robot_msgs/srv/detail/start_rotation__builder.hpp
+CMakeFiles/robot_msgs__cpp: rosidl_generator_cpp/robot_msgs/srv/detail/start_rotation__struct.hpp
+CMakeFiles/robot_msgs__cpp: rosidl_generator_cpp/robot_msgs/srv/detail/start_rotation__traits.hpp
+CMakeFiles/robot_msgs__cpp: rosidl_generator_cpp/robot_msgs/srv/detail/start_rotation__type_support.hpp
 CMakeFiles/robot_msgs__cpp: rosidl_generator_cpp/robot_msgs/action/screw.hpp
 CMakeFiles/robot_msgs__cpp: rosidl_generator_cpp/robot_msgs/action/detail/screw__builder.hpp
 CMakeFiles/robot_msgs__cpp: rosidl_generator_cpp/robot_msgs/action/detail/screw__struct.hpp
@@ -120,6 +125,7 @@ rosidl_generator_cpp/robot_msgs/msg/ft_pub.hpp: rosidl_adapter/robot_msgs/msg/Ro
 rosidl_generator_cpp/robot_msgs/msg/ft_pub.hpp: rosidl_adapter/robot_msgs/msg/ControlCommand.idl
 rosidl_generator_cpp/robot_msgs/msg/ft_pub.hpp: rosidl_adapter/robot_msgs/msg/RefStatus.idl
 rosidl_generator_cpp/robot_msgs/msg/ft_pub.hpp: rosidl_adapter/robot_msgs/srv/StartPose.idl
+rosidl_generator_cpp/robot_msgs/msg/ft_pub.hpp: rosidl_adapter/robot_msgs/srv/StartRotation.idl
 rosidl_generator_cpp/robot_msgs/msg/ft_pub.hpp: rosidl_adapter/robot_msgs/action/Screw.idl
 rosidl_generator_cpp/robot_msgs/msg/ft_pub.hpp: rosidl_adapter/robot_msgs/msg/CurrentPub.idl
 rosidl_generator_cpp/robot_msgs/msg/ft_pub.hpp: rosidl_adapter/robot_msgs/msg/WidthPub.idl
@@ -235,6 +241,21 @@ rosidl_generator_cpp/robot_msgs/srv/detail/start_pose__traits.hpp: rosidl_genera
 rosidl_generator_cpp/robot_msgs/srv/detail/start_pose__type_support.hpp: rosidl_generator_cpp/robot_msgs/msg/ft_pub.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/robot_msgs/srv/detail/start_pose__type_support.hpp
 
+rosidl_generator_cpp/robot_msgs/srv/start_rotation.hpp: rosidl_generator_cpp/robot_msgs/msg/ft_pub.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/robot_msgs/srv/start_rotation.hpp
+
+rosidl_generator_cpp/robot_msgs/srv/detail/start_rotation__builder.hpp: rosidl_generator_cpp/robot_msgs/msg/ft_pub.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/robot_msgs/srv/detail/start_rotation__builder.hpp
+
+rosidl_generator_cpp/robot_msgs/srv/detail/start_rotation__struct.hpp: rosidl_generator_cpp/robot_msgs/msg/ft_pub.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/robot_msgs/srv/detail/start_rotation__struct.hpp
+
+rosidl_generator_cpp/robot_msgs/srv/detail/start_rotation__traits.hpp: rosidl_generator_cpp/robot_msgs/msg/ft_pub.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/robot_msgs/srv/detail/start_rotation__traits.hpp
+
+rosidl_generator_cpp/robot_msgs/srv/detail/start_rotation__type_support.hpp: rosidl_generator_cpp/robot_msgs/msg/ft_pub.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/robot_msgs/srv/detail/start_rotation__type_support.hpp
+
 rosidl_generator_cpp/robot_msgs/action/screw.hpp: rosidl_generator_cpp/robot_msgs/msg/ft_pub.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/robot_msgs/action/screw.hpp
 
@@ -306,6 +327,11 @@ robot_msgs__cpp: rosidl_generator_cpp/robot_msgs/srv/detail/start_pose__builder.
 robot_msgs__cpp: rosidl_generator_cpp/robot_msgs/srv/detail/start_pose__struct.hpp
 robot_msgs__cpp: rosidl_generator_cpp/robot_msgs/srv/detail/start_pose__traits.hpp
 robot_msgs__cpp: rosidl_generator_cpp/robot_msgs/srv/detail/start_pose__type_support.hpp
+robot_msgs__cpp: rosidl_generator_cpp/robot_msgs/srv/start_rotation.hpp
+robot_msgs__cpp: rosidl_generator_cpp/robot_msgs/srv/detail/start_rotation__builder.hpp
+robot_msgs__cpp: rosidl_generator_cpp/robot_msgs/srv/detail/start_rotation__struct.hpp
+robot_msgs__cpp: rosidl_generator_cpp/robot_msgs/srv/detail/start_rotation__traits.hpp
+robot_msgs__cpp: rosidl_generator_cpp/robot_msgs/srv/detail/start_rotation__type_support.hpp
 robot_msgs__cpp: rosidl_generator_cpp/robot_msgs/action/screw.hpp
 robot_msgs__cpp: rosidl_generator_cpp/robot_msgs/action/detail/screw__builder.hpp
 robot_msgs__cpp: rosidl_generator_cpp/robot_msgs/action/detail/screw__struct.hpp

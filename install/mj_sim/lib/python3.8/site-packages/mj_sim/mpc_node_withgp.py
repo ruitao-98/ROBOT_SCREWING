@@ -37,7 +37,8 @@ class MPCWrapper(Node):
         # 变量和类继承
                 # 加载 GP 模型
         # git_version = '4196701'  # 长物体的实验结果
-        git_version = "0c85e6c"  # 短物体的实验结果
+        # git_version = "0c85e6c"  # 短物体的实验结果
+        git_version = "0826d04"  # 短物体的实验结果
         model_name = "simple_sim_gp"
         sim_options = Conf.ds_metadata
         load_ops = {"git": git_version, "model_name": model_name, "params": sim_options}
@@ -269,6 +270,7 @@ class MPCWrapper(Node):
                 u_test = self.U0[item][:, 0].reshape(-1, 1)  # 当前控制输入
                 u_data = [-u_test[0]/u_test[2], -u_test[1]/u_test[2]]
                 gp_idx = self.mpc_optimizers[item].gp_regressors.select_gp(dim=self.mpc_optimizers[item].dim_idx, x=x_test, u=u_data)
+                print("current dim_idx = ",self.mpc_optimizers[item].dim_idx)
                 gp_idx = gp_idx[0] if isinstance(gp_idx, np.ndarray) else gp_idx  # 确保是标量
             else:
                 gp_idx = 0

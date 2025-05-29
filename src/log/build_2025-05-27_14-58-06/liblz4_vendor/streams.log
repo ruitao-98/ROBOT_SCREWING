@@ -1,0 +1,40 @@
+[0.027s] Invoking command in '/home/yanji/robot_screwing/src/build/liblz4_vendor': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/yanji/robot_screwing/install/real_robot:/home/yanji/robot_screwing/install/mj_sim:/opt/ros/foxy CONDA_PROMPT_MODIFIER=(screwrobot) /usr/bin/cmake /home/yanji/robot_screwing/src/rosbag2/liblz4_vendor -DCMAKE_INSTALL_PREFIX=/home/yanji/robot_screwing/src/install/liblz4_vendor
+[0.285s] -- The C compiler identification is GNU 9.4.0
+[0.285s] -- The CXX compiler identification is GNU 13.1.0
+[0.285s] -- Check for working C compiler: /usr/lib/ccache/cc
+[0.285s] -- Check for working C compiler: /usr/lib/ccache/cc -- works
+[0.286s] -- Detecting C compiler ABI info
+[0.286s] -- Detecting C compiler ABI info - done
+[0.287s] -- Detecting C compile features
+[0.287s] -- Detecting C compile features - done
+[0.288s] -- Check for working CXX compiler: /usr/lib/ccache/c++
+[0.288s] -- Check for working CXX compiler: /usr/lib/ccache/c++ -- works
+[0.288s] -- Detecting CXX compiler ABI info
+[0.295s] -- Detecting CXX compiler ABI info - done
+[0.304s] -- Detecting CXX compile features
+[0.304s] -- Detecting CXX compile features - done
+[0.306s] -- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.324s] -- Found PythonInterp: /home/yanji/anaconda3/envs/screwrobot/bin/python3 (found suitable version "3.8.20", minimum required is "3") 
+[0.324s] -- Using PYTHON_EXECUTABLE: /home/yanji/anaconda3/envs/screwrobot/bin/python3
+[0.423s] CMake Error at CMakeLists.txt:5 (find_package):
+[0.423s]   By not providing "Findament_cmake_vendor_package.cmake" in
+[0.423s]   CMAKE_MODULE_PATH this project has asked CMake to find a package
+[0.423s]   configuration file provided by "ament_cmake_vendor_package", but CMake did
+[0.423s]   not find one.
+[0.423s] 
+[0.423s]   Could not find a package configuration file provided by
+[0.423s]   "ament_cmake_vendor_package" with any of the following names:
+[0.423s] 
+[0.423s]     ament_cmake_vendor_packageConfig.cmake
+[0.423s]     ament_cmake_vendor_package-config.cmake
+[0.423s] 
+[0.423s]   Add the installation prefix of "ament_cmake_vendor_package" to
+[0.424s]   CMAKE_PREFIX_PATH or set "ament_cmake_vendor_package_DIR" to a directory
+[0.424s]   containing one of the above files.  If "ament_cmake_vendor_package"
+[0.424s]   provides a separate development package or SDK, be sure it has been
+[0.424s]   installed.
+[0.424s] 
+[0.424s] 
+[0.424s] -- Configuring incomplete, errors occurred!
+[0.424s] See also "/home/yanji/robot_screwing/src/build/liblz4_vendor/CMakeFiles/CMakeOutput.log".
+[0.426s] Invoked command in '/home/yanji/robot_screwing/src/build/liblz4_vendor' returned '1': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/yanji/robot_screwing/install/real_robot:/home/yanji/robot_screwing/install/mj_sim:/opt/ros/foxy CONDA_PROMPT_MODIFIER=(screwrobot) /usr/bin/cmake /home/yanji/robot_screwing/src/rosbag2/liblz4_vendor -DCMAKE_INSTALL_PREFIX=/home/yanji/robot_screwing/src/install/liblz4_vendor

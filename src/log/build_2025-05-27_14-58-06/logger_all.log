@@ -1,0 +1,789 @@
+[0.098s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[0.098s] DEBUG:colcon:Parsed command line arguments: Namespace(allow_overriding=[], ament_cmake_args=None, base_paths=['.'], build_base='build', catkin_cmake_args=None, catkin_skip_building_tests=False, cmake_args=None, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, cmake_target=None, cmake_target_skip_unavailable=False, continue_on_error=False, event_handlers=None, executor='parallel', ignore_user_meta=False, install_base='install', log_base=None, log_level=None, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7f6c88aa5d00>>, merge_install=False, metas=['./colcon.meta'], packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_end=None, packages_ignore=None, packages_ignore_regex=None, packages_select=None, packages_select_build_failed=False, packages_select_by_dep=None, packages_select_regex=None, packages_select_test_failures=False, packages_skip=None, packages_skip_build_finished=False, packages_skip_by_dep=None, packages_skip_regex=None, packages_skip_test_passed=False, packages_skip_up_to=None, packages_start=None, packages_up_to=None, packages_up_to_regex=None, parallel_workers=24, paths=None, symlink_install=False, test_result_base=None, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7f6c88aa5d00>, verb_name='build', verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x7f6c889aaa60>)
+[0.168s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.168s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.168s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.168s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.168s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.168s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.168s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/yanji/robot_screwing/src'
+[0.168s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.168s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.168s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.168s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.168s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.168s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.168s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.168s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.169s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(mj_sim) by extensions ['ignore', 'ignore_ament_install']
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(mj_sim) by extension 'ignore'
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(mj_sim) by extension 'ignore_ament_install'
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(mj_sim) by extensions ['colcon_pkg']
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(mj_sim) by extension 'colcon_pkg'
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(mj_sim) by extensions ['colcon_meta']
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(mj_sim) by extension 'colcon_meta'
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(mj_sim) by extensions ['ros']
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(mj_sim) by extension 'ros'
+[0.185s] DEBUG:colcon.colcon_core.package_identification:Package 'mj_sim' with type 'ros.ament_python' and name 'mj_sim'
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(real_robot) by extensions ['ignore', 'ignore_ament_install']
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(real_robot) by extension 'ignore'
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(real_robot) by extension 'ignore_ament_install'
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(real_robot) by extensions ['colcon_pkg']
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(real_robot) by extension 'colcon_pkg'
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(real_robot) by extensions ['colcon_meta']
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(real_robot) by extension 'colcon_meta'
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(real_robot) by extensions ['ros']
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(real_robot) by extension 'ros'
+[0.185s] DEBUG:colcon.colcon_core.package_identification:Package 'real_robot' with type 'ros.ament_python' and name 'real_robot'
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(robot_msgs) by extensions ['ignore', 'ignore_ament_install']
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(robot_msgs) by extension 'ignore'
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(robot_msgs) by extension 'ignore_ament_install'
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(robot_msgs) by extensions ['colcon_pkg']
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(robot_msgs) by extension 'colcon_pkg'
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(robot_msgs) by extensions ['colcon_meta']
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(robot_msgs) by extension 'colcon_meta'
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(robot_msgs) by extensions ['ros']
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(robot_msgs) by extension 'ros'
+[0.186s] DEBUG:colcon.colcon_core.package_identification:Package 'robot_msgs' with type 'ros.ament_cmake' and name 'robot_msgs'
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2) by extensions ['ignore', 'ignore_ament_install']
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2) by extension 'ignore'
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2) by extension 'ignore_ament_install'
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2) by extensions ['colcon_pkg']
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2) by extension 'colcon_pkg'
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2) by extensions ['colcon_meta']
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2) by extension 'colcon_meta'
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2) by extensions ['ros']
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2) by extension 'ros'
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2) by extensions ['cmake', 'python']
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2) by extension 'cmake'
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2) by extension 'python'
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2) by extensions ['python_setup_py']
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2) by extension 'python_setup_py'
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/docs) by extensions ['ignore', 'ignore_ament_install']
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/docs) by extension 'ignore'
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/docs) by extension 'ignore_ament_install'
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/docs) by extensions ['colcon_pkg']
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/docs) by extension 'colcon_pkg'
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/docs) by extensions ['colcon_meta']
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/docs) by extension 'colcon_meta'
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/docs) by extensions ['ros']
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/docs) by extension 'ros'
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/docs) by extensions ['cmake', 'python']
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/docs) by extension 'cmake'
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/docs) by extension 'python'
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/docs) by extensions ['python_setup_py']
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/docs) by extension 'python_setup_py'
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/docs/design) by extensions ['ignore', 'ignore_ament_install']
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/docs/design) by extension 'ignore'
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/docs/design) by extension 'ignore_ament_install'
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/docs/design) by extensions ['colcon_pkg']
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/docs/design) by extension 'colcon_pkg'
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/docs/design) by extensions ['colcon_meta']
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/docs/design) by extension 'colcon_meta'
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/docs/design) by extensions ['ros']
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/docs/design) by extension 'ros'
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/docs/design) by extensions ['cmake', 'python']
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/docs/design) by extension 'cmake'
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/docs/design) by extension 'python'
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/docs/design) by extensions ['python_setup_py']
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/docs/design) by extension 'python_setup_py'
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/liblz4_vendor) by extensions ['ignore', 'ignore_ament_install']
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/liblz4_vendor) by extension 'ignore'
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/liblz4_vendor) by extension 'ignore_ament_install'
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/liblz4_vendor) by extensions ['colcon_pkg']
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/liblz4_vendor) by extension 'colcon_pkg'
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/liblz4_vendor) by extensions ['colcon_meta']
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/liblz4_vendor) by extension 'colcon_meta'
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/liblz4_vendor) by extensions ['ros']
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/liblz4_vendor) by extension 'ros'
+[0.187s] DEBUG:colcon.colcon_core.package_identification:Package 'rosbag2/liblz4_vendor' with type 'ros.ament_cmake' and name 'liblz4_vendor'
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/mcap_vendor) by extensions ['ignore', 'ignore_ament_install']
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/mcap_vendor) by extension 'ignore'
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/mcap_vendor) by extension 'ignore_ament_install'
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/mcap_vendor) by extensions ['colcon_pkg']
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/mcap_vendor) by extension 'colcon_pkg'
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/mcap_vendor) by extensions ['colcon_meta']
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/mcap_vendor) by extension 'colcon_meta'
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/mcap_vendor) by extensions ['ros']
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/mcap_vendor) by extension 'ros'
+[0.188s] DEBUG:colcon.colcon_core.package_identification:Package 'rosbag2/mcap_vendor' with type 'ros.ament_cmake' and name 'mcap_vendor'
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/ros2bag) by extensions ['ignore', 'ignore_ament_install']
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/ros2bag) by extension 'ignore'
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/ros2bag) by extension 'ignore_ament_install'
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/ros2bag) by extensions ['colcon_pkg']
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/ros2bag) by extension 'colcon_pkg'
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/ros2bag) by extensions ['colcon_meta']
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/ros2bag) by extension 'colcon_meta'
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/ros2bag) by extensions ['ros']
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/ros2bag) by extension 'ros'
+[0.188s] DEBUG:colcon.colcon_core.package_identification:Package 'rosbag2/ros2bag' with type 'ros.ament_python' and name 'ros2bag'
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2) by extensions ['ignore', 'ignore_ament_install']
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2) by extension 'ignore'
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2) by extension 'ignore_ament_install'
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2) by extensions ['colcon_pkg']
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2) by extension 'colcon_pkg'
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2) by extensions ['colcon_meta']
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2) by extension 'colcon_meta'
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2) by extensions ['ros']
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2) by extension 'ros'
+[0.189s] DEBUG:colcon.colcon_core.package_identification:Package 'rosbag2/rosbag2' with type 'ros.ament_cmake' and name 'rosbag2'
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_compression) by extensions ['ignore', 'ignore_ament_install']
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_compression) by extension 'ignore'
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_compression) by extension 'ignore_ament_install'
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_compression) by extensions ['colcon_pkg']
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_compression) by extension 'colcon_pkg'
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_compression) by extensions ['colcon_meta']
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_compression) by extension 'colcon_meta'
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_compression) by extensions ['ros']
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_compression) by extension 'ros'
+[0.189s] DEBUG:colcon.colcon_core.package_identification:Package 'rosbag2/rosbag2_compression' with type 'ros.ament_cmake' and name 'rosbag2_compression'
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_compression_zstd) by extensions ['ignore', 'ignore_ament_install']
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_compression_zstd) by extension 'ignore'
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_compression_zstd) by extension 'ignore_ament_install'
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_compression_zstd) by extensions ['colcon_pkg']
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_compression_zstd) by extension 'colcon_pkg'
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_compression_zstd) by extensions ['colcon_meta']
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_compression_zstd) by extension 'colcon_meta'
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_compression_zstd) by extensions ['ros']
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_compression_zstd) by extension 'ros'
+[0.190s] DEBUG:colcon.colcon_core.package_identification:Package 'rosbag2/rosbag2_compression_zstd' with type 'ros.ament_cmake' and name 'rosbag2_compression_zstd'
+[0.190s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_cpp) by extensions ['ignore', 'ignore_ament_install']
+[0.190s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_cpp) by extension 'ignore'
+[0.190s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_cpp) by extension 'ignore_ament_install'
+[0.190s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_cpp) by extensions ['colcon_pkg']
+[0.190s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_cpp) by extension 'colcon_pkg'
+[0.190s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_cpp) by extensions ['colcon_meta']
+[0.190s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_cpp) by extension 'colcon_meta'
+[0.190s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_cpp) by extensions ['ros']
+[0.190s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_cpp) by extension 'ros'
+[0.191s] DEBUG:colcon.colcon_core.package_identification:Package 'rosbag2/rosbag2_cpp' with type 'ros.ament_cmake' and name 'rosbag2_cpp'
+[0.191s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_examples) by extensions ['ignore', 'ignore_ament_install']
+[0.191s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_examples) by extension 'ignore'
+[0.191s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_examples) by extension 'ignore_ament_install'
+[0.191s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_examples) by extensions ['colcon_pkg']
+[0.191s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_examples) by extension 'colcon_pkg'
+[0.191s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_examples) by extensions ['colcon_meta']
+[0.191s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_examples) by extension 'colcon_meta'
+[0.191s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_examples) by extensions ['ros']
+[0.191s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_examples) by extension 'ros'
+[0.191s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_examples) by extensions ['cmake', 'python']
+[0.191s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_examples) by extension 'cmake'
+[0.191s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_examples) by extension 'python'
+[0.191s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_examples) by extensions ['python_setup_py']
+[0.191s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_examples) by extension 'python_setup_py'
+[0.191s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_examples/rosbag2_examples_cpp) by extensions ['ignore', 'ignore_ament_install']
+[0.191s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_examples/rosbag2_examples_cpp) by extension 'ignore'
+[0.191s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_examples/rosbag2_examples_cpp) by extension 'ignore_ament_install'
+[0.191s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_examples/rosbag2_examples_cpp) by extensions ['colcon_pkg']
+[0.191s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_examples/rosbag2_examples_cpp) by extension 'colcon_pkg'
+[0.191s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_examples/rosbag2_examples_cpp) by extensions ['colcon_meta']
+[0.191s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_examples/rosbag2_examples_cpp) by extension 'colcon_meta'
+[0.191s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_examples/rosbag2_examples_cpp) by extensions ['ros']
+[0.191s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_examples/rosbag2_examples_cpp) by extension 'ros'
+[0.192s] DEBUG:colcon.colcon_core.package_identification:Package 'rosbag2/rosbag2_examples/rosbag2_examples_cpp' with type 'ros.ament_cmake' and name 'rosbag2_examples_cpp'
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_examples/rosbag2_examples_py) by extensions ['ignore', 'ignore_ament_install']
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_examples/rosbag2_examples_py) by extension 'ignore'
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_examples/rosbag2_examples_py) by extension 'ignore_ament_install'
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_examples/rosbag2_examples_py) by extensions ['colcon_pkg']
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_examples/rosbag2_examples_py) by extension 'colcon_pkg'
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_examples/rosbag2_examples_py) by extensions ['colcon_meta']
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_examples/rosbag2_examples_py) by extension 'colcon_meta'
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_examples/rosbag2_examples_py) by extensions ['ros']
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_examples/rosbag2_examples_py) by extension 'ros'
+[0.192s] DEBUG:colcon.colcon_core.package_identification:Package 'rosbag2/rosbag2_examples/rosbag2_examples_py' with type 'ros.ament_python' and name 'rosbag2_examples_py'
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_interfaces) by extensions ['ignore', 'ignore_ament_install']
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_interfaces) by extension 'ignore'
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_interfaces) by extension 'ignore_ament_install'
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_interfaces) by extensions ['colcon_pkg']
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_interfaces) by extension 'colcon_pkg'
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_interfaces) by extensions ['colcon_meta']
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_interfaces) by extension 'colcon_meta'
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_interfaces) by extensions ['ros']
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_interfaces) by extension 'ros'
+[0.193s] DEBUG:colcon.colcon_core.package_identification:Package 'rosbag2/rosbag2_interfaces' with type 'ros.ament_cmake' and name 'rosbag2_interfaces'
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_performance) by extensions ['ignore', 'ignore_ament_install']
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_performance) by extension 'ignore'
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_performance) by extension 'ignore_ament_install'
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_performance) by extensions ['colcon_pkg']
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_performance) by extension 'colcon_pkg'
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_performance) by extensions ['colcon_meta']
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_performance) by extension 'colcon_meta'
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_performance) by extensions ['ros']
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_performance) by extension 'ros'
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_performance) by extensions ['cmake', 'python']
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_performance) by extension 'cmake'
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_performance) by extension 'python'
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_performance) by extensions ['python_setup_py']
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_performance) by extension 'python_setup_py'
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_performance/rosbag2_performance_benchmarking) by extensions ['ignore', 'ignore_ament_install']
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_performance/rosbag2_performance_benchmarking) by extension 'ignore'
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_performance/rosbag2_performance_benchmarking) by extension 'ignore_ament_install'
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_performance/rosbag2_performance_benchmarking) by extensions ['colcon_pkg']
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_performance/rosbag2_performance_benchmarking) by extension 'colcon_pkg'
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_performance/rosbag2_performance_benchmarking) by extensions ['colcon_meta']
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_performance/rosbag2_performance_benchmarking) by extension 'colcon_meta'
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_performance/rosbag2_performance_benchmarking) by extensions ['ros']
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_performance/rosbag2_performance_benchmarking) by extension 'ros'
+[0.194s] DEBUG:colcon.colcon_core.package_identification:Package 'rosbag2/rosbag2_performance/rosbag2_performance_benchmarking' with type 'ros.ament_cmake' and name 'rosbag2_performance_benchmarking'
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_performance/rosbag2_performance_benchmarking_msgs) by extensions ['ignore', 'ignore_ament_install']
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_performance/rosbag2_performance_benchmarking_msgs) by extension 'ignore'
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_performance/rosbag2_performance_benchmarking_msgs) by extension 'ignore_ament_install'
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_performance/rosbag2_performance_benchmarking_msgs) by extensions ['colcon_pkg']
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_performance/rosbag2_performance_benchmarking_msgs) by extension 'colcon_pkg'
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_performance/rosbag2_performance_benchmarking_msgs) by extensions ['colcon_meta']
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_performance/rosbag2_performance_benchmarking_msgs) by extension 'colcon_meta'
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_performance/rosbag2_performance_benchmarking_msgs) by extensions ['ros']
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_performance/rosbag2_performance_benchmarking_msgs) by extension 'ros'
+[0.194s] DEBUG:colcon.colcon_core.package_identification:Package 'rosbag2/rosbag2_performance/rosbag2_performance_benchmarking_msgs' with type 'ros.ament_cmake' and name 'rosbag2_performance_benchmarking_msgs'
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_py) by extensions ['ignore', 'ignore_ament_install']
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_py) by extension 'ignore'
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_py) by extension 'ignore_ament_install'
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_py) by extensions ['colcon_pkg']
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_py) by extension 'colcon_pkg'
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_py) by extensions ['colcon_meta']
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_py) by extension 'colcon_meta'
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_py) by extensions ['ros']
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_py) by extension 'ros'
+[0.195s] DEBUG:colcon.colcon_core.package_identification:Package 'rosbag2/rosbag2_py' with type 'ros.ament_cmake' and name 'rosbag2_py'
+[0.195s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_storage) by extensions ['ignore', 'ignore_ament_install']
+[0.195s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_storage) by extension 'ignore'
+[0.195s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_storage) by extension 'ignore_ament_install'
+[0.195s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_storage) by extensions ['colcon_pkg']
+[0.195s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_storage) by extension 'colcon_pkg'
+[0.195s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_storage) by extensions ['colcon_meta']
+[0.195s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_storage) by extension 'colcon_meta'
+[0.195s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_storage) by extensions ['ros']
+[0.195s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_storage) by extension 'ros'
+[0.195s] DEBUG:colcon.colcon_core.package_identification:Package 'rosbag2/rosbag2_storage' with type 'ros.ament_cmake' and name 'rosbag2_storage'
+[0.195s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_storage_default_plugins) by extensions ['ignore', 'ignore_ament_install']
+[0.196s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_storage_default_plugins) by extension 'ignore'
+[0.196s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_storage_default_plugins) by extension 'ignore_ament_install'
+[0.196s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_storage_default_plugins) by extensions ['colcon_pkg']
+[0.196s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_storage_default_plugins) by extension 'colcon_pkg'
+[0.196s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_storage_default_plugins) by extensions ['colcon_meta']
+[0.196s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_storage_default_plugins) by extension 'colcon_meta'
+[0.196s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_storage_default_plugins) by extensions ['ros']
+[0.196s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_storage_default_plugins) by extension 'ros'
+[0.196s] DEBUG:colcon.colcon_core.package_identification:Package 'rosbag2/rosbag2_storage_default_plugins' with type 'ros.ament_cmake' and name 'rosbag2_storage_default_plugins'
+[0.196s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_storage_mcap) by extensions ['ignore', 'ignore_ament_install']
+[0.196s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_storage_mcap) by extension 'ignore'
+[0.196s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_storage_mcap) by extension 'ignore_ament_install'
+[0.196s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_storage_mcap) by extensions ['colcon_pkg']
+[0.196s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_storage_mcap) by extension 'colcon_pkg'
+[0.196s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_storage_mcap) by extensions ['colcon_meta']
+[0.196s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_storage_mcap) by extension 'colcon_meta'
+[0.196s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_storage_mcap) by extensions ['ros']
+[0.196s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_storage_mcap) by extension 'ros'
+[0.196s] DEBUG:colcon.colcon_core.package_identification:Package 'rosbag2/rosbag2_storage_mcap' with type 'ros.ament_cmake' and name 'rosbag2_storage_mcap'
+[0.197s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_storage_sqlite3) by extensions ['ignore', 'ignore_ament_install']
+[0.197s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_storage_sqlite3) by extension 'ignore'
+[0.197s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_storage_sqlite3) by extension 'ignore_ament_install'
+[0.197s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_storage_sqlite3) by extensions ['colcon_pkg']
+[0.197s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_storage_sqlite3) by extension 'colcon_pkg'
+[0.197s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_storage_sqlite3) by extensions ['colcon_meta']
+[0.197s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_storage_sqlite3) by extension 'colcon_meta'
+[0.197s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_storage_sqlite3) by extensions ['ros']
+[0.197s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_storage_sqlite3) by extension 'ros'
+[0.197s] DEBUG:colcon.colcon_core.package_identification:Package 'rosbag2/rosbag2_storage_sqlite3' with type 'ros.ament_cmake' and name 'rosbag2_storage_sqlite3'
+[0.197s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_test_common) by extensions ['ignore', 'ignore_ament_install']
+[0.197s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_test_common) by extension 'ignore'
+[0.197s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_test_common) by extension 'ignore_ament_install'
+[0.197s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_test_common) by extensions ['colcon_pkg']
+[0.197s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_test_common) by extension 'colcon_pkg'
+[0.197s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_test_common) by extensions ['colcon_meta']
+[0.197s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_test_common) by extension 'colcon_meta'
+[0.197s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_test_common) by extensions ['ros']
+[0.197s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_test_common) by extension 'ros'
+[0.198s] DEBUG:colcon.colcon_core.package_identification:Package 'rosbag2/rosbag2_test_common' with type 'ros.ament_cmake' and name 'rosbag2_test_common'
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_test_msgdefs) by extensions ['ignore', 'ignore_ament_install']
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_test_msgdefs) by extension 'ignore'
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_test_msgdefs) by extension 'ignore_ament_install'
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_test_msgdefs) by extensions ['colcon_pkg']
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_test_msgdefs) by extension 'colcon_pkg'
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_test_msgdefs) by extensions ['colcon_meta']
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_test_msgdefs) by extension 'colcon_meta'
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_test_msgdefs) by extensions ['ros']
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_test_msgdefs) by extension 'ros'
+[0.198s] DEBUG:colcon.colcon_core.package_identification:Package 'rosbag2/rosbag2_test_msgdefs' with type 'ros.ament_cmake' and name 'rosbag2_test_msgdefs'
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_tests) by extensions ['ignore', 'ignore_ament_install']
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_tests) by extension 'ignore'
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_tests) by extension 'ignore_ament_install'
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_tests) by extensions ['colcon_pkg']
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_tests) by extension 'colcon_pkg'
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_tests) by extensions ['colcon_meta']
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_tests) by extension 'colcon_meta'
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_tests) by extensions ['ros']
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_tests) by extension 'ros'
+[0.199s] DEBUG:colcon.colcon_core.package_identification:Package 'rosbag2/rosbag2_tests' with type 'ros.ament_cmake' and name 'rosbag2_tests'
+[0.199s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_transport) by extensions ['ignore', 'ignore_ament_install']
+[0.199s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_transport) by extension 'ignore'
+[0.199s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_transport) by extension 'ignore_ament_install'
+[0.199s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_transport) by extensions ['colcon_pkg']
+[0.199s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_transport) by extension 'colcon_pkg'
+[0.199s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_transport) by extensions ['colcon_meta']
+[0.199s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_transport) by extension 'colcon_meta'
+[0.199s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_transport) by extensions ['ros']
+[0.199s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/rosbag2_transport) by extension 'ros'
+[0.200s] DEBUG:colcon.colcon_core.package_identification:Package 'rosbag2/rosbag2_transport' with type 'ros.ament_cmake' and name 'rosbag2_transport'
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/sqlite3_vendor) by extensions ['ignore', 'ignore_ament_install']
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/sqlite3_vendor) by extension 'ignore'
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/sqlite3_vendor) by extension 'ignore_ament_install'
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/sqlite3_vendor) by extensions ['colcon_pkg']
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/sqlite3_vendor) by extension 'colcon_pkg'
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/sqlite3_vendor) by extensions ['colcon_meta']
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/sqlite3_vendor) by extension 'colcon_meta'
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/sqlite3_vendor) by extensions ['ros']
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/sqlite3_vendor) by extension 'ros'
+[0.200s] DEBUG:colcon.colcon_core.package_identification:Package 'rosbag2/sqlite3_vendor' with type 'ros.ament_cmake' and name 'sqlite3_vendor'
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/zstd_vendor) by extensions ['ignore', 'ignore_ament_install']
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/zstd_vendor) by extension 'ignore'
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/zstd_vendor) by extension 'ignore_ament_install'
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/zstd_vendor) by extensions ['colcon_pkg']
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/zstd_vendor) by extension 'colcon_pkg'
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/zstd_vendor) by extensions ['colcon_meta']
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/zstd_vendor) by extension 'colcon_meta'
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/zstd_vendor) by extensions ['ros']
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(rosbag2/zstd_vendor) by extension 'ros'
+[0.201s] DEBUG:colcon.colcon_core.package_identification:Package 'rosbag2/zstd_vendor' with type 'ros.ament_cmake' and name 'zstd_vendor'
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(screw_robot_control) by extensions ['ignore', 'ignore_ament_install']
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(screw_robot_control) by extension 'ignore'
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(screw_robot_control) by extension 'ignore_ament_install'
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(screw_robot_control) by extensions ['colcon_pkg']
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(screw_robot_control) by extension 'colcon_pkg'
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(screw_robot_control) by extensions ['colcon_meta']
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(screw_robot_control) by extension 'colcon_meta'
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(screw_robot_control) by extensions ['ros']
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(screw_robot_control) by extension 'ros'
+[0.201s] DEBUG:colcon.colcon_core.package_identification:Package 'screw_robot_control' with type 'ros.ament_cmake' and name 'screw_robot_control'
+[0.201s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.201s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.201s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.201s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.201s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.215s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.215s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.216s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 4 installed packages in /home/yanji/robot_screwing/install
+[0.216s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 260 installed packages in /opt/ros/foxy
+[0.217s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.240s] WARNING:colcon.colcon_core.package_selection:Some selected packages are already built in one or more underlay workspaces:
+	'rosbag2_transport' is in: /opt/ros/foxy
+	'rosbag2_cpp' is in: /opt/ros/foxy
+	'rosbag2' is in: /opt/ros/foxy
+If a package in a merged underlay workspace is overridden and it installs headers, then all packages in the overlay must sort their include directories by workspace order. Failure to do so may result in build failures or undefined behavior at run time.
+If the overridden package is used by another package in any underlay, then the overriding package in the overlay must be API and ABI compatible or undefined behavior at run time may occur.
+
+If you understand the risks and want to override a package anyways, add the following to the command line:
+	--allow-overriding rosbag2 rosbag2_cpp rosbag2_transport
+
+This may be promoted to an error in a future release of colcon-override-check.
+[0.240s] Level 5:colcon.colcon_core.verb:set package 'liblz4_vendor' build argument 'cmake_args' from command line to 'None'
+[0.240s] Level 5:colcon.colcon_core.verb:set package 'liblz4_vendor' build argument 'cmake_target' from command line to 'None'
+[0.240s] Level 5:colcon.colcon_core.verb:set package 'liblz4_vendor' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.240s] Level 5:colcon.colcon_core.verb:set package 'liblz4_vendor' build argument 'cmake_clean_cache' from command line to 'False'
+[0.240s] Level 5:colcon.colcon_core.verb:set package 'liblz4_vendor' build argument 'cmake_clean_first' from command line to 'False'
+[0.240s] Level 5:colcon.colcon_core.verb:set package 'liblz4_vendor' build argument 'cmake_force_configure' from command line to 'False'
+[0.240s] Level 5:colcon.colcon_core.verb:set package 'liblz4_vendor' build argument 'ament_cmake_args' from command line to 'None'
+[0.240s] Level 5:colcon.colcon_core.verb:set package 'liblz4_vendor' build argument 'catkin_cmake_args' from command line to 'None'
+[0.240s] Level 5:colcon.colcon_core.verb:set package 'liblz4_vendor' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.240s] DEBUG:colcon.colcon_core.verb:Building package 'liblz4_vendor' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/yanji/robot_screwing/src/build/liblz4_vendor', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/yanji/robot_screwing/src/install/liblz4_vendor', 'merge_install': False, 'path': '/home/yanji/robot_screwing/src/rosbag2/liblz4_vendor', 'symlink_install': False, 'test_result_base': None}
+[0.240s] Level 5:colcon.colcon_core.verb:set package 'mj_sim' build argument 'cmake_args' from command line to 'None'
+[0.241s] Level 5:colcon.colcon_core.verb:set package 'mj_sim' build argument 'cmake_target' from command line to 'None'
+[0.241s] Level 5:colcon.colcon_core.verb:set package 'mj_sim' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.241s] Level 5:colcon.colcon_core.verb:set package 'mj_sim' build argument 'cmake_clean_cache' from command line to 'False'
+[0.241s] Level 5:colcon.colcon_core.verb:set package 'mj_sim' build argument 'cmake_clean_first' from command line to 'False'
+[0.241s] Level 5:colcon.colcon_core.verb:set package 'mj_sim' build argument 'cmake_force_configure' from command line to 'False'
+[0.241s] Level 5:colcon.colcon_core.verb:set package 'mj_sim' build argument 'ament_cmake_args' from command line to 'None'
+[0.241s] Level 5:colcon.colcon_core.verb:set package 'mj_sim' build argument 'catkin_cmake_args' from command line to 'None'
+[0.241s] Level 5:colcon.colcon_core.verb:set package 'mj_sim' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.241s] DEBUG:colcon.colcon_core.verb:Building package 'mj_sim' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/yanji/robot_screwing/src/build/mj_sim', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/yanji/robot_screwing/src/install/mj_sim', 'merge_install': False, 'path': '/home/yanji/robot_screwing/src/mj_sim', 'symlink_install': False, 'test_result_base': None}
+[0.241s] Level 5:colcon.colcon_core.verb:set package 'real_robot' build argument 'cmake_args' from command line to 'None'
+[0.241s] Level 5:colcon.colcon_core.verb:set package 'real_robot' build argument 'cmake_target' from command line to 'None'
+[0.241s] Level 5:colcon.colcon_core.verb:set package 'real_robot' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.241s] Level 5:colcon.colcon_core.verb:set package 'real_robot' build argument 'cmake_clean_cache' from command line to 'False'
+[0.241s] Level 5:colcon.colcon_core.verb:set package 'real_robot' build argument 'cmake_clean_first' from command line to 'False'
+[0.241s] Level 5:colcon.colcon_core.verb:set package 'real_robot' build argument 'cmake_force_configure' from command line to 'False'
+[0.241s] Level 5:colcon.colcon_core.verb:set package 'real_robot' build argument 'ament_cmake_args' from command line to 'None'
+[0.241s] Level 5:colcon.colcon_core.verb:set package 'real_robot' build argument 'catkin_cmake_args' from command line to 'None'
+[0.241s] Level 5:colcon.colcon_core.verb:set package 'real_robot' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.241s] DEBUG:colcon.colcon_core.verb:Building package 'real_robot' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/yanji/robot_screwing/src/build/real_robot', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/yanji/robot_screwing/src/install/real_robot', 'merge_install': False, 'path': '/home/yanji/robot_screwing/src/real_robot', 'symlink_install': False, 'test_result_base': None}
+[0.241s] Level 5:colcon.colcon_core.verb:set package 'robot_msgs' build argument 'cmake_args' from command line to 'None'
+[0.241s] Level 5:colcon.colcon_core.verb:set package 'robot_msgs' build argument 'cmake_target' from command line to 'None'
+[0.241s] Level 5:colcon.colcon_core.verb:set package 'robot_msgs' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.241s] Level 5:colcon.colcon_core.verb:set package 'robot_msgs' build argument 'cmake_clean_cache' from command line to 'False'
+[0.241s] Level 5:colcon.colcon_core.verb:set package 'robot_msgs' build argument 'cmake_clean_first' from command line to 'False'
+[0.241s] Level 5:colcon.colcon_core.verb:set package 'robot_msgs' build argument 'cmake_force_configure' from command line to 'False'
+[0.241s] Level 5:colcon.colcon_core.verb:set package 'robot_msgs' build argument 'ament_cmake_args' from command line to 'None'
+[0.241s] Level 5:colcon.colcon_core.verb:set package 'robot_msgs' build argument 'catkin_cmake_args' from command line to 'None'
+[0.241s] Level 5:colcon.colcon_core.verb:set package 'robot_msgs' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.241s] DEBUG:colcon.colcon_core.verb:Building package 'robot_msgs' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/yanji/robot_screwing/src/build/robot_msgs', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/yanji/robot_screwing/src/install/robot_msgs', 'merge_install': False, 'path': '/home/yanji/robot_screwing/src/robot_msgs', 'symlink_install': False, 'test_result_base': None}
+[0.241s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_interfaces' build argument 'cmake_args' from command line to 'None'
+[0.241s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_interfaces' build argument 'cmake_target' from command line to 'None'
+[0.241s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_interfaces' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.241s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_interfaces' build argument 'cmake_clean_cache' from command line to 'False'
+[0.241s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_interfaces' build argument 'cmake_clean_first' from command line to 'False'
+[0.241s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_interfaces' build argument 'cmake_force_configure' from command line to 'False'
+[0.241s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_interfaces' build argument 'ament_cmake_args' from command line to 'None'
+[0.241s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_interfaces' build argument 'catkin_cmake_args' from command line to 'None'
+[0.241s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_interfaces' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.241s] DEBUG:colcon.colcon_core.verb:Building package 'rosbag2_interfaces' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/yanji/robot_screwing/src/build/rosbag2_interfaces', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/yanji/robot_screwing/src/install/rosbag2_interfaces', 'merge_install': False, 'path': '/home/yanji/robot_screwing/src/rosbag2/rosbag2_interfaces', 'symlink_install': False, 'test_result_base': None}
+[0.241s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_performance_benchmarking_msgs' build argument 'cmake_args' from command line to 'None'
+[0.241s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_performance_benchmarking_msgs' build argument 'cmake_target' from command line to 'None'
+[0.241s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_performance_benchmarking_msgs' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.241s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_performance_benchmarking_msgs' build argument 'cmake_clean_cache' from command line to 'False'
+[0.241s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_performance_benchmarking_msgs' build argument 'cmake_clean_first' from command line to 'False'
+[0.241s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_performance_benchmarking_msgs' build argument 'cmake_force_configure' from command line to 'False'
+[0.241s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_performance_benchmarking_msgs' build argument 'ament_cmake_args' from command line to 'None'
+[0.241s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_performance_benchmarking_msgs' build argument 'catkin_cmake_args' from command line to 'None'
+[0.241s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_performance_benchmarking_msgs' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.241s] DEBUG:colcon.colcon_core.verb:Building package 'rosbag2_performance_benchmarking_msgs' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/yanji/robot_screwing/src/build/rosbag2_performance_benchmarking_msgs', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/yanji/robot_screwing/src/install/rosbag2_performance_benchmarking_msgs', 'merge_install': False, 'path': '/home/yanji/robot_screwing/src/rosbag2/rosbag2_performance/rosbag2_performance_benchmarking_msgs', 'symlink_install': False, 'test_result_base': None}
+[0.242s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_test_common' build argument 'cmake_args' from command line to 'None'
+[0.242s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_test_common' build argument 'cmake_target' from command line to 'None'
+[0.242s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_test_common' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.242s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_test_common' build argument 'cmake_clean_cache' from command line to 'False'
+[0.242s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_test_common' build argument 'cmake_clean_first' from command line to 'False'
+[0.242s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_test_common' build argument 'cmake_force_configure' from command line to 'False'
+[0.242s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_test_common' build argument 'ament_cmake_args' from command line to 'None'
+[0.242s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_test_common' build argument 'catkin_cmake_args' from command line to 'None'
+[0.242s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_test_common' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.242s] DEBUG:colcon.colcon_core.verb:Building package 'rosbag2_test_common' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/yanji/robot_screwing/src/build/rosbag2_test_common', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/yanji/robot_screwing/src/install/rosbag2_test_common', 'merge_install': False, 'path': '/home/yanji/robot_screwing/src/rosbag2/rosbag2_test_common', 'symlink_install': False, 'test_result_base': None}
+[0.242s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_test_msgdefs' build argument 'cmake_args' from command line to 'None'
+[0.242s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_test_msgdefs' build argument 'cmake_target' from command line to 'None'
+[0.242s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_test_msgdefs' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.242s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_test_msgdefs' build argument 'cmake_clean_cache' from command line to 'False'
+[0.242s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_test_msgdefs' build argument 'cmake_clean_first' from command line to 'False'
+[0.242s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_test_msgdefs' build argument 'cmake_force_configure' from command line to 'False'
+[0.242s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_test_msgdefs' build argument 'ament_cmake_args' from command line to 'None'
+[0.242s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_test_msgdefs' build argument 'catkin_cmake_args' from command line to 'None'
+[0.242s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_test_msgdefs' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.242s] DEBUG:colcon.colcon_core.verb:Building package 'rosbag2_test_msgdefs' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/yanji/robot_screwing/src/build/rosbag2_test_msgdefs', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/yanji/robot_screwing/src/install/rosbag2_test_msgdefs', 'merge_install': False, 'path': '/home/yanji/robot_screwing/src/rosbag2/rosbag2_test_msgdefs', 'symlink_install': False, 'test_result_base': None}
+[0.242s] Level 5:colcon.colcon_core.verb:set package 'sqlite3_vendor' build argument 'cmake_args' from command line to 'None'
+[0.242s] Level 5:colcon.colcon_core.verb:set package 'sqlite3_vendor' build argument 'cmake_target' from command line to 'None'
+[0.242s] Level 5:colcon.colcon_core.verb:set package 'sqlite3_vendor' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.242s] Level 5:colcon.colcon_core.verb:set package 'sqlite3_vendor' build argument 'cmake_clean_cache' from command line to 'False'
+[0.242s] Level 5:colcon.colcon_core.verb:set package 'sqlite3_vendor' build argument 'cmake_clean_first' from command line to 'False'
+[0.242s] Level 5:colcon.colcon_core.verb:set package 'sqlite3_vendor' build argument 'cmake_force_configure' from command line to 'False'
+[0.242s] Level 5:colcon.colcon_core.verb:set package 'sqlite3_vendor' build argument 'ament_cmake_args' from command line to 'None'
+[0.242s] Level 5:colcon.colcon_core.verb:set package 'sqlite3_vendor' build argument 'catkin_cmake_args' from command line to 'None'
+[0.242s] Level 5:colcon.colcon_core.verb:set package 'sqlite3_vendor' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.242s] DEBUG:colcon.colcon_core.verb:Building package 'sqlite3_vendor' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/yanji/robot_screwing/src/build/sqlite3_vendor', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/yanji/robot_screwing/src/install/sqlite3_vendor', 'merge_install': False, 'path': '/home/yanji/robot_screwing/src/rosbag2/sqlite3_vendor', 'symlink_install': False, 'test_result_base': None}
+[0.242s] Level 5:colcon.colcon_core.verb:set package 'zstd_vendor' build argument 'cmake_args' from command line to 'None'
+[0.242s] Level 5:colcon.colcon_core.verb:set package 'zstd_vendor' build argument 'cmake_target' from command line to 'None'
+[0.242s] Level 5:colcon.colcon_core.verb:set package 'zstd_vendor' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.242s] Level 5:colcon.colcon_core.verb:set package 'zstd_vendor' build argument 'cmake_clean_cache' from command line to 'False'
+[0.242s] Level 5:colcon.colcon_core.verb:set package 'zstd_vendor' build argument 'cmake_clean_first' from command line to 'False'
+[0.242s] Level 5:colcon.colcon_core.verb:set package 'zstd_vendor' build argument 'cmake_force_configure' from command line to 'False'
+[0.242s] Level 5:colcon.colcon_core.verb:set package 'zstd_vendor' build argument 'ament_cmake_args' from command line to 'None'
+[0.242s] Level 5:colcon.colcon_core.verb:set package 'zstd_vendor' build argument 'catkin_cmake_args' from command line to 'None'
+[0.242s] Level 5:colcon.colcon_core.verb:set package 'zstd_vendor' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.242s] DEBUG:colcon.colcon_core.verb:Building package 'zstd_vendor' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/yanji/robot_screwing/src/build/zstd_vendor', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/yanji/robot_screwing/src/install/zstd_vendor', 'merge_install': False, 'path': '/home/yanji/robot_screwing/src/rosbag2/zstd_vendor', 'symlink_install': False, 'test_result_base': None}
+[0.243s] Level 5:colcon.colcon_core.verb:set package 'mcap_vendor' build argument 'cmake_args' from command line to 'None'
+[0.243s] Level 5:colcon.colcon_core.verb:set package 'mcap_vendor' build argument 'cmake_target' from command line to 'None'
+[0.243s] Level 5:colcon.colcon_core.verb:set package 'mcap_vendor' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.243s] Level 5:colcon.colcon_core.verb:set package 'mcap_vendor' build argument 'cmake_clean_cache' from command line to 'False'
+[0.243s] Level 5:colcon.colcon_core.verb:set package 'mcap_vendor' build argument 'cmake_clean_first' from command line to 'False'
+[0.243s] Level 5:colcon.colcon_core.verb:set package 'mcap_vendor' build argument 'cmake_force_configure' from command line to 'False'
+[0.243s] Level 5:colcon.colcon_core.verb:set package 'mcap_vendor' build argument 'ament_cmake_args' from command line to 'None'
+[0.243s] Level 5:colcon.colcon_core.verb:set package 'mcap_vendor' build argument 'catkin_cmake_args' from command line to 'None'
+[0.243s] Level 5:colcon.colcon_core.verb:set package 'mcap_vendor' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.243s] DEBUG:colcon.colcon_core.verb:Building package 'mcap_vendor' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/yanji/robot_screwing/src/build/mcap_vendor', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/yanji/robot_screwing/src/install/mcap_vendor', 'merge_install': False, 'path': '/home/yanji/robot_screwing/src/rosbag2/mcap_vendor', 'symlink_install': False, 'test_result_base': None}
+[0.243s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_storage' build argument 'cmake_args' from command line to 'None'
+[0.243s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_storage' build argument 'cmake_target' from command line to 'None'
+[0.243s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_storage' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.243s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_storage' build argument 'cmake_clean_cache' from command line to 'False'
+[0.243s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_storage' build argument 'cmake_clean_first' from command line to 'False'
+[0.243s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_storage' build argument 'cmake_force_configure' from command line to 'False'
+[0.243s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_storage' build argument 'ament_cmake_args' from command line to 'None'
+[0.243s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_storage' build argument 'catkin_cmake_args' from command line to 'None'
+[0.243s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_storage' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.243s] DEBUG:colcon.colcon_core.verb:Building package 'rosbag2_storage' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/yanji/robot_screwing/src/build/rosbag2_storage', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/yanji/robot_screwing/src/install/rosbag2_storage', 'merge_install': False, 'path': '/home/yanji/robot_screwing/src/rosbag2/rosbag2_storage', 'symlink_install': False, 'test_result_base': None}
+[0.243s] Level 5:colcon.colcon_core.verb:set package 'screw_robot_control' build argument 'cmake_args' from command line to 'None'
+[0.243s] Level 5:colcon.colcon_core.verb:set package 'screw_robot_control' build argument 'cmake_target' from command line to 'None'
+[0.243s] Level 5:colcon.colcon_core.verb:set package 'screw_robot_control' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.243s] Level 5:colcon.colcon_core.verb:set package 'screw_robot_control' build argument 'cmake_clean_cache' from command line to 'False'
+[0.243s] Level 5:colcon.colcon_core.verb:set package 'screw_robot_control' build argument 'cmake_clean_first' from command line to 'False'
+[0.243s] Level 5:colcon.colcon_core.verb:set package 'screw_robot_control' build argument 'cmake_force_configure' from command line to 'False'
+[0.243s] Level 5:colcon.colcon_core.verb:set package 'screw_robot_control' build argument 'ament_cmake_args' from command line to 'None'
+[0.243s] Level 5:colcon.colcon_core.verb:set package 'screw_robot_control' build argument 'catkin_cmake_args' from command line to 'None'
+[0.243s] Level 5:colcon.colcon_core.verb:set package 'screw_robot_control' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.243s] DEBUG:colcon.colcon_core.verb:Building package 'screw_robot_control' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/yanji/robot_screwing/src/build/screw_robot_control', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/yanji/robot_screwing/src/install/screw_robot_control', 'merge_install': False, 'path': '/home/yanji/robot_screwing/src/screw_robot_control', 'symlink_install': False, 'test_result_base': None}
+[0.243s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_storage_mcap' build argument 'cmake_args' from command line to 'None'
+[0.243s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_storage_mcap' build argument 'cmake_target' from command line to 'None'
+[0.243s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_storage_mcap' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.243s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_storage_mcap' build argument 'cmake_clean_cache' from command line to 'False'
+[0.243s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_storage_mcap' build argument 'cmake_clean_first' from command line to 'False'
+[0.243s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_storage_mcap' build argument 'cmake_force_configure' from command line to 'False'
+[0.243s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_storage_mcap' build argument 'ament_cmake_args' from command line to 'None'
+[0.243s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_storage_mcap' build argument 'catkin_cmake_args' from command line to 'None'
+[0.243s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_storage_mcap' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.243s] DEBUG:colcon.colcon_core.verb:Building package 'rosbag2_storage_mcap' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/yanji/robot_screwing/src/build/rosbag2_storage_mcap', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/yanji/robot_screwing/src/install/rosbag2_storage_mcap', 'merge_install': False, 'path': '/home/yanji/robot_screwing/src/rosbag2/rosbag2_storage_mcap', 'symlink_install': False, 'test_result_base': None}
+[0.243s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_storage_sqlite3' build argument 'cmake_args' from command line to 'None'
+[0.243s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_storage_sqlite3' build argument 'cmake_target' from command line to 'None'
+[0.243s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_storage_sqlite3' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.243s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_storage_sqlite3' build argument 'cmake_clean_cache' from command line to 'False'
+[0.243s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_storage_sqlite3' build argument 'cmake_clean_first' from command line to 'False'
+[0.243s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_storage_sqlite3' build argument 'cmake_force_configure' from command line to 'False'
+[0.243s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_storage_sqlite3' build argument 'ament_cmake_args' from command line to 'None'
+[0.243s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_storage_sqlite3' build argument 'catkin_cmake_args' from command line to 'None'
+[0.244s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_storage_sqlite3' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.244s] DEBUG:colcon.colcon_core.verb:Building package 'rosbag2_storage_sqlite3' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/yanji/robot_screwing/src/build/rosbag2_storage_sqlite3', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/yanji/robot_screwing/src/install/rosbag2_storage_sqlite3', 'merge_install': False, 'path': '/home/yanji/robot_screwing/src/rosbag2/rosbag2_storage_sqlite3', 'symlink_install': False, 'test_result_base': None}
+[0.244s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_storage_default_plugins' build argument 'cmake_args' from command line to 'None'
+[0.244s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_storage_default_plugins' build argument 'cmake_target' from command line to 'None'
+[0.244s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_storage_default_plugins' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.244s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_storage_default_plugins' build argument 'cmake_clean_cache' from command line to 'False'
+[0.244s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_storage_default_plugins' build argument 'cmake_clean_first' from command line to 'False'
+[0.244s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_storage_default_plugins' build argument 'cmake_force_configure' from command line to 'False'
+[0.244s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_storage_default_plugins' build argument 'ament_cmake_args' from command line to 'None'
+[0.244s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_storage_default_plugins' build argument 'catkin_cmake_args' from command line to 'None'
+[0.244s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_storage_default_plugins' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.244s] DEBUG:colcon.colcon_core.verb:Building package 'rosbag2_storage_default_plugins' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/yanji/robot_screwing/src/build/rosbag2_storage_default_plugins', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/yanji/robot_screwing/src/install/rosbag2_storage_default_plugins', 'merge_install': False, 'path': '/home/yanji/robot_screwing/src/rosbag2/rosbag2_storage_default_plugins', 'symlink_install': False, 'test_result_base': None}
+[0.244s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_cpp' build argument 'cmake_args' from command line to 'None'
+[0.244s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_cpp' build argument 'cmake_target' from command line to 'None'
+[0.244s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_cpp' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.244s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_cpp' build argument 'cmake_clean_cache' from command line to 'False'
+[0.244s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_cpp' build argument 'cmake_clean_first' from command line to 'False'
+[0.244s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_cpp' build argument 'cmake_force_configure' from command line to 'False'
+[0.244s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_cpp' build argument 'ament_cmake_args' from command line to 'None'
+[0.244s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_cpp' build argument 'catkin_cmake_args' from command line to 'None'
+[0.244s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_cpp' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.244s] DEBUG:colcon.colcon_core.verb:Building package 'rosbag2_cpp' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/yanji/robot_screwing/src/build/rosbag2_cpp', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/yanji/robot_screwing/src/install/rosbag2_cpp', 'merge_install': False, 'path': '/home/yanji/robot_screwing/src/rosbag2/rosbag2_cpp', 'symlink_install': False, 'test_result_base': None}
+[0.244s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_compression' build argument 'cmake_args' from command line to 'None'
+[0.244s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_compression' build argument 'cmake_target' from command line to 'None'
+[0.244s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_compression' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.244s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_compression' build argument 'cmake_clean_cache' from command line to 'False'
+[0.244s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_compression' build argument 'cmake_clean_first' from command line to 'False'
+[0.244s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_compression' build argument 'cmake_force_configure' from command line to 'False'
+[0.244s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_compression' build argument 'ament_cmake_args' from command line to 'None'
+[0.244s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_compression' build argument 'catkin_cmake_args' from command line to 'None'
+[0.244s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_compression' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.244s] DEBUG:colcon.colcon_core.verb:Building package 'rosbag2_compression' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/yanji/robot_screwing/src/build/rosbag2_compression', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/yanji/robot_screwing/src/install/rosbag2_compression', 'merge_install': False, 'path': '/home/yanji/robot_screwing/src/rosbag2/rosbag2_compression', 'symlink_install': False, 'test_result_base': None}
+[0.244s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_compression_zstd' build argument 'cmake_args' from command line to 'None'
+[0.244s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_compression_zstd' build argument 'cmake_target' from command line to 'None'
+[0.244s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_compression_zstd' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.244s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_compression_zstd' build argument 'cmake_clean_cache' from command line to 'False'
+[0.244s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_compression_zstd' build argument 'cmake_clean_first' from command line to 'False'
+[0.244s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_compression_zstd' build argument 'cmake_force_configure' from command line to 'False'
+[0.244s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_compression_zstd' build argument 'ament_cmake_args' from command line to 'None'
+[0.244s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_compression_zstd' build argument 'catkin_cmake_args' from command line to 'None'
+[0.244s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_compression_zstd' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.244s] DEBUG:colcon.colcon_core.verb:Building package 'rosbag2_compression_zstd' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/yanji/robot_screwing/src/build/rosbag2_compression_zstd', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/yanji/robot_screwing/src/install/rosbag2_compression_zstd', 'merge_install': False, 'path': '/home/yanji/robot_screwing/src/rosbag2/rosbag2_compression_zstd', 'symlink_install': False, 'test_result_base': None}
+[0.245s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_transport' build argument 'cmake_args' from command line to 'None'
+[0.245s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_transport' build argument 'cmake_target' from command line to 'None'
+[0.245s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_transport' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.245s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_transport' build argument 'cmake_clean_cache' from command line to 'False'
+[0.245s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_transport' build argument 'cmake_clean_first' from command line to 'False'
+[0.245s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_transport' build argument 'cmake_force_configure' from command line to 'False'
+[0.245s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_transport' build argument 'ament_cmake_args' from command line to 'None'
+[0.245s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_transport' build argument 'catkin_cmake_args' from command line to 'None'
+[0.245s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_transport' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.245s] DEBUG:colcon.colcon_core.verb:Building package 'rosbag2_transport' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/yanji/robot_screwing/src/build/rosbag2_transport', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/yanji/robot_screwing/src/install/rosbag2_transport', 'merge_install': False, 'path': '/home/yanji/robot_screwing/src/rosbag2/rosbag2_transport', 'symlink_install': False, 'test_result_base': None}
+[0.245s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_examples_cpp' build argument 'cmake_args' from command line to 'None'
+[0.245s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_examples_cpp' build argument 'cmake_target' from command line to 'None'
+[0.245s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_examples_cpp' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.245s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_examples_cpp' build argument 'cmake_clean_cache' from command line to 'False'
+[0.245s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_examples_cpp' build argument 'cmake_clean_first' from command line to 'False'
+[0.245s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_examples_cpp' build argument 'cmake_force_configure' from command line to 'False'
+[0.245s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_examples_cpp' build argument 'ament_cmake_args' from command line to 'None'
+[0.245s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_examples_cpp' build argument 'catkin_cmake_args' from command line to 'None'
+[0.245s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_examples_cpp' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.245s] DEBUG:colcon.colcon_core.verb:Building package 'rosbag2_examples_cpp' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/yanji/robot_screwing/src/build/rosbag2_examples_cpp', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/yanji/robot_screwing/src/install/rosbag2_examples_cpp', 'merge_install': False, 'path': '/home/yanji/robot_screwing/src/rosbag2/rosbag2_examples/rosbag2_examples_cpp', 'symlink_install': False, 'test_result_base': None}
+[0.245s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_py' build argument 'cmake_args' from command line to 'None'
+[0.245s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_py' build argument 'cmake_target' from command line to 'None'
+[0.245s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_py' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.245s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_py' build argument 'cmake_clean_cache' from command line to 'False'
+[0.245s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_py' build argument 'cmake_clean_first' from command line to 'False'
+[0.245s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_py' build argument 'cmake_force_configure' from command line to 'False'
+[0.245s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_py' build argument 'ament_cmake_args' from command line to 'None'
+[0.245s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_py' build argument 'catkin_cmake_args' from command line to 'None'
+[0.245s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_py' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.245s] DEBUG:colcon.colcon_core.verb:Building package 'rosbag2_py' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/yanji/robot_screwing/src/build/rosbag2_py', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/yanji/robot_screwing/src/install/rosbag2_py', 'merge_install': False, 'path': '/home/yanji/robot_screwing/src/rosbag2/rosbag2_py', 'symlink_install': False, 'test_result_base': None}
+[0.245s] Level 5:colcon.colcon_core.verb:set package 'ros2bag' build argument 'cmake_args' from command line to 'None'
+[0.245s] Level 5:colcon.colcon_core.verb:set package 'ros2bag' build argument 'cmake_target' from command line to 'None'
+[0.245s] Level 5:colcon.colcon_core.verb:set package 'ros2bag' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.245s] Level 5:colcon.colcon_core.verb:set package 'ros2bag' build argument 'cmake_clean_cache' from command line to 'False'
+[0.245s] Level 5:colcon.colcon_core.verb:set package 'ros2bag' build argument 'cmake_clean_first' from command line to 'False'
+[0.245s] Level 5:colcon.colcon_core.verb:set package 'ros2bag' build argument 'cmake_force_configure' from command line to 'False'
+[0.245s] Level 5:colcon.colcon_core.verb:set package 'ros2bag' build argument 'ament_cmake_args' from command line to 'None'
+[0.245s] Level 5:colcon.colcon_core.verb:set package 'ros2bag' build argument 'catkin_cmake_args' from command line to 'None'
+[0.245s] Level 5:colcon.colcon_core.verb:set package 'ros2bag' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.245s] DEBUG:colcon.colcon_core.verb:Building package 'ros2bag' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/yanji/robot_screwing/src/build/ros2bag', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/yanji/robot_screwing/src/install/ros2bag', 'merge_install': False, 'path': '/home/yanji/robot_screwing/src/rosbag2/ros2bag', 'symlink_install': False, 'test_result_base': None}
+[0.245s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_examples_py' build argument 'cmake_args' from command line to 'None'
+[0.245s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_examples_py' build argument 'cmake_target' from command line to 'None'
+[0.245s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_examples_py' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.245s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_examples_py' build argument 'cmake_clean_cache' from command line to 'False'
+[0.246s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_examples_py' build argument 'cmake_clean_first' from command line to 'False'
+[0.246s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_examples_py' build argument 'cmake_force_configure' from command line to 'False'
+[0.246s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_examples_py' build argument 'ament_cmake_args' from command line to 'None'
+[0.246s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_examples_py' build argument 'catkin_cmake_args' from command line to 'None'
+[0.246s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_examples_py' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.246s] DEBUG:colcon.colcon_core.verb:Building package 'rosbag2_examples_py' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/yanji/robot_screwing/src/build/rosbag2_examples_py', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/yanji/robot_screwing/src/install/rosbag2_examples_py', 'merge_install': False, 'path': '/home/yanji/robot_screwing/src/rosbag2/rosbag2_examples/rosbag2_examples_py', 'symlink_install': False, 'test_result_base': None}
+[0.246s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_performance_benchmarking' build argument 'cmake_args' from command line to 'None'
+[0.246s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_performance_benchmarking' build argument 'cmake_target' from command line to 'None'
+[0.246s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_performance_benchmarking' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.246s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_performance_benchmarking' build argument 'cmake_clean_cache' from command line to 'False'
+[0.246s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_performance_benchmarking' build argument 'cmake_clean_first' from command line to 'False'
+[0.246s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_performance_benchmarking' build argument 'cmake_force_configure' from command line to 'False'
+[0.246s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_performance_benchmarking' build argument 'ament_cmake_args' from command line to 'None'
+[0.246s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_performance_benchmarking' build argument 'catkin_cmake_args' from command line to 'None'
+[0.246s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_performance_benchmarking' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.246s] DEBUG:colcon.colcon_core.verb:Building package 'rosbag2_performance_benchmarking' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/yanji/robot_screwing/src/build/rosbag2_performance_benchmarking', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/yanji/robot_screwing/src/install/rosbag2_performance_benchmarking', 'merge_install': False, 'path': '/home/yanji/robot_screwing/src/rosbag2/rosbag2_performance/rosbag2_performance_benchmarking', 'symlink_install': False, 'test_result_base': None}
+[0.246s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_tests' build argument 'cmake_args' from command line to 'None'
+[0.246s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_tests' build argument 'cmake_target' from command line to 'None'
+[0.246s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_tests' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.246s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_tests' build argument 'cmake_clean_cache' from command line to 'False'
+[0.246s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_tests' build argument 'cmake_clean_first' from command line to 'False'
+[0.246s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_tests' build argument 'cmake_force_configure' from command line to 'False'
+[0.246s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_tests' build argument 'ament_cmake_args' from command line to 'None'
+[0.246s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_tests' build argument 'catkin_cmake_args' from command line to 'None'
+[0.246s] Level 5:colcon.colcon_core.verb:set package 'rosbag2_tests' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.246s] DEBUG:colcon.colcon_core.verb:Building package 'rosbag2_tests' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/yanji/robot_screwing/src/build/rosbag2_tests', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/yanji/robot_screwing/src/install/rosbag2_tests', 'merge_install': False, 'path': '/home/yanji/robot_screwing/src/rosbag2/rosbag2_tests', 'symlink_install': False, 'test_result_base': None}
+[0.246s] Level 5:colcon.colcon_core.verb:set package 'rosbag2' build argument 'cmake_args' from command line to 'None'
+[0.246s] Level 5:colcon.colcon_core.verb:set package 'rosbag2' build argument 'cmake_target' from command line to 'None'
+[0.246s] Level 5:colcon.colcon_core.verb:set package 'rosbag2' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.246s] Level 5:colcon.colcon_core.verb:set package 'rosbag2' build argument 'cmake_clean_cache' from command line to 'False'
+[0.246s] Level 5:colcon.colcon_core.verb:set package 'rosbag2' build argument 'cmake_clean_first' from command line to 'False'
+[0.246s] Level 5:colcon.colcon_core.verb:set package 'rosbag2' build argument 'cmake_force_configure' from command line to 'False'
+[0.246s] Level 5:colcon.colcon_core.verb:set package 'rosbag2' build argument 'ament_cmake_args' from command line to 'None'
+[0.246s] Level 5:colcon.colcon_core.verb:set package 'rosbag2' build argument 'catkin_cmake_args' from command line to 'None'
+[0.246s] Level 5:colcon.colcon_core.verb:set package 'rosbag2' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.246s] DEBUG:colcon.colcon_core.verb:Building package 'rosbag2' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/yanji/robot_screwing/src/build/rosbag2', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/yanji/robot_screwing/src/install/rosbag2', 'merge_install': False, 'path': '/home/yanji/robot_screwing/src/rosbag2/rosbag2', 'symlink_install': False, 'test_result_base': None}
+[0.246s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.247s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.247s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/yanji/robot_screwing/src/rosbag2/rosbag2_test_common' with build type 'ament_cmake'
+[0.247s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/yanji/robot_screwing/src/rosbag2/rosbag2_test_common'
+[0.248s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.248s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.248s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.251s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/yanji/robot_screwing/src/rosbag2/liblz4_vendor' with build type 'ament_cmake'
+[0.251s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/yanji/robot_screwing/src/rosbag2/liblz4_vendor'
+[0.251s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.251s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.253s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/yanji/robot_screwing/src/rosbag2/zstd_vendor' with build type 'ament_cmake'
+[0.253s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/yanji/robot_screwing/src/rosbag2/zstd_vendor'
+[0.254s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.254s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.255s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/yanji/robot_screwing/src/rosbag2/sqlite3_vendor' with build type 'ament_cmake'
+[0.255s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/yanji/robot_screwing/src/rosbag2/sqlite3_vendor'
+[0.256s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.256s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.258s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/yanji/robot_screwing/src/rosbag2/rosbag2_test_msgdefs' with build type 'ament_cmake'
+[0.258s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/yanji/robot_screwing/src/rosbag2/rosbag2_test_msgdefs'
+[0.258s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.258s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.260s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/yanji/robot_screwing/src/rosbag2/rosbag2_interfaces' with build type 'ament_cmake'
+[0.260s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/yanji/robot_screwing/src/rosbag2/rosbag2_interfaces'
+[0.260s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.260s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.262s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/yanji/robot_screwing/src/robot_msgs' with build type 'ament_cmake'
+[0.262s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/yanji/robot_screwing/src/robot_msgs'
+[0.262s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.262s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.264s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/yanji/robot_screwing/src/rosbag2/rosbag2_performance/rosbag2_performance_benchmarking_msgs' with build type 'ament_cmake'
+[0.264s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/yanji/robot_screwing/src/rosbag2/rosbag2_performance/rosbag2_performance_benchmarking_msgs'
+[0.265s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.265s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.267s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/yanji/robot_screwing/src/mj_sim' with build type 'ament_python'
+[0.267s] Level 1:colcon.colcon_core.shell:create_environment_hook('mj_sim', 'ament_prefix_path')
+[0.267s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/yanji/robot_screwing/src/install/mj_sim/share/mj_sim/hook/ament_prefix_path.ps1'
+[0.267s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/yanji/robot_screwing/src/install/mj_sim/share/mj_sim/hook/ament_prefix_path.dsv'
+[0.268s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/yanji/robot_screwing/src/install/mj_sim/share/mj_sim/hook/ament_prefix_path.sh'
+[0.268s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.268s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.270s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/yanji/robot_screwing/src/real_robot' with build type 'ament_python'
+[0.270s] Level 1:colcon.colcon_core.shell:create_environment_hook('real_robot', 'ament_prefix_path')
+[0.270s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/yanji/robot_screwing/src/install/real_robot/share/real_robot/hook/ament_prefix_path.ps1'
+[0.270s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/yanji/robot_screwing/src/install/real_robot/share/real_robot/hook/ament_prefix_path.dsv'
+[0.270s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/yanji/robot_screwing/src/install/real_robot/share/real_robot/hook/ament_prefix_path.sh'
+[0.271s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.271s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.276s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/yanji/robot_screwing/src/build/rosbag2_test_common': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/yanji/robot_screwing/install/real_robot:/home/yanji/robot_screwing/install/mj_sim:/opt/ros/foxy CONDA_PROMPT_MODIFIER=(screwrobot) /usr/bin/cmake /home/yanji/robot_screwing/src/rosbag2/rosbag2_test_common -DCMAKE_INSTALL_PREFIX=/home/yanji/robot_screwing/src/install/rosbag2_test_common
+[0.278s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/yanji/robot_screwing/src/build/liblz4_vendor': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/yanji/robot_screwing/install/real_robot:/home/yanji/robot_screwing/install/mj_sim:/opt/ros/foxy CONDA_PROMPT_MODIFIER=(screwrobot) /usr/bin/cmake /home/yanji/robot_screwing/src/rosbag2/liblz4_vendor -DCMAKE_INSTALL_PREFIX=/home/yanji/robot_screwing/src/install/liblz4_vendor
+[0.280s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/yanji/robot_screwing/src/build/zstd_vendor': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/yanji/robot_screwing/install/real_robot:/home/yanji/robot_screwing/install/mj_sim:/opt/ros/foxy CONDA_PROMPT_MODIFIER=(screwrobot) /usr/bin/cmake /home/yanji/robot_screwing/src/rosbag2/zstd_vendor -DCMAKE_INSTALL_PREFIX=/home/yanji/robot_screwing/src/install/zstd_vendor
+[0.282s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/yanji/robot_screwing/src/build/sqlite3_vendor': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/yanji/robot_screwing/install/real_robot:/home/yanji/robot_screwing/install/mj_sim:/opt/ros/foxy CONDA_PROMPT_MODIFIER=(screwrobot) /usr/bin/cmake /home/yanji/robot_screwing/src/rosbag2/sqlite3_vendor -DCMAKE_INSTALL_PREFIX=/home/yanji/robot_screwing/src/install/sqlite3_vendor
+[0.284s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/yanji/robot_screwing/src/build/rosbag2_test_msgdefs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/yanji/robot_screwing/install/real_robot:/home/yanji/robot_screwing/install/mj_sim:/opt/ros/foxy CONDA_PROMPT_MODIFIER=(screwrobot) /usr/bin/cmake /home/yanji/robot_screwing/src/rosbag2/rosbag2_test_msgdefs -DCMAKE_INSTALL_PREFIX=/home/yanji/robot_screwing/src/install/rosbag2_test_msgdefs
+[0.286s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/yanji/robot_screwing/src/build/rosbag2_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/yanji/robot_screwing/install/real_robot:/home/yanji/robot_screwing/install/mj_sim:/opt/ros/foxy CONDA_PROMPT_MODIFIER=(screwrobot) /usr/bin/cmake /home/yanji/robot_screwing/src/rosbag2/rosbag2_interfaces -DCMAKE_INSTALL_PREFIX=/home/yanji/robot_screwing/src/install/rosbag2_interfaces
+[0.288s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/yanji/robot_screwing/src/build/robot_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/yanji/robot_screwing/install/real_robot:/home/yanji/robot_screwing/install/mj_sim:/opt/ros/foxy CONDA_PROMPT_MODIFIER=(screwrobot) /usr/bin/cmake /home/yanji/robot_screwing/src/robot_msgs -DCMAKE_INSTALL_PREFIX=/home/yanji/robot_screwing/src/install/robot_msgs
+[0.292s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/yanji/robot_screwing/src/build/rosbag2_performance_benchmarking_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/yanji/robot_screwing/install/real_robot:/home/yanji/robot_screwing/install/mj_sim:/opt/ros/foxy CONDA_PROMPT_MODIFIER=(screwrobot) /usr/bin/cmake /home/yanji/robot_screwing/src/rosbag2/rosbag2_performance/rosbag2_performance_benchmarking_msgs -DCMAKE_INSTALL_PREFIX=/home/yanji/robot_screwing/src/install/rosbag2_performance_benchmarking_msgs
+[0.407s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/yanji/robot_screwing/src/mj_sim'
+[0.408s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.408s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.525s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/yanji/robot_screwing/src/real_robot'
+[0.526s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.526s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.559s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/yanji/robot_screwing/src/build/rosbag2_performance_benchmarking_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/yanji/robot_screwing/install/real_robot:/home/yanji/robot_screwing/install/mj_sim:/opt/ros/foxy CONDA_PROMPT_MODIFIER=(screwrobot) /usr/bin/cmake /home/yanji/robot_screwing/src/rosbag2/rosbag2_performance/rosbag2_performance_benchmarking_msgs -DCMAKE_INSTALL_PREFIX=/home/yanji/robot_screwing/src/install/rosbag2_performance_benchmarking_msgs
+[0.562s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/yanji/robot_screwing/src/build/rosbag2_performance_benchmarking_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/yanji/robot_screwing/install/real_robot:/home/yanji/robot_screwing/install/mj_sim:/opt/ros/foxy CONDA_PROMPT_MODIFIER=(screwrobot) /usr/bin/cmake --build /home/yanji/robot_screwing/src/build/rosbag2_performance_benchmarking_msgs -- -j24 -l24
+[0.578s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/yanji/robot_screwing/src/build/rosbag2_performance_benchmarking_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/yanji/robot_screwing/install/real_robot:/home/yanji/robot_screwing/install/mj_sim:/opt/ros/foxy CONDA_PROMPT_MODIFIER=(screwrobot) /usr/bin/cmake --build /home/yanji/robot_screwing/src/build/rosbag2_performance_benchmarking_msgs -- -j24 -l24
+[0.578s] WARNING:colcon.colcon_cmake.task.cmake.build:Could not run installation step for package 'rosbag2_performance_benchmarking_msgs' because it has no 'install' target
+[0.579s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(rosbag2_performance_benchmarking_msgs)
+[0.581s] Level 1:colcon.colcon_core.environment:checking '/home/yanji/robot_screwing/src/install/rosbag2_performance_benchmarking_msgs' for CMake module files
+[0.582s] Level 1:colcon.colcon_core.environment:checking '/home/yanji/robot_screwing/src/install/rosbag2_performance_benchmarking_msgs' for CMake config files
+[0.582s] Level 1:colcon.colcon_core.environment:checking '/home/yanji/robot_screwing/src/install/rosbag2_performance_benchmarking_msgs/bin'
+[0.582s] Level 1:colcon.colcon_core.environment:checking '/home/yanji/robot_screwing/src/install/rosbag2_performance_benchmarking_msgs/lib/pkgconfig/rosbag2_performance_benchmarking_msgs.pc'
+[0.582s] Level 1:colcon.colcon_core.environment:checking '/home/yanji/robot_screwing/src/install/rosbag2_performance_benchmarking_msgs/lib/python3.8/site-packages'
+[0.582s] Level 1:colcon.colcon_core.environment:checking '/home/yanji/robot_screwing/src/install/rosbag2_performance_benchmarking_msgs/bin'
+[0.582s] INFO:colcon.colcon_core.shell:Creating package script '/home/yanji/robot_screwing/src/install/rosbag2_performance_benchmarking_msgs/share/rosbag2_performance_benchmarking_msgs/package.ps1'
+[0.582s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/yanji/robot_screwing/src/install/rosbag2_performance_benchmarking_msgs/share/rosbag2_performance_benchmarking_msgs/package.dsv'
+[0.583s] INFO:colcon.colcon_core.shell:Creating package script '/home/yanji/robot_screwing/src/install/rosbag2_performance_benchmarking_msgs/share/rosbag2_performance_benchmarking_msgs/package.sh'
+[0.583s] INFO:colcon.colcon_core.shell:Creating package script '/home/yanji/robot_screwing/src/install/rosbag2_performance_benchmarking_msgs/share/rosbag2_performance_benchmarking_msgs/package.bash'
+[0.583s] INFO:colcon.colcon_core.shell:Creating package script '/home/yanji/robot_screwing/src/install/rosbag2_performance_benchmarking_msgs/share/rosbag2_performance_benchmarking_msgs/package.zsh'
+[0.583s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/yanji/robot_screwing/src/install/rosbag2_performance_benchmarking_msgs/share/colcon-core/packages/rosbag2_performance_benchmarking_msgs)
+[0.584s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(rosbag2_performance_benchmarking_msgs)
+[0.584s] Level 1:colcon.colcon_core.environment:checking '/home/yanji/robot_screwing/src/install/rosbag2_performance_benchmarking_msgs' for CMake module files
+[0.584s] Level 1:colcon.colcon_core.environment:checking '/home/yanji/robot_screwing/src/install/rosbag2_performance_benchmarking_msgs' for CMake config files
+[0.584s] Level 1:colcon.colcon_core.environment:checking '/home/yanji/robot_screwing/src/install/rosbag2_performance_benchmarking_msgs/bin'
+[0.584s] Level 1:colcon.colcon_core.environment:checking '/home/yanji/robot_screwing/src/install/rosbag2_performance_benchmarking_msgs/lib/pkgconfig/rosbag2_performance_benchmarking_msgs.pc'
+[0.584s] Level 1:colcon.colcon_core.environment:checking '/home/yanji/robot_screwing/src/install/rosbag2_performance_benchmarking_msgs/lib/python3.8/site-packages'
+[0.585s] Level 1:colcon.colcon_core.environment:checking '/home/yanji/robot_screwing/src/install/rosbag2_performance_benchmarking_msgs/bin'
+[0.585s] INFO:colcon.colcon_core.shell:Creating package script '/home/yanji/robot_screwing/src/install/rosbag2_performance_benchmarking_msgs/share/rosbag2_performance_benchmarking_msgs/package.ps1'
+[0.585s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/yanji/robot_screwing/src/install/rosbag2_performance_benchmarking_msgs/share/rosbag2_performance_benchmarking_msgs/package.dsv'
+[0.585s] INFO:colcon.colcon_core.shell:Creating package script '/home/yanji/robot_screwing/src/install/rosbag2_performance_benchmarking_msgs/share/rosbag2_performance_benchmarking_msgs/package.sh'
+[0.585s] INFO:colcon.colcon_core.shell:Creating package script '/home/yanji/robot_screwing/src/install/rosbag2_performance_benchmarking_msgs/share/rosbag2_performance_benchmarking_msgs/package.bash'
+[0.585s] INFO:colcon.colcon_core.shell:Creating package script '/home/yanji/robot_screwing/src/install/rosbag2_performance_benchmarking_msgs/share/rosbag2_performance_benchmarking_msgs/package.zsh'
+[0.585s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/yanji/robot_screwing/src/install/rosbag2_performance_benchmarking_msgs/share/colcon-core/packages/rosbag2_performance_benchmarking_msgs)
+[0.677s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/yanji/robot_screwing/src/build/liblz4_vendor' returned '1': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/yanji/robot_screwing/install/real_robot:/home/yanji/robot_screwing/install/mj_sim:/opt/ros/foxy CONDA_PROMPT_MODIFIER=(screwrobot) /usr/bin/cmake /home/yanji/robot_screwing/src/rosbag2/liblz4_vendor -DCMAKE_INSTALL_PREFIX=/home/yanji/robot_screwing/src/install/liblz4_vendor
+[0.683s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/yanji/robot_screwing/src/build/sqlite3_vendor' returned '1': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/yanji/robot_screwing/install/real_robot:/home/yanji/robot_screwing/install/mj_sim:/opt/ros/foxy CONDA_PROMPT_MODIFIER=(screwrobot) /usr/bin/cmake /home/yanji/robot_screwing/src/rosbag2/sqlite3_vendor -DCMAKE_INSTALL_PREFIX=/home/yanji/robot_screwing/src/install/sqlite3_vendor
+[0.685s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(liblz4_vendor)
+[0.686s] Level 1:colcon.colcon_core.environment:checking '/home/yanji/robot_screwing/src/install/liblz4_vendor' for CMake module files
+[0.686s] Level 1:colcon.colcon_core.environment:checking '/home/yanji/robot_screwing/src/install/liblz4_vendor' for CMake config files
+[0.686s] Level 1:colcon.colcon_core.environment:checking '/home/yanji/robot_screwing/src/install/liblz4_vendor/bin'
+[0.686s] Level 1:colcon.colcon_core.environment:checking '/home/yanji/robot_screwing/src/install/liblz4_vendor/lib/pkgconfig/liblz4_vendor.pc'
+[0.686s] Level 1:colcon.colcon_core.environment:checking '/home/yanji/robot_screwing/src/install/liblz4_vendor/lib/python3.8/site-packages'
+[0.687s] Level 1:colcon.colcon_core.environment:checking '/home/yanji/robot_screwing/src/install/liblz4_vendor/bin'
+[0.687s] INFO:colcon.colcon_core.shell:Creating package script '/home/yanji/robot_screwing/src/install/liblz4_vendor/share/liblz4_vendor/package.ps1'
+[0.688s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/yanji/robot_screwing/src/install/liblz4_vendor/share/liblz4_vendor/package.dsv'
+[0.688s] INFO:colcon.colcon_core.shell:Creating package script '/home/yanji/robot_screwing/src/install/liblz4_vendor/share/liblz4_vendor/package.sh'
+[0.688s] INFO:colcon.colcon_core.shell:Creating package script '/home/yanji/robot_screwing/src/install/liblz4_vendor/share/liblz4_vendor/package.bash'
+[0.688s] INFO:colcon.colcon_core.shell:Creating package script '/home/yanji/robot_screwing/src/install/liblz4_vendor/share/liblz4_vendor/package.zsh'
+[0.689s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/yanji/robot_screwing/src/install/liblz4_vendor/share/colcon-core/packages/liblz4_vendor)
+[1.458s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[1.458s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[1.458s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '1'
+[1.458s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[1.461s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[1.461s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[1.461s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[1.468s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[1.469s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/yanji/robot_screwing/src/install/local_setup.ps1'
+[1.469s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/yanji/robot_screwing/src/install/_local_setup_util_ps1.py'
+[1.470s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/yanji/robot_screwing/src/install/setup.ps1'
+[1.470s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/yanji/robot_screwing/src/install/local_setup.sh'
+[1.470s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/yanji/robot_screwing/src/install/_local_setup_util_sh.py'
+[1.471s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/yanji/robot_screwing/src/install/setup.sh'
+[1.471s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/yanji/robot_screwing/src/install/local_setup.bash'
+[1.471s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/yanji/robot_screwing/src/install/setup.bash'
+[1.472s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/yanji/robot_screwing/src/install/local_setup.zsh'
+[1.472s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/yanji/robot_screwing/src/install/setup.zsh'

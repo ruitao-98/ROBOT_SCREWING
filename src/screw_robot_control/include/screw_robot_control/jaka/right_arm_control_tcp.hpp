@@ -17,7 +17,7 @@
 #include <robot_msgs/msg/robot_status.hpp>
 #include <robot_msgs/msg/ref_status.hpp>
 #include <robot_msgs/msg/control_command.hpp>
-#include <robot_msgs/srv/start_pose.hpp>
+#include <robot_msgs/srv/start_rotation.hpp>
 
 namespace jaka {
     using Quaternion = ::Quaternion; // 创建别名
@@ -30,9 +30,10 @@ class RobotAdmittanceControl : public rclcpp::Node {
 
     void reset();
     void update_robot_state();
-    void go_to_pose(char choice_tcp);
+    void go_to_pose();
     void tcp_admittance_control();
     void get_eef_pose();
+    void set_tcp(char choice);
     
     void updata_rotation(const Eigen::Matrix3d& current_rotm, const Eigen::Vector3d& angluar_disp, Eigen::Matrix3d& new_orientation);
     void get_new_link6_pose(const Eigen::Vector3d& new_linear_eef, const Eigen::Matrix3d& new_angular_eef);
@@ -42,13 +43,24 @@ class RobotAdmittanceControl : public rclcpp::Node {
     void get_world_force();
     void get_tcp_force();
     void start();
-    void linear_search(char choice_tcp);
+    void linear_search();
     void ori_fine();
     void robot_finish();
     void grasp_obj();
     void passive_fine();
-    void print_eef(char choice);
+    void print_eef();
     void tcp_admittance_run();
+    void online_generate_straight_trajectory(int num_points,                     // 轨迹点数 (Python 中的 num_points)
+        double control_dt,                  // 控制时间步长
+        double speed,                       // 速度
+        const Eigen::Vector3d& position,    // 初始位置
+        const Eigen::Matrix3d& orientation, // 初始姿态 (旋转矩阵)
+        const Eigen::Vector3d& present_position, // 当前位置
+        std::vector<Eigen::Vector3d>& trajectory_positions,      // 输出：位置 [x, y, z]
+        std::vector<Eigen::Vector3d>& trajectory_velocities,     // 输出：线速度 [vx, vy, vz]
+        std::vector<Eigen::Vector3d>& trajectory_angular_velocities // 输出：角速度 [wx, wy, wz]
+        );
+
 
     bool isRotationMatrix(const Eigen::Matrix3d& matrix);
 
@@ -96,32 +108,40 @@ private:
     // 订阅者
     rclcpp::Subscription<robot_msgs::msg::ControlCommand>::SharedPtr command_subs_;
     // 服务
-    rclcpp::Service<robot_msgs::srv::StartPose>::SharedPtr srv_;
+    rclcpp::Service<robot_msgs::srv::StartRotation>::SharedPtr srv_;
     // 消息实例（可选，取决于发布频率）
     robot_msgs::msg::FtPub force_msg_;
     robot_msgs::msg::RobotStatus status_msg_;
     robot_msgs::msg::RefStatus ref_msg_;
+    robot_msgs::msg::ControlCommand cmd_msg_;
     // 参数
     // std::vector<double> pos_para_;
     // std::vector<double> ori_para_;
 
     std::array<double, 3> pos_para_;
     std::array<double, 9> ori_para_;
+    std::vector<double> rotm_quat;
+    double timestamp;
+    int stop;
 
     // Action 客户端
     rclcpp_action::Client<robot_msgs::action::Screw>::SharedPtr client_;
-    
-    void active_cb();
     void feedback_cb(
-        const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::SharedPtr &handle,
-        const std::shared_ptr<const robot_msgs::action::Screw::Feedback> feedback); // 更新为 const
+        const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::SharedPtr &,
+        const std::shared_ptr<const robot_msgs::action::Screw::Feedback> feedback);
     void done_cb(
         const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult &result);
+    void active_cb();
+    // void feedback_cb(
+    //     const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::SharedPtr &handle,
+    //     const std::shared_ptr<const robot_msgs::action::Screw::Feedback> feedback); // 更新为 const
+    // void done_cb(
+    //     const rclcpp_action::ClientGoalHandle<robot_msgs::action::Screw>::WrappedResult &result);
     // 回调函数
     void command_callback(const robot_msgs::msg::ControlCommand::SharedPtr msg);
     void ready_callback(
-        const std::shared_ptr<robot_msgs::srv::StartPose::Request> request,
-        std::shared_ptr<robot_msgs::srv::StartPose::Response> response);
+        const std::shared_ptr<robot_msgs::srv::StartRotation::Request> request,
+        std::shared_ptr<robot_msgs::srv::StartRotation::Response> response);
     
     void status_publish();
     void cmd_ref_publish();
@@ -158,9 +178,13 @@ private:
     Eigen::Vector3d new_linear;
     Eigen::Matrix3d new_angular;
 
+
+    Eigen::Vector3d start_eef_pos;
+    Eigen::Matrix3d start_eef_rotm;
     Eigen::Vector3d eef_pos_d;
     Eigen::Matrix3d eef_rotm_d;
     Eigen::Matrix3d eef_rotm_d_modified;
+    Eigen::VectorXd eef_vel_d = Eigen::VectorXd::Zero(6);
     Eigen::VectorXd eef_vel = Eigen::VectorXd::Zero(6);
     Eigen::VectorXd e = Eigen::VectorXd::Zero(6);
     Eigen::VectorXd e_dot = Eigen::VectorXd::Zero(6);
@@ -172,6 +196,16 @@ private:
     Eigen::Vector3d new_linear_eef;
     Eigen::Matrix3d new_rotm_eef;
 
+    // 输出轨迹
+    std::vector<Eigen::Vector3d> trajectory_positions;
+    std::vector<Eigen::Vector3d> trajectory_velocities;
+    std::vector<Eigen::Vector3d> trajectory_angular_velocities;
+
+    int num_points;
+    double control_dt;
+    double screw_pitch;
+    double speed;
+
     int screw_execute_result_; //末端执行器运行结果 
     // 0：未卡
     // 1：卡住了
@@ -181,7 +215,7 @@ private:
     // 0：运行后
     // 1：正在运行
     // 2: 运行前
-
+    float rotation_speed;
 };
 
 }

@@ -12,6 +12,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/yanji/robot_screwing/build/robot_msgs/rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/robot_status__type_support_c.cpp" "/home/yanji/robot_screwing/build/robot_msgs/CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/robot_status__type_support_c.cpp.o"
   "/home/yanji/robot_screwing/build/robot_msgs/rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/width_pub__type_support_c.cpp" "/home/yanji/robot_screwing/build/robot_msgs/CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/width_pub__type_support_c.cpp.o"
   "/home/yanji/robot_screwing/build/robot_msgs/rosidl_typesupport_fastrtps_c/robot_msgs/srv/detail/start_pose__type_support_c.cpp" "/home/yanji/robot_screwing/build/robot_msgs/CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robot_msgs/srv/detail/start_pose__type_support_c.cpp.o"
+  "/home/yanji/robot_screwing/build/robot_msgs/rosidl_typesupport_fastrtps_c/robot_msgs/srv/detail/start_rotation__type_support_c.cpp" "/home/yanji/robot_screwing/build/robot_msgs/CMakeFiles/robot_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robot_msgs/srv/detail/start_rotation__type_support_c.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -65,6 +66,8 @@ set(CMAKE_MULTIPLE_OUTPUT_PAIRS
   "/home/yanji/robot_screwing/build/robot_msgs/rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/width_pub__type_support_c.cpp" "/home/yanji/robot_screwing/build/robot_msgs/rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/ft_pub__rosidl_typesupport_fastrtps_c.h"
   "/home/yanji/robot_screwing/build/robot_msgs/rosidl_typesupport_fastrtps_c/robot_msgs/srv/detail/start_pose__rosidl_typesupport_fastrtps_c.h" "/home/yanji/robot_screwing/build/robot_msgs/rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/ft_pub__rosidl_typesupport_fastrtps_c.h"
   "/home/yanji/robot_screwing/build/robot_msgs/rosidl_typesupport_fastrtps_c/robot_msgs/srv/detail/start_pose__type_support_c.cpp" "/home/yanji/robot_screwing/build/robot_msgs/rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/ft_pub__rosidl_typesupport_fastrtps_c.h"
+  "/home/yanji/robot_screwing/build/robot_msgs/rosidl_typesupport_fastrtps_c/robot_msgs/srv/detail/start_rotation__rosidl_typesupport_fastrtps_c.h" "/home/yanji/robot_screwing/build/robot_msgs/rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/ft_pub__rosidl_typesupport_fastrtps_c.h"
+  "/home/yanji/robot_screwing/build/robot_msgs/rosidl_typesupport_fastrtps_c/robot_msgs/srv/detail/start_rotation__type_support_c.cpp" "/home/yanji/robot_screwing/build/robot_msgs/rosidl_typesupport_fastrtps_c/robot_msgs/msg/detail/ft_pub__rosidl_typesupport_fastrtps_c.h"
   )
 
 

@@ -70,6 +70,7 @@ rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/ft_pub__rosidl_typesu
 rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/ft_pub__rosidl_typesupport_introspection_cpp.hpp: rosidl_adapter/robot_msgs/msg/ControlCommand.idl
 rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/ft_pub__rosidl_typesupport_introspection_cpp.hpp: rosidl_adapter/robot_msgs/msg/RefStatus.idl
 rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/ft_pub__rosidl_typesupport_introspection_cpp.hpp: rosidl_adapter/robot_msgs/srv/StartPose.idl
+rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/ft_pub__rosidl_typesupport_introspection_cpp.hpp: rosidl_adapter/robot_msgs/srv/StartRotation.idl
 rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/ft_pub__rosidl_typesupport_introspection_cpp.hpp: rosidl_adapter/robot_msgs/action/Screw.idl
 rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/ft_pub__rosidl_typesupport_introspection_cpp.hpp: rosidl_adapter/robot_msgs/msg/CurrentPub.idl
 rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/ft_pub__rosidl_typesupport_introspection_cpp.hpp: rosidl_adapter/robot_msgs/msg/WidthPub.idl
@@ -125,6 +126,9 @@ rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/ref_status__rosidl_ty
 rosidl_typesupport_introspection_cpp/robot_msgs/srv/detail/start_pose__rosidl_typesupport_introspection_cpp.hpp: rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/ft_pub__rosidl_typesupport_introspection_cpp.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_introspection_cpp/robot_msgs/srv/detail/start_pose__rosidl_typesupport_introspection_cpp.hpp
 
+rosidl_typesupport_introspection_cpp/robot_msgs/srv/detail/start_rotation__rosidl_typesupport_introspection_cpp.hpp: rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/ft_pub__rosidl_typesupport_introspection_cpp.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_introspection_cpp/robot_msgs/srv/detail/start_rotation__rosidl_typesupport_introspection_cpp.hpp
+
 rosidl_typesupport_introspection_cpp/robot_msgs/action/detail/screw__rosidl_typesupport_introspection_cpp.hpp: rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/ft_pub__rosidl_typesupport_introspection_cpp.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_introspection_cpp/robot_msgs/action/detail/screw__rosidl_typesupport_introspection_cpp.hpp
 
@@ -148,6 +152,9 @@ rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/ref_status__type_supp
 
 rosidl_typesupport_introspection_cpp/robot_msgs/srv/detail/start_pose__type_support.cpp: rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/ft_pub__rosidl_typesupport_introspection_cpp.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_introspection_cpp/robot_msgs/srv/detail/start_pose__type_support.cpp
+
+rosidl_typesupport_introspection_cpp/robot_msgs/srv/detail/start_rotation__type_support.cpp: rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/ft_pub__rosidl_typesupport_introspection_cpp.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_introspection_cpp/robot_msgs/srv/detail/start_rotation__type_support.cpp
 
 rosidl_typesupport_introspection_cpp/robot_msgs/action/detail/screw__type_support.cpp: rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/ft_pub__rosidl_typesupport_introspection_cpp.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_introspection_cpp/robot_msgs/action/detail/screw__type_support.cpp
@@ -223,9 +230,22 @@ CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesuppo
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robot_msgs/srv/detail/start_pose__type_support.cpp.s"
 	/usr/lib/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yanji/robot_screwing/build/robot_msgs/rosidl_typesupport_introspection_cpp/robot_msgs/srv/detail/start_pose__type_support.cpp -o CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robot_msgs/srv/detail/start_pose__type_support.cpp.s
 
+CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robot_msgs/srv/detail/start_rotation__type_support.cpp.o: CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/flags.make
+CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robot_msgs/srv/detail/start_rotation__type_support.cpp.o: rosidl_typesupport_introspection_cpp/robot_msgs/srv/detail/start_rotation__type_support.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yanji/robot_screwing/build/robot_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robot_msgs/srv/detail/start_rotation__type_support.cpp.o"
+	/usr/lib/ccache/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robot_msgs/srv/detail/start_rotation__type_support.cpp.o -c /home/yanji/robot_screwing/build/robot_msgs/rosidl_typesupport_introspection_cpp/robot_msgs/srv/detail/start_rotation__type_support.cpp
+
+CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robot_msgs/srv/detail/start_rotation__type_support.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robot_msgs/srv/detail/start_rotation__type_support.cpp.i"
+	/usr/lib/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yanji/robot_screwing/build/robot_msgs/rosidl_typesupport_introspection_cpp/robot_msgs/srv/detail/start_rotation__type_support.cpp > CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robot_msgs/srv/detail/start_rotation__type_support.cpp.i
+
+CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robot_msgs/srv/detail/start_rotation__type_support.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robot_msgs/srv/detail/start_rotation__type_support.cpp.s"
+	/usr/lib/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yanji/robot_screwing/build/robot_msgs/rosidl_typesupport_introspection_cpp/robot_msgs/srv/detail/start_rotation__type_support.cpp -o CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robot_msgs/srv/detail/start_rotation__type_support.cpp.s
+
 CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robot_msgs/action/detail/screw__type_support.cpp.o: CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/flags.make
 CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robot_msgs/action/detail/screw__type_support.cpp.o: rosidl_typesupport_introspection_cpp/robot_msgs/action/detail/screw__type_support.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yanji/robot_screwing/build/robot_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robot_msgs/action/detail/screw__type_support.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yanji/robot_screwing/build/robot_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robot_msgs/action/detail/screw__type_support.cpp.o"
 	/usr/lib/ccache/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robot_msgs/action/detail/screw__type_support.cpp.o -c /home/yanji/robot_screwing/build/robot_msgs/rosidl_typesupport_introspection_cpp/robot_msgs/action/detail/screw__type_support.cpp
 
 CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robot_msgs/action/detail/screw__type_support.cpp.i: cmake_force
@@ -238,7 +258,7 @@ CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesuppo
 
 CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/current_pub__type_support.cpp.o: CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/flags.make
 CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/current_pub__type_support.cpp.o: rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/current_pub__type_support.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yanji/robot_screwing/build/robot_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/current_pub__type_support.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yanji/robot_screwing/build/robot_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/current_pub__type_support.cpp.o"
 	/usr/lib/ccache/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/current_pub__type_support.cpp.o -c /home/yanji/robot_screwing/build/robot_msgs/rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/current_pub__type_support.cpp
 
 CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/current_pub__type_support.cpp.i: cmake_force
@@ -251,7 +271,7 @@ CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesuppo
 
 CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/width_pub__type_support.cpp.o: CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/flags.make
 CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/width_pub__type_support.cpp.o: rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/width_pub__type_support.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yanji/robot_screwing/build/robot_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/width_pub__type_support.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yanji/robot_screwing/build/robot_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/width_pub__type_support.cpp.o"
 	/usr/lib/ccache/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/width_pub__type_support.cpp.o -c /home/yanji/robot_screwing/build/robot_msgs/rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/width_pub__type_support.cpp
 
 CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/width_pub__type_support.cpp.i: cmake_force
@@ -269,6 +289,7 @@ robot_msgs__rosidl_typesupport_introspection_cpp_OBJECTS = \
 "CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/control_command__type_support.cpp.o" \
 "CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/ref_status__type_support.cpp.o" \
 "CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robot_msgs/srv/detail/start_pose__type_support.cpp.o" \
+"CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robot_msgs/srv/detail/start_rotation__type_support.cpp.o" \
 "CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robot_msgs/action/detail/screw__type_support.cpp.o" \
 "CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/current_pub__type_support.cpp.o" \
 "CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/width_pub__type_support.cpp.o"
@@ -281,6 +302,7 @@ librobot_msgs__rosidl_typesupport_introspection_cpp.so: CMakeFiles/robot_msgs__r
 librobot_msgs__rosidl_typesupport_introspection_cpp.so: CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/control_command__type_support.cpp.o
 librobot_msgs__rosidl_typesupport_introspection_cpp.so: CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/ref_status__type_support.cpp.o
 librobot_msgs__rosidl_typesupport_introspection_cpp.so: CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robot_msgs/srv/detail/start_pose__type_support.cpp.o
+librobot_msgs__rosidl_typesupport_introspection_cpp.so: CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robot_msgs/srv/detail/start_rotation__type_support.cpp.o
 librobot_msgs__rosidl_typesupport_introspection_cpp.so: CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robot_msgs/action/detail/screw__type_support.cpp.o
 librobot_msgs__rosidl_typesupport_introspection_cpp.so: CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/current_pub__type_support.cpp.o
 librobot_msgs__rosidl_typesupport_introspection_cpp.so: CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/width_pub__type_support.cpp.o
@@ -313,7 +335,7 @@ librobot_msgs__rosidl_typesupport_introspection_cpp.so: /opt/ros/foxy/lib/libros
 librobot_msgs__rosidl_typesupport_introspection_cpp.so: /opt/ros/foxy/lib/librcpputils.so
 librobot_msgs__rosidl_typesupport_introspection_cpp.so: /opt/ros/foxy/lib/librcutils.so
 librobot_msgs__rosidl_typesupport_introspection_cpp.so: CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/yanji/robot_screwing/build/robot_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX shared library librobot_msgs__rosidl_typesupport_introspection_cpp.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/yanji/robot_screwing/build/robot_msgs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX shared library librobot_msgs__rosidl_typesupport_introspection_cpp.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -330,6 +352,7 @@ CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/depend: rosidl_t
 CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/depend: rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/control_command__rosidl_typesupport_introspection_cpp.hpp
 CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/depend: rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/ref_status__rosidl_typesupport_introspection_cpp.hpp
 CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/depend: rosidl_typesupport_introspection_cpp/robot_msgs/srv/detail/start_pose__rosidl_typesupport_introspection_cpp.hpp
+CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/depend: rosidl_typesupport_introspection_cpp/robot_msgs/srv/detail/start_rotation__rosidl_typesupport_introspection_cpp.hpp
 CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/depend: rosidl_typesupport_introspection_cpp/robot_msgs/action/detail/screw__rosidl_typesupport_introspection_cpp.hpp
 CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/depend: rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/current_pub__rosidl_typesupport_introspection_cpp.hpp
 CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/depend: rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/width_pub__rosidl_typesupport_introspection_cpp.hpp
@@ -338,6 +361,7 @@ CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/depend: rosidl_t
 CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/depend: rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/control_command__type_support.cpp
 CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/depend: rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/ref_status__type_support.cpp
 CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/depend: rosidl_typesupport_introspection_cpp/robot_msgs/srv/detail/start_pose__type_support.cpp
+CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/depend: rosidl_typesupport_introspection_cpp/robot_msgs/srv/detail/start_rotation__type_support.cpp
 CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/depend: rosidl_typesupport_introspection_cpp/robot_msgs/action/detail/screw__type_support.cpp
 CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/depend: rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/current_pub__type_support.cpp
 CMakeFiles/robot_msgs__rosidl_typesupport_introspection_cpp.dir/depend: rosidl_typesupport_introspection_cpp/robot_msgs/msg/detail/width_pub__type_support.cpp

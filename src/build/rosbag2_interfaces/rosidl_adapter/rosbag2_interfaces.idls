@@ -1,0 +1,15 @@
+/home/yanji/robot_screwing/src/build/rosbag2_interfaces/rosidl_adapter/rosbag2_interfaces:msg/ReadSplitEvent.idl
+/home/yanji/robot_screwing/src/build/rosbag2_interfaces/rosidl_adapter/rosbag2_interfaces:msg/WriteSplitEvent.idl
+/home/yanji/robot_screwing/src/build/rosbag2_interfaces/rosidl_adapter/rosbag2_interfaces:srv/Burst.idl
+/home/yanji/robot_screwing/src/build/rosbag2_interfaces/rosidl_adapter/rosbag2_interfaces:srv/GetRate.idl
+/home/yanji/robot_screwing/src/build/rosbag2_interfaces/rosidl_adapter/rosbag2_interfaces:srv/IsPaused.idl
+/home/yanji/robot_screwing/src/build/rosbag2_interfaces/rosidl_adapter/rosbag2_interfaces:srv/Pause.idl
+/home/yanji/robot_screwing/src/build/rosbag2_interfaces/rosidl_adapter/rosbag2_interfaces:srv/Play.idl
+/home/yanji/robot_screwing/src/build/rosbag2_interfaces/rosidl_adapter/rosbag2_interfaces:srv/PlayNext.idl
+/home/yanji/robot_screwing/src/build/rosbag2_interfaces/rosidl_adapter/rosbag2_interfaces:srv/Resume.idl
+/home/yanji/robot_screwing/src/build/rosbag2_interfaces/rosidl_adapter/rosbag2_interfaces:srv/Seek.idl
+/home/yanji/robot_screwing/src/build/rosbag2_interfaces/rosidl_adapter/rosbag2_interfaces:srv/SetRate.idl
+/home/yanji/robot_screwing/src/build/rosbag2_interfaces/rosidl_adapter/rosbag2_interfaces:srv/Snapshot.idl
+/home/yanji/robot_screwing/src/build/rosbag2_interfaces/rosidl_adapter/rosbag2_interfaces:srv/SplitBagfile.idl
+/home/yanji/robot_screwing/src/build/rosbag2_interfaces/rosidl_adapter/rosbag2_interfaces:srv/Stop.idl
+/home/yanji/robot_screwing/src/build/rosbag2_interfaces/rosidl_adapter/rosbag2_interfaces:srv/TogglePaused.idl

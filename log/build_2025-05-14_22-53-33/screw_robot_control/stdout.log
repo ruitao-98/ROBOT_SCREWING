@@ -1,6 +1,0 @@
-[35m[1mScanning dependencies of target SERVO_MOTOR[0m
-[ 12%] [32mBuilding CXX object CMakeFiles/SERVO_MOTOR.dir/src/servo_motor_function.cpp.o[0m
-[ 25%] [32m[1mLinking CXX shared library libSERVO_MOTOR.so[0m
-[ 25%] Built target SERVO_MOTOR
-[35m[1mScanning dependencies of target SCREWING_TOOL[0m
-[ 37%] [32mBuilding CXX object CMakeFiles/SCREWING_TOOL.dir/src/screwing_tool.cpp.o[0m

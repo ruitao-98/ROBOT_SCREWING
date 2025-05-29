@@ -156,8 +156,8 @@ class Data_Recorder(Node):
 
                 Next_State = np.zeros((1, 9))
                 for i in range(3):
-                    _state = np.array([self.eef_pos[i], self.eef_vel[i], self.world_force[i]])      # [x, x_dot, f_x]
-                    _ref = np.array([self.ref_pose[i], self.ref_vel[i], 0.0])          # [x_r, x_dot_r, f_xr]
+                    _state = np.array([self.eef_pos[i], self.eef_vel[i], self.world_force[i]])     # [x, x_dot, f_x]
+                    _ref = np.array([self.ref_pose[i], self.ref_vel[i], 0.0])         # [x_r, x_dot_r, f_xr]
                     _input = np.array([-self.adm_k[i]/self.adm_m[i], -self.adm_d[i]/self.adm_m[i], 1/self.adm_m[i]])   # [u_0, u_1, u_2]
                     next_state = predict_next_state(self.mpc_predict, _state, _ref, _input)
                     Next_State[0, i*3:i*3 + 3] = next_state # 预测下一步的状态 [x, x_dot, f_x]

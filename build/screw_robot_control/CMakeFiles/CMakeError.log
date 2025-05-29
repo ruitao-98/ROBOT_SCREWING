@@ -1,21 +1,21 @@
 Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
 Change Dir: /home/yanji/robot_screwing/build/screw_robot_control/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_efb85/fast && /usr/bin/make -f CMakeFiles/cmTC_efb85.dir/build.make CMakeFiles/cmTC_efb85.dir/build
+Run Build Command(s):/usr/bin/make cmTC_d07c7/fast && /usr/bin/make -f CMakeFiles/cmTC_d07c7.dir/build.make CMakeFiles/cmTC_d07c7.dir/build
 make[1]: 进入目录“/home/yanji/robot_screwing/build/screw_robot_control/CMakeFiles/CMakeTmp”
-Building C object CMakeFiles/cmTC_efb85.dir/src.c.o
-/usr/lib/ccache/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_efb85.dir/src.c.o   -c /home/yanji/robot_screwing/build/screw_robot_control/CMakeFiles/CMakeTmp/src.c
-Linking C executable cmTC_efb85
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_efb85.dir/link.txt --verbose=1
-/usr/lib/ccache/cc  -DCMAKE_HAVE_LIBC_PTHREAD    CMakeFiles/cmTC_efb85.dir/src.c.o  -o cmTC_efb85 
-/usr/bin/ld: CMakeFiles/cmTC_efb85.dir/src.c.o: in function `main':
+Building C object CMakeFiles/cmTC_d07c7.dir/src.c.o
+/usr/lib/ccache/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_d07c7.dir/src.c.o   -c /home/yanji/robot_screwing/build/screw_robot_control/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_d07c7
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d07c7.dir/link.txt --verbose=1
+/usr/lib/ccache/cc  -DCMAKE_HAVE_LIBC_PTHREAD    CMakeFiles/cmTC_d07c7.dir/src.c.o  -o cmTC_d07c7 
+/usr/bin/ld: CMakeFiles/cmTC_d07c7.dir/src.c.o: in function `main':
 src.c:(.text+0x46): undefined reference to `pthread_create'
 /usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
 /usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
 collect2: error: ld returned 1 exit status
-make[1]: *** [CMakeFiles/cmTC_efb85.dir/build.make:87：cmTC_efb85] 错误 1
+make[1]: *** [CMakeFiles/cmTC_d07c7.dir/build.make:87：cmTC_d07c7] 错误 1
 make[1]: 离开目录“/home/yanji/robot_screwing/build/screw_robot_control/CMakeFiles/CMakeTmp”
-make: *** [Makefile:121：cmTC_efb85/fast] 错误 2
+make: *** [Makefile:121：cmTC_d07c7/fast] 错误 2
 
 
 Source file was:
@@ -41,18 +41,18 @@ int main(void)
 Determining if the function pthread_create exists in the pthreads failed with the following output:
 Change Dir: /home/yanji/robot_screwing/build/screw_robot_control/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_a0839/fast && /usr/bin/make -f CMakeFiles/cmTC_a0839.dir/build.make CMakeFiles/cmTC_a0839.dir/build
+Run Build Command(s):/usr/bin/make cmTC_dbb7c/fast && /usr/bin/make -f CMakeFiles/cmTC_dbb7c.dir/build.make CMakeFiles/cmTC_dbb7c.dir/build
 make[1]: 进入目录“/home/yanji/robot_screwing/build/screw_robot_control/CMakeFiles/CMakeTmp”
-Building C object CMakeFiles/cmTC_a0839.dir/CheckFunctionExists.c.o
-/usr/lib/ccache/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_a0839.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
-Linking C executable cmTC_a0839
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a0839.dir/link.txt --verbose=1
-/usr/lib/ccache/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_a0839.dir/CheckFunctionExists.c.o  -o cmTC_a0839  -lpthreads 
+Building C object CMakeFiles/cmTC_dbb7c.dir/CheckFunctionExists.c.o
+/usr/lib/ccache/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_dbb7c.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_dbb7c
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_dbb7c.dir/link.txt --verbose=1
+/usr/lib/ccache/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_dbb7c.dir/CheckFunctionExists.c.o  -o cmTC_dbb7c  -lpthreads 
 /usr/bin/ld: 找不到 -lpthreads
 collect2: error: ld returned 1 exit status
-make[1]: *** [CMakeFiles/cmTC_a0839.dir/build.make:87：cmTC_a0839] 错误 1
+make[1]: *** [CMakeFiles/cmTC_dbb7c.dir/build.make:87：cmTC_dbb7c] 错误 1
 make[1]: 离开目录“/home/yanji/robot_screwing/build/screw_robot_control/CMakeFiles/CMakeTmp”
-make: *** [Makefile:121：cmTC_a0839/fast] 错误 2
+make: *** [Makefile:121：cmTC_dbb7c/fast] 错误 2
 
 
 

@@ -40,10 +40,15 @@ def safe_mkdir_recursive(directory, overwrite=False): #如果路径有多级（�
 def safe_mknode_recursive(destiny_dir, node_name, overwrite):
     safe_mkdir_recursive(destiny_dir)
     file_path = os.path.join(destiny_dir, node_name)
+    print("file_path", file_path)
+    print(os.path.exists(file_path))
+    print("overwrite",  overwrite)
     if overwrite and os.path.exists(file_path):
         os.remove(file_path)
-    if not os.path.exists(file_path):
+        print("remove")
+    else:
         os.mknod(file_path)
+        print("not")
         return False  # 文件新建
     return True  # 文件已存在
 

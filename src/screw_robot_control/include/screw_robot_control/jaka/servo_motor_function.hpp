@@ -55,8 +55,9 @@ private:
 	int32_t dxl_present_velocity;
 	int16_t dxl_present_current;
 	//Communication instance and variables
-	dynamixel::PacketHandler* packetHandler;  //抽象类
 	dynamixel::PortHandler* portHandler;
+	dynamixel::PacketHandler* packetHandler;  //抽象类
+	
 	int dxl_comm_result;
 	uint8_t dxl_error;
 

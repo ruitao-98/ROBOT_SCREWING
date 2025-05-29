@@ -1,0 +1,15 @@
+/home/yanji/robot_screwing/src/screw_robot_control/src/servo_motor_function.cpp: In member function ‘void motors::open_port()’:
+/home/yanji/robot_screwing/src/screw_robot_control/src/servo_motor_function.cpp:12:23: warning: unused variable ‘a’ [-Wunused-variable]
+   12 |                 char* a = portHandler->getPortName();
+      |                       ^
+In file included from /home/yanji/robot_screwing/src/screw_robot_control/src/servo_motor_function.cpp:1:
+/home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/servo_motor_function.hpp: In constructor ‘motors::motors()’:
+/home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/servo_motor_function.hpp:59:33: warning: ‘motors::portHandler’ will be initialized after [-Wreorder]
+   59 |         dynamixel::PortHandler* portHandler;
+      |                                 ^~~~~~~~~~~
+/home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/servo_motor_function.hpp:58:35: warning:   ‘dynamixel::PacketHandler* motors::packetHandler’ [-Wreorder]
+   58 |         dynamixel::PacketHandler* packetHandler;  //抽象类
+      |                                   ^~~~~~~~~~~~~
+/home/yanji/robot_screwing/src/screw_robot_control/src/servo_motor_function.cpp:161:1: warning:   when initialized here [-Wreorder]
+  161 | motors::motors(): portHandler(dynamixel::PortHandler::getPortHandler(device_port)),
+      | ^~~~~~

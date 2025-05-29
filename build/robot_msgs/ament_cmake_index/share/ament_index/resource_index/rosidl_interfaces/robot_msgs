@@ -16,3 +16,7 @@ srv/StartPose.idl
 srv/StartPose.srv
 srv/StartPose_Request.msg
 srv/StartPose_Response.msg
+srv/StartRotation.idl
+srv/StartRotation.srv
+srv/StartRotation_Request.msg
+srv/StartRotation_Response.msg

@@ -177,15 +177,15 @@ void RobotAdmittanceControl::get_new_link6_pose(const Eigen::Vector3d& new_linea
     new_angular = new_angular_eef * eef_offset_rotm.transpose();
 }
 
-void RobotAdmittanceControl::updata_rotation(const Eigen::Matrix3d& current_rotm, const Eigen::Vector3d& angluar_disp, Eigen::Matrix3d& new_orientation){
-    double angular_norm = angular_disp.norm();
+void RobotAdmittanceControl::updata_rotation(const Eigen::Matrix3d& current_rotm, const Eigen::Vector3d& angular_disp_local, Eigen::Matrix3d& new_orientation){
+    double angular_norm = angular_disp_local.norm();
     if (angular_norm < 1e-6) {
         new_orientation = current_rotm;
         RCLCPP_INFO(this->get_logger(), "Angular displacement too small, keeping current rotation.");
         return;
     }
 
-    Eigen::AngleAxisd delta_rotation(angular_norm, angular_disp.normalized());
+    Eigen::AngleAxisd delta_rotation(angular_norm, angular_disp_local.normalized());
     Eigen::Matrix3d delta_rotm = delta_rotation.toRotationMatrix();
     if (!isRotationMatrix(delta_rotm)) {
         RCLCPP_WARN(this->get_logger(), "Delta rotation matrix is invalid!");

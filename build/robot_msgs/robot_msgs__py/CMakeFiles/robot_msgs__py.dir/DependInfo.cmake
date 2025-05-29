@@ -26,6 +26,8 @@ set(CMAKE_MULTIPLE_OUTPUT_PAIRS
   "/home/yanji/robot_screwing/build/robot_msgs/rosidl_generator_py/robot_msgs/srv/__init__.py" "/home/yanji/robot_screwing/build/robot_msgs/rosidl_generator_py/robot_msgs/_robot_msgs_s.ep.rosidl_typesupport_fastrtps_c.c"
   "/home/yanji/robot_screwing/build/robot_msgs/rosidl_generator_py/robot_msgs/srv/_start_pose.py" "/home/yanji/robot_screwing/build/robot_msgs/rosidl_generator_py/robot_msgs/_robot_msgs_s.ep.rosidl_typesupport_fastrtps_c.c"
   "/home/yanji/robot_screwing/build/robot_msgs/rosidl_generator_py/robot_msgs/srv/_start_pose_s.c" "/home/yanji/robot_screwing/build/robot_msgs/rosidl_generator_py/robot_msgs/_robot_msgs_s.ep.rosidl_typesupport_fastrtps_c.c"
+  "/home/yanji/robot_screwing/build/robot_msgs/rosidl_generator_py/robot_msgs/srv/_start_rotation.py" "/home/yanji/robot_screwing/build/robot_msgs/rosidl_generator_py/robot_msgs/_robot_msgs_s.ep.rosidl_typesupport_fastrtps_c.c"
+  "/home/yanji/robot_screwing/build/robot_msgs/rosidl_generator_py/robot_msgs/srv/_start_rotation_s.c" "/home/yanji/robot_screwing/build/robot_msgs/rosidl_generator_py/robot_msgs/_robot_msgs_s.ep.rosidl_typesupport_fastrtps_c.c"
   )
 
 

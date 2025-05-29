@@ -27,6 +27,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/ControlCommand.msg"
   "msg/RefStatus.msg"
   "srv/StartPose.srv"
+  "srv/StartRotation.srv"
   "action/Screw.action"
   "msg/CurrentPub.msg"
   "msg/WidthPub.msg"

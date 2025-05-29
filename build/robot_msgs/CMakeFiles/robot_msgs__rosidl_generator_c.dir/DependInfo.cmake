@@ -12,6 +12,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/home/yanji/robot_screwing/build/robot_msgs/rosidl_generator_c/robot_msgs/msg/detail/robot_status__functions.c" "/home/yanji/robot_screwing/build/robot_msgs/CMakeFiles/robot_msgs__rosidl_generator_c.dir/rosidl_generator_c/robot_msgs/msg/detail/robot_status__functions.c.o"
   "/home/yanji/robot_screwing/build/robot_msgs/rosidl_generator_c/robot_msgs/msg/detail/width_pub__functions.c" "/home/yanji/robot_screwing/build/robot_msgs/CMakeFiles/robot_msgs__rosidl_generator_c.dir/rosidl_generator_c/robot_msgs/msg/detail/width_pub__functions.c.o"
   "/home/yanji/robot_screwing/build/robot_msgs/rosidl_generator_c/robot_msgs/srv/detail/start_pose__functions.c" "/home/yanji/robot_screwing/build/robot_msgs/CMakeFiles/robot_msgs__rosidl_generator_c.dir/rosidl_generator_c/robot_msgs/srv/detail/start_pose__functions.c.o"
+  "/home/yanji/robot_screwing/build/robot_msgs/rosidl_generator_c/robot_msgs/srv/detail/start_rotation__functions.c" "/home/yanji/robot_screwing/build/robot_msgs/CMakeFiles/robot_msgs__rosidl_generator_c.dir/rosidl_generator_c/robot_msgs/srv/detail/start_rotation__functions.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
@@ -68,7 +69,12 @@ set(CMAKE_MULTIPLE_OUTPUT_PAIRS
   "/home/yanji/robot_screwing/build/robot_msgs/rosidl_generator_c/robot_msgs/srv/detail/start_pose__functions.h" "/home/yanji/robot_screwing/build/robot_msgs/rosidl_generator_c/robot_msgs/msg/ft_pub.h"
   "/home/yanji/robot_screwing/build/robot_msgs/rosidl_generator_c/robot_msgs/srv/detail/start_pose__struct.h" "/home/yanji/robot_screwing/build/robot_msgs/rosidl_generator_c/robot_msgs/msg/ft_pub.h"
   "/home/yanji/robot_screwing/build/robot_msgs/rosidl_generator_c/robot_msgs/srv/detail/start_pose__type_support.h" "/home/yanji/robot_screwing/build/robot_msgs/rosidl_generator_c/robot_msgs/msg/ft_pub.h"
+  "/home/yanji/robot_screwing/build/robot_msgs/rosidl_generator_c/robot_msgs/srv/detail/start_rotation__functions.c" "/home/yanji/robot_screwing/build/robot_msgs/rosidl_generator_c/robot_msgs/msg/ft_pub.h"
+  "/home/yanji/robot_screwing/build/robot_msgs/rosidl_generator_c/robot_msgs/srv/detail/start_rotation__functions.h" "/home/yanji/robot_screwing/build/robot_msgs/rosidl_generator_c/robot_msgs/msg/ft_pub.h"
+  "/home/yanji/robot_screwing/build/robot_msgs/rosidl_generator_c/robot_msgs/srv/detail/start_rotation__struct.h" "/home/yanji/robot_screwing/build/robot_msgs/rosidl_generator_c/robot_msgs/msg/ft_pub.h"
+  "/home/yanji/robot_screwing/build/robot_msgs/rosidl_generator_c/robot_msgs/srv/detail/start_rotation__type_support.h" "/home/yanji/robot_screwing/build/robot_msgs/rosidl_generator_c/robot_msgs/msg/ft_pub.h"
   "/home/yanji/robot_screwing/build/robot_msgs/rosidl_generator_c/robot_msgs/srv/start_pose.h" "/home/yanji/robot_screwing/build/robot_msgs/rosidl_generator_c/robot_msgs/msg/ft_pub.h"
+  "/home/yanji/robot_screwing/build/robot_msgs/rosidl_generator_c/robot_msgs/srv/start_rotation.h" "/home/yanji/robot_screwing/build/robot_msgs/rosidl_generator_c/robot_msgs/msg/ft_pub.h"
   )
 
 

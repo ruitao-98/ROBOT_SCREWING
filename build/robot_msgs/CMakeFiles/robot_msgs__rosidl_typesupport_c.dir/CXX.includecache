@@ -182,6 +182,30 @@ rosidl_runtime_c/service_type_support_struct.h
 rosidl_typesupport_c/service_type_support_dispatch.h
 /home/yanji/robot_screwing/build/robot_msgs/rosidl_typesupport_c/robot_msgs/srv/rosidl_typesupport_c/service_type_support_dispatch.h
 
+/home/yanji/robot_screwing/build/robot_msgs/rosidl_typesupport_c/robot_msgs/srv/start_rotation__type_support.cpp
+cstddef
+/home/yanji/robot_screwing/build/robot_msgs/rosidl_typesupport_c/robot_msgs/srv/cstddef
+rosidl_runtime_c/message_type_support_struct.h
+/home/yanji/robot_screwing/build/robot_msgs/rosidl_typesupport_c/robot_msgs/srv/rosidl_runtime_c/message_type_support_struct.h
+robot_msgs/msg/rosidl_typesupport_c__visibility_control.h
+/home/yanji/robot_screwing/build/robot_msgs/rosidl_typesupport_c/robot_msgs/srv/robot_msgs/msg/rosidl_typesupport_c__visibility_control.h
+robot_msgs/srv/detail/start_rotation__struct.h
+/home/yanji/robot_screwing/build/robot_msgs/rosidl_typesupport_c/robot_msgs/srv/robot_msgs/srv/detail/start_rotation__struct.h
+rosidl_typesupport_c/identifier.h
+/home/yanji/robot_screwing/build/robot_msgs/rosidl_typesupport_c/robot_msgs/srv/rosidl_typesupport_c/identifier.h
+rosidl_typesupport_c/message_type_support_dispatch.h
+/home/yanji/robot_screwing/build/robot_msgs/rosidl_typesupport_c/robot_msgs/srv/rosidl_typesupport_c/message_type_support_dispatch.h
+rosidl_typesupport_c/type_support_map.h
+/home/yanji/robot_screwing/build/robot_msgs/rosidl_typesupport_c/robot_msgs/srv/rosidl_typesupport_c/type_support_map.h
+rosidl_typesupport_c/visibility_control.h
+/home/yanji/robot_screwing/build/robot_msgs/rosidl_typesupport_c/robot_msgs/srv/rosidl_typesupport_c/visibility_control.h
+rosidl_typesupport_interface/macros.h
+/home/yanji/robot_screwing/build/robot_msgs/rosidl_typesupport_c/robot_msgs/srv/rosidl_typesupport_interface/macros.h
+rosidl_runtime_c/service_type_support_struct.h
+/home/yanji/robot_screwing/build/robot_msgs/rosidl_typesupport_c/robot_msgs/srv/rosidl_runtime_c/service_type_support_struct.h
+rosidl_typesupport_c/service_type_support_dispatch.h
+/home/yanji/robot_screwing/build/robot_msgs/rosidl_typesupport_c/robot_msgs/srv/rosidl_typesupport_c/service_type_support_dispatch.h
+
 /opt/ros/foxy/include/action_msgs/msg/detail/goal_info__struct.h
 stdbool.h
 -
@@ -459,6 +483,16 @@ stdint.h
 rosidl_generator_c/robot_msgs/msg/rosidl_generator_c__visibility_control.h
 
 rosidl_generator_c/robot_msgs/srv/detail/start_pose__struct.h
+stdbool.h
+-
+stddef.h
+-
+stdint.h
+-
+rosidl_runtime_c/string.h
+rosidl_generator_c/robot_msgs/srv/detail/rosidl_runtime_c/string.h
+
+rosidl_generator_c/robot_msgs/srv/detail/start_rotation__struct.h
 stdbool.h
 -
 stddef.h

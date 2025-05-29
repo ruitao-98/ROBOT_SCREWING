@@ -1,0 +1,14 @@
+{
+  "package_name": "rosbag2_test_msgdefs",
+  "non_idl_tuples": [
+    "/home/yanji/robot_screwing/src/rosbag2/rosbag2_test_msgdefs:msg/BasicMsg.msg",
+    "/home/yanji/robot_screwing/src/rosbag2/rosbag2_test_msgdefs:msg/ComplexMsg.msg",
+    "/home/yanji/robot_screwing/src/rosbag2/rosbag2_test_msgdefs:msg/ComplexMsgDependsOnIdl.msg",
+    "/home/yanji/robot_screwing/src/rosbag2/rosbag2_test_msgdefs:srv/BasicSrv.srv",
+    "/home/yanji/robot_screwing/src/rosbag2/rosbag2_test_msgdefs:srv/ComplexSrvMsg.srv",
+    "/home/yanji/robot_screwing/src/rosbag2/rosbag2_test_msgdefs:srv/ComplexSrvIdl.srv",
+    "/home/yanji/robot_screwing/src/rosbag2/rosbag2_test_msgdefs:action/BasicAction.action",
+    "/home/yanji/robot_screwing/src/rosbag2/rosbag2_test_msgdefs:action/ComplexActionMsg.action",
+    "/home/yanji/robot_screwing/src/rosbag2/rosbag2_test_msgdefs:action/ComplexActionIdl.action"
+  ]
+}

@@ -281,11 +281,11 @@ CMakeFiles/right_arm_control_tcp.dir/src/right_arm_control_tcp.cpp.o: /home/yanj
 CMakeFiles/right_arm_control_tcp.dir/src/right_arm_control_tcp.cpp.o: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg/robot_status.hpp
 CMakeFiles/right_arm_control_tcp.dir/src/right_arm_control_tcp.cpp.o: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg/rosidl_generator_cpp__visibility_control.hpp
 CMakeFiles/right_arm_control_tcp.dir/src/right_arm_control_tcp.cpp.o: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg/width_pub.hpp
-CMakeFiles/right_arm_control_tcp.dir/src/right_arm_control_tcp.cpp.o: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/srv/detail/start_pose__builder.hpp
-CMakeFiles/right_arm_control_tcp.dir/src/right_arm_control_tcp.cpp.o: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/srv/detail/start_pose__struct.hpp
-CMakeFiles/right_arm_control_tcp.dir/src/right_arm_control_tcp.cpp.o: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/srv/detail/start_pose__traits.hpp
-CMakeFiles/right_arm_control_tcp.dir/src/right_arm_control_tcp.cpp.o: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/srv/detail/start_pose__type_support.hpp
-CMakeFiles/right_arm_control_tcp.dir/src/right_arm_control_tcp.cpp.o: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/srv/start_pose.hpp
+CMakeFiles/right_arm_control_tcp.dir/src/right_arm_control_tcp.cpp.o: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/srv/detail/start_rotation__builder.hpp
+CMakeFiles/right_arm_control_tcp.dir/src/right_arm_control_tcp.cpp.o: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/srv/detail/start_rotation__struct.hpp
+CMakeFiles/right_arm_control_tcp.dir/src/right_arm_control_tcp.cpp.o: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/srv/detail/start_rotation__traits.hpp
+CMakeFiles/right_arm_control_tcp.dir/src/right_arm_control_tcp.cpp.o: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/srv/detail/start_rotation__type_support.hpp
+CMakeFiles/right_arm_control_tcp.dir/src/right_arm_control_tcp.cpp.o: /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/srv/start_rotation.hpp
 CMakeFiles/right_arm_control_tcp.dir/src/right_arm_control_tcp.cpp.o: /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/dynamixel/dynamixel_sdk.h
 CMakeFiles/right_arm_control_tcp.dir/src/right_arm_control_tcp.cpp.o: /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/dynamixel/group_bulk_read.h
 CMakeFiles/right_arm_control_tcp.dir/src/right_arm_control_tcp.cpp.o: /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/dynamixel/group_bulk_write.h

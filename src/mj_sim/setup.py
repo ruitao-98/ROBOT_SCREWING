@@ -25,6 +25,7 @@ setup(
         'console_scripts': [
             "robot_sim_env = mj_sim.robot_sim_env:main",
             "mpc_node = mj_sim.mpc_node:main",
+            "pose_mpc_node = mj_sim.pose_mpc_node:main",
         ],
     },
 )

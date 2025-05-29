@@ -1676,9 +1676,9 @@ robot_msgs/msg/detail/width_pub__traits.hpp
 robot_msgs/msg/detail/width_pub__type_support.hpp
 /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/msg/robot_msgs/msg/detail/width_pub__type_support.hpp
 
-/home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/srv/detail/start_pose__builder.hpp
-robot_msgs/srv/detail/start_pose__struct.hpp
-/home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/srv/detail/robot_msgs/srv/detail/start_pose__struct.hpp
+/home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/srv/detail/start_rotation__builder.hpp
+robot_msgs/srv/detail/start_rotation__struct.hpp
+/home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/srv/detail/robot_msgs/srv/detail/start_rotation__struct.hpp
 rosidl_runtime_cpp/message_initialization.hpp
 -
 algorithm
@@ -1686,7 +1686,7 @@ algorithm
 utility
 -
 
-/home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/srv/detail/start_pose__struct.hpp
+/home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/srv/detail/start_rotation__struct.hpp
 rosidl_runtime_cpp/bounded_vector.hpp
 -
 rosidl_runtime_cpp/message_initialization.hpp
@@ -1702,9 +1702,9 @@ string
 vector
 -
 
-/home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/srv/detail/start_pose__traits.hpp
-robot_msgs/srv/detail/start_pose__struct.hpp
-/home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/srv/detail/robot_msgs/srv/detail/start_pose__struct.hpp
+/home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/srv/detail/start_rotation__traits.hpp
+robot_msgs/srv/detail/start_rotation__struct.hpp
+/home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/srv/detail/robot_msgs/srv/detail/start_rotation__struct.hpp
 rosidl_runtime_cpp/traits.hpp
 -
 stdint.h
@@ -1712,7 +1712,7 @@ stdint.h
 type_traits
 -
 
-/home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/srv/detail/start_pose__type_support.hpp
+/home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/srv/detail/start_rotation__type_support.hpp
 rosidl_typesupport_interface/macros.h
 /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/srv/detail/rosidl_typesupport_interface/macros.h
 robot_msgs/msg/rosidl_generator_cpp__visibility_control.hpp
@@ -1722,15 +1722,15 @@ rosidl_typesupport_cpp/service_type_support.hpp
 rosidl_typesupport_cpp/message_type_support.hpp
 /home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/srv/detail/rosidl_typesupport_cpp/message_type_support.hpp
 
-/home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/srv/start_pose.hpp
-robot_msgs/srv/detail/start_pose__struct.hpp
-/home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/srv/robot_msgs/srv/detail/start_pose__struct.hpp
-robot_msgs/srv/detail/start_pose__builder.hpp
-/home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/srv/robot_msgs/srv/detail/start_pose__builder.hpp
-robot_msgs/srv/detail/start_pose__traits.hpp
-/home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/srv/robot_msgs/srv/detail/start_pose__traits.hpp
-robot_msgs/srv/detail/start_pose__type_support.hpp
-/home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/srv/robot_msgs/srv/detail/start_pose__type_support.hpp
+/home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/srv/start_rotation.hpp
+robot_msgs/srv/detail/start_rotation__struct.hpp
+/home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/srv/robot_msgs/srv/detail/start_rotation__struct.hpp
+robot_msgs/srv/detail/start_rotation__builder.hpp
+/home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/srv/robot_msgs/srv/detail/start_rotation__builder.hpp
+robot_msgs/srv/detail/start_rotation__traits.hpp
+/home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/srv/robot_msgs/srv/detail/start_rotation__traits.hpp
+robot_msgs/srv/detail/start_rotation__type_support.hpp
+/home/yanji/robot_screwing/install/robot_msgs/include/robot_msgs/srv/robot_msgs/srv/detail/start_rotation__type_support.hpp
 
 /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/dynamixel/dynamixel_sdk.h
 group_bulk_read.h
@@ -1851,7 +1851,7 @@ robot_msgs/msg/ref_status.hpp
 -
 robot_msgs/msg/control_command.hpp
 -
-robot_msgs/srv/start_pose.hpp
+robot_msgs/srv/start_rotation.hpp
 -
 
 /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/screwing_tool.hpp

@@ -241,7 +241,7 @@ def predict_next_state(mpc_opti, current_state, ref_state, control_input):
     delta_f = 0  # GP 预测的力修正值
 
     # 调用 CasADi 函数并求值
-    s_next = mpc_opti.f(s, s_r, delta_f, u)
+    s_next = mpc_opti.f(s, s_r, u, delta_f)
     
     # 将 CasADi DM 类型转换为 NumPy 数组
     s_next_numeric = np.array(s_next).flatten()

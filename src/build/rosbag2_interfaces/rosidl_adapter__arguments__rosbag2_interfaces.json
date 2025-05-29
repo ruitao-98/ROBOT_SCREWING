@@ -1,0 +1,20 @@
+{
+  "package_name": "rosbag2_interfaces",
+  "non_idl_tuples": [
+    "/home/yanji/robot_screwing/src/rosbag2/rosbag2_interfaces:msg/ReadSplitEvent.msg",
+    "/home/yanji/robot_screwing/src/rosbag2/rosbag2_interfaces:msg/WriteSplitEvent.msg",
+    "/home/yanji/robot_screwing/src/rosbag2/rosbag2_interfaces:srv/Burst.srv",
+    "/home/yanji/robot_screwing/src/rosbag2/rosbag2_interfaces:srv/GetRate.srv",
+    "/home/yanji/robot_screwing/src/rosbag2/rosbag2_interfaces:srv/IsPaused.srv",
+    "/home/yanji/robot_screwing/src/rosbag2/rosbag2_interfaces:srv/Pause.srv",
+    "/home/yanji/robot_screwing/src/rosbag2/rosbag2_interfaces:srv/Play.srv",
+    "/home/yanji/robot_screwing/src/rosbag2/rosbag2_interfaces:srv/PlayNext.srv",
+    "/home/yanji/robot_screwing/src/rosbag2/rosbag2_interfaces:srv/Resume.srv",
+    "/home/yanji/robot_screwing/src/rosbag2/rosbag2_interfaces:srv/Seek.srv",
+    "/home/yanji/robot_screwing/src/rosbag2/rosbag2_interfaces:srv/SetRate.srv",
+    "/home/yanji/robot_screwing/src/rosbag2/rosbag2_interfaces:srv/Snapshot.srv",
+    "/home/yanji/robot_screwing/src/rosbag2/rosbag2_interfaces:srv/SplitBagfile.srv",
+    "/home/yanji/robot_screwing/src/rosbag2/rosbag2_interfaces:srv/Stop.srv",
+    "/home/yanji/robot_screwing/src/rosbag2/rosbag2_interfaces:srv/TogglePaused.srv"
+  ]
+}

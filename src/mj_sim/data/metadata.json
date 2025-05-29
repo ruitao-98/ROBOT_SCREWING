@@ -14,5 +14,15 @@
                 "screw2": false
             }
         }
+    },
+    "real_dataset": {
+        "train": {
+            "dataset_001": {
+                "groove1": false,
+                "groove2": false,
+                "screw1": true,
+                "screw2": false
+            }
+        }
     }
 }

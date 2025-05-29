@@ -1,0 +1,149 @@
+[0.005s] Invoking command in '/home/yanji/robot_screwing/src/build/screw_robot_control': AMENT_PREFIX_PATH=/home/yanji/robot_screwing/src/install/robot_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/yanji/robot_screwing/src/install/robot_msgs:/home/yanji/robot_screwing/install/screw_robot_control:/home/yanji/robot_screwing/install/robot_msgs:/home/yanji/robot_screwing/install/real_robot:/home/yanji/robot_screwing/install/mj_sim:/opt/ros/foxy CONDA_PROMPT_MODIFIER=(screwrobot) LD_LIBRARY_PATH=/home/yanji/robot_screwing/src/install/robot_msgs/lib:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/home/yanji/robot_screwing/install/screw_robot_control/lib:/home/yanji/robot_screwing/install/robot_msgs/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/local/cuda/lib64:/usr/local/cuda/lib64 PYTHONPATH=/home/yanji/robot_screwing/src/install/robot_msgs/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake /home/yanji/robot_screwing/src/screw_robot_control -DCMAKE_INSTALL_PREFIX=/home/yanji/robot_screwing/src/install/screw_robot_control
+[0.040s] -- The C compiler identification is GNU 9.4.0
+[0.074s] -- The CXX compiler identification is GNU 13.1.0
+[0.076s] -- Check for working C compiler: /usr/lib/ccache/cc
+[0.118s] -- Check for working C compiler: /usr/lib/ccache/cc -- works
+[0.119s] -- Detecting C compiler ABI info
+[0.159s] -- Detecting C compiler ABI info - done
+[0.177s] -- Detecting C compile features
+[0.177s] -- Detecting C compile features - done
+[0.179s] -- Check for working CXX compiler: /usr/lib/ccache/c++
+[0.228s] -- Check for working CXX compiler: /usr/lib/ccache/c++ -- works
+[0.229s] -- Detecting CXX compiler ABI info
+[0.281s] -- Detecting CXX compiler ABI info - done
+[0.287s] -- Detecting CXX compile features
+[0.287s] -- Detecting CXX compile features - done
+[0.288s] -- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.300s] -- Found PythonInterp: /home/yanji/anaconda3/envs/screwrobot/bin/python3 (found suitable version "3.8.20", minimum required is "3") 
+[0.300s] -- Using PYTHON_EXECUTABLE: /home/yanji/anaconda3/envs/screwrobot/bin/python3
+[0.384s] -- Found rclcpp: 2.4.3 (/opt/ros/foxy/share/rclcpp/cmake)
+[0.408s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.411s] -- Found rosidl_adapter: 1.3.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[0.451s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "1.1.1f")  
+[0.468s] -- Found FastRTPS: /opt/ros/foxy/include  
+[0.508s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.536s] -- Found rmw_implementation_cmake: 1.0.4 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+[0.536s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.537s] -- Looking for pthread.h
+[0.574s] -- Looking for pthread.h - found
+[0.574s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[0.613s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+[0.613s] -- Looking for pthread_create in pthreads
+[0.666s] -- Looking for pthread_create in pthreads - not found
+[0.667s] -- Looking for pthread_create in pthread
+[0.703s] -- Looking for pthread_create in pthread - found
+[0.704s] -- Found Threads: TRUE  
+[0.778s] -- Found geometry_msgs: 2.0.5 (/opt/ros/foxy/share/geometry_msgs/cmake)
+[0.795s] -- Found robot_msgs: 0.0.0 (/home/yanji/robot_screwing/src/install/robot_msgs/share/robot_msgs/cmake)
+[0.859s] -- Found rclcpp_action: 2.4.3 (/opt/ros/foxy/share/rclcpp_action/cmake)
+[0.879s] -- Found ament_lint_auto: 0.9.8 (/opt/ros/foxy/share/ament_lint_auto/cmake)
+[0.924s] -- Added test 'copyright' to check source files copyright and LICENSE
+[0.925s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[0.926s] -- Configured cppcheck include dirs: /home/yanji/robot_screwing/src/screw_robot_control/include;/home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control
+[0.926s] -- Configured cppcheck exclude dirs and/or files: 
+[0.926s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[0.926s] -- Configured cpplint exclude dirs and/or files: 
+[0.927s] -- Added test 'flake8' to check Python code syntax and style conventions
+[0.927s] -- Added test 'lint_cmake' to check CMake code style
+[0.927s] -- Added test 'pep257' to check Python code against some of the style conventions in PEP 257
+[0.928s] -- Added test 'uncrustify' to check C / C++ code style
+[0.928s] -- Configured uncrustify additional arguments: 
+[0.929s] -- Added test 'xmllint' to check XML markup files
+[0.930s] -- Configuring done
+[0.944s] -- Generating done
+[0.950s] -- Build files have been written to: /home/yanji/robot_screwing/src/build/screw_robot_control
+[0.956s] Invoked command in '/home/yanji/robot_screwing/src/build/screw_robot_control' returned '0': AMENT_PREFIX_PATH=/home/yanji/robot_screwing/src/install/robot_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/yanji/robot_screwing/src/install/robot_msgs:/home/yanji/robot_screwing/install/screw_robot_control:/home/yanji/robot_screwing/install/robot_msgs:/home/yanji/robot_screwing/install/real_robot:/home/yanji/robot_screwing/install/mj_sim:/opt/ros/foxy CONDA_PROMPT_MODIFIER=(screwrobot) LD_LIBRARY_PATH=/home/yanji/robot_screwing/src/install/robot_msgs/lib:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/home/yanji/robot_screwing/install/screw_robot_control/lib:/home/yanji/robot_screwing/install/robot_msgs/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/local/cuda/lib64:/usr/local/cuda/lib64 PYTHONPATH=/home/yanji/robot_screwing/src/install/robot_msgs/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake /home/yanji/robot_screwing/src/screw_robot_control -DCMAKE_INSTALL_PREFIX=/home/yanji/robot_screwing/src/install/screw_robot_control
+[0.956s] Invoking command in '/home/yanji/robot_screwing/src/build/screw_robot_control': AMENT_PREFIX_PATH=/home/yanji/robot_screwing/src/install/robot_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/yanji/robot_screwing/src/install/robot_msgs:/home/yanji/robot_screwing/install/screw_robot_control:/home/yanji/robot_screwing/install/robot_msgs:/home/yanji/robot_screwing/install/real_robot:/home/yanji/robot_screwing/install/mj_sim:/opt/ros/foxy CONDA_PROMPT_MODIFIER=(screwrobot) LD_LIBRARY_PATH=/home/yanji/robot_screwing/src/install/robot_msgs/lib:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/home/yanji/robot_screwing/install/screw_robot_control/lib:/home/yanji/robot_screwing/install/robot_msgs/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/local/cuda/lib64:/usr/local/cuda/lib64 PYTHONPATH=/home/yanji/robot_screwing/src/install/robot_msgs/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/yanji/robot_screwing/src/build/screw_robot_control -- -j24 -l24
+[0.973s] [35m[1mScanning dependencies of target SERVO_MOTOR[0m
+[0.978s] [ 10%] [32mBuilding CXX object CMakeFiles/SERVO_MOTOR.dir/src/servo_motor_function.cpp.o[0m
+[1.001s] /home/yanji/robot_screwing/src/screw_robot_control/src/servo_motor_function.cpp: In member function ‘void motors::open_port()’:
+[1.001s] /home/yanji/robot_screwing/src/screw_robot_control/src/servo_motor_function.cpp:12:23: warning: unused variable ‘a’ [-Wunused-variable]
+[1.001s]    12 |                 char* a = portHandler->getPortName();
+[1.001s]       |                       ^
+[1.001s] In file included from /home/yanji/robot_screwing/src/screw_robot_control/src/servo_motor_function.cpp:1:
+[1.001s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/servo_motor_function.hpp: In constructor ‘motors::motors()’:
+[1.002s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/servo_motor_function.hpp:59:33: warning: ‘motors::portHandler’ will be initialized after [-Wreorder]
+[1.002s]    59 |         dynamixel::PortHandler* portHandler;
+[1.002s]       |                                 ^~~~~~~~~~~
+[1.002s] /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/servo_motor_function.hpp:58:35: warning:   ‘dynamixel::PacketHandler* motors::packetHandler’ [-Wreorder]
+[1.002s]    58 |         dynamixel::PacketHandler* packetHandler;  //抽象类
+[1.002s]       |                                   ^~~~~~~~~~~~~
+[1.002s] /home/yanji/robot_screwing/src/screw_robot_control/src/servo_motor_function.cpp:161:1: warning:   when initialized here [-Wreorder]
+[1.002s]   161 | motors::motors(): portHandler(dynamixel::PortHandler::getPortHandler(device_port)),
+[1.002s]       | ^~~~~~
+[1.005s] [ 20%] [32m[1mLinking CXX shared library libSERVO_MOTOR.so[0m
+[1.033s] [ 20%] Built target SERVO_MOTOR
+[1.037s] [35m[1mScanning dependencies of target SCREWING_TOOL[0m
+[1.056s] [ 30%] [32mBuilding CXX object CMakeFiles/SCREWING_TOOL.dir/src/screwing_tool.cpp.o[0m
+[2.042s] [ 40%] [32m[1mLinking CXX shared library libSCREWING_TOOL.so[0m
+[2.082s] [ 40%] Built target SCREWING_TOOL
+[2.086s] [35m[1mScanning dependencies of target right_arm_control[0m
+[2.086s] [35m[1mScanning dependencies of target right_arm_control_tcp[0m
+[2.086s] [35m[1mScanning dependencies of target task_control_screw[0m
+[2.107s] [ 50%] [32mBuilding CXX object CMakeFiles/task_control_screw.dir/src/task_control_screw.cpp.o[0m
+[2.124s] [ 60%] [32mBuilding CXX object CMakeFiles/right_arm_control_tcp.dir/src/right_arm_control_tcp.cpp.o[0m
+[2.124s] [ 70%] [32mBuilding CXX object CMakeFiles/right_arm_control.dir/src/right_arm_control.cpp.o[0m
+[4.258s] [ 80%] [32m[1mLinking CXX executable task_control_screw[0m
+[4.349s] [ 80%] Built target task_control_screw
+[7.932s] [ 90%] [32m[1mLinking CXX executable right_arm_control[0m
+[8.151s] [ 90%] Built target right_arm_control
+[8.191s] [100%] [32m[1mLinking CXX executable right_arm_control_tcp[0m
+[8.405s] [100%] Built target right_arm_control_tcp
+[8.410s] Invoked command in '/home/yanji/robot_screwing/src/build/screw_robot_control' returned '0': AMENT_PREFIX_PATH=/home/yanji/robot_screwing/src/install/robot_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/yanji/robot_screwing/src/install/robot_msgs:/home/yanji/robot_screwing/install/screw_robot_control:/home/yanji/robot_screwing/install/robot_msgs:/home/yanji/robot_screwing/install/real_robot:/home/yanji/robot_screwing/install/mj_sim:/opt/ros/foxy CONDA_PROMPT_MODIFIER=(screwrobot) LD_LIBRARY_PATH=/home/yanji/robot_screwing/src/install/robot_msgs/lib:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/home/yanji/robot_screwing/install/screw_robot_control/lib:/home/yanji/robot_screwing/install/robot_msgs/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/local/cuda/lib64:/usr/local/cuda/lib64 PYTHONPATH=/home/yanji/robot_screwing/src/install/robot_msgs/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/yanji/robot_screwing/src/build/screw_robot_control -- -j24 -l24
+[8.412s] Invoking command in '/home/yanji/robot_screwing/src/build/screw_robot_control': AMENT_PREFIX_PATH=/home/yanji/robot_screwing/src/install/robot_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/yanji/robot_screwing/src/install/robot_msgs:/home/yanji/robot_screwing/install/screw_robot_control:/home/yanji/robot_screwing/install/robot_msgs:/home/yanji/robot_screwing/install/real_robot:/home/yanji/robot_screwing/install/mj_sim:/opt/ros/foxy CONDA_PROMPT_MODIFIER=(screwrobot) LD_LIBRARY_PATH=/home/yanji/robot_screwing/src/install/robot_msgs/lib:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/home/yanji/robot_screwing/install/screw_robot_control/lib:/home/yanji/robot_screwing/install/robot_msgs/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/local/cuda/lib64:/usr/local/cuda/lib64 PYTHONPATH=/home/yanji/robot_screwing/src/install/robot_msgs/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --install /home/yanji/robot_screwing/src/build/screw_robot_control
+[8.415s] -- Install configuration: ""
+[8.415s] -- Installing: /home/yanji/robot_screwing/src/install/screw_robot_control/lib/libSERVO_MOTOR.so
+[8.416s] -- Set runtime path of "/home/yanji/robot_screwing/src/install/screw_robot_control/lib/libSERVO_MOTOR.so" to ""
+[8.416s] -- Installing: /home/yanji/robot_screwing/src/install/screw_robot_control/lib/libSCREWING_TOOL.so
+[8.416s] -- Set runtime path of "/home/yanji/robot_screwing/src/install/screw_robot_control/lib/libSCREWING_TOOL.so" to ""
+[8.416s] -- Installing: /home/yanji/robot_screwing/src/install/screw_robot_control/lib/screw_robot_control/right_arm_control
+[8.418s] -- Set runtime path of "/home/yanji/robot_screwing/src/install/screw_robot_control/lib/screw_robot_control/right_arm_control" to ""
+[8.418s] -- Installing: /home/yanji/robot_screwing/src/install/screw_robot_control/lib/screw_robot_control/task_control_screw
+[8.418s] -- Set runtime path of "/home/yanji/robot_screwing/src/install/screw_robot_control/lib/screw_robot_control/task_control_screw" to ""
+[8.419s] -- Installing: /home/yanji/robot_screwing/src/install/screw_robot_control/lib/screw_robot_control/right_arm_control_tcp
+[8.421s] -- Set runtime path of "/home/yanji/robot_screwing/src/install/screw_robot_control/lib/screw_robot_control/right_arm_control_tcp" to ""
+[8.421s] -- Installing: /home/yanji/robot_screwing/src/install/screw_robot_control/lib/libjakaAPI.so
+[8.422s] -- Installing: /home/yanji/robot_screwing/src/install/screw_robot_control/lib/libdxl_x64_cpp.so
+[8.423s] -- Installing: /home/yanji/robot_screwing/src/install/screw_robot_control/include
+[8.423s] -- Installing: /home/yanji/robot_screwing/src/install/screw_robot_control/include/screw_robot_control
+[8.423s] -- Installing: /home/yanji/robot_screwing/src/install/screw_robot_control/include/screw_robot_control/dynamixel
+[8.423s] -- Installing: /home/yanji/robot_screwing/src/install/screw_robot_control/include/screw_robot_control/dynamixel/dynamixel_sdk.h
+[8.423s] -- Installing: /home/yanji/robot_screwing/src/install/screw_robot_control/include/screw_robot_control/dynamixel/port_handler.h
+[8.423s] -- Installing: /home/yanji/robot_screwing/src/install/screw_robot_control/include/screw_robot_control/dynamixel/packet_handler.h
+[8.423s] -- Installing: /home/yanji/robot_screwing/src/install/screw_robot_control/include/screw_robot_control/dynamixel/group_bulk_read.h
+[8.423s] -- Installing: /home/yanji/robot_screwing/src/install/screw_robot_control/include/screw_robot_control/dynamixel/protocol1_packet_handler.h
+[8.423s] -- Installing: /home/yanji/robot_screwing/src/install/screw_robot_control/include/screw_robot_control/dynamixel/port_handler_arduino.h
+[8.423s] -- Installing: /home/yanji/robot_screwing/src/install/screw_robot_control/include/screw_robot_control/dynamixel/group_sync_write.h
+[8.423s] -- Installing: /home/yanji/robot_screwing/src/install/screw_robot_control/include/screw_robot_control/dynamixel/port_handler_linux.h
+[8.423s] -- Installing: /home/yanji/robot_screwing/src/install/screw_robot_control/include/screw_robot_control/dynamixel/port_handler_windows.h
+[8.423s] -- Installing: /home/yanji/robot_screwing/src/install/screw_robot_control/include/screw_robot_control/dynamixel/protocol2_packet_handler.h
+[8.423s] -- Installing: /home/yanji/robot_screwing/src/install/screw_robot_control/include/screw_robot_control/dynamixel/port_handler_mac.h
+[8.423s] -- Installing: /home/yanji/robot_screwing/src/install/screw_robot_control/include/screw_robot_control/dynamixel/group_sync_read.h
+[8.423s] -- Installing: /home/yanji/robot_screwing/src/install/screw_robot_control/include/screw_robot_control/dynamixel/group_bulk_write.h
+[8.423s] -- Installing: /home/yanji/robot_screwing/src/install/screw_robot_control/include/screw_robot_control/jaka
+[8.423s] -- Installing: /home/yanji/robot_screwing/src/install/screw_robot_control/include/screw_robot_control/jaka/right_arm_control.hpp
+[8.423s] -- Installing: /home/yanji/robot_screwing/src/install/screw_robot_control/include/screw_robot_control/jaka/servo_motor_function.hpp
+[8.423s] -- Installing: /home/yanji/robot_screwing/src/install/screw_robot_control/include/screw_robot_control/jaka/JAKAZuRobot.h
+[8.423s] -- Installing: /home/yanji/robot_screwing/src/install/screw_robot_control/include/screw_robot_control/jaka/jktypes.h
+[8.424s] -- Installing: /home/yanji/robot_screwing/src/install/screw_robot_control/include/screw_robot_control/jaka/task_control_screw.hpp
+[8.424s] -- Installing: /home/yanji/robot_screwing/src/install/screw_robot_control/include/screw_robot_control/jaka/jkerr.h
+[8.424s] -- Installing: /home/yanji/robot_screwing/src/install/screw_robot_control/include/screw_robot_control/jaka/right_arm_control_tcp.hpp
+[8.424s] -- Installing: /home/yanji/robot_screwing/src/install/screw_robot_control/include/screw_robot_control/jaka/screwing_tool.hpp
+[8.424s] -- Installing: /home/yanji/robot_screwing/src/install/screw_robot_control/share/screw_robot_control/launch
+[8.424s] -- Installing: /home/yanji/robot_screwing/src/install/screw_robot_control/share/screw_robot_control/launch/server_mpc.launch.py
+[8.424s] -- Installing: /home/yanji/robot_screwing/src/install/screw_robot_control/share/ament_index/resource_index/package_run_dependencies/screw_robot_control
+[8.424s] -- Installing: /home/yanji/robot_screwing/src/install/screw_robot_control/share/ament_index/resource_index/parent_prefix_path/screw_robot_control
+[8.424s] -- Installing: /home/yanji/robot_screwing/src/install/screw_robot_control/share/screw_robot_control/environment/ament_prefix_path.sh
+[8.424s] -- Installing: /home/yanji/robot_screwing/src/install/screw_robot_control/share/screw_robot_control/environment/ament_prefix_path.dsv
+[8.424s] -- Installing: /home/yanji/robot_screwing/src/install/screw_robot_control/share/screw_robot_control/environment/path.sh
+[8.424s] -- Installing: /home/yanji/robot_screwing/src/install/screw_robot_control/share/screw_robot_control/environment/path.dsv
+[8.424s] -- Installing: /home/yanji/robot_screwing/src/install/screw_robot_control/share/screw_robot_control/local_setup.bash
+[8.424s] -- Installing: /home/yanji/robot_screwing/src/install/screw_robot_control/share/screw_robot_control/local_setup.sh
+[8.424s] -- Installing: /home/yanji/robot_screwing/src/install/screw_robot_control/share/screw_robot_control/local_setup.zsh
+[8.424s] -- Installing: /home/yanji/robot_screwing/src/install/screw_robot_control/share/screw_robot_control/local_setup.dsv
+[8.424s] -- Installing: /home/yanji/robot_screwing/src/install/screw_robot_control/share/screw_robot_control/package.dsv
+[8.424s] -- Installing: /home/yanji/robot_screwing/src/install/screw_robot_control/share/ament_index/resource_index/packages/screw_robot_control
+[8.425s] -- Installing: /home/yanji/robot_screwing/src/install/screw_robot_control/share/screw_robot_control/cmake/screw_robot_controlConfig.cmake
+[8.425s] -- Installing: /home/yanji/robot_screwing/src/install/screw_robot_control/share/screw_robot_control/cmake/screw_robot_controlConfig-version.cmake
+[8.425s] -- Installing: /home/yanji/robot_screwing/src/install/screw_robot_control/share/screw_robot_control/package.xml
+[8.426s] Invoked command in '/home/yanji/robot_screwing/src/build/screw_robot_control' returned '0': AMENT_PREFIX_PATH=/home/yanji/robot_screwing/src/install/robot_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/yanji/robot_screwing/src/install/robot_msgs:/home/yanji/robot_screwing/install/screw_robot_control:/home/yanji/robot_screwing/install/robot_msgs:/home/yanji/robot_screwing/install/real_robot:/home/yanji/robot_screwing/install/mj_sim:/opt/ros/foxy CONDA_PROMPT_MODIFIER=(screwrobot) LD_LIBRARY_PATH=/home/yanji/robot_screwing/src/install/robot_msgs/lib:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/home/yanji/robot_screwing/install/screw_robot_control/lib:/home/yanji/robot_screwing/install/robot_msgs/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/local/cuda/lib64:/usr/local/cuda/lib64 PYTHONPATH=/home/yanji/robot_screwing/src/install/robot_msgs/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --install /home/yanji/robot_screwing/src/build/screw_robot_control

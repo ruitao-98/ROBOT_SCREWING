@@ -60,6 +60,9 @@ CMakeFiles/robot_msgs: /home/yanji/robot_screwing/src/robot_msgs/msg/RefStatus.m
 CMakeFiles/robot_msgs: /home/yanji/robot_screwing/src/robot_msgs/srv/StartPose.srv
 CMakeFiles/robot_msgs: rosidl_cmake/srv/StartPose_Request.msg
 CMakeFiles/robot_msgs: rosidl_cmake/srv/StartPose_Response.msg
+CMakeFiles/robot_msgs: /home/yanji/robot_screwing/src/robot_msgs/srv/StartRotation.srv
+CMakeFiles/robot_msgs: rosidl_cmake/srv/StartRotation_Request.msg
+CMakeFiles/robot_msgs: rosidl_cmake/srv/StartRotation_Response.msg
 CMakeFiles/robot_msgs: /home/yanji/robot_screwing/src/robot_msgs/action/Screw.action
 CMakeFiles/robot_msgs: /home/yanji/robot_screwing/src/robot_msgs/msg/CurrentPub.msg
 CMakeFiles/robot_msgs: /home/yanji/robot_screwing/src/robot_msgs/msg/WidthPub.msg
