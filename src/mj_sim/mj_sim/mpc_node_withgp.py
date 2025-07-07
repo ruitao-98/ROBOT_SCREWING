@@ -35,9 +35,8 @@ class MPCWrapper(Node):
     def __init__(self):
         super().__init__("mpc_node")  # 初始化节点，命名为 'mpc_node'
         # 变量和类继承
-                # 加载 GP 模型
-        # git_version = '4196701'  # 长物体的实验结果
-        # git_version = "0c85e6c"  # 短物体的实验结果
+        # 加载 GP 模型
+
         git_version = "0826d04"  # 短物体的实验结果
         model_name = "simple_sim_gp"
         sim_options = Conf.ds_metadata
@@ -81,7 +80,7 @@ class MPCWrapper(Node):
 
         # 声明参数并提供默认值
         self.declare_parameter('t0', 0.0)
-        self.declare_parameter('traj_length', 0.17)
+        self.declare_parameter('traj_length', 0.2)
         self.declare_parameter('speed', 0.01)
         self.declare_parameter('dt', 0.008)
         self.declare_parameter('position_sequence', [0.0, 0.0, 0.0])
@@ -123,7 +122,7 @@ class MPCWrapper(Node):
         # 处理轨迹，根据当前状态更新期望参考轨迹，根据当前已经前进的步数，也就是self.current_idx变量，更新当前位置
         # 每次优化递增 1（self.current_idx += 1），与优化频率（25 Hz，每 40ms 一步）同步。
         self.current_idx = 0
-
+        self.late_step = 2
         # 初始化单个维度的状态和控制量
         self.x0 = np.array([0.0, 0.0, 0.0]).reshape(-1, 1)  
         self.u0 = np.array([-300, -50, 0.5] * self.N).reshape(-1, 3).T   #  .T 后 是3 *N
@@ -222,7 +221,7 @@ class MPCWrapper(Node):
 
         self.mpc_counter += 1
 
-        if self.mpc_counter % 3 == 0:
+        if self.mpc_counter % self.late_step == 0:
         # 检查上一次线程是否完成
             if hasattr(self, 'mpc_thread') and self.mpc_thread.is_alive():
                 print(f"MPC 线程仍在运行，跳过本次优化 (idx={self.current_idx})")
@@ -237,7 +236,7 @@ class MPCWrapper(Node):
     def run_mpc(self):
         ref_traj = self.set_reference()
         start_time = time.perf_counter()
-        for i in np.arange(0, int(self.traj_all_base.shape[1]), 3):
+        for i in np.arange(0, int(self.traj_all_base.shape[1]) - 3, 3):
             item = int(i/3) #第item个维度求解
             c_p = ref_traj[:, i:i+3].T  #3*N
 
@@ -294,9 +293,8 @@ class MPCWrapper(Node):
         command = ControlCommand()
         # command.d = [-self.U0[0][1, 0]/self.U0[0][2, 0], -self.U0[1][1, 0]/self.U0[1][2, 0], -self.U0[2][1, 0]/self.U0[2][2, 0], 1.0, 1.0, 1.0] #xyz的阻尼和刚度是求解的，其他三个维度暂时是写死的 m_x * u[1]
         # command.k = [-self.U0[0][0, 0]/self.U0[0][2, 0], -self.U0[1][0, 0]/self.U0[1][2, 0], -self.U0[2][0, 0]/self.U0[2][2, 0], 0.8, 0.8, 0.8] #xyz的阻尼和刚度是求解的，其他三个维度暂时是写死的, m_x * u[0]
-        command.d = [-self.U0[0][1, 3]/self.U0[0][2, 3], -self.U0[1][1, 3]/self.U0[1][2, 3], -self.U0[2][1, 3]/self.U0[2][2, 3], 1.0, 1.0, 1.0] #xyz的阻尼和刚度是求解的，其他三个维度暂时是写死的 m_x * u[1]
-        command.k = [-self.U0[0][0, 3]/self.U0[0][2, 3], -self.U0[1][0, 3]/self.U0[1][2, 3], -self.U0[2][0, 3]/self.U0[2][2, 3], 0.8, 0.8, 0.8] #xyz的阻尼和刚度是求解的，其他三个维度暂时是写死的, m_x * u[0]
-
+        command.d = [-self.U0[0][1, self.late_step ]/self.U0[0][2, self.late_step ], -self.U0[1][1, self.late_step ]/self.U0[1][2, self.late_step ], 100, 1.0, 1.0, 1.0] #xyz的阻尼和刚度是求解的，其他三个维度暂时是写死的 m_x * u[1]
+        command.k = [-self.U0[0][0, self.late_step ]/self.U0[0][2, self.late_step ], -self.U0[1][0, self.late_step ]/self.U0[1][2, self.late_step ], 1400, 0.8, 0.8, 0.8] #xyz的阻尼和刚度是求解的，其他三个维度暂时是写死的, m_x * u[0]
         self.command_pub.publish(command)
         print("****************************************")
 

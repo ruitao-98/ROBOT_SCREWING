@@ -89,6 +89,6 @@ def parse_rosbag(bag_path, output_dir):
     print(f"Data saved to {output_dir}")
 
 if __name__ == '__main__':
-    bag_path = '/home/yanji/robot_screwing/rosbag_record/with_mpc/santong_01'
-    output_dir = '/home/yanji/robot_screwing/rosbag_record/with_mpc/parsed_data'
+    bag_path = '/home/yanji/rosbag_record/mpc_track/santong_01'
+    output_dir = '/home/yanji/rosbag_record/mpc_track_convert'
     parse_rosbag(bag_path, output_dir)

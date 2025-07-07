@@ -18,16 +18,16 @@ class SimpleSimConfig:
     Class for storing the Simplified Simulator configurations.
     """
     simulation_disturbances = {
-        "groove1": False, 
+        "groove1": True, 
         "groove2": False,  
-        "screw1": True,                      
+        "screw1": False,                      
         "screw2": False,                               
     }
 
 class RecordingOptions:
     recording_options = {
-        # "dataset_name": "sim_dataset",
-        "dataset_name": "real_dataset",
+        "dataset_name": "sim_dataset",
+        # "dataset_name": "real_dataset",
         "training_split": True,
     }
 
@@ -38,12 +38,12 @@ class ModelFitConfig:
     """
 
     # ## Dataset loading ## #
-    ds_name = "real_dataset"
-    # ds_name = "sim_dataset"
+    # ds_name = "real_dataset"
+    ds_name = "sim_dataset"
     ds_metadata = {
-        "groove1": False, 
+        "groove1": True, 
         "groove2": False,  
-        "screw1": True,                      
+        "screw1": False,                      
         "screw2": False,   
     }
 

@@ -34,7 +34,7 @@ class MPCWrapper(Node):
 
         # 声明参数并提供默认值
         self.declare_parameter('t0', 0.0)
-        self.declare_parameter('traj_length', 0.17)
+        self.declare_parameter('traj_length', 0.2)
         self.declare_parameter('speed', 0.01)
         self.declare_parameter('dt', 0.008)
         self.declare_parameter('position_sequence', [0.0, 0.0, 0.0])
@@ -48,9 +48,18 @@ class MPCWrapper(Node):
         position_sequence =    np.array([self.get_parameter('position_sequence').value])
         orientation_sequence = np.array([self.get_parameter('orientation_sequence').value])
 
-        trajectory_positions, trajectory_orientations, trajectory_velocities, trajectory_angular_velocities = traj.generate_straight_trajectory(traj_length, dt, 
-                                                                                                                                                speed, position_sequence, 
-                                                                                                                                                orientation_sequence) #生成x方向的直线轨迹
+        # trajectory_positions, trajectory_orientations, trajectory_velocities, trajectory_angular_velocities = traj.generate_straight_trajectory(traj_length, dt, 
+        #                                                                                                                                         speed, position_sequence, 
+        #                                                                                                                                         orientation_sequence) #生成x方向的直线轨迹
+        # trajectory_positions, trajectory_orientations, trajectory_velocities, trajectory_angular_velocities = traj.generate_rectangular_trajectory(traj_length, dt, 
+        #                                                                                                                                         speed, position_sequence, 
+        #                                                                                                                                         orientation_sequence) #生成x方向的直线轨迹
+        
+        trajectory_positions, trajectory_orientations, trajectory_velocities, trajectory_angular_velocities = (traj.generate_triangular_trajectory(traj_length, dt, 
+                                                                                                                                                   speed, position_sequence, 
+                                                                                                                                                   orientation_sequence)) #生成x方向的直线轨迹
+        self.pos_para = [0, 0, 0]
+        self.ori_para = [0, 0, 0, 1]
         #推理用时
         self.Time = []
 
@@ -62,7 +71,14 @@ class MPCWrapper(Node):
         traj_3 = np.hstack((trajectory_positions[:, [2]], trajectory_velocities[:, [2]]))
         traj_3 = np.hstack((traj_3, np.zeros((len(trajectory_positions), 1))))
 
+        # traj_2 = np.hstack((trajectory_positions[:, [1]], np.zeros((len(trajectory_positions), 1))))
+        # traj_2 = np.hstack((traj_2, np.zeros((len(trajectory_positions), 1))))
+        # traj_1 = np.hstack((trajectory_positions[:, [0]],np.zeros((len(trajectory_positions), 1))))
+        # traj_1 = np.hstack((traj_1, np.zeros((len(trajectory_positions), 1))))
+
         self.traj_all =  np.hstack((traj_1, traj_2, traj_3)) # x * 9，只包括x y z 不包括旋转
+        np.savetxt('traj.txt', self.traj_all)
+        # print(self.traj_all)
 
         self.traj_all_base = self.traj_all.copy()
       
@@ -76,6 +92,7 @@ class MPCWrapper(Node):
         # 处理轨迹，根据当前状态更新期望参考轨迹，根据当前已经前进的步数，也就是self.current_idx变量，更新当前位置
         # 每次优化递增 1（self.current_idx += 1），与优化频率（25 Hz，每 40ms 一步）同步。
         self.current_idx = 0
+        self.late_step = 2
 
         # 初始化单个维度的状态和控制量
         self.x0 = np.array([0.0, 0.0, 0.0]).reshape(-1, 1)  
@@ -138,11 +155,11 @@ class MPCWrapper(Node):
 
         if future.result() is not None and future.result().success:
             self.get_logger().info("Received response from robot_sim_env, starting main logic")
-            pos_para = future.result().pos_para
-            ori_para = future.result().ori_para
-            self.get_logger().info(f"Received pos_para: {pos_para}")
-            self.get_logger().info(f"Received ori_para: {ori_para}")
-            self.traj_transform(pos_para, ori_para)
+            self.pos_para = future.result().pos_para
+            self.ori_para = future.result().ori_para
+            self.get_logger().info(f"Received pos_para: {self.pos_para}")
+            self.get_logger().info(f"Received ori_para: {self.ori_para}")
+            self.traj_transform(self.pos_para, self.ori_para)
         else:
             self.get_logger().error("Service call failed")
 
@@ -159,7 +176,7 @@ class MPCWrapper(Node):
 
         distance = np.linalg.norm(self.target_pos - self.eef_pos)  # 欧几里得距离
         threshold = 0.005  # 阈值，例如 1 毫米
-        if distance < threshold:
+        if distance < threshold and self.current_idx >= 1000:
             # 打印 Time 的均值
             if self.Time:
                 time_mean = np.mean(self.Time)
@@ -175,7 +192,7 @@ class MPCWrapper(Node):
 
         self.mpc_counter += 1
 
-        if self.mpc_counter % 3 == 0:
+        if self.mpc_counter % self.late_step == 0:
         # 检查上一次线程是否完成
             if hasattr(self, 'mpc_thread') and self.mpc_thread.is_alive():
                 print(f"MPC 线程仍在运行，跳过本次优化 (idx={self.current_idx})")
@@ -203,7 +220,7 @@ class MPCWrapper(Node):
         ref_traj = self.set_reference()
 
         start_time = time.perf_counter()
-        for i in np.arange(0, int(self.traj_all_base.shape[1]), 3):
+        for i in np.arange(0, int(self.traj_all_base.shape[1])-3, 3):  # 只计算两个维度
             item = int(i/3) #第item个维度求解
             c_p = ref_traj[:, i:i+3].T  #3*N
 
@@ -218,7 +235,7 @@ class MPCWrapper(Node):
                 # lower_bounds = [-0.01, -np.inf, -np.inf]
                 # upper_bounds = [0.01,  np.inf, np.inf]
                 Q_val = np.array([[100.0, 0.0, 0.0],
-                                [0.0, 10, 0.0],
+                                [0.0, 0.01, 0.0],
                                 [0.0, 0.0, 100]])
                 lower_bounds = [-np.inf, -np.inf, -np.inf]
                 upper_bounds = [ np.inf,  np.inf,  np.inf]
@@ -233,23 +250,26 @@ class MPCWrapper(Node):
                 # print("d:", -self.U0[item][1, 0] * self.mpc_optimzer.c)
                 # print("State error:", self.Next_s[item][:, 0] - c_p[:, 0])
 
-                # lower_bounds = [-0.05, -np.inf, -np.inf]
-                # upper_bounds = [0.05, np.inf, np.inf]
-
-                Q_val = np.array([[1000.0, 0.0, 0.0],
-                                [0.0, 1, 0.0],
+                Q_val = np.array([[100.0, 0.0, 0.0],
+                                [0.0, 0.01, 0.0],
                                 [0.0, 0.0, 0.1]])
                 lower_bounds = [-np.inf, -np.inf, -np.inf]
                 upper_bounds = [ np.inf,  np.inf,  np.inf]
+                # upper_bounds = [self.pos_para[1] + 0.05,  np.inf,  np.inf]
                 self.set_state_bounds(lower_bounds, upper_bounds)
             
             else:
-                Q_val = np.array([[100.0, 0.0, 0.0],
-                                [0.0, 10, 0.0],
-                                [0.0, 0.0, 10]])
+                Q_val = np.array([[1000.0, 0.0, 0.0],
+                                [0.0, 0.001, 0.0],
+                                [0.0, 0.0, 0.001]])
 
             delta_f_values = np.zeros(self.N)
             init_control = np.concatenate((self.U0[item].reshape(-1, 1, order='F'), self.Next_s[item].reshape(-1, 1, order='F'))) #U0来自于上一时刻优化结果，X0来自于ros的消息
+
+            # zero_matrix1 = np.zeros_like(self.U0[item].reshape(-1, 1, order='F'))
+            # zero_matrix2 = np.zeros_like(self.Next_s[item].reshape(-1, 1, order='F'))
+            # init_control = np.concatenate((zero_matrix1, zero_matrix2)) #U0来自于上一时刻优化结果，X0来自于ros的消息
+
             c_p_flat = c_p.ravel(order='F')  # 改为 Fortran-style（列优先）
 
             # print("x0=", self.X0[item], 'x0_ravel=', self.X0[item].ravel(order='F'))
@@ -265,10 +285,11 @@ class MPCWrapper(Node):
         print('curret time = ', (end_time - start_time) * 1000)
         # u = -k_x / m_x, -d_x / m_x, 1 / m_x
         command = ControlCommand()
+
         # command.d = [-self.U0[0][1, 0]/self.U0[0][2, 0], -self.U0[1][1, 0]/self.U0[1][2, 0], -self.U0[2][1, 0]/self.U0[2][2, 0], 1.0, 1.0, 1.0] #xyz的阻尼和刚度是求解的，其他三个维度暂时是写死的 m_x * u[1]
         # command.k = [-self.U0[0][0, 0]/self.U0[0][2, 0], -self.U0[1][0, 0]/self.U0[1][2, 0], -self.U0[2][0, 0]/self.U0[2][2, 0], 0.8, 0.8, 0.8] #xyz的阻尼和刚度是求解的，其他三个维度暂时是写死的, m_x * u[0]
-        command.d = [-self.U0[0][1, 3]/self.U0[0][2, 3], -self.U0[1][1, 3]/self.U0[1][2, 3], -self.U0[2][1, 3]/self.U0[2][2, 3], 1.0, 1.0, 1.0] #xyz的阻尼和刚度是求解的，其他三个维度暂时是写死的 m_x * u[1]
-        command.k = [-self.U0[0][0, 3]/self.U0[0][2, 3], -self.U0[1][0, 3]/self.U0[1][2, 3], -self.U0[2][0, 3]/self.U0[2][2, 3], 0.8, 0.8, 0.8] #xyz的阻尼和刚度是求解的，其他三个维度暂时是写死的, m_x * u[0]
+        command.d = [-self.U0[0][1, self.late_step ]/self.U0[0][2, self.late_step ], -self.U0[1][1, self.late_step ]/self.U0[1][2, self.late_step ], 100, 1.0, 1.0, 1.0] #xyz的阻尼和刚度是求解的，其他三个维度暂时是写死的 m_x * u[1]
+        command.k = [-self.U0[0][0, self.late_step ]/self.U0[0][2, self.late_step ], -self.U0[1][0, self.late_step ]/self.U0[1][2, self.late_step ], 1400, 0.8, 0.8, 0.8] #xyz的阻尼和刚度是求解的，其他三个维度暂时是写死的, m_x * u[0]
 
         self.command_pub.publish(command)
         print("****************************************")

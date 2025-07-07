@@ -98,168 +98,179 @@ if __name__ == "__main__":
     dataset_name = Conf.ds_name
     # x_features = [0, 1, 2] #这里只包括一个维度 x x_dot f
     # x_features = [3, 4, 5] #这里只包括一个维度 x x_dot f
-    x_features = [6, 7, 8] #这里只包括一个维度 x x_dot f
-    u_features = []
+    # x_features = [6, 7, 8] #这里只包括一个维度 x x_dot f
+    # u_features = []
     # reg_y_dim = 2  #表示只回归力
     # reg_y_dim = 5  #表示只回归力
-    reg_y_dim = 8  #表示只回归力
+    # reg_y_dim = 8  #表示只回归力
+
+    X_features = [[0, 1, 2],
+                  [3, 4, 5]]
+    U_features = [[0, 1],
+                  [2, 3]]
+    Reg_y_dim = [2, 5]
 
     histogram_pruning_bins = Conf.histogram_bins
     histogram_pruning_threshold = Conf.histogram_threshold
     x_value_cap = Conf.velocity_cap  #后处理参数，待定
 
-    if isinstance(dataset_name, str):
-        df_train = read_dataset(dataset_name, True, quad_sim_options) # pandas 类型的表格数据
-    
-        # value = df_train.loc[1, 'state_in_vel']
-        # if isinstance(value, str):
-        #     value = ast.literal_eval(value)  # 安全地将字符串解析为列表
-        #     print("----")
-        # print(df_train.head())
-        # print(df_train.columns)  # 查看列名
-        # print(df_train.loc[0, 'state_in_pose'])  # 检查预期值
-        df_train = df_train[:-1] #舍弃最后一行
+    for item in range(2):
+        x_features = X_features[item]
+        u_features = U_features[item]
+        reg_y_dim = Reg_y_dim[item]
 
-        gp_dataset = GPDataset(df_train, x_features, u_features, reg_y_dim,
-                                cap=x_value_cap, n_bins=histogram_pruning_bins, thresh=histogram_pruning_threshold, visualize_data=False) #获取数据集的对象
-
-    n_clusters = Conf.clusters
-    load_clusters = Conf.load_clusters
-    visualize_data = Conf.visualize_data
-    gp_dataset.cluster(n_clusters, load_clusters=load_clusters, save_dir=save_file_path, visualize_data=visualize_data) #数据聚类，已经得到了可以用于训练的原始数据
-
-
-    gp_regressors = []
-
-    # Prior parameters
-    sigma_f = 0.5
-    length_scale = .1
-    sigma_n = 0.01
-    n_restarts = 10
-
-    gp_params = {"x_features": x_features, "u_features": u_features, "reg_dim": reg_y_dim,
-                    "sigma_n": sigma_n, "n_restarts": n_restarts}
-
-    # Get all cluster centroids for the current output dimension
-    centroids = gp_dataset.centroids
-    print("Training {} cluster model(s)".format(n_clusters))
-
-    n_train_points = 30
-    dense_gp = None #没用
-    visualize_model = Conf.visualize_training_result
-
-
-    range_vec = tqdm(range(n_clusters))  #range_vec 是一个 tqdm 迭代器对象，可以像普通 range 一样用于 for 循环，但会显示进度条
-
-    # print(range_vec)
-
-    for cluster in range_vec: #cluster是数字
-
-        # #### TRAINING POINT SELECTION #### #
-        # range_vec.set_description(f"Cluster:{cluster}")
-
-        cluster_mean = centroids[cluster]
-        cluster_x_points = gp_dataset.get_x_error(cluster=cluster) #索引出对应的簇的数据
-        cluster_y_points = gp_dataset.get_y(cluster=cluster)  #y数据
-        cluster_u_points = gp_dataset.get_u(cluster=cluster)  #空
-
-        print(cluster_x_points.shape)
-        print(cluster_y_points.shape)
-        print(cluster_u_points.shape)
-        print("-----------------")
-
-        # range_vec.set_postfix({
-        #     'X': str(cluster_x_points.shape),
-        #     'Y': str(cluster_y_points.shape),
-        #     'U': str(cluster_u_points.shape)
-        # })
-        # time.sleep(1)
-
-        # Select a base set of training points for the current cluster using PCA that are as separate from each
-        # other as possible 对数据集进行了离散化采样，缩小数据集
-        selected_points = distance_maximizing_points(
-            cluster_x_points, cluster_mean, n_train_points=n_train_points, dense_gp=dense_gp, plot=False)
+        if isinstance(dataset_name, str):
+            df_train = read_dataset(dataset_name, True, quad_sim_options) # pandas 类型的表格数据
         
-        cluster_y_mean = np.mean(cluster_y_points, 0)
+            # value = df_train.loc[1, 'state_in_vel']
+            # if isinstance(value, str):
+            #     value = ast.literal_eval(value)  # 安全地将字符串解析为列表
+            #     print("----")
+            # print(df_train.head())
+            # print(df_train.columns)  # 查看列名
+            # print(df_train.loc[0, 'state_in_pose'])  # 检查预期值
+            df_train = df_train[:-1] #舍弃最后一行
 
-        # # If no dense_gp was provided to the previous function, training_points will be the indices of the training
-        # # points to choose from the training set
-        if dense_gp is None:
-            x_train = cluster_x_points[selected_points] #筛选后的数据集
-            y_train = np.squeeze(cluster_y_points[selected_points]) #np.squeeze() 是 NumPy 提供的一个函数，用于移除数组中长度为 1 的维度（即“压缩”数组）
-            training_points = selected_points
-        else:
-            # Generate a new dataset of synthetic data composed of x and y values
-            x_mock = np.zeros((13, selected_points.shape[1]))
-            if x_features:
-                x_mock[np.array(x_features), :] = selected_points[:len(x_features)]
-            u_mock = np.zeros((4, selected_points.shape[1]))
-            if u_features:
-                u_mock[np.array(u_features), :] = selected_points[len(x_features):]
-            out = dense_gp.predict(x_mock, u_mock)
-            out["pred"] = np.atleast_2d(out["pred"])
-            y_train = np.squeeze(out["pred"][np.where(dense_gp.dim_idx == reg_y_dim)])
-            x_train = selected_points.T
-            training_points = []
-        # print(x_train.shape[0])
-        # # Check if we still haven't used the entirety of the available points，
-        # 造成点数不够的原因是因为：        
-        # n_clusters = max(int(n_train_points / 10), 30) #簇数取 1/10 或至少 30，确保分布广泛；采样数分配均匀
-        # n_samples = int(np.floor(n_train_points / n_clusters)) #每个簇的样本数量
-        # 因为整数取整操作，导致n_samples * n_clusters != 50
+            gp_dataset = GPDataset(df_train, x_features, u_features, reg_y_dim,
+                                    cap=x_value_cap, n_bins=histogram_pruning_bins, thresh=histogram_pruning_threshold, visualize_data=False) #获取数据集的对象
 
-        n_used_points = x_train.shape[0]
-        if n_used_points < n_train_points and n_used_points < cluster_x_points.shape[0]:
+        n_clusters = Conf.clusters
+        load_clusters = Conf.load_clusters
+        visualize_data = Conf.visualize_data
+        gp_dataset.cluster(n_clusters, load_clusters=load_clusters, save_dir=save_file_path, visualize_data=visualize_data) #数据聚类，已经得到了可以用于训练的原始数据
 
-            missing_pts = n_train_points - n_used_points
-            # 补充采样点
-            training_points = sample_random_points(cluster_x_points, training_points, missing_pts, dense_gp)
+
+        gp_regressors = []
+
+        # Prior parameters
+        sigma_f = 0.5
+        length_scale = .1
+        sigma_n = 0.01
+        n_restarts = 10
+
+        gp_params = {"x_features": x_features, "u_features": u_features, "reg_dim": reg_y_dim,
+                        "sigma_n": sigma_n, "n_restarts": n_restarts}
+
+        # Get all cluster centroids for the current output dimension
+        centroids = gp_dataset.centroids
+        print("Training {} cluster model(s)".format(n_clusters))
+
+        n_train_points = 30
+        dense_gp = None #没用
+        visualize_model = Conf.visualize_training_result
+
+
+        range_vec = tqdm(range(n_clusters))  #range_vec 是一个 tqdm 迭代器对象，可以像普通 range 一样用于 for 循环，但会显示进度条
+
+        # print(range_vec)
+
+        for cluster in range_vec: #cluster是数字
+
+            # #### TRAINING POINT SELECTION #### #
+            # range_vec.set_description(f"Cluster:{cluster}")
+
+            cluster_mean = centroids[cluster]
+            cluster_x_points = gp_dataset.get_x_error(cluster=cluster) #索引出对应的簇的数据
+            cluster_y_points = gp_dataset.get_y(cluster=cluster)  #y数据
+            cluster_u_points = gp_dataset.get_u(cluster=cluster)  #空
+
+            print(cluster_x_points.shape)
+            print(cluster_y_points.shape)
+            print(cluster_u_points.shape)
+            print("-----------------")
+
+            # range_vec.set_postfix({
+            #     'X': str(cluster_x_points.shape),
+            #     'Y': str(cluster_y_points.shape),
+            #     'U': str(cluster_u_points.shape)
+            # })
+            # time.sleep(1)
+
+            # Select a base set of training points for the current cluster using PCA that are as separate from each
+            # other as possible 对数据集进行了离散化采样，缩小数据集
+            selected_points = distance_maximizing_points(
+                cluster_x_points, cluster_mean, n_train_points=n_train_points, dense_gp=dense_gp, plot=False)
+            
+            cluster_y_mean = np.mean(cluster_y_points, 0)
+
+            # # If no dense_gp was provided to the previous function, training_points will be the indices of the training
+            # # points to choose from the training set
             if dense_gp is None:
-                # Transform from cluster data index to full dataset index
-                x_train = cluster_x_points[training_points]
-                y_train = np.squeeze(cluster_y_points[training_points])
-
+                x_train = cluster_x_points[selected_points] #筛选后的数据集
+                y_train = np.squeeze(cluster_y_points[selected_points]) #np.squeeze() 是 NumPy 提供的一个函数，用于移除数组中长度为 1 的维度（即“压缩”数组）
+                training_points = selected_points
             else:
                 # Generate a new dataset of synthetic data composed of x and y values
-                training_points = training_points.astype(int)
-                x_mock = np.zeros((13, len(training_points)))
+                x_mock = np.zeros((13, selected_points.shape[1]))
                 if x_features:
-                    x_mock[np.array(x_features), :] = cluster_x_points[training_points, :len(x_features)].T
-                u_mock = np.zeros((4, len(training_points)))
+                    x_mock[np.array(x_features), :] = selected_points[:len(x_features)]
+                u_mock = np.zeros((4, selected_points.shape[1]))
                 if u_features:
-                    u_mock[np.array(u_features), :] = cluster_u_points[len(x_features):]
+                    u_mock[np.array(u_features), :] = selected_points[len(x_features):]
                 out = dense_gp.predict(x_mock, u_mock)
-                y_additional = np.squeeze(out["pred"][np.where(dense_gp.dim_idx == reg_y_dim)])
-                y_train = np.append(y_train, y_additional)
-                x_train = np.concatenate((x_train, cluster_x_points[training_points, :len(x_features)]), axis=0)
+                out["pred"] = np.atleast_2d(out["pred"])
+                y_train = np.squeeze(out["pred"][np.where(dense_gp.dim_idx == reg_y_dim)])
+                x_train = selected_points.T
+                training_points = []
+            # print(x_train.shape[0])
+            # # Check if we still haven't used the entirety of the available points，
+            # 造成点数不够的原因是因为：        
+            # n_clusters = max(int(n_train_points / 10), 30) #簇数取 1/10 或至少 30，确保分布广泛；采样数分配均匀
+            # n_samples = int(np.floor(n_train_points / n_clusters)) #每个簇的样本数量
+            # 因为整数取整操作，导致n_samples * n_clusters != 50
+
+            n_used_points = x_train.shape[0]
+            if n_used_points < n_train_points and n_used_points < cluster_x_points.shape[0]:
+
+                missing_pts = n_train_points - n_used_points
+                # 补充采样点
+                training_points = sample_random_points(cluster_x_points, training_points, missing_pts, dense_gp)
+                if dense_gp is None:
+                    # Transform from cluster data index to full dataset index
+                    x_train = cluster_x_points[training_points]
+                    y_train = np.squeeze(cluster_y_points[training_points])
+
+                else:
+                    # Generate a new dataset of synthetic data composed of x and y values
+                    training_points = training_points.astype(int)
+                    x_mock = np.zeros((13, len(training_points)))
+                    if x_features:
+                        x_mock[np.array(x_features), :] = cluster_x_points[training_points, :len(x_features)].T
+                    u_mock = np.zeros((4, len(training_points)))
+                    if u_features:
+                        u_mock[np.array(u_features), :] = cluster_u_points[len(x_features):]
+                    out = dense_gp.predict(x_mock, u_mock)
+                    y_additional = np.squeeze(out["pred"][np.where(dense_gp.dim_idx == reg_y_dim)])
+                    y_train = np.append(y_train, y_additional)
+                    x_train = np.concatenate((x_train, cluster_x_points[training_points, :len(x_features)]), axis=0)
 
 
-        # print(x_train.shape)
-        # print(y_train.shape)
-        # #### GP TRAINING ####
-        # Multidimensional input GP regressors
-        l_scale = length_scale * np.ones((x_train.shape[1], 1))
+            # print(x_train.shape)
+            # print(y_train.shape)
+            # #### GP TRAINING ####
+            # Multidimensional input GP regressors
+            l_scale = length_scale * np.ones((x_train.shape[1], 1))
 
-        cluster_mean = centroids[cluster]
-        gp_params["mean"] = cluster_mean
-        gp_params["y_mean"] = cluster_y_mean
+            cluster_mean = centroids[cluster]
+            gp_params["mean"] = cluster_mean
+            gp_params["y_mean"] = cluster_y_mean
 
-        # Train one independent GP for each output dimension
-        exponential_kernel = npKernelFunctions('squared_exponential', params={'l': l_scale, 'sigma_f': sigma_f})
-        gp_regressors.append(npGPRegression(kernel=exponential_kernel, **gp_params))
-        gp_regressors[cluster] = gp_train_and_save([x_train], [y_train], [gp_regressors[cluster]], True, save_file_name,
-                                                    save_file_path, [reg_y_dim], cluster, progress_bar=False)[0]
+            # Train one independent GP for each output dimension
+            exponential_kernel = npKernelFunctions('squared_exponential', params={'l': l_scale, 'sigma_f': sigma_f})
+            gp_regressors.append(npGPRegression(kernel=exponential_kernel, **gp_params))
+            gp_regressors[cluster] = gp_train_and_save([x_train], [y_train], [gp_regressors[cluster]], True, save_file_name,
+                                                        save_file_path, [reg_y_dim], cluster, progress_bar=False)[0]
 
 
 
-    if visualize_model:
-        gp_ensemble = GPEnsemble()
-        gp_ensemble.add_model(gp_regressors)
-        x_features = x_features
-        gp_visualization_experiment(quad_sim_options, gp_dataset,
-                                    x_value_cap, histogram_pruning_bins, histogram_pruning_threshold,
-                                    x_features, u_features, reg_y_dim,
-                                    grid_sampling_viz=True, pre_set_gp=gp_ensemble)
+        if visualize_model:
+            gp_ensemble = GPEnsemble()
+            gp_ensemble.add_model(gp_regressors)
+            x_features = x_features
+            gp_visualization_experiment(quad_sim_options, gp_dataset,
+                                        x_value_cap, histogram_pruning_bins, histogram_pruning_threshold,
+                                        x_features, u_features, reg_y_dim,
+                                        grid_sampling_viz=True, pre_set_gp=gp_ensemble)
 
 
 

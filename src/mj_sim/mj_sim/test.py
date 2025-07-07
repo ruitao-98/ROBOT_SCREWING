@@ -279,6 +279,7 @@ print(np.eye(3))
 error_x = np.array([0, 1, 2])
 error_y = np.array([10, 11, 12])
 error_z = np.array([20, 21, 22]) 
+print(error_x * error_y)
 
 # rx, ry 状态（旋转向量 x, y 分量）
 error_rx = np.array([30, 31, 32])  # rx

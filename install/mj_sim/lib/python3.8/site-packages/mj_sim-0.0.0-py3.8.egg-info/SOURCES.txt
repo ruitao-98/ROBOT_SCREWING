@@ -9,6 +9,7 @@ setup.py
 ../../build/mj_sim/mj_sim.egg-info/top_level.txt
 ../../build/mj_sim/mj_sim.egg-info/zip-safe
 launch/launch_robot_sim.py
+launch/launch_sim_record.py
 mj_sim/__init__.py
 mj_sim/data_recorder.py
 mj_sim/extract.py

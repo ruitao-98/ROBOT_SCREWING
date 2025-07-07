@@ -1,3 +1,5 @@
+#! /home/yanji/anaconda3/envs/screwrobot/bin/python3
+# -*- coding: utf-8 -*-
 from launch import LaunchDescription
 from launch_ros.actions import Node
 from launch.actions import TimerAction, DeclareLaunchArgument

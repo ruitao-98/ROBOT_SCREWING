@@ -87,9 +87,10 @@ class Dual_arm_env(gym.Env):
 
         # admittance control gains
         self.adm_k = 1400 * np.array([1.0, 1.0, 1.0, 1.0, 1.0, 1.0])  # [10 10 10 10 10 10]
-        self.adm_m = 2 * np.array([1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
-        self.adm_d = 4 * np.sqrt(np.multiply(self.adm_k,
+        self.adm_m = 1 * np.array([1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
+        self.adm_d = 2 * np.sqrt(np.multiply(self.adm_k,
                                               self.adm_m))  # [12.64911064 12.64911064 12.64911064 12.64911064 12.64911064 12.64911064] 4 * 10 ^ (-0.5)
+        self.select_vector = np.array([1,1,0,0,0,0])
 
 
         self.adm_pose_ref = np.zeros(7)  # 机器人导纳控制目标位姿
@@ -410,8 +411,8 @@ class Dual_arm_env(gym.Env):
 
         adm_vel = self.eef_vel + adm_acc * T
 
-        linear_disp = (adm_vel[:3]*T).flatten()
-        angular_disp = (adm_vel[3:]*T).flatten()
+        linear_disp = (self.select_vector[:3] * adm_vel[:3]*T).flatten()
+        angular_disp = (self.select_vector[3:] * adm_vel[3:]*T).flatten()
 
         self.eef_vel = adm_vel.copy()
 
@@ -457,8 +458,7 @@ class Dual_arm_env(gym.Env):
 
         link6_linear, link6_angular = self.get_link6_pose_(new_linear, new_angular) #变化为link6的速度
   
-        q_target = self.kdl.ik(self.d.qpos[self.joint_6_id - 5: self.joint_6_id + 1], link6_linear,
-                                     link6_angular)
+        q_target = self.kdl.ik(self.d.qpos[self.joint_6_id - 5: self.joint_6_id + 1], link6_linear, link6_angular)
         target_pos = q_target.copy()
     
 
@@ -478,7 +478,6 @@ class Dual_arm_env(gym.Env):
 
             # left_relative_rotm = R.from_matrix(left_eef_rotm) * R.from_matrix(left_eef_rotm_old).inv()
             # left_rotvec = left_relative_rotm.as_rotvec()
-
 
             # left_angular_vel = left_rotvec * self.HZ
             # left_pos_vel = (left_eef_pos - left_eef_pos_old) * self.HZ
@@ -569,7 +568,7 @@ class Dual_arm_env(gym.Env):
 
 
         # desired_pos = np.array([0, 0.37, 0.08])
-        desired_pos = np.array([0, 0.47, 0.075])
+        desired_pos = np.array([0, 0.47, 0.076])
 
         # 定义绕 x 轴旋转 90 度（角度单位为度）
         rot = R.from_euler('z', 90, degrees=True)
@@ -632,7 +631,7 @@ class Dual_arm_env(gym.Env):
         acc_desire_right = self.joint_kp * (self.ref_joint - self.joint_pos) + self.joint_kd * ( -self.joint_vel)
         tau_right = np.dot(M_, acc_desire_right) + c_g_
 
-        self.d.ctrl[self.actuator_id - 5: self.actuator_id + 1] = np.clip(tau_right, -1000, 1000)
+        self.d.ctrl[self.actuator_id - 5: self.actuator_id + 1] = np.clip(tau_right, -2000, 2000)
         # print('--',self.d.ctrl[self.actuator_id - 5: self.actuator_id + 1])
 
         self.d.ctrl[self.screw_shaft_id] = 0  # gripper_pose should be defined or passed as an argument
@@ -703,7 +702,8 @@ def main():
 
     # 声明参数并提供默认值
     env.node.declare_parameter('t0', 0.0)
-    env.node.declare_parameter('traj_length', 0.17)  #长物体是0.4
+    # env.node.declare_parameter('traj_length', 0.17)  #长物体是0.4
+    env.node.declare_parameter('traj_length', 0.2)  #长物体是0.4
     env.node.declare_parameter('speed', 0.01)
     env.node.declare_parameter('dt', 0.008)
     env.node.declare_parameter('position_sequence', [0.0, 0.0, 0.0])
@@ -719,6 +719,12 @@ def main():
     # 轨迹生成
     trajectory_positions, trajectory_orientations, trajectory_velocities, trajectory_angular_velocities = (
         traj.generate_straight_trajectory(traj_length, dt, speed, position_sequence, orientation_sequence)) #生成x方向的直线轨迹
+    
+    # trajectory_positions, trajectory_orientations, trajectory_velocities, trajectory_angular_velocities = (
+    #     traj.generate_rectangular_trajectory(traj_length, dt, speed, position_sequence, orientation_sequence)) #生成x方向的直线轨迹
+    
+    # trajectory_positions, trajectory_orientations, trajectory_velocities, trajectory_angular_velocities = (
+    #     traj.generate_triangular_trajectory(traj_length, dt, speed, position_sequence, orientation_sequence)) #生成x方向的直线轨迹
 
     traj_1 = np.hstack((trajectory_positions[:, [0]], trajectory_velocities[:, [0]]))
     traj_1 = np.hstack((traj_1, np.zeros((len(trajectory_positions), 1))))
@@ -727,7 +733,15 @@ def main():
     traj_3 = np.hstack((trajectory_positions[:, [2]], trajectory_velocities[:, [2]]))
     traj_3 = np.hstack((traj_3, np.zeros((len(trajectory_positions), 1))))
 
+    # traj_1 = np.hstack((trajectory_positions[:, [0]],np.zeros((len(trajectory_positions), 1))))
+    # traj_1 = np.hstack((traj_1, np.zeros((len(trajectory_positions), 1))))
+    # traj_2 = np.hstack((trajectory_positions[:, [1]], np.zeros((len(trajectory_positions), 1))))
+    # traj_2 = np.hstack((traj_2, np.zeros((len(trajectory_positions), 1))))
+    # traj_3 = np.hstack((trajectory_positions[:, [2]], np.zeros((len(trajectory_positions), 1))))
+    # traj_3 = np.hstack((traj_3, np.zeros((len(trajectory_positions), 1))))
+
     traj_all =  np.hstack((traj_1, traj_2, traj_3)) # x * 9
+    
     print("len(traj_all)=", len(traj_all))
 
     action_pose = env.start_pose_quat.copy()  #当前eef的位姿（7，1), 设位初始期望位姿
