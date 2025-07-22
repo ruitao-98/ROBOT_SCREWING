@@ -14,7 +14,9 @@ def ensure_directory(context, *args, **kwargs):
 def clear_existing_bag(context, *args, **kwargs):
     save_path = context.launch_configurations['save_path']
     bag_number = context.launch_configurations['bag_number']
-    bag_folder = os.path.join(save_path, f"rectangular_{bag_number}")
+    para_name = context.launch_configurations['para_name']
+    bag_folder = os.path.join(save_path, f"{para_name}{bag_number}")
+    # bag_folder = os.path.join(save_path, f"para_a_{bag_number}")
     # triangular rectangular
     if os.path.exists(bag_folder):
         shutil.rmtree(bag_folder)  # Delete existing bag folder
@@ -23,6 +25,7 @@ def clear_existing_bag(context, *args, **kwargs):
 def generate_launch_description():
     # 声明命令行参数
     bag_number = LaunchConfiguration('bag_number')
+    para_name = LaunchConfiguration('para_name')
     save_path = LaunchConfiguration('save_path')  # 添加 save_path 的 LaunchConfiguration
     
     return LaunchDescription([
@@ -34,7 +37,12 @@ def generate_launch_description():
         ),
         DeclareLaunchArgument(
             'save_path',
-            default_value='/home/yanji/rosbag_record/mpc_track',
+            default_value='/home/yanji/rosbag_record/compared_experiment',
+            description='Directory to save the rosbag file'
+        ),
+        DeclareLaunchArgument(
+            'para_name',
+            default_value='para_a_',
             description='Directory to save the rosbag file'
         ),
         # 原节点：task_control_screw
@@ -61,9 +69,13 @@ def generate_launch_description():
         ExecuteProcess(
             cmd=[
                 'ros2', 'bag', 'record',
-                '/cmd_status', '/rob_status',
-                '-o', [save_path, '/', TextSubstitution(text='rectangular_'), bag_number]
+                '/cmd_status', '/rob_status', '/ref_status',
+                # '-o', [save_path, '/', TextSubstitution(text='para_a_'), bag_number]
+                '-o', [save_path, '/', para_name, bag_number]
             ],
             output='screen'
         ),
     ])
+
+
+#ros2 launch mj_sim launch_sim_record.py para_name:=para_a_ bag_number:=15_1

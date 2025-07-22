@@ -26,13 +26,13 @@ class Mpc_Opti:
     def __init__(self, gp_regressors=None, B_x=None, dim_idx=0):
 
         self.T = 0.008  # sampling time [s]
-        self.N = 10  # prediction horizon 预测的节点数量
+        self.N = 5  # prediction horizon 预测的节点数量
 
-        self.k_min = 100
+        self.k_min = 20
         self.k_max = 2000
-        self.d_min = 20
-        self.d_max = 200
-        self.c = 2.5
+        self.d_min = 10
+        self.d_max = 500
+        self.c = 1
            
         # GP 相关变量
         self.gp_regressors = gp_regressors        # GPEnsemble 对象
@@ -73,6 +73,9 @@ class Mpc_Opti:
         self.beta = ca.MX([self.T/2, 0, 0])
         self.I = ca.MX.eye(3)
 
+        self.u_test = ca.MX(2, 1)
+
+
         self.s_next_nominal = (self.A * self.T + self.I) @ self.s + self.T * ((self.b + self.beta) @ self.s_tilde.T @ self.u)  # 离散化方程
 
         # 添加触发变量
@@ -84,7 +87,10 @@ class Mpc_Opti:
             for i in range(self.gp_regressors.n_models):
                 cluster_id = {dim: [i] for dim in gp_dims}
                 print("cluster_id", cluster_id)
-                delta_f = self.predict_delta_f_sym(self.s, self.s_r, [-self.u[0]/self.u[2], -self.u[1]/self.u[2]], cluster_id=cluster_id)
+                self.u_test[0] = -(self.u[0]/self.u[2])
+                self.u_test[1] = -(self.u[1]/self.u[2])
+                delta_f = self.predict_delta_f_sym(self.s, self.s_r, ca.vertcat(-(self.u[0]/self.u[2]), -(self.u[1]/self.u[2])).reshape((2, 1)), cluster_id=cluster_id)
+                # delta_f = self.predict_delta_f_sym(self.s, self.s_r, [-self.u[0]/self.u[2], -self.u[1]/self.u[2]], cluster_id=cluster_id)
                 s_next = self.s_next_nominal + self.B_x @ (delta_f * self.trigger)  # 只在 trigger=1 时应用GP
                 self.f_models[i] = ca.Function(f'f_{i}', [self.s, self.s_r, self.u, self.trigger], [s_next],
                                                ['input_state', 'state_ref', 'control_input', 'trigger'], ['state_next'])
@@ -127,9 +133,9 @@ class Mpc_Opti:
         #             [0.0, 0.0, 1]])
         # print("self.Q", self.Q)
 
-        self.R = np.array([[1e-5, 0.0, 0.0],
-                    [0.0, 1e-4, 0.0],
-                    [0.0, 0.0, 1e-4]])
+        self.R = np.array([[1e-9, 0.0, 0.0],
+                    [0.0, 1e-9, 0.0],
+                    [0.0, 0.0, 1e-9]])
         # 为每个簇生成独立的优化问题
         self.solvers = {}
         for k in range(len(self.f_models)):
@@ -140,19 +146,11 @@ class Mpc_Opti:
             self.g = [self.X[:, 0] - self.X0]  # 初始状态固定为 X0
 
             for i in range(self.N):
-                self.obj = (self.obj + ca.mtimes([(self.X[:, i] - self.X_r[:, i]).T, self.Q, self.X[:, i] - self.X_r[:, i]] ) )#控制输入
+                self.obj = (self.obj + ca.mtimes([(self.X[:, i] - self.X_r[:, i]).T, self.Q, self.X[:, i] - self.X_r[:, i]])  + ca.mtimes([self.U[:, i].T, self.R, self.U[:, i]]))#控制输入
                 self.x_next_ = self.f_models[k](self.X[:, i], self.X_r[:, i], self.U[:, i], self.Trigger[i])
-
-                                        # + ca.mtimes([self.U[:, i].T, self.R, self.U[:, i]])
-                # delta_f_pred = self.predict_delta_f(self.X[:, i]-self.X_r[:, i], [self.U[0, i]/self.U[2, i], self.U[1, i]/self.U[2, i]])  # GP 预测
-                # if self.with_gp:
-                #     # delta_f_pred = self.predict_delta_f(self.X[:, i]-self.X_r[:, i], [])  # GP 预测
-                #     self.x_next_ = self.f(self.X[:, i], self.X_r[:, i], self.U[:, i], self.Delta_f[i])
-                # else:
-                #     self.x_next_ = self.f(self.X[:, i], self.X_r[:, i], self.U[:, i], 0)
-                # self.x_next_ = self.f(self.X[:, i], self.X_r[:, i], self.U[:, i])  
                 self.g.append(self.X[:, i + 1] - self.x_next_)
 
+            self.obj = self.obj + ca.mtimes([((self.X[:, self.N] - self.X_r[:, self.N]) ).T, self.Q, (self.X[:, self.N] - self.X_r[:, self.N])  ] ) # 终端误差
             # print("self.Q", ca.reshape(self.Q, -1, 1))
             self.opt_variables = ca.vertcat(ca.reshape(self.U, -1, 1), ca.reshape(self.X, -1, 1))  # ca.reshape(U, -1, 1) 转换为一个列向量 6 * N, 1 casadi 默认列优先展平，这个和numpy不一样
             # print("ca.reshape(self.X_r, -1, 1)", ca.reshape(self.X_r, -1, 1))
@@ -196,6 +194,7 @@ class Mpc_Opti:
         """符号化预测 delta_f"""
         if self.with_gp:
             x_test = state - state_ref  # 3x1
+            print("x_test", x_test)
             u_test = control  # 3x1
             outs = self.gp_regressors.predict(x_test, u_test, return_cov=False, return_z=False, gp_idx=cluster_id)
             return outs['pred']

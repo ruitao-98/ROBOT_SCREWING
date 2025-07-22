@@ -117,6 +117,8 @@ class CustomKernelFunctions:
         :param x_2: Array of n points (m x d).
         :return: Covariance matrix (m x n).
         """
+        # print("x_1", x_1)
+        # print("x_2", x_2)
 
         # Length scale parameter
         len_scale = self.params['l'] if 'l' in self.params.keys() else 1.0
@@ -641,13 +643,15 @@ class GPEnsemble:
         # Get input feature indices
         x_feats = self.gp[dim][0].x_features
         u_feats = self.gp[dim][0].u_features
-        print("x_u_feats", x_feats, u_feats)
-        print('u', u)
+        # print("x_u_feats", x_feats, u_feats)
+        # print('u', u)
+        # print('x', x, type(x))
         # print(dim)
         # Stack into a single matrix
         if isinstance(x, np.ndarray):
             z_x = x[x_feats] if x_feats else x
-            if u and u_feats:  # 检查 u 和 u_feats 非空
+            print(z_x)
+            if u is not None and u_feats is not None and len(u) > 0 and len(u_feats) > 0: # 检查 u 和 u_feats 非空
                 z_u = u[u_feats]
                 # 确保 z_u 与 z_x 的列数匹配
                 if z_u.ndim == 1:
@@ -656,9 +660,11 @@ class GPEnsemble:
             else:
                 z = z_x  # 如果 u_feats 为空，仅使用 z_x
         elif isinstance(x, (cs.MX, cs.SX)):
+            print("x and x_feats=", x, x_feats)
             z_x = x[x_feats] if x_feats else x
             print("u and u_feats=", u, u_feats)
-            if u and u_feats:
+            # if u and u_feats:
+            if u is not None and u_feats is not None:
                 z_u = u[u_feats]
                 z = cs.vertcat(z_x, z_u)
             else:
@@ -809,7 +815,7 @@ class GPEnsemble:
 
         if z is None:
             z = self.get_z(x, u, dim)
-        print("z", z)
+        # print("z", z)
         z = np.atleast_2d(z) #从 x 和 u 中提取该维度的特征（由 B_z 定义）。
 
         centroids = self.gp_centroids[dim]  #获取该维度的所有簇质心

@@ -72,8 +72,8 @@
 <!--                            上述两个geom 因为凸包太复杂，直接设置为不参与碰撞，因为mujuco是基于凸包计算碰撞的-->
 
                             <body name="peg" pos="0 0 0">
-                              <geom name="peg_pole" pos="0.0 0.0 -0.02" type="cylinder" size="0.0095 0.04" contype='1' conaffinity='1' 
-                              condim='6'  margin="0.00001" solref=".001 1" solimp=".6 .8 .001" friction="0.01 0.005 0.01" material = "red" density = "0"/>
+                              <geom name="peg_pole" pos="0.0 0.0 -0.02" type="cylinder" size="0.01 0.04" contype='1' conaffinity='1' 
+                              condim='6'  margin="0.0001" solref=".001 1" solimp=".6 .8 .001" friction="0.01 0.005 0.01" material = "red" density = "0"/>
                             </body> 
             
                              <!-- 0.01 0.04 分别是半径，以及高度的一半 -->
@@ -112,13 +112,14 @@
         <!-- <include file="plant.xml"/> -->
 
 
-    <body name="board" pos="0.45 0.765 0.62" quat="0.7071 0.7071 0 0"> 
-      <geom type="mesh" mesh="part0" contype='1' conaffinity='1' condim='6'  margin="0.0001" solref=".02 1" solimp=".6 .8 .001" friction="0.005 0.005 0.01" material = "gray" />
-      <geom type="mesh" mesh="part1" contype='1' conaffinity='1' condim='6'  margin="0.0001" solref=".02 1" solimp=".6 .8 .001" friction="0.005 0.005 0.01" material = "gray" />
-      <geom type="mesh" mesh="part2" contype='1' conaffinity='1' condim='6'  margin="0.0001" solref=".02 1" solimp=".6 .8 .001" friction="0.005 0.005 0.01" material = "gray" />
-      <geom type="mesh" mesh="part3" contype='1' conaffinity='1' condim='6'  margin="0.0001" solref=".02 1" solimp=".6 .8 .001" friction="0.005 0.005 0.01" material = "gray" />
-      <geom type="mesh" mesh="part4" contype='1' conaffinity='1' condim='6'  margin="0.0001" solref=".02 1" solimp=".6 .8 .001" friction="0.005 0.005 0.01" material = "gray" />
-      <geom type="mesh" mesh="part5" contype='1' conaffinity='1' condim='6'  margin="0.0001" solref=".02 1" solimp=".6 .8 .001" friction="0.005 0.005 0.01" material = "gray" />
+    <body name="board" pos="0.45 0.765 0.64" quat="0.7071 0.7071 0 0"> 
+      <geom type="mesh" mesh="part0" contype='1' conaffinity='1' condim='6'  margin="0.0001" solref=".02 1" solimp=".6 .8 .001" friction="0.01 0.005 0.01" material = "gray" />
+      <geom type="mesh" mesh="part1" contype='1' conaffinity='1' condim='6'  margin="0.0001" solref=".02 1" solimp=".6 .8 .001" friction="0.01 0.005 0.01" material = "gray" />
+      <geom type="mesh" mesh="part2" contype='1' conaffinity='1' condim='6'  margin="0.0001" solref=".02 1" solimp=".6 .8 .001" friction="0.01 0.005 0.01" material = "gray" />
+      <geom type="mesh" mesh="part3" contype='1' conaffinity='1' condim='6'  margin="0.0001" solref=".02 1" solimp=".6 .8 .001" friction="0.01 0.005 0.01" material = "gray" />
+      <geom type="mesh" mesh="part4" contype='1' conaffinity='1' condim='6'  margin="0.0001" solref=".02 1" solimp=".6 .8 .001" friction="0.01 0.005 0.01" material = "gray" />
+      <geom type="mesh" mesh="part5" contype='1' conaffinity='1' condim='6'  margin="0.0001" solref=".02 1" solimp=".6 .8 .001" friction="0.01 0.005 0.01" material = "gray" />
+
       <!-- <geom type="mesh" mesh="part6" contype='1' conaffinity='1' condim='6'  margin="0.0001" solref=".02 1" solimp=".6 .8 .001" friction="0.01 0.005 0.01" material = "gray" />
       <geom type="mesh" mesh="part7" contype='1' conaffinity='1' condim='6'  margin="0.0001" solref=".02 1" solimp=".6 .8 .001" friction="0.01 0.005 0.01" material = "gray" />
       <geom type="mesh" mesh="part8" contype='1' conaffinity='1' condim='6'  margin="0.0001" solref=".02 1" solimp=".6 .8 .001" friction="0.01 0.005 0.01" material = "gray" /> -->

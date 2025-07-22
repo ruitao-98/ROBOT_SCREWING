@@ -293,3 +293,21 @@ X_features = [[0, 1, 2],
                 [9, 10, 11],
                 [12, 13, 14]]
 print(X_features[1])
+
+
+def cut_redundancy(arr):
+    """
+    找出一维 numpy 数组中最后一个不重复数字的索引。
+    比如：[1,2,3,4,5,5,5] -> 返回索引 4
+    """
+    if len(arr) == 0:
+        return -1  # 空数组返回 -1
+
+    for i in range(len(arr) - 2, -1, -1):
+        if arr[i] != arr[-1]:
+            return i + 1
+    return -1  # 全部元素都相同时返回 -1
+
+arr = np.array([1,2,3,4,5,8,6,6])
+item = cut_redundancy(arr)
+print(item)

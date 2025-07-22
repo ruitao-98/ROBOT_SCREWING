@@ -567,6 +567,10 @@ def distance_maximizing_points_2d(points, n_train_points, dense_gp, plot=False):
     else:
         n_clusters = n_train_points
         n_samples = 1
+    if points.shape[0] < n_train_points:
+        n_clusters = points.shape[0]
+        n_train_points = n_clusters
+        n_samples = 1
 
     kmeans = KMeans(n_clusters).fit_predict(points) 
     #使用 KMeans 将 points 分为 n_clusters 个簇

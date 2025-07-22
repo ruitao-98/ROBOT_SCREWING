@@ -106,8 +106,10 @@ if __name__ == "__main__":
 
     X_features = [[0, 1, 2],
                   [3, 4, 5]]
-    U_features = [[0, 1],
-                  [2, 3]]
+    U_features = [[0, 6],  # k ,d
+                  [1, 7]]  # k ,d
+    # U_features = [[],
+    #               []]
     Reg_y_dim = [2, 5]
 
     histogram_pruning_bins = Conf.histogram_bins
@@ -139,7 +141,6 @@ if __name__ == "__main__":
         visualize_data = Conf.visualize_data
         gp_dataset.cluster(n_clusters, load_clusters=load_clusters, save_dir=save_file_path, visualize_data=visualize_data) #数据聚类，已经得到了可以用于训练的原始数据
 
-
         gp_regressors = []
 
         # Prior parameters
@@ -155,7 +156,7 @@ if __name__ == "__main__":
         centroids = gp_dataset.centroids
         print("Training {} cluster model(s)".format(n_clusters))
 
-        n_train_points = 30
+        n_train_points = 15
         dense_gp = None #没用
         visualize_model = Conf.visualize_training_result
 
@@ -229,7 +230,7 @@ if __name__ == "__main__":
                     # Transform from cluster data index to full dataset index
                     x_train = cluster_x_points[training_points]
                     y_train = np.squeeze(cluster_y_points[training_points])
-
+                    print("x_train", len(x_train))
                 else:
                     # Generate a new dataset of synthetic data composed of x and y values
                     training_points = training_points.astype(int)

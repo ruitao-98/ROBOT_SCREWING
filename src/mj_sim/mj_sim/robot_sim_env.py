@@ -69,7 +69,7 @@ class Dual_arm_env(gym.Env):
 
         # joint control gains & variables
         # self.joint_kp = np.array([2000, 2000, 2000, 2000, 2000, 2000])  #关节pd控制器
-        self.joint_kp = 2000 * np.ones(6)  # 关节pd控制器
+        self.joint_kp = 1400 * np.ones(6)  # 关节pd控制器
         self.joint_kd = 2 * np.sqrt(self.joint_kp)  #关节pd控制器
 
 
@@ -113,6 +113,7 @@ class Dual_arm_env(gym.Env):
 
         self.eef_rotm = np.zeros((3,3))
         self.eef_pos = np.zeros(3)
+
         # self.jacobian = np.zeros((6, 6))
 
         # eef and force sensor offset setting
@@ -176,7 +177,7 @@ class Dual_arm_env(gym.Env):
             self.viewer = mujoco.viewer.launch_passive(self.m, self.d)  # mujoco 自带可视化工具，可视化
             # 假设 viewer 是通过之前代码段创建的
             self.viewer.cam.lookat[:] = [0.3, 0.8, 0.4]  # 设置新的焦点
-            self.viewer.cam.distance = 2.4  # 设置相机到焦点的距离
+            self.viewer.cam.distance = 2  # 设置相机到焦点的距离
             self.viewer.cam.azimuth = 10  # 设置水平旋转角度
             self.viewer.cam.elevation = -30  # 设置仰角
         # self.reset()
@@ -369,10 +370,8 @@ class Dual_arm_env(gym.Env):
         #     self.world_force = self.world_force + np.random.normal(0, self.force_noise_level, 6)
         self.world_force = np.clip(self.world_force, -50, 50)  # 力的大小进行限制
 
-
-
         # 平滑力数据
-        alpha = 0.2
+        alpha = 0.8
         if self._first_run:
             self.world_force_filtered = self.world_force.copy()  # 首次运行时重新初始化
             self._first_run = False
@@ -380,15 +379,6 @@ class Dual_arm_env(gym.Env):
 
         wish_force = np.array([0, 0, 0, 0, 0, 0])
         force_error = wish_force + self.world_force_filtered
-
-        # msg = FtPub()
-        # msg.fx = world_force_filtered[0]
-        # msg.fy = world_force_filtered[1]
-        # msg.fz = world_force_filtered[2]
-        # msg.tx = world_force_filtered[3]
-        # msg.ty = world_force_filtered[4]
-        # msg.tz = world_force_filtered[5]
-        # self.force_pub.publish(msg)
 
         # dynamics
         e = np.zeros(6)
@@ -410,7 +400,7 @@ class Dual_arm_env(gym.Env):
         adm_acc = np.around(adm_acc, decimals=6)
 
         adm_vel = self.eef_vel + adm_acc * T
-
+ 
         linear_disp = (self.select_vector[:3] * adm_vel[:3]*T).flatten()
         angular_disp = (self.select_vector[3:] * adm_vel[3:]*T).flatten()
 
@@ -452,11 +442,16 @@ class Dual_arm_env(gym.Env):
         # self.d.xfrc_applied[peg_id, :] = force
 
         linear_disp, angular_disp = self.admittance_control() #输入期望速度，期望位置
+        # print(linear_disp)
         new_linear = eef_pos + linear_disp.reshape([3,])
+
+        new_linear[2] = self.start_pos[2]
+        # new_linear = desired_pos.copy()   
         new_angular = desired_rotm.copy()
-     
 
         link6_linear, link6_angular = self.get_link6_pose_(new_linear, new_angular) #变化为link6的速度
+        # print(link6_linear)
+        # linear_disp[2] = self.start_pos[2]
   
         q_target = self.kdl.ik(self.d.qpos[self.joint_6_id - 5: self.joint_6_id + 1], link6_linear, link6_angular)
         target_pos = q_target.copy()
@@ -574,12 +569,13 @@ class Dual_arm_env(gym.Env):
         rot = R.from_euler('z', 90, degrees=True)
         # 获取旋转矩阵
         desired_rotm = rot.as_matrix()
-        
- 
+
         link6_linear, link6_angular = self.get_link6_pose_(desired_pos, desired_rotm)
         q_target = self.kdl.ik(self.d.qpos[self.joint_6_id - 5: self.joint_6_id + 1], link6_linear,
                                      link6_angular)
-        
+        # print(link6_linear)
+        # print(link6_angular)
+        # print(q_target)
 
         self.d.qpos[self.joint_6_id - 5:self.joint_6_id + 1] = q_target.copy()
         mujoco.mj_step(self.m, self.d)
@@ -587,11 +583,17 @@ class Dual_arm_env(gym.Env):
 
         r2, p2 = self.kdl.fk(q_target.copy())
         r2 = np.array(r2)
+        # print("--------")
+        # print(r2)
+        # print(p2)
 
         quat_p2 = trans_quat.mat2quat(np.array(p2))
         link6_pose_ = np.concatenate([r2, quat_p2])
      
         eef_pos, eef_rotm = self.get_eef_pose_(link6_pose_)
+        # print("**********")
+        # print(eef_pos)
+        # print(eef_rotm)
 
         return eef_pos, eef_rotm
 
@@ -703,7 +705,7 @@ def main():
     # 声明参数并提供默认值
     env.node.declare_parameter('t0', 0.0)
     # env.node.declare_parameter('traj_length', 0.17)  #长物体是0.4
-    env.node.declare_parameter('traj_length', 0.2)  #长物体是0.4
+    env.node.declare_parameter('traj_length', 0.18)  #长物体是0.4
     env.node.declare_parameter('speed', 0.01)
     env.node.declare_parameter('dt', 0.008)
     env.node.declare_parameter('position_sequence', [0.0, 0.0, 0.0])

@@ -34,7 +34,7 @@ class MPCWrapper(Node):
 
         # 声明参数并提供默认值
         self.declare_parameter('t0', 0.0)
-        self.declare_parameter('traj_length', 0.2)
+        self.declare_parameter('traj_length', 0.18)
         self.declare_parameter('speed', 0.01)
         self.declare_parameter('dt', 0.008)
         self.declare_parameter('position_sequence', [0.0, 0.0, 0.0])
@@ -96,7 +96,7 @@ class MPCWrapper(Node):
 
         # 初始化单个维度的状态和控制量
         self.x0 = np.array([0.0, 0.0, 0.0]).reshape(-1, 1)  
-        self.u0 = np.array([-300, -50, 0.5] * self.N).reshape(-1, 3).T   #  .T 后 是3 *N
+        self.u0 = np.array([-200, -30, 1] * self.N).reshape(-1, 3).T   #  .T 后 是3 *N
         self.x_m = np.zeros((self.n_states, self.N + 1))
  
         self.next_states = self.x_m.copy()  #(3, N+1)
@@ -234,9 +234,9 @@ class MPCWrapper(Node):
                 # print("State error:", self.Next_s[item][:, 0] - c_p[:, 0])
                 # lower_bounds = [-0.01, -np.inf, -np.inf]
                 # upper_bounds = [0.01,  np.inf, np.inf]
-                Q_val = np.array([[100.0, 0.0, 0.0],
+                Q_val = np.array([[100, 0.0, 0.0],
                                 [0.0, 0.01, 0.0],
-                                [0.0, 0.0, 100]])
+                                [0.0, 0.0, 0.1]])
                 lower_bounds = [-np.inf, -np.inf, -np.inf]
                 upper_bounds = [ np.inf,  np.inf,  np.inf]
                 self.set_state_bounds(lower_bounds, upper_bounds)
@@ -288,8 +288,8 @@ class MPCWrapper(Node):
 
         # command.d = [-self.U0[0][1, 0]/self.U0[0][2, 0], -self.U0[1][1, 0]/self.U0[1][2, 0], -self.U0[2][1, 0]/self.U0[2][2, 0], 1.0, 1.0, 1.0] #xyz的阻尼和刚度是求解的，其他三个维度暂时是写死的 m_x * u[1]
         # command.k = [-self.U0[0][0, 0]/self.U0[0][2, 0], -self.U0[1][0, 0]/self.U0[1][2, 0], -self.U0[2][0, 0]/self.U0[2][2, 0], 0.8, 0.8, 0.8] #xyz的阻尼和刚度是求解的，其他三个维度暂时是写死的, m_x * u[0]
-        command.d = [-self.U0[0][1, self.late_step ]/self.U0[0][2, self.late_step ], -self.U0[1][1, self.late_step ]/self.U0[1][2, self.late_step ], 100, 1.0, 1.0, 1.0] #xyz的阻尼和刚度是求解的，其他三个维度暂时是写死的 m_x * u[1]
-        command.k = [-self.U0[0][0, self.late_step ]/self.U0[0][2, self.late_step ], -self.U0[1][0, self.late_step ]/self.U0[1][2, self.late_step ], 1400, 0.8, 0.8, 0.8] #xyz的阻尼和刚度是求解的，其他三个维度暂时是写死的, m_x * u[0]
+        command.d = [-self.U0[0][1, self.late_step ]/self.U0[0][2, self.late_step ], -self.U0[1][1, self.late_step ]/self.U0[1][2, self.late_step ], 100.0, 1.0, 1.0, 1.0] #xyz的阻尼和刚度是求解的，其他三个维度暂时是写死的 m_x * u[1]
+        command.k = [-self.U0[0][0, self.late_step ]/self.U0[0][2, self.late_step ], -self.U0[1][0, self.late_step ]/self.U0[1][2, self.late_step ], 1400.0, 0.8, 0.8, 0.8] #xyz的阻尼和刚度是求解的，其他三个维度暂时是写死的, m_x * u[0]
 
         self.command_pub.publish(command)
         print("****************************************")

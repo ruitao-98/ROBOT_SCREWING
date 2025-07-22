@@ -35,10 +35,9 @@ class MPCWrapper(Node):
     def __init__(self):
         super().__init__("mpc_node")  # 初始化节点，命名为 'mpc_node'
         # 变量和类继承
-                # 加载 GP 模型
-        # git_version = '4196701'  # 长物体的实验结果
-        # git_version = "0c85e6c"  # 短物体的实验结果
-        git_version = "0826d04"  # 短物体的实验结果
+        # 加载 GP 模型
+
+        git_version = "9f9f6e6"  # a
         model_name = "simple_sim_gp"
         sim_options = Conf.ds_metadata
         load_ops = {"git": git_version, "model_name": model_name, "params": sim_options}
@@ -46,20 +45,21 @@ class MPCWrapper(Node):
         # 为每个维度加载 GP 模型
         self.gp_models = {}
         self.B_x_dicts = {}
-        global_dims = [2, 5, 8]  # x, y, z 维度的全局索引
-        for reg_y_dim in global_dims:  # 对应全局索引 2, 5, 8
+        global_dims = [2, 5]  # x, y, z 维度的全局索引
+        for reg_y_dim in global_dims:  # 对应全局索引 2, 5
             pre_trained_models = load_pickled_models(model_options=load_ops, dimension=reg_y_dim)
             if pre_trained_models is not None:
                 gp_regressors = restore_gp_regressors(pre_trained_models)
-
+                
                 for gp_list in gp_regressors.gp.values():
+                    print("gp_list", gp_list)
                     for gp in gp_list:
                         gp.x_features = [0, 1, 2]  # 局部状态 [x, x_dot, f_x]
-                        gp.u_features = []         # 假设控制输入 2 维
+                        gp.u_features = [0, 1]         # 假设控制输入 2 维
 
                 self.gp_models[reg_y_dim] = gp_regressors
                 # B_x = {}
-                x_dims = 3  # 状态维度
+                x_dims = 3  # 动力学方程的状态维度
                 B_x = make_bx_matrix(x_dims, [2])  # 固定为 [2]，表示 f_x
                 self.B_x_dicts[reg_y_dim] = B_x
 
@@ -67,21 +67,20 @@ class MPCWrapper(Node):
                 self.gp_models[reg_y_dim] = None
                 self.B_x_dicts[reg_y_dim] = {}
         
-        self.gp_models = [self.gp_models[global_dims[0]], self.gp_models[global_dims[1]], self.gp_models[global_dims[2]]]  # 需要你提供实际的 GPEnsemble 对象
-        self.B_x_dicts = [self.B_x_dicts[global_dims[0]], self.B_x_dicts[global_dims[1]], self.B_x_dicts[global_dims[2]]]  # 需要你提供实际的 B_x 矩阵
+        self.gp_models = [self.gp_models[global_dims[0]], self.gp_models[global_dims[1]]]  # 需要你提供实际的 GPEnsemble 对象
+        self.B_x_dicts = [self.B_x_dicts[global_dims[0]], self.B_x_dicts[global_dims[1]]]  # 需要你提供实际的 B_x 矩阵
         print('++++++++++++++++++++++++++++++++++++')
         self.mpc_optimizers = [
             Mpc_Opti(gp_regressors=self.gp_models[0], B_x=self.B_x_dicts[0]),
-            Mpc_Opti(gp_regressors=self.gp_models[1], B_x=self.B_x_dicts[1]),
-            Mpc_Opti(gp_regressors=self.gp_models[2], B_x=self.B_x_dicts[2])
+            Mpc_Opti(gp_regressors=self.gp_models[1], B_x=self.B_x_dicts[1])
         ]
         self.N = self.mpc_optimizers[0].N
         self.n_controls = self.mpc_optimizers[1].n_controls
-        self.n_states = self.mpc_optimizers[2].n_controls
+        self.n_states = self.mpc_optimizers[1].n_controls
 
         # 声明参数并提供默认值
         self.declare_parameter('t0', 0.0)
-        self.declare_parameter('traj_length', 0.17)
+        self.declare_parameter('traj_length', 0.18)
         self.declare_parameter('speed', 0.01)
         self.declare_parameter('dt', 0.008)
         self.declare_parameter('position_sequence', [0.0, 0.0, 0.0])
@@ -123,10 +122,10 @@ class MPCWrapper(Node):
         # 处理轨迹，根据当前状态更新期望参考轨迹，根据当前已经前进的步数，也就是self.current_idx变量，更新当前位置
         # 每次优化递增 1（self.current_idx += 1），与优化频率（25 Hz，每 40ms 一步）同步。
         self.current_idx = 0
-
+        self.late_step = 2
         # 初始化单个维度的状态和控制量
         self.x0 = np.array([0.0, 0.0, 0.0]).reshape(-1, 1)  
-        self.u0 = np.array([-300, -50, 0.5] * self.N).reshape(-1, 3).T   #  .T 后 是3 *N
+        self.u0 = np.array([-200, -30, 1] * self.N).reshape(-1, 3).T   #  .T 后 是3 *N
         self.x_m = np.zeros((self.n_states, self.N + 1))
  
         self.next_states = self.x_m.copy()  #(3, N+1)
@@ -222,7 +221,7 @@ class MPCWrapper(Node):
 
         self.mpc_counter += 1
 
-        if self.mpc_counter % 3 == 0:
+        if self.mpc_counter % self.late_step == 0:
         # 检查上一次线程是否完成
             if hasattr(self, 'mpc_thread') and self.mpc_thread.is_alive():
                 print(f"MPC 线程仍在运行，跳过本次优化 (idx={self.current_idx})")
@@ -237,22 +236,22 @@ class MPCWrapper(Node):
     def run_mpc(self):
         ref_traj = self.set_reference()
         start_time = time.perf_counter()
-        for i in np.arange(0, int(self.traj_all_base.shape[1]), 3):
+        for i in np.arange(0, int(self.traj_all_base.shape[1]) - 3, 3):
             item = int(i/3) #第item个维度求解
             c_p = ref_traj[:, i:i+3].T  #3*N
 
             if(item == 0):
-                Q_val = np.array([[100.0, 0.0, 0.0],
-                                [0.0, 10, 0.0],
-                                [0.0, 0.0, 100]])
+                Q_val = np.array([[100, 0.0, 0.0],
+                                [0.0, 0.01, 0.0],
+                                [0.0, 0.0, 0.1]])
                 lower_bounds = [-np.inf, -np.inf, -np.inf]
                 upper_bounds = [ np.inf,  np.inf,  np.inf]
                 self.mpc_optimizers[item].set_state_bounds(lower_bounds, upper_bounds)
                 # self.set_state_bounds(lower_bounds, upper_bounds)
 
             elif(item == 1):
-                Q_val = np.array([[1000.0, 0.0, 0.0],
-                                [0.0, 1, 0.0],
+                Q_val = np.array([[100.0, 0.0, 0.0],
+                                [0.0, 0.01, 0.0],
                                 [0.0, 0.0, 0.1]])
                 lower_bounds = [-np.inf, -np.inf, -np.inf]
                 upper_bounds = [ np.inf,  np.inf,  np.inf]
@@ -261,14 +260,17 @@ class MPCWrapper(Node):
             
             else:
                 Q_val = np.array([[100.0, 0.0, 0.0],
-                                [0.0, 10, 0.0],
-                                [0.0, 0.0, 10]])
+                                [0.0, 0.1, 0.0],
+                                [0.0, 0.0, 0.1]])
 
             # 动态选择GP模型
             if self.mpc_optimizers[item].with_gp:
                 x_test = self.X0[item] - c_p[:, 0].reshape(-1, 1)  # 当前状态与参考状态的误差
-                u_test = self.U0[item][:, 0].reshape(-1, 1)  # 当前控制输入
-                u_data = [-u_test[0]/u_test[2], -u_test[1]/u_test[2]]
+                u_test = self.U0[item][:, 0]  # 当前控制输入
+                # print("x_test", x_test, type(x_test))
+                # print('u_test', u_test, type(u_test))
+                u_data = np.array([-u_test[0]/u_test[2], -u_test[1]/u_test[2]]).reshape(-1, 1)
+                # print("u_data", u_data)
                 gp_idx = self.mpc_optimizers[item].gp_regressors.select_gp(dim=self.mpc_optimizers[item].dim_idx, x=x_test, u=u_data)
                 print("current dim_idx = ",self.mpc_optimizers[item].dim_idx)
                 gp_idx = gp_idx[0] if isinstance(gp_idx, np.ndarray) else gp_idx  # 确保是标量
@@ -278,7 +280,7 @@ class MPCWrapper(Node):
             init_control = np.concatenate((self.U0[item].reshape(-1, 1, order='F'), self.Next_s[item].reshape(-1, 1, order='F'))) #U0来自于上一时刻优化结果，X0来自于ros的消息
             c_p_flat = c_p.ravel(order='F')  # 改为 Fortran-style（列优先）
             trigger_values = np.zeros(self.N)
-            trigger_values[0] = 1  # 仅第一个节点启用GP
+            trigger_values[:1] = 1  # 仅第一个节点启用GP
             # print("x0=", self.X0[item], 'x0_ravel=', self.X0[item].ravel(order='F'))
             p = np.concatenate((c_p_flat, self.X0[item].ravel(order='F'), Q_val.ravel(order='F'), trigger_values))
             # res = self.mpc_optimzer.solve(init_control, p)
@@ -294,9 +296,8 @@ class MPCWrapper(Node):
         command = ControlCommand()
         # command.d = [-self.U0[0][1, 0]/self.U0[0][2, 0], -self.U0[1][1, 0]/self.U0[1][2, 0], -self.U0[2][1, 0]/self.U0[2][2, 0], 1.0, 1.0, 1.0] #xyz的阻尼和刚度是求解的，其他三个维度暂时是写死的 m_x * u[1]
         # command.k = [-self.U0[0][0, 0]/self.U0[0][2, 0], -self.U0[1][0, 0]/self.U0[1][2, 0], -self.U0[2][0, 0]/self.U0[2][2, 0], 0.8, 0.8, 0.8] #xyz的阻尼和刚度是求解的，其他三个维度暂时是写死的, m_x * u[0]
-        command.d = [-self.U0[0][1, 3]/self.U0[0][2, 3], -self.U0[1][1, 3]/self.U0[1][2, 3], -self.U0[2][1, 3]/self.U0[2][2, 3], 1.0, 1.0, 1.0] #xyz的阻尼和刚度是求解的，其他三个维度暂时是写死的 m_x * u[1]
-        command.k = [-self.U0[0][0, 3]/self.U0[0][2, 3], -self.U0[1][0, 3]/self.U0[1][2, 3], -self.U0[2][0, 3]/self.U0[2][2, 3], 0.8, 0.8, 0.8] #xyz的阻尼和刚度是求解的，其他三个维度暂时是写死的, m_x * u[0]
-
+        command.d = [-self.U0[0][1, self.late_step ]/self.U0[0][2, self.late_step ], -self.U0[1][1, self.late_step ]/self.U0[1][2, self.late_step ], 100.0, 1.0, 1.0, 1.0] #xyz的阻尼和刚度是求解的，其他三个维度暂时是写死的 m_x * u[1]
+        command.k = [-self.U0[0][0, self.late_step ]/self.U0[0][2, self.late_step ], -self.U0[1][0, self.late_step ]/self.U0[1][2, self.late_step ], 1400.0, 0.8, 0.8, 0.8] #xyz的阻尼和刚度是求解的，其他三个维度暂时是写死的, m_x * u[0]
         self.command_pub.publish(command)
         print("****************************************")
 
