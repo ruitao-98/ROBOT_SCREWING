@@ -194,7 +194,7 @@ class Mpc_Opti:
         """符号化预测 delta_f"""
         if self.with_gp:
             x_test = state - state_ref  # 3x1
-            print("x_test", x_test)
+            # print("x_test", x_test)
             u_test = control  # 3x1
             outs = self.gp_regressors.predict(x_test, u_test, return_cov=False, return_z=False, gp_idx=cluster_id)
             return outs['pred']

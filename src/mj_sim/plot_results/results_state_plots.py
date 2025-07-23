@@ -88,5 +88,5 @@ def plot_3d_metrics(csv_path):
     plt.show()
 
 if __name__ == "__main__":
-    csv_path = "/home/yanji/rosbag_record/mpc_gp_state/results_a.csv"  # Adjust path if needed
+    csv_path = "/home/yanji/rosbag_record/mpc_gp_state/results_b.csv"  # Adjust path if needed
     plot_3d_metrics(csv_path)

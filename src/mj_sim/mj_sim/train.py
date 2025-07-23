@@ -156,7 +156,7 @@ if __name__ == "__main__":
         centroids = gp_dataset.centroids
         print("Training {} cluster model(s)".format(n_clusters))
 
-        n_train_points = 15
+        n_train_points = 60
         dense_gp = None #没用
         visualize_model = Conf.visualize_training_result
 

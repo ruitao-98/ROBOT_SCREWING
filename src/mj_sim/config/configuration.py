@@ -76,5 +76,5 @@ class ModelFitConfig:
     dense_training_points = 200
 
     # ## Clustering for multidimensional models ## #
-    clusters = 1  # 决定了使用几个GP模型
+    clusters = 3  # 决定了使用几个GP模型
     load_clusters = False

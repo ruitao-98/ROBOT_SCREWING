@@ -130,8 +130,8 @@ def plot_force(path_1, path_2):
 
 if __name__ == "__main__":
 
-    path_1 = "/home/yanji/rosbag_record/mpc_gp_count/copy_a/para_a_60_3/rob_status.csv"
-    path_2 = "/home/yanji/rosbag_record/mpc_gp_count/copy_a/para_a_60_3/ref_status.csv"
+    path_1 = "/home/yanji/rosbag_record/compared_experiment/copy/para_a_1_2/rob_status.csv"
+    path_2 = "/home/yanji/rosbag_record/compared_experiment/copy/para_a_1_2/ref_status.csv"
     # path_1 = "/home/yanji/rosbag_record/mpc_gp_state/para_a_3/rob_status.csv"
     # path_2 = "/home/yanji/rosbag_record/mpc_gp_state/para_a_3/ref_status.csv"
     # path = "/home/yanji/rosbag_record/mpc_track/triangular_01/rob_status.csv"

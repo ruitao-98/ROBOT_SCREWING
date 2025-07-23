@@ -233,6 +233,8 @@ def plot_force(path_1, path_2):
 
 if __name__ == "__main__":
 
-    root_dir = "/home/yanji/rosbag_record/mpc_gp_count/copy_b"
-    output_csv = "/home/yanji/rosbag_record/mpc_gp_count/copy_b/results.csv"
+    # root_dir = "/home/yanji/rosbag_record/mpc_gp_count/copy_b"
+    # output_csv = "/home/yanji/rosbag_record/mpc_gp_count/copy_b/results.csv"
+    root_dir = "/home/yanji/rosbag_record/compared_experiment/copy"
+    output_csv = "/home/yanji/rosbag_record/compared_experiment/copy/results.csv"
     batch_process(root_dir, output_csv)

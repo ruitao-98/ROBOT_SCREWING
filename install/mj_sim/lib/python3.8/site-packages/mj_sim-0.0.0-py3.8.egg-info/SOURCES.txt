@@ -26,7 +26,6 @@ mj_sim/pose_mpc_optimizer_withgp.py
 mj_sim/pose_robot_sim_env.py
 mj_sim/pose_train.py
 mj_sim/results_plots.py
-mj_sim/results_plots_force.py
 mj_sim/robot_kinetic.py
 mj_sim/robot_sim_env.py
 mj_sim/robot_sim_env_test.py
