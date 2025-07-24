@@ -34,7 +34,7 @@ class MPCWrapper(Node):
 
         # 声明参数并提供默认值
         self.declare_parameter('t0', 0.0)
-        self.declare_parameter('traj_length', 0.18)
+        self.declare_parameter('traj_length', 0.07)
         self.declare_parameter('speed', 0.01)
         self.declare_parameter('dt', 0.008)
         self.declare_parameter('position_sequence', [0.0, 0.0, 0.0])
@@ -51,30 +51,30 @@ class MPCWrapper(Node):
         # trajectory_positions, trajectory_orientations, trajectory_velocities, trajectory_angular_velocities = traj.generate_straight_trajectory(traj_length, dt, 
         #                                                                                                                                         speed, position_sequence, 
         #                                                                                                                                         orientation_sequence) #生成x方向的直线轨迹
-        # trajectory_positions, trajectory_orientations, trajectory_velocities, trajectory_angular_velocities = traj.generate_rectangular_trajectory(traj_length, dt, 
-        #                                                                                                                                         speed, position_sequence, 
-        #                                                                                                                                         orientation_sequence) #生成x方向的直线轨迹
+        trajectory_positions, trajectory_orientations, trajectory_velocities, trajectory_angular_velocities = traj.generate_rectangular_trajectory(traj_length, dt, 
+                                                                                                                                                speed, position_sequence, 
+                                                                                                                                                orientation_sequence) #生成x方向的直线轨迹
         
-        trajectory_positions, trajectory_orientations, trajectory_velocities, trajectory_angular_velocities = (traj.generate_triangular_trajectory(traj_length, dt, 
-                                                                                                                                                   speed, position_sequence, 
-                                                                                                                                                   orientation_sequence)) #生成x方向的直线轨迹
+        # trajectory_positions, trajectory_orientations, trajectory_velocities, trajectory_angular_velocities = traj.generate_triangular_trajectory(traj_length, dt, 
+        #                                                                                                                                            speed, position_sequence, 
+        #                                                                                                                                            orientation_sequence) #生成x方向的直线轨迹
         self.pos_para = [0, 0, 0]
         self.ori_para = [0, 0, 0, 1]
         #推理用时
         self.Time = []
 
         self.mpc_counter = 0
-        traj_1 = np.hstack((trajectory_positions[:, [0]], trajectory_velocities[:, [0]]))
-        traj_1 = np.hstack((traj_1, np.zeros((len(trajectory_positions), 1))))
-        traj_2 = np.hstack((trajectory_positions[:, [1]], trajectory_velocities[:, [1]]))
-        traj_2 = np.hstack((traj_2, np.zeros((len(trajectory_positions), 1))))
+        # traj_1 = np.hstack((trajectory_positions[:, [0]], trajectory_velocities[:, [0]]))
+        # traj_1 = np.hstack((traj_1, np.zeros((len(trajectory_positions), 1))))
+        # traj_2 = np.hstack((trajectory_positions[:, [1]], trajectory_velocities[:, [1]]))
+        # traj_2 = np.hstack((traj_2, np.zeros((len(trajectory_positions), 1))))
         traj_3 = np.hstack((trajectory_positions[:, [2]], trajectory_velocities[:, [2]]))
         traj_3 = np.hstack((traj_3, np.zeros((len(trajectory_positions), 1))))
 
-        # traj_2 = np.hstack((trajectory_positions[:, [1]], np.zeros((len(trajectory_positions), 1))))
-        # traj_2 = np.hstack((traj_2, np.zeros((len(trajectory_positions), 1))))
-        # traj_1 = np.hstack((trajectory_positions[:, [0]],np.zeros((len(trajectory_positions), 1))))
-        # traj_1 = np.hstack((traj_1, np.zeros((len(trajectory_positions), 1))))
+        traj_2 = np.hstack((trajectory_positions[:, [1]], np.zeros((len(trajectory_positions), 1))))
+        traj_2 = np.hstack((traj_2, np.zeros((len(trajectory_positions), 1))))
+        traj_1 = np.hstack((trajectory_positions[:, [0]],np.zeros((len(trajectory_positions), 1))))
+        traj_1 = np.hstack((traj_1, np.zeros((len(trajectory_positions), 1))))
 
         self.traj_all =  np.hstack((traj_1, traj_2, traj_3)) # x * 9，只包括x y z 不包括旋转
         np.savetxt('traj.txt', self.traj_all)
@@ -92,11 +92,11 @@ class MPCWrapper(Node):
         # 处理轨迹，根据当前状态更新期望参考轨迹，根据当前已经前进的步数，也就是self.current_idx变量，更新当前位置
         # 每次优化递增 1（self.current_idx += 1），与优化频率（25 Hz，每 40ms 一步）同步。
         self.current_idx = 0
-        self.late_step = 2
+        self.late_step = 1
 
         # 初始化单个维度的状态和控制量
         self.x0 = np.array([0.0, 0.0, 0.0]).reshape(-1, 1)  
-        self.u0 = np.array([-200, -30, 1] * self.N).reshape(-1, 3).T   #  .T 后 是3 *N
+        self.u0 = np.array([-600, -50, 1] * self.N).reshape(-1, 3).T   #  .T 后 是3 *N
         self.x_m = np.zeros((self.n_states, self.N + 1))
  
         self.next_states = self.x_m.copy()  #(3, N+1)
@@ -234,9 +234,12 @@ class MPCWrapper(Node):
                 # print("State error:", self.Next_s[item][:, 0] - c_p[:, 0])
                 # lower_bounds = [-0.01, -np.inf, -np.inf]
                 # upper_bounds = [0.01,  np.inf, np.inf]
-                Q_val = np.array([[100, 0.0, 0.0],
-                                [0.0, 0.01, 0.0],
-                                [0.0, 0.0, 0.1]])
+                # Q_val = np.array([[100, 0.0, 0.0],
+                #                 [0.0, 0.01, 0.0],
+                #                 [0.0, 0.0, 0.1]])
+                Q_val = np.array([[700.0, 0.0, 0.0],
+                                [0.0, 0.001, 0.0],
+                                [0.0, 0.0, 0.001]])  #无障碍任务
                 lower_bounds = [-np.inf, -np.inf, -np.inf]
                 upper_bounds = [ np.inf,  np.inf,  np.inf]
                 self.set_state_bounds(lower_bounds, upper_bounds)
@@ -249,13 +252,16 @@ class MPCWrapper(Node):
                 # print("k:", -self.U0[item][0, 0] * self.mpc_optimzer.c)
                 # print("d:", -self.U0[item][1, 0] * self.mpc_optimzer.c)
                 # print("State error:", self.Next_s[item][:, 0] - c_p[:, 0])
+                # Q_val = np.array([[100.0, 0.0, 0.0],
+                #                 [0.0, 0.01, 0.0],
+                #                 [0.0, 0.0, 0.1]])  #有障碍任务
 
-                Q_val = np.array([[100.0, 0.0, 0.0],
-                                [0.0, 0.01, 0.0],
-                                [0.0, 0.0, 0.1]])
+                Q_val = np.array([[700.0, 0.0, 0.0],
+                                [0.0, 0.001, 0.0],
+                                [0.0, 0.0, 0.001]])  #无障碍任务
                 lower_bounds = [-np.inf, -np.inf, -np.inf]
                 upper_bounds = [ np.inf,  np.inf,  np.inf]
-                # upper_bounds = [self.pos_para[1] + 0.05,  np.inf,  np.inf]
+                # upper_bounds = [self.pos_para[1] + 0.06,  np.inf,  np.inf]
                 self.set_state_bounds(lower_bounds, upper_bounds)
             
             else:

@@ -105,7 +105,7 @@ def generate_rectangular_trajectory(length, control_dt, speed, position_sequence
     # 每个边的点数
     points_per_side = int(time_per_side / control_dt)
     # 总点数（4条边）
-    num_points = points_per_side * 4
+    num_points = points_per_side * 4  #正方形这里为4
 
     # 初始化轨迹数组
     trajectory_positions = np.zeros((num_points, 3))  # 位置 [x, y, z]

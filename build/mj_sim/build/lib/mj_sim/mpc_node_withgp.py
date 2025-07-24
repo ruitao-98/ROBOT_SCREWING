@@ -37,7 +37,7 @@ class MPCWrapper(Node):
         # 变量和类继承
         # 加载 GP 模型
 
-        git_version = "9f9f6e6"  # a
+        git_version = "5476680"  # a
         model_name = "simple_sim_gp"
         sim_options = Conf.ds_metadata
         load_ops = {"git": git_version, "model_name": model_name, "params": sim_options}

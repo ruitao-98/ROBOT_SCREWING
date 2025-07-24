@@ -37,7 +37,7 @@ def generate_launch_description():
         ),
         DeclareLaunchArgument(
             'save_path',
-            default_value='/home/yanji/rosbag_record/compared_experiment',
+            default_value='/home/yanji/rosbag_record/mpc_track',
             description='Directory to save the rosbag file'
         ),
         DeclareLaunchArgument(

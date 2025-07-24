@@ -26,7 +26,7 @@ class Mpc_Opti:
     def __init__(self, gp_regressors=None, B_x=None):
 
         self.T = 0.008  # sampling time [s]
-        self.N = 9  # prediction horizon 预测的节点数量
+        self.N = 8  # prediction horizon 预测的节点数量
 
         self.k_min = 20
         self.k_max = 2000
