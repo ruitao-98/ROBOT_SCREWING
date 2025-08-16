@@ -26,13 +26,13 @@ class Mpc_Opti:
     def __init__(self, gp_regressors=None, B_x=None):
 
         self.T = 0.008  # sampling time [s]
-        self.N = 10  # prediction horizon 预测的节点数量
+        self.N = 5  # prediction horizon 预测的节点数量
 
         self.k_min = 100
         self.k_max = 2000
         self.d_min = 20
         self.d_max = 200
-        self.c = 2.5
+        self.c = 1
            
         # GP 相关变量
         self.gp_regressors = gp_regressors        # GPEnsemble 对象
@@ -95,18 +95,11 @@ class Mpc_Opti:
         self.Delta_f = ca.SX.sym('Delta_f', self.N)  # 每个节点的 delta_f N×1，标量序列
         # P = ca.SX.sym('P', n_states + n_states) #初始和终端
 
-        # define
-
-        # self.Q = np.array([[1000.0, 0.0, 0.0],
-        #             [0.0, 10, 0.0],
-        #             [0.0, 0.0, 1]])
-        
         self.Q = ca.SX.sym('Q', 3, 3)  # 符号参数
-        # print("self.Q", self.Q)
 
-        self.R = np.array([[1e-5, 0.0, 0.0],
-                    [0.0, 1e-4, 0.0],
-                    [0.0, 0.0, 1e-4]])
+        self.R = np.array([[1e-9, 0.0, 0.0],
+                    [0.0, 1e-9, 0.0],
+                    [0.0, 0.0, 1e-9]])
 
         # cost function
         self.obj = 0  # cost
@@ -115,8 +108,8 @@ class Mpc_Opti:
         self.g = [self.X[:, 0] - self.X0]  # 初始状态固定为 X0
 
         for i in range(self.N):
-            self.obj = self.obj + ca.mtimes([(self.X[:, i] - self.X_r[:, i]).T, self.Q, self.X[:, i] - self.X_r[:, i]] ) #控制输入
-                                    # + ca.mtimes([self.U[:, i].T, self.R, self.U[:, i]])
+            self.obj = (self.obj + ca.mtimes([((self.X[:, i] - self.X_r[:, i]) ).T, self.Q, (self.X[:, i] - self.X_r[:, i]) ] ) 
+                        + ca.mtimes([self.U[:, i].T, self.R, self.U[:, i]]))
             # delta_f_pred = self.predict_delta_f(self.X[:, i]-self.X_r[:, i], [self.U[0, i]/self.U[2, i], self.U[1, i]/self.U[2, i]])  # GP 预测
             if self.with_gp:
                 # delta_f_pred = self.predict_delta_f(self.X[:, i]-self.X_r[:, i], [])  # GP 预测
@@ -124,9 +117,10 @@ class Mpc_Opti:
             else:
                 self.x_next_ = self.f(self.X[:, i], self.X_r[:, i], self.U[:, i], 0)
             # self.x_next_ = self.f(self.X[:, i], self.X_r[:, i], self.U[:, i])  # 
-
             self.g.append(self.X[:, i + 1] - self.x_next_)
-        print("self.Q", ca.reshape(self.Q, -1, 1))
+
+        self.obj = self.obj + ca.mtimes([((self.X[:, self.N] - self.X_r[:, self.N]) ).T, self.Q, (self.X[:, self.N] - self.X_r[:, self.N])] ) # 终端误差
+        # print("self.Q", ca.reshape(self.Q, -1, 1))
         self.opt_variables = ca.vertcat(ca.reshape(self.U, -1, 1), ca.reshape(self.X, -1, 1))  # ca.reshape(U, -1, 1) 转换为一个列向量 6 * N, 1 casadi 默认列优先展平，这个和numpy不一样
         # print("ca.reshape(self.X_r, -1, 1)", ca.reshape(self.X_r, -1, 1))
         # print("self.X_r", self.X_r)

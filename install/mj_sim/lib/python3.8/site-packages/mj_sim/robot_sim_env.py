@@ -69,7 +69,7 @@ class Dual_arm_env(gym.Env):
 
         # joint control gains & variables
         # self.joint_kp = np.array([2000, 2000, 2000, 2000, 2000, 2000])  #关节pd控制器
-        self.joint_kp = 1400 * np.ones(6)  # 关节pd控制器
+        self.joint_kp = 1600 * np.ones(6)  # 关节pd控制器
         self.joint_kd = 2 * np.sqrt(self.joint_kp)  #关节pd控制器
 
 
@@ -86,7 +86,7 @@ class Dual_arm_env(gym.Env):
         # self.set_gripper(self.gripper_pose)  # 夹爪宽度
 
         # admittance control gains
-        self.adm_k = 1400 * np.array([1.0, 1.0, 1.0, 1.0, 1.0, 1.0])  # [10 10 10 10 10 10]
+        self.adm_k = 2000 * np.array([1.0, 1.0, 1.0, 1.0, 1.0, 1.0])  # [10 10 10 10 10 10]
         self.adm_m = 1 * np.array([1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
         self.adm_d = 2 * np.sqrt(np.multiply(self.adm_k,
                                               self.adm_m))  # [12.64911064 12.64911064 12.64911064 12.64911064 12.64911064 12.64911064] 4 * 10 ^ (-0.5)
@@ -563,7 +563,7 @@ class Dual_arm_env(gym.Env):
 
 
         # desired_pos = np.array([0, 0.37, 0.08])
-        desired_pos = np.array([0, 0.47, 0.076])
+        desired_pos = np.array([0, 0.47, 0.076])  # 
 
         # 定义绕 x 轴旋转 90 度（角度单位为度）
         rot = R.from_euler('z', 90, degrees=True)
@@ -704,8 +704,8 @@ def main():
 
     # 声明参数并提供默认值
     env.node.declare_parameter('t0', 0.0)
-    # env.node.declare_parameter('traj_length', 0.17)  #长物体是0.4
     env.node.declare_parameter('traj_length', 0.18)  #长物体是0.4
+    # env.node.declare_parameter('traj_length', 0.07)  #长物体是0.4
     env.node.declare_parameter('speed', 0.01)
     env.node.declare_parameter('dt', 0.008)
     env.node.declare_parameter('position_sequence', [0.0, 0.0, 0.0])

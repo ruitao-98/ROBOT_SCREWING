@@ -1,0 +1,16 @@
+[0.005s] Invoking command in '/home/yanji/robot_screwing/build/screw_robot_control': CMAKE_PREFIX_PATH=/home/yanji/robot_screwing/install/robot_msgs:/home/yanji/robot_screwing/install/screw_robot_control:/home/yanji/robot_screwing/install/real_robot:/home/yanji/robot_screwing/install/mj_sim:/opt/ros/foxy CONDA_PROMPT_MODIFIER=(screwrobot) LD_LIBRARY_PATH=/home/yanji/robot_screwing/install/robot_msgs/lib:/home/yanji/robot_screwing/install/screw_robot_control/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/local/cuda/lib64 /usr/bin/cmake --build /home/yanji/robot_screwing/build/screw_robot_control -- -j24 -l24
+[0.032s] [ 20%] Built target SERVO_MOTOR
+[0.046s] [ 40%] Built target SCREWING_TOOL
+[0.052s] [35m[1mScanning dependencies of target right_arm_control_tcp[0m
+[0.062s] [ 60%] Built target task_control_screw
+[0.064s] [ 80%] Built target right_arm_control
+[0.079s] [ 90%] [32mBuilding CXX object CMakeFiles/right_arm_control_tcp.dir/src/right_arm_control_tcp.cpp.o[0m
+[3.059s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control_tcp.cpp: In member function ‘void right_arm_test::RobotAdmittanceControl::linear_search()’:
+[3.059s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control_tcp.cpp:492:40: error: expected identifier before ‘(’ token
+[3.059s]   492 |         else if (tcp_force[2] >= 3) && (contact_item < 100){
+[3.059s]       |                                        ^
+[3.059s] /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control_tcp.cpp:492:40: warning: taking the address of a label is non-standard [-Wpedantic]
+[3.059s] make[2]: *** [CMakeFiles/right_arm_control_tcp.dir/build.make:63：CMakeFiles/right_arm_control_tcp.dir/src/right_arm_control_tcp.cpp.o] 错误 1
+[3.059s] make[1]: *** [CMakeFiles/Makefile2:223：CMakeFiles/right_arm_control_tcp.dir/all] 错误 2
+[3.060s] make: *** [Makefile:141：all] 错误 2
+[3.061s] Invoked command in '/home/yanji/robot_screwing/build/screw_robot_control' returned '2': CMAKE_PREFIX_PATH=/home/yanji/robot_screwing/install/robot_msgs:/home/yanji/robot_screwing/install/screw_robot_control:/home/yanji/robot_screwing/install/real_robot:/home/yanji/robot_screwing/install/mj_sim:/opt/ros/foxy CONDA_PROMPT_MODIFIER=(screwrobot) LD_LIBRARY_PATH=/home/yanji/robot_screwing/install/robot_msgs/lib:/home/yanji/robot_screwing/install/screw_robot_control/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/local/cuda/lib64 /usr/bin/cmake --build /home/yanji/robot_screwing/build/screw_robot_control -- -j24 -l24

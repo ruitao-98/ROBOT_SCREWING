@@ -356,8 +356,8 @@ int endeffector::width_reduce_full_for_handover(rclcpp::Publisher<robot_msgs::ms
 	while (true)
 	{	
 		int width = this->get_presentposition(1);
-		msg1.width = width;
-		pub1->publish(msg1);
+		// msg1.width = width;
+		// pub1->publish(msg1);
 
 		int j;
 		j = i % 16;
@@ -369,8 +369,8 @@ int endeffector::width_reduce_full_for_handover(rclcpp::Publisher<robot_msgs::ms
 		if (i > 16){
 		ave_current = average_function(present_cu, 16);
 		}
-		msg.current = ave_current;
-		pub->publish(msg);
+		// msg.current = ave_current;
+		// pub->publish(msg);
 		if ((fabs(ave_current - start_current) > yuzhi) && (i > 16))
 		{
 			// this->torque_off(1);
@@ -379,11 +379,11 @@ int endeffector::width_reduce_full_for_handover(rclcpp::Publisher<robot_msgs::ms
 			while ( this->get_presentvelocity(0) != 0)
 			{	
 				int width = this->get_presentposition(1);
-				msg1.width = width;
-				pub1->publish(msg1);
+				// msg1.width = width;
+				// pub1->publish(msg1);
 
-				msg.current = this->get_presentcurrent(1);
-				pub->publish(msg);
+				// msg.current = this->get_presentcurrent(1);
+				// pub->publish(msg);
 			}
 
 			// std::this_thread::sleep_for(std::chrono::milliseconds(300));
@@ -498,13 +498,13 @@ int endeffector::screwing_s1(int speed, float circle, rclcpp::Publisher<robot_ms
 	this->set_goalposition(0, goal_position);
 	int base_current[20] = { 0 };
 
-	std::this_thread::sleep_for(std::chrono::milliseconds(200)); 
+	std::this_thread::sleep_for(std::chrono::milliseconds(800)); 
 	for (int i = 0; i < 20; i = i + 1) {
 		base_current[i] = this->get_presentcurrent(0);
 	}
 	float start_current = average_function(base_current, 20);
 	printf("the started current%.3f \n", start_current);
-	int yuzhi = 35;
+	int yuzhi = 37;
 	int present_cu[10] = { 0 };
 	int i = 0;
 	// std::this_thread::sleep_for(std::chrono::milliseconds(200)); 
@@ -550,7 +550,7 @@ int endeffector::screwing_s1(int speed, float circle, rclcpp::Publisher<robot_ms
 			return 1;
 			break;
 		}
-		else if (realtime_position<=goal_position+15)
+		else if (realtime_position<=goal_position+50)
 		{
 			fin_position = this->get_presentposition(0);
 			// 存储位置
@@ -634,7 +634,7 @@ int endeffector::screwing_s2(int speed, rclcpp::Publisher<robot_msgs::msg::Curre
 			return 2; // 表示所有任务都结束了
 			break;
 		}
-		else if (present_position <= goal_position+10)
+		else if (present_position <= goal_position+30)
 		{
 			printf("final contact\n");
 			this->set_goalvelocity(0, 0);

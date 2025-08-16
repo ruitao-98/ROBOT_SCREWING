@@ -1,0 +1,37 @@
+[ 20%] Built target SERVO_MOTOR
+[ 40%] Built target SCREWING_TOOL
+[35m[1mScanning dependencies of target right_arm_control_tcp[0m
+[ 60%] Built target task_control_screw
+[ 80%] Built target right_arm_control
+[ 90%] [32mBuilding CXX object CMakeFiles/right_arm_control_tcp.dir/src/right_arm_control_tcp.cpp.o[0m
+/home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control_tcp.cpp: In member function ‘void right_arm_test::RobotAdmittanceControl::linear_search()’:
+/home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control_tcp.cpp:483:25: error: no match for ‘operator=’ (operand types are ‘std::array<double, 3>’ and ‘Eigen::Vector3d’ {aka ‘Eigen::Matrix<double, 3, 1>’})
+  483 |             pos_para_ = eef_pos;
+      |                         ^~~~~~~
+In file included from /usr/include/c++/13/functional:65,
+                 from /home/yanji/anaconda3/envs/screwrobot/include/eigen3/Eigen/Core:85,
+                 from /home/yanji/anaconda3/envs/screwrobot/include/eigen3/Eigen/Dense:1,
+                 from /home/yanji/robot_screwing/src/screw_robot_control/include/screw_robot_control/jaka/right_arm_control_tcp.hpp:5,
+                 from /home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control_tcp.cpp:1:
+/usr/include/c++/13/array:94:12: note: candidate: ‘constexpr std::array<double, 3>& std::array<double, 3>::operator=(const std::array<double, 3>&)’
+   94 |     struct array
+      |            ^~~~~
+/usr/include/c++/13/array:94:12: note:   no known conversion for argument 1 from ‘Eigen::Vector3d’ {aka ‘Eigen::Matrix<double, 3, 1>’} to ‘const std::array<double, 3>&’
+/usr/include/c++/13/array:94:12: note: candidate: ‘constexpr std::array<double, 3>& std::array<double, 3>::operator=(std::array<double, 3>&&)’
+/usr/include/c++/13/array:94:12: note:   no known conversion for argument 1 from ‘Eigen::Vector3d’ {aka ‘Eigen::Matrix<double, 3, 1>’} to ‘std::array<double, 3>&&’
+/home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control_tcp.cpp:484:25: error: no match for ‘operator=’ (operand types are ‘std::array<double, 9>’ and ‘Eigen::Matrix3d’ {aka ‘Eigen::Matrix<double, 3, 3>’})
+  484 |             ori_para_ = eef_rotm;
+      |                         ^~~~~~~~
+/usr/include/c++/13/array:94:12: note: candidate: ‘constexpr std::array<double, 9>& std::array<double, 9>::operator=(const std::array<double, 9>&)’
+   94 |     struct array
+      |            ^~~~~
+/usr/include/c++/13/array:94:12: note:   no known conversion for argument 1 from ‘Eigen::Matrix3d’ {aka ‘Eigen::Matrix<double, 3, 3>’} to ‘const std::array<double, 9>&’
+/usr/include/c++/13/array:94:12: note: candidate: ‘constexpr std::array<double, 9>& std::array<double, 9>::operator=(std::array<double, 9>&&)’
+/usr/include/c++/13/array:94:12: note:   no known conversion for argument 1 from ‘Eigen::Matrix3d’ {aka ‘Eigen::Matrix<double, 3, 3>’} to ‘std::array<double, 9>&&’
+/home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control_tcp.cpp:488:40: error: expected identifier before ‘(’ token
+  488 |         else if (tcp_force[2] >= 3) && (contact_item < 100){
+      |                                        ^
+/home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control_tcp.cpp:488:40: warning: taking the address of a label is non-standard [-Wpedantic]
+make[2]: *** [CMakeFiles/right_arm_control_tcp.dir/build.make:63：CMakeFiles/right_arm_control_tcp.dir/src/right_arm_control_tcp.cpp.o] 错误 1
+make[1]: *** [CMakeFiles/Makefile2:223：CMakeFiles/right_arm_control_tcp.dir/all] 错误 2
+make: *** [Makefile:141：all] 错误 2

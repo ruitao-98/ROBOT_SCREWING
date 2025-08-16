@@ -92,10 +92,10 @@ class GPDataset:
 
         x_raw = undo_jsonify(ds['state_in_pose'].to_numpy())  #当前状态
         x_ref = undo_jsonify(ds['state_ref_pose'].to_numpy()) #当前参考状态
-        x_pred = undo_jsonify(ds['state_pred'].to_numpy())    #当前对下一时刻的预测状态 5 * (x, x_dot, f)
-        x_error = undo_jsonify(ds['error'].to_numpy())        #当强状态误差 5 * (x-x_r, x_dot-x_dot_r, f-f_r)
+        x_pred = undo_jsonify(ds['state_pred'].to_numpy())    #当前对下一时刻的预测状态 4 * (x, x_dot, f)
+        x_error = undo_jsonify(ds['error'].to_numpy())        #当强状态误差 4 * (x-x_r, x_dot-x_dot_r, f-f_r)
         u_raw = undo_jsonify(ds['input_in'].to_numpy())       #当前控制输入
-        x_out = undo_jsonify(ds['state_out'].to_numpy())       #下一时刻真实状态 5 * (x, x_dot, f)
+        x_out = undo_jsonify(ds['state_out'].to_numpy())       #下一时刻真实状态 4 * (x, x_dot, f)
 
         # dt = ds["dt"].to_numpy()
         # invalid = np.where(dt == 0)

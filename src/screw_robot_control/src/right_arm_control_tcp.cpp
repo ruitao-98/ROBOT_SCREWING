@@ -466,6 +466,8 @@ void RobotAdmittanceControl::linear_search(){
     eef_pos_d = eef_pos;
     eef_rotm_d = eef_rotm;
     int item = 0;
+    int contact_item = 0;
+    int end_flag = 0;
 
     while ((item < 7000) && (rclcpp::ok()))
     {   
@@ -479,8 +481,21 @@ void RobotAdmittanceControl::linear_search(){
         eef_rotm_d = eef_rotm;
 
         if (tcp_force[2] > 3){
+            end_flag = 1;
+        }
+
+        if ((end_flag == 1) && (contact_item == 200)){
+            pos_para_ = {eef_pos(0), eef_pos(1), eef_pos(2)};
+            ori_para_ = {
+                eef_rotm(0, 0), eef_rotm(0, 1), eef_rotm(0, 2),
+                eef_rotm(1, 0), eef_rotm(1, 1), eef_rotm(1, 2),
+                eef_rotm(2, 0), eef_rotm(2, 1), eef_rotm(2, 2)
+            };
             cout << "-----------linear search stopped------------" << endl;
             break;
+        }
+        else if ((end_flag == 1) && (contact_item < 200)){
+            contact_item = contact_item + 1;
         }
         tcp_admittance_control();
         linear_disp_clipped = linear_disp.cwiseMin(0.01).cwiseMax(-0.01);
@@ -510,16 +525,20 @@ void RobotAdmittanceControl::passive_fine(){
     update_robot_state();
     get_tcp_force();
     get_eef_pose();
-    wish_force << 0, 0, -5, 0, 0, 0;  //期望力
+    wish_force << 0, 0, -1, 0, 0, 0;  //期望力
     selection_vector<<1, 1, 1, 1, 1, 0; //选择向量
-    adm_m << 2.5, 2.5, 2.5, 1.0, 1.0, 1.0;
-    adm_k << 700.0, 700.0, 1300.0, 50.0, 50.0, 1.0;
+    adm_m << 1, 1, 2.5, 1.0, 1.0, 1.0;
+    adm_k << 1200.0, 1200.0, 1300.0, 120.0, 120.0, 1.0;
     for (Eigen::Index i = 0; i < adm_m.size(); ++i) {
-        adm_d[i] = 3.5 * sqrt(adm_m[i] * adm_k[i]);
+        adm_d[i] = 4 * sqrt(adm_m[i] * adm_k[i]);
     }
+    // adm_k << 200.0, 200.0, 1300.0, 2.0, 2.0, 1.0;
+    // for (Eigen::Index i = 0; i < adm_m.size(); ++i) {
+    //     adm_d[i] = 3 * sqrt(adm_m[i] * adm_k[i]);
+    // }
     //   adm_d[0] = 3.5 * sqrt(adm_m[0] * adm_k[0]);
     //   adm_d[1] = 3.5 * sqrt(adm_m[1] * adm_k[1]);
-      adm_d[2] = 5 * sqrt(adm_m[2] * adm_k[2]);
+    adm_d[2] = 5 * sqrt(adm_m[2] * adm_k[2]);
     start_eef_pos = eef_pos;
     start_eef_rotm = eef_rotm;
     eef_rotm_d = start_eef_rotm; 
@@ -534,7 +553,7 @@ void RobotAdmittanceControl::passive_fine(){
     int flag = 1; //初始化，一开始是搜索状态
     screw_execute_status_ = 2; //初始化，肯定是未运行的；
     screw_execute_result_ = 9; //不需要对其进行初始化，一开始他没有结果
-    int max_rotations = 3;
+    int max_rotations = 2;
     int rotation_item = 0;
     double distance_threhold = 0.6;  // 单位 mm 
     auto goal_msg = robot_msgs::action::Screw::Goal();
@@ -701,17 +720,25 @@ void RobotAdmittanceControl::online_generate_straight_trajectory(int num_points,
     // 转换到世界坐标系的方向向量
     Eigen::Vector3d direction = start_orientation * z_negative;
 
+    // 计算当前位置在初始末端坐标系下的 z 分量对应的标量位移（沿方向的投影）
+    double s = direction.dot(present_position - start_position);
+
+    // 计算投影后的起点位置（保留 z 分量，其他分量投影到轨迹轴上）
+    Eigen::Vector3d projected_position = start_position + s * direction;
+
     // 在 z 轴上沿负方向生成轨迹
     for (int i = 0; i <= num_points; ++i) {
         // 距离（速度 × 时间）
         double distance = i * speed * control_dt;
 
         // 位置更新
-        trajectory_positions[i] = Eigen::Vector3d(
-            start_position[0] + distance * direction[0], // 初始 x + x 方向位移
-            start_position[1] + distance * direction[1], // 初始 y + y 方向位移
-            present_position[2] + distance * direction[2] // 当前 z + z 方向位移
-        );
+        // trajectory_positions[i] = Eigen::Vector3d(
+        //     start_position[0] + distance * direction[0], // 初始 x + x 方向位移
+        //     start_position[1] + distance * direction[1], // 初始 y + y 方向位移
+        //     present_position[2] + distance * direction[2] // 当前 z + z 方向位移
+        // );
+
+        trajectory_positions[i] = projected_position + distance * direction;
  
         // 线速度：速度 × 方向
         trajectory_velocities[i] = speed * direction;
@@ -817,11 +844,11 @@ void RobotAdmittanceControl::go_to_pose(){
     std::cin >> input;
 
     double angle;
-    angle = 0.5 * PI / 180;
+    angle = 0.0 * PI / 180;
     switch(input) {  //双臂实验标定结果
           
       case '1':
-          goal_pose.tran.x = -0.286568; goal_pose.tran.y = 0.363519; goal_pose.tran.z = 0.0482381 + 0.005;
+          goal_pose.tran.x = -0.309667; goal_pose.tran.y = 0.348976; goal_pose.tran.z = 0.049928 + 0.001;
           goal_pose.rpy.rx = 0 + angle; goal_pose.rpy.ry = 0; goal_pose.rpy.rz =  3.14159;  // 三通
           break;
 
@@ -860,7 +887,7 @@ void RobotAdmittanceControl::go_to_pose(){
       cout << new_pos.tran.x <<" "<< new_pos.tran.y <<" "<< new_pos.tran.z << endl;
       cout << new_pos.rpy.rx * 180 / PI <<" "<< new_pos.rpy.ry * 180 / PI <<" "<< new_pos.rpy.rz * 180 / PI << endl;
       robot.servo_move_enable(false);
-      robot.linear_move(&new_pos, ABS, TRUE, 25);
+      robot.linear_move(&new_pos, ABS, TRUE, 20);
 }
 
 void RobotAdmittanceControl::reset(){

@@ -48,16 +48,16 @@ class MPCWrapper(Node):
         position_sequence =    np.array([self.get_parameter('position_sequence').value])
         orientation_sequence = np.array([self.get_parameter('orientation_sequence').value])
 
-        # trajectory_positions, trajectory_orientations, trajectory_velocities, trajectory_angular_velocities = traj.generate_straight_trajectory(traj_length, dt, 
-        #                                                                                                                                         speed, position_sequence, 
-        #                                                                                                                                         orientation_sequence) #生成x方向的直线轨迹
+        trajectory_positions, trajectory_orientations, trajectory_velocities, trajectory_angular_velocities = traj.generate_straight_trajectory(traj_length, dt, 
+                                                                                                                                                speed, position_sequence, 
+                                                                                                                                                orientation_sequence) #生成x方向的直线轨迹
         # trajectory_positions, trajectory_orientations, trajectory_velocities, trajectory_angular_velocities = traj.generate_rectangular_trajectory(traj_length, dt, 
         #                                                                                                                                         speed, position_sequence, 
         #                                                                                                                                         orientation_sequence) #生成x方向的直线轨迹
         
-        trajectory_positions, trajectory_orientations, trajectory_velocities, trajectory_angular_velocities = (traj.generate_triangular_trajectory(traj_length, dt, 
-                                                                                                                                                   speed, position_sequence, 
-                                                                                                                                                   orientation_sequence)) #生成x方向的直线轨迹
+        # trajectory_positions, trajectory_orientations, trajectory_velocities, trajectory_angular_velocities = traj.generate_triangular_trajectory(traj_length, dt, 
+        #                                                                                                                                            speed, position_sequence, 
+        #                                                                                                                                            orientation_sequence) #生成x方向的直线轨迹
         self.pos_para = [0, 0, 0]
         self.ori_para = [0, 0, 0, 1]
         #推理用时
@@ -96,7 +96,7 @@ class MPCWrapper(Node):
 
         # 初始化单个维度的状态和控制量
         self.x0 = np.array([0.0, 0.0, 0.0]).reshape(-1, 1)  
-        self.u0 = np.array([-200, -30, 1] * self.N).reshape(-1, 3).T   #  .T 后 是3 *N
+        self.u0 = np.array([-600, -50, 1] * self.N).reshape(-1, 3).T   #  .T 后 是3 *N
         self.x_m = np.zeros((self.n_states, self.N + 1))
  
         self.next_states = self.x_m.copy()  #(3, N+1)
@@ -182,7 +182,7 @@ class MPCWrapper(Node):
                 time_mean = np.mean(self.Time)
                 print(f"Time 均值: {time_mean:.2f} 毫秒")
                 # 可视化 Time 变化图像
-                rp.plot_time(self.Time, time_mean)
+                # rp.plot_time(self.Time, time_mean)
             else:
                 print("Time 数据为空，未执行优化")
             # 终止程序
@@ -237,6 +237,9 @@ class MPCWrapper(Node):
                 Q_val = np.array([[100, 0.0, 0.0],
                                 [0.0, 0.01, 0.0],
                                 [0.0, 0.0, 0.1]])
+                # Q_val = np.array([[700.0, 0.0, 0.0],
+                #                 [0.0, 0.001, 0.0],
+                #                 [0.0, 0.0, 0.001]])  #无障碍任务
                 lower_bounds = [-np.inf, -np.inf, -np.inf]
                 upper_bounds = [ np.inf,  np.inf,  np.inf]
                 self.set_state_bounds(lower_bounds, upper_bounds)
@@ -249,13 +252,16 @@ class MPCWrapper(Node):
                 # print("k:", -self.U0[item][0, 0] * self.mpc_optimzer.c)
                 # print("d:", -self.U0[item][1, 0] * self.mpc_optimzer.c)
                 # print("State error:", self.Next_s[item][:, 0] - c_p[:, 0])
-
                 Q_val = np.array([[100.0, 0.0, 0.0],
                                 [0.0, 0.01, 0.0],
-                                [0.0, 0.0, 0.1]])
+                                [0.0, 0.0, 0.1]])  #有障碍任务
+
+                # Q_val = np.array([[700.0, 0.0, 0.0],
+                #                 [0.0, 0.001, 0.0],
+                #                 [0.0, 0.0, 0.001]])  #无障碍任务
                 lower_bounds = [-np.inf, -np.inf, -np.inf]
                 upper_bounds = [ np.inf,  np.inf,  np.inf]
-                # upper_bounds = [self.pos_para[1] + 0.05,  np.inf,  np.inf]
+                # upper_bounds = [self.pos_para[1] + 0.06,  np.inf,  np.inf]
                 self.set_state_bounds(lower_bounds, upper_bounds)
             
             else:

@@ -18,10 +18,24 @@
     "real_dataset": {
         "train": {
             "dataset_001": {
-                "groove1": false,
-                "groove2": false,
                 "screw1": true,
-                "screw2": false
+                "screw2": false,
+                "screw3": false
+            },
+            "dataset_002": {
+                "screw1": false,
+                "screw2": true,
+                "screw3": false
+            },
+            "dataset_003": {
+                "screw1": false,
+                "screw2": false,
+                "screw3": true
+            },
+            "dataset_004": {
+                "screw1": true,
+                "screw2": true,
+                "screw3": true
             }
         }
     }

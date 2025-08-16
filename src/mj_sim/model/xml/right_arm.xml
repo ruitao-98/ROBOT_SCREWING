@@ -112,13 +112,13 @@
         <!-- <include file="plant.xml"/> -->
 
 
-    <!-- <body name="board" pos="0.45 0.765 0.64" quat="0.7071 0.7071 0 0"> 
+    <body name="board" pos="0.45 0.765 0.64" quat="0.7071 0.7071 0 0"> 
       <geom type="mesh" mesh="part0" contype='1' conaffinity='1' condim='6'  margin="0.0001" solref=".02 1" solimp=".6 .8 .001" friction="0.01 0.005 0.01" material = "gray" />
       <geom type="mesh" mesh="part1" contype='1' conaffinity='1' condim='6'  margin="0.0001" solref=".02 1" solimp=".6 .8 .001" friction="0.01 0.005 0.01" material = "gray" />
       <geom type="mesh" mesh="part2" contype='1' conaffinity='1' condim='6'  margin="0.0001" solref=".02 1" solimp=".6 .8 .001" friction="0.01 0.005 0.01" material = "gray" />
       <geom type="mesh" mesh="part3" contype='1' conaffinity='1' condim='6'  margin="0.0001" solref=".02 1" solimp=".6 .8 .001" friction="0.01 0.005 0.01" material = "gray" />
       <geom type="mesh" mesh="part4" contype='1' conaffinity='1' condim='6'  margin="0.0001" solref=".02 1" solimp=".6 .8 .001" friction="0.01 0.005 0.01" material = "gray" />
-      <geom type="mesh" mesh="part5" contype='1' conaffinity='1' condim='6'  margin="0.0001" solref=".02 1" solimp=".6 .8 .001" friction="0.01 0.005 0.01" material = "gray" /> -->
+      <geom type="mesh" mesh="part5" contype='1' conaffinity='1' condim='6'  margin="0.0001" solref=".02 1" solimp=".6 .8 .001" friction="0.01 0.005 0.01" material = "gray" />
 
       <!-- <geom type="mesh" mesh="part6" contype='1' conaffinity='1' condim='6'  margin="0.0001" solref=".02 1" solimp=".6 .8 .001" friction="0.01 0.005 0.01" material = "gray" />
       <geom type="mesh" mesh="part7" contype='1' conaffinity='1' condim='6'  margin="0.0001" solref=".02 1" solimp=".6 .8 .001" friction="0.01 0.005 0.01" material = "gray" />
@@ -129,7 +129,7 @@
       <geom type="mesh" mesh="part12" contype='1' conaffinity='1' condim='6'  margin="0.0001" solref=".02 1" solimp=".6 .8 .001" friction="0.01 0.005 0.01" material = "gray" />
       <geom type="mesh" mesh="part13" contype='1' conaffinity='1' condim='6'  margin="0.0001" solref=".02 1" solimp=".6 .8 .001" friction="0.01 0.005 0.01" material = "gray" />  -->
       <!-- <geom type="mesh" mesh="part14" contype='1' conaffinity='1' condim='6'  margin="0.0001" solref=".02 1" solimp=".6 .8 .001" friction="0.01 0.005 0.01" material = "gray" /> -->
-    <!-- </body> -->
+    </body>
 
     <!-- <body name="board" pos="0.35 0.65 0.606" quat="0.7071 0.7071 0 0"> -->
       <!-- <geom type="mesh" mesh="plant1"/> -->

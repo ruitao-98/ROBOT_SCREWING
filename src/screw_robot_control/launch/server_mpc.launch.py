@@ -23,6 +23,7 @@ def generate_launch_description():
     # 声明命令行参数
     bag_number = LaunchConfiguration('bag_number')
     save_path = LaunchConfiguration('save_path')  # 添加 save_path 的 LaunchConfiguration
+    para_name = LaunchConfiguration('para_name')
     
     # 动态生成保存路径（与 src 同级的 rosbag_record/with_mpc）
     # src_dir = os.path.abspath("/home/yanji/robot_screwing")
@@ -39,6 +40,11 @@ def generate_launch_description():
             'save_path',
             default_value='/home/yanji/rosbag_record/with_mpc',
             description='Directory to save the rosbag file'
+        ),
+        DeclareLaunchArgument(
+            'para_name',
+            default_value='santong_',
+            description='Prefix for bag file name (e.g., santong_ for santong_01.bag)'
         ),
         # 原节点：task_control_screw
         Node(
@@ -64,9 +70,12 @@ def generate_launch_description():
         ExecuteProcess(
             cmd=[
                 'ros2', 'bag', 'record',
-                '/cmd_status', '/rob_status',
-                '-o', [save_path, '/', TextSubstitution(text='santong_'), bag_number]
+                '/cmd_status', '/rob_status', '/ref_status', '/current_p',
+                # '-o', [save_path, '/', TextSubstitution(text='para_a_'), bag_number]
+                '-o', [save_path, '/', para_name, bag_number]
             ],
             output='screen'
         ),
     ])
+
+#ros2 launch screw_robot_control server_mpc.launch.py para_name:=santong_ bag_number:=01

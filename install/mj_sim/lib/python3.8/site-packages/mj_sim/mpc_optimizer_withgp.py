@@ -26,10 +26,10 @@ class Mpc_Opti:
     def __init__(self, gp_regressors=None, B_x=None, dim_idx=0):
 
         self.T = 0.008  # sampling time [s]
-        self.N = 5  # prediction horizon 预测的节点数量
+        self.N = 6  # prediction horizon 预测的节点数量
 
         self.k_min = 20
-        self.k_max = 2000
+        self.k_max = 1500
         self.d_min = 10
         self.d_max = 500
         self.c = 1
@@ -87,8 +87,8 @@ class Mpc_Opti:
             for i in range(self.gp_regressors.n_models):
                 cluster_id = {dim: [i] for dim in gp_dims}
                 print("cluster_id", cluster_id)
-                self.u_test[0] = -(self.u[0]/self.u[2])
-                self.u_test[1] = -(self.u[1]/self.u[2])
+                # self.u_test[0] = -(self.u[0]/self.u[2])
+                # self.u_test[1] = -(self.u[1]/self.u[2])
                 delta_f = self.predict_delta_f_sym(self.s, self.s_r, ca.vertcat(-(self.u[0]/self.u[2]), -(self.u[1]/self.u[2])).reshape((2, 1)), cluster_id=cluster_id)
                 # delta_f = self.predict_delta_f_sym(self.s, self.s_r, [-self.u[0]/self.u[2], -self.u[1]/self.u[2]], cluster_id=cluster_id)
                 s_next = self.s_next_nominal + self.B_x @ (delta_f * self.trigger)  # 只在 trigger=1 时应用GP

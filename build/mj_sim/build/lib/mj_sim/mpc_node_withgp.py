@@ -37,7 +37,7 @@ class MPCWrapper(Node):
         # 变量和类继承
         # 加载 GP 模型
 
-        git_version = "5476680"  # a
+        git_version = "4a78121"  # a
         model_name = "simple_sim_gp"
         sim_options = Conf.ds_metadata
         load_ops = {"git": git_version, "model_name": model_name, "params": sim_options}
@@ -211,7 +211,7 @@ class MPCWrapper(Node):
                 time_mean = np.mean(self.Time)
                 print(f"Time 均值: {time_mean:.2f} 毫秒")
                 # 可视化 Time 变化图像
-                rp.plot_time(self.Time, time_mean)
+                # rp.plot_time(self.Time, time_mean)
             else:
                 print("Time 数据为空，未执行优化")
             # 终止程序

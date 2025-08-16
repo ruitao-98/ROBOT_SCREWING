@@ -26,10 +26,10 @@ class Mpc_Opti:
     def __init__(self, gp_regressors=None, B_x=None):
 
         self.T = 0.008  # sampling time [s]
-        self.N = 8  # prediction horizon 预测的节点数量
+        self.N = 7     # prediction horizon 预测的节点数量
 
-        self.k_min = 20
-        self.k_max = 2000
+        self.k_min = 10
+        self.k_max = 1500
         self.d_min = 10
         self.d_max = 500
         self.c = 1
@@ -102,15 +102,15 @@ class Mpc_Opti:
         #             [0.0, 0.0, 1]])
         
         self.Q = ca.SX.sym('Q', 3, 3)  # 符号参数
-        print("self.Q", self.Q)
+        # print("self.Q", self.Q)
 
         self.R = np.array([[1e-9, 0.0, 0.0],
                     [0.0, 1e-9, 0.0],
                     [0.0, 0.0, 1e-9]])
 
         # self.R = np.array([[0, 0.0, 0.0],
-            # [0.0, 0, 0.0],
-            # [0.0, 0.0, 0]])
+        #     [0.0, 0, 0.0],
+        #     [0.0, 0.0, 0]])
 
         # cost function
         self.obj = 0  # cost

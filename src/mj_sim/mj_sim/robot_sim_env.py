@@ -69,7 +69,7 @@ class Dual_arm_env(gym.Env):
 
         # joint control gains & variables
         # self.joint_kp = np.array([2000, 2000, 2000, 2000, 2000, 2000])  #关节pd控制器
-        self.joint_kp = 2000 * np.ones(6)  # 关节pd控制器
+        self.joint_kp = 1600 * np.ones(6)  # 关节pd控制器
         self.joint_kd = 2 * np.sqrt(self.joint_kp)  #关节pd控制器
 
 
@@ -86,7 +86,7 @@ class Dual_arm_env(gym.Env):
         # self.set_gripper(self.gripper_pose)  # 夹爪宽度
 
         # admittance control gains
-        self.adm_k = 1400 * np.array([1.0, 1.0, 1.0, 1.0, 1.0, 1.0])  # [10 10 10 10 10 10]
+        self.adm_k = 2000 * np.array([1.0, 1.0, 1.0, 1.0, 1.0, 1.0])  # [10 10 10 10 10 10]
         self.adm_m = 1 * np.array([1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
         self.adm_d = 2 * np.sqrt(np.multiply(self.adm_k,
                                               self.adm_m))  # [12.64911064 12.64911064 12.64911064 12.64911064 12.64911064 12.64911064] 4 * 10 ^ (-0.5)
@@ -445,7 +445,7 @@ class Dual_arm_env(gym.Env):
         # print(linear_disp)
         new_linear = eef_pos + linear_disp.reshape([3,])
 
-        # new_linear[2] = self.start_pos[2]
+        new_linear[2] = self.start_pos[2]
         # new_linear = desired_pos.copy()   
         new_angular = desired_rotm.copy()
 
@@ -562,8 +562,8 @@ class Dual_arm_env(gym.Env):
         # q_target = np.array([-np.pi / 2, np.pi / 3, np.pi * 2 / 3, np.pi / 2, -np.pi / 2, np.pi / 2])
 
 
-        desired_pos = np.array([0, 0.37, 0.08])
-        # desired_pos = np.array([0, 0.47, 0.076])  # 
+        # desired_pos = np.array([0, 0.37, 0.08])
+        desired_pos = np.array([0, 0.47, 0.076])  # 
 
         # 定义绕 x 轴旋转 90 度（角度单位为度）
         rot = R.from_euler('z', 90, degrees=True)
@@ -704,8 +704,8 @@ def main():
 
     # 声明参数并提供默认值
     env.node.declare_parameter('t0', 0.0)
-    # env.node.declare_parameter('traj_length', 0.18)  #长物体是0.4
-    env.node.declare_parameter('traj_length', 0.07)  #长物体是0.4
+    env.node.declare_parameter('traj_length', 0.18)  #长物体是0.4
+    # env.node.declare_parameter('traj_length', 0.07)  #长物体是0.4
     env.node.declare_parameter('speed', 0.01)
     env.node.declare_parameter('dt', 0.008)
     env.node.declare_parameter('position_sequence', [0.0, 0.0, 0.0])
@@ -719,26 +719,26 @@ def main():
     orientation_sequence = np.array([env.node.get_parameter('orientation_sequence').value])
 
     # 轨迹生成
-    # trajectory_positions, trajectory_orientations, trajectory_velocities, trajectory_angular_velocities = (
-    #     traj.generate_straight_trajectory(traj_length, dt, speed, position_sequence, orientation_sequence)) #生成x方向的直线轨迹
-    
     trajectory_positions, trajectory_orientations, trajectory_velocities, trajectory_angular_velocities = (
-        traj.generate_rectangular_trajectory(traj_length, dt, speed, position_sequence, orientation_sequence)) #生成x方向的直线轨迹
+        traj.generate_straight_trajectory(traj_length, dt, speed, position_sequence, orientation_sequence)) #生成x方向的直线轨迹
+    
+    # trajectory_positions, trajectory_orientations, trajectory_velocities, trajectory_angular_velocities = (
+    #     traj.generate_rectangular_trajectory(traj_length, dt, speed, position_sequence, orientation_sequence)) #生成x方向的直线轨迹
     
     # trajectory_positions, trajectory_orientations, trajectory_velocities, trajectory_angular_velocities = (
     #     traj.generate_triangular_trajectory(traj_length, dt, speed, position_sequence, orientation_sequence)) #生成x方向的直线轨迹
 
-    # traj_1 = np.hstack((trajectory_positions[:, [0]], trajectory_velocities[:, [0]]))
-    # traj_1 = np.hstack((traj_1, np.zeros((len(trajectory_positions), 1))))
-    # traj_2 = np.hstack((trajectory_positions[:, [1]], trajectory_velocities[:, [1]]))
-    # traj_2 = np.hstack((traj_2, np.zeros((len(trajectory_positions), 1))))
+    traj_1 = np.hstack((trajectory_positions[:, [0]], trajectory_velocities[:, [0]]))
+    traj_1 = np.hstack((traj_1, np.zeros((len(trajectory_positions), 1))))
+    traj_2 = np.hstack((trajectory_positions[:, [1]], trajectory_velocities[:, [1]]))
+    traj_2 = np.hstack((traj_2, np.zeros((len(trajectory_positions), 1))))
     traj_3 = np.hstack((trajectory_positions[:, [2]], trajectory_velocities[:, [2]]))
     traj_3 = np.hstack((traj_3, np.zeros((len(trajectory_positions), 1))))
 
-    traj_1 = np.hstack((trajectory_positions[:, [0]],np.zeros((len(trajectory_positions), 1))))
-    traj_1 = np.hstack((traj_1, np.zeros((len(trajectory_positions), 1))))
-    traj_2 = np.hstack((trajectory_positions[:, [1]], np.zeros((len(trajectory_positions), 1))))
-    traj_2 = np.hstack((traj_2, np.zeros((len(trajectory_positions), 1))))
+    # traj_1 = np.hstack((trajectory_positions[:, [0]],np.zeros((len(trajectory_positions), 1))))
+    # traj_1 = np.hstack((traj_1, np.zeros((len(trajectory_positions), 1))))
+    # traj_2 = np.hstack((trajectory_positions[:, [1]], np.zeros((len(trajectory_positions), 1))))
+    # traj_2 = np.hstack((traj_2, np.zeros((len(trajectory_positions), 1))))
     # traj_3 = np.hstack((trajectory_positions[:, [2]], np.zeros((len(trajectory_positions), 1))))
     # traj_3 = np.hstack((traj_3, np.zeros((len(trajectory_positions), 1))))
 

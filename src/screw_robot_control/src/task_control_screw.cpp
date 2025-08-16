@@ -68,7 +68,7 @@ void ScrewControlServer::execute(
       feedback->screw_status = 1.0;
       goal_handle->publish_feedback(feedback);
       std::this_thread::sleep_for(std::chrono::seconds(1));
-      result = ef_.screwing_s1(200, 1, current_pub_, current_msg_);
+      result = ef_.screwing_s1(210, 1, current_pub_, current_msg_);
       feedback->screw_status = 0.0;
       goal_handle->publish_feedback(feedback);
     } 

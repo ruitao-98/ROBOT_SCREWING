@@ -26,7 +26,7 @@ class Mpc_Opti:
     def __init__(self, gp_regressors=None, B_x=None, dim_idx=0):
 
         self.T = 0.008  # sampling time [s]
-        self.N = 10  # prediction horizon 预测的节点数量
+        self.N = 5  # prediction horizon 预测的节点数量
 
         self.k_min = 100
         self.k_max = 2000
@@ -84,6 +84,7 @@ class Mpc_Opti:
             for i in range(self.gp_regressors.n_models):
                 cluster_id = {dim: [i] for dim in gp_dims}
                 print("cluster_id", cluster_id)
+                # ca.vertcat(-(self.u[0]/self.u[2]), -(self.u[1]/self.u[2])).reshape((2, 1))
                 delta_f = self.predict_delta_f_sym(self.s, self.s_r, [-self.u[0]/self.u[2], -self.u[1]/self.u[2]], cluster_id=cluster_id)
                 s_next = self.s_next_nominal + self.B_x @ (delta_f * self.trigger)  # 只在 trigger=1 时应用GP
                 self.f_models[i] = ca.Function(f'f_{i}', [self.s, self.s_r, self.u, self.trigger], [s_next],
@@ -91,22 +92,7 @@ class Mpc_Opti:
         else:
             self.f_models[0] = ca.Function('f_0', [self.s, self.s_r, self.u, self.trigger], [self.s_next_nominal],
                                            ['input_state', 'state_ref', 'control_input', 'trigger'], ['state_next'])
-        # if self.with_gp:
-        #     delta_f = self.predict_delta_f_sym(self.s, self.s_r, [-self.u[0]/self.u[2], -self.u[1]/self.u[2]]) #k d
-        #     print('delta_f=', delta_f)
-        #     self.s_next = self.s_next_nominal + self.B_x @ (delta_f * self.trigger)
-        # else:
-        #     self.s_next = self.s_next_nominal
-
-        # self.s_next = self.s_next_nominal + self.B_x @ self.delta_f  # 只修正 f_x 分量  ca.vertcat(0, 0, self.delta_f)
-
-        # self.f = ca.Function('f', [self.s, self.s_r, self.u, self.trigger], [self.s_next],
-        #                      ['input_state', 'state_ref', 'control_input', 'trigger'], ['state_next'])
-        
-        # self.f = ca.Function('f', [self.s, self.s_r, self.u, self.delta_f], [self.s_next],
-        #                 ['input_state', 'state_ref', 'control_input', 'delta_f'], ['state_next'])
-        # f_simple = ca.Function('f_simple', [s,  s_r, u], [s])
-
+    
         # 构建MPC仿真
         # for MPC
         self.U = ca.MX.sym('U', self.n_controls, self.N)
@@ -120,16 +106,10 @@ class Mpc_Opti:
         # self.Delta_f = ca.SX.sym('Delta_f', self.N)  # 每个节点的 delta_f N×1，标量序列
         # P = ca.SX.sym('P', n_states + n_states) #初始和终端
 
-        # define
-
-        # self.Q = np.array([[1000.0, 0.0, 0.0],
-        #             [0.0, 10, 0.0],
-        #             [0.0, 0.0, 1]])
-        # print("self.Q", self.Q)
-
-        self.R = np.array([[1e-5, 0.0, 0.0],
-                    [0.0, 1e-4, 0.0],
-                    [0.0, 0.0, 1e-4]])
+   
+        self.R = np.array([[1e-9, 0.0, 0.0],
+                    [0.0, 1e-9, 0.0],
+                    [0.0, 0.0, 1e-9]])
         # 为每个簇生成独立的优化问题
         self.solvers = {}
         for k in range(len(self.f_models)):
@@ -140,16 +120,16 @@ class Mpc_Opti:
             self.g = [self.X[:, 0] - self.X0]  # 初始状态固定为 X0
 
             for i in range(self.N):
-                self.obj = (self.obj + ca.mtimes([(self.X[:, i] - self.X_r[:, i]).T, self.Q, self.X[:, i] - self.X_r[:, i]] ) )#控制输入
+                self.obj = (self.obj + ca.mtimes([(self.X[:, i] - self.X_r[:, i]).T, self.Q, self.X[:, i] - self.X_r[:, i]])  + ca.mtimes([self.U[:, i].T, self.R, self.U[:, i]]))#控制输入
                 self.x_next_ = self.f_models[k](self.X[:, i], self.X_r[:, i], self.U[:, i], self.Trigger[i])
                                         # + ca.mtimes([self.U[:, i].T, self.R, self.U[:, i]])
                 # delta_f_pred = self.predict_delta_f(self.X[:, i]-self.X_r[:, i], [self.U[0, i]/self.U[2, i], self.U[1, i]/self.U[2, i]])  # GP 预测
                 self.g.append(self.X[:, i + 1] - self.x_next_)
 
-            # print("self.Q", ca.reshape(self.Q, -1, 1))
+            self.obj = self.obj + ca.mtimes([((self.X[:, self.N] - self.X_r[:, self.N]) ).T, self.Q, (self.X[:, self.N] - self.X_r[:, self.N])  ] ) 
+   
             self.opt_variables = ca.vertcat(ca.reshape(self.U, -1, 1), ca.reshape(self.X, -1, 1))  # ca.reshape(U, -1, 1) 转换为一个列向量 6 * N, 1 casadi 默认列优先展平，这个和numpy不一样
-            # print("ca.reshape(self.X_r, -1, 1)", ca.reshape(self.X_r, -1, 1))
-            # print("self.X_r", self.X_r)
+     
             self.nlp_prob = {'f': self.obj, 
                              'x': self.opt_variables, 
                              'p': ca.vertcat(ca.reshape(self.X_r, -1, 1), self.X0, ca.reshape(self.Q, -1, 1), self.Trigger), 

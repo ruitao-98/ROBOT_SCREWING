@@ -62,6 +62,12 @@ def online_generate_straight_trajectory(num_points, control_dt, speed, position,
     direction = start_orientation @ z_negative
     quaternion = trans_quat.mat2quat(start_orientation)
 
+    # 计算当前真实位置在初始末端坐标系下 z 轴的投影标量 s
+    s = np.dot(direction, present_position - start_position)
+
+    # 计算投影后的起点位置（保留 z 分量，其他分量投影到轨迹轴上）
+    projected_position = start_position + s * direction
+
     # 在 z 轴上沿正方向生成轨迹
     for i in range(num_points + 1):
         # 距离（速度 × 时间）
@@ -70,11 +76,14 @@ def online_generate_straight_trajectory(num_points, control_dt, speed, position,
         # x: 初始x坐标
         # y: 初始y坐标
         # z: 当前z坐标 + 沿z负方向的位移
-        trajectory_positions[i, :] = np.array([
-            start_position[0],                       # 初始x
-            start_position[1],                       # 初始y
-            present_position[2] + distance * direction[2]  # 当前z + z方向位移
-        ]) + np.array([distance * direction[0], distance * direction[1], 0])
+        # trajectory_positions[i, :] = np.array([
+        #     start_position[0],                       # 初始x
+        #     start_position[1],                       # 初始y
+        #     present_position[2] + distance * direction[2]  # 当前z + z方向位移
+        # ]) + np.array([distance * direction[0], distance * direction[1], 0])
+
+                # 位置更新：从投影位置沿方向移动
+        trajectory_positions[i, :] = projected_position + distance * direction
 
         # trajectory_positions[i, :] = start_position + distance * direction
         # 姿态保持不变
@@ -228,13 +237,32 @@ def plot_trajectory(trajectory_positions):
     """
     可视化生成的轨迹
     """
+    # fig = plt.figure()
+    # ax = fig.add_subplot(111)
+    # ax.plot(trajectory_positions[:, 0], trajectory_positions[:, 2])
+    # ax.set_xlabel('X')
+    # ax.set_ylabel('Y')
+
+    # plt.title("Straight Line Trajectory")
+    # plt.show()
+
+
+    # 创建 3D 图形
     fig = plt.figure()
-    ax = fig.add_subplot(111)
-    ax.plot(trajectory_positions[:, 0], trajectory_positions[:, 1])
+    ax = fig.add_subplot(111, projection='3d')
+
+    # 绘制 3D 轨迹
+    ax.plot(trajectory_positions[:, 0], trajectory_positions[:, 1], trajectory_positions[:, 2])
+
+    # 设置坐标轴标签
     ax.set_xlabel('X')
     ax.set_ylabel('Y')
+    ax.set_zlabel('Z')
 
-    plt.title("Straight Line Trajectory")
+    # 设置标题
+    plt.title("3D Straight Line Trajectory")
+
+    # 显示图形
     plt.show()
 
 
@@ -247,16 +275,34 @@ if __name__ == "__main__":
     position_sequence = np.zeros((1, 3))
     print(position_sequence)
     orientation_sequence = np.array([[1, 0, 0, 0]])
+    num_points = 20
+    present_position = np.array([0, 0, -0.0])
+    orientation_sequence = trans_quat.quat2mat(orientation_sequence[0])
+
+    theta = np.deg2rad(-1)  # 将 1 度转换为弧度
+    cos_theta = np.cos(theta)
+    sin_theta = np.sin(theta)
+    R_x = np.array([
+        [1, 0, 0],
+        [0, cos_theta, -sin_theta],
+        [0, sin_theta, cos_theta]
+    ])
+
+    # 应用局部 x 轴旋转（右乘）
+    orientation_sequence = orientation_sequence @ R_x
+
+    trajectory_positions, trajectory_orientations, trajectory_velocities, trajectory_angular_velocities = (
+    online_generate_straight_trajectory(num_points, dt, speed, position_sequence[0], orientation_sequence, present_position))
 
     # trajectory_positions, trajectory_orientations, trajectory_velocities, trajectory_angular_velocities = (
     #     generate_straight_trajectory(traj_length, dt, speed, position_sequence, orientation_sequence))
     
-    trajectory_positions, trajectory_orientations, trajectory_velocities, trajectory_angular_velocities = (
-        generate_rectangular_trajectory(traj_length, dt, speed, position_sequence, orientation_sequence))
+    # trajectory_positions, trajectory_orientations, trajectory_velocities, trajectory_angular_velocities = (
+    #     generate_rectangular_trajectory(traj_length, dt, speed, position_sequence, orientation_sequence))
     
-    trajectory_positions, trajectory_orientations, trajectory_velocities, trajectory_angular_velocities = (
-        generate_triangular_trajectory(traj_length, dt, speed, position_sequence, orientation_sequence))
-    print(trajectory_positions)
+    # trajectory_positions, trajectory_orientations, trajectory_velocities, trajectory_angular_velocities = (
+    #     generate_triangular_trajectory(traj_length, dt, speed, position_sequence, orientation_sequence))
+    # print(trajectory_positions)
 
     # c_p = np.concatenate((trajectory_positions[3, [0, 2]], trajectory_velocities[3, [0, 2]]))
     # c_p = np.concatenate((c_p, np.array([0, 0])))
@@ -278,3 +324,4 @@ if __name__ == "__main__":
 
 
     plot_trajectory(trajectory_positions)
+    print(trajectory_positions)

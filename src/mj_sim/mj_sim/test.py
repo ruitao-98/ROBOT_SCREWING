@@ -311,3 +311,5 @@ def cut_redundancy(arr):
 arr = np.array([1,2,3,4,5,8,6,6])
 item = cut_redundancy(arr)
 print(item)
+
+print(5*np.sqrt(1300 * 2.5))

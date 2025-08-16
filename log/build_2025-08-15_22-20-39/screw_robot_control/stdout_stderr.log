@@ -1,0 +1,14 @@
+[ 20%] Built target SERVO_MOTOR
+[ 40%] Built target SCREWING_TOOL
+[35m[1mScanning dependencies of target right_arm_control_tcp[0m
+[ 60%] Built target task_control_screw
+[ 80%] Built target right_arm_control
+[ 90%] [32mBuilding CXX object CMakeFiles/right_arm_control_tcp.dir/src/right_arm_control_tcp.cpp.o[0m
+/home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control_tcp.cpp: In member function ‘void right_arm_test::RobotAdmittanceControl::linear_search()’:
+/home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control_tcp.cpp:492:40: error: expected identifier before ‘(’ token
+  492 |         else if (tcp_force[2] >= 3) && (contact_item < 100){
+      |                                        ^
+/home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control_tcp.cpp:492:40: warning: taking the address of a label is non-standard [-Wpedantic]
+make[2]: *** [CMakeFiles/right_arm_control_tcp.dir/build.make:63：CMakeFiles/right_arm_control_tcp.dir/src/right_arm_control_tcp.cpp.o] 错误 1
+make[1]: *** [CMakeFiles/Makefile2:223：CMakeFiles/right_arm_control_tcp.dir/all] 错误 2
+make: *** [Makefile:141：all] 错误 2

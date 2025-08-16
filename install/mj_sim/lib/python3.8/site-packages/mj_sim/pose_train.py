@@ -62,23 +62,6 @@ def gp_train_and_save(x, y, gp_regressors, save_model, save_file, save_path, y_d
 
 if __name__ == "__main__":
 
-    # parser = argparse.ArgumentParser()
-    # parser.add_argument('--x', nargs='+', type=int, default=[7],
-    #                     help='Regression X variables. Must be a list of integers between 0 and 12. Velocities xyz '
-    #                             'correspond to indices 7, 8, 9.')
-
-    # parser.add_argument("--y", type=int, default=7,
-    #                     help="Regression Y variable. Must be an integer between 0 and 12. Velocities xyz correspond to"
-    #                             "indices 7, 8, 9.")
-
-    # input_arguments = parser.parse_args()
-
-    # # Use vx, vy, vz as input features
-    # x_feats = input_arguments.x #这里只包括一个维度
-    # u_feats = []
-
-    # Regression dimension
-
     git_version = ''
     try:
         git_version = subprocess.check_output(['git', 'describe', '--always']).strip().decode("utf-8")
@@ -86,6 +69,23 @@ if __name__ == "__main__":
         print(e.returncode, e.output)
     print("The model will be saved using hash: %s" % git_version)
 
+    X_features = [[0, 1, 2],
+                  [3, 4, 5],
+                  [6, 7, 8],
+                  [9, 10, 11]]
+    U_features = [[0, 6],  # x_k ,d
+                  [1, 7],  # y_k d
+                  [3, 9],   #rx_k d
+                  [4, 10]]  # ry_k ,d
+    Reg_y_dim = [2, 5, 8, 11]
+
+
+    histogram_pruning_bins = Conf.histogram_bins
+    histogram_pruning_threshold = Conf.histogram_threshold
+    x_value_cap = Conf.velocity_cap  #后处理参数，待定
+
+
+    # 读取数据csv文件，重复这个过程几次，每次修改Conf.ds_metadata配置，即可一次读取多个环境下收集的数据，从而拼接，一起实现训练
     # model_name = "simple_sim_gp"
     model_name = "real_task_gp"
     quad_sim_options = Conf.ds_metadata
@@ -93,51 +93,21 @@ if __name__ == "__main__":
     print("gp_name_dict", gp_name_dict)
     # Conf.ds_metadata
     save_file_path, save_file_name = get_model_dir_and_file(gp_name_dict)
-    print(save_file_name)
-    print(save_file_path)
+    # print(save_file_name)
+    # print(save_file_path)
     dataset_name = Conf.ds_name
+    if isinstance(dataset_name, str):
+        df_train = read_dataset(dataset_name, True, quad_sim_options) # pandas 类型的表格数据
+        df_train = df_train[:-1] #舍弃最后一行
 
-    # x_features = [0, 1, 2] #这里只包括一个维度 x x_dot f
-    # x_features = [3, 4, 5] #这里只包括一个维度 x x_dot f
-    # x_features = [6, 7, 8] #这里只包括一个维度 x x_dot f
-    # x_features = [9, 10, 11] #这里只包括一个维度 x x_dot f
-    # x_features = [12, 13, 14] #这里只包括一个维度 x x_dot f
-    # u_features = []
-    # reg_y_dim = 2  #表示只回归力
-    # reg_y_dim = 5  #表示只回归力
-    # reg_y_dim = 8  #表示只回归力
-    # reg_y_dim = 11  #表示只回归力矩
-    # reg_y_dim = 14  #表示只回归力矩
+    
 
-    X_features = [[0, 1, 2],
-                  [3, 4, 5],
-                  [6, 7, 8],
-                  [9, 10, 11],
-                  [12, 13, 14]]
-    Reg_y_dim = [2, 5, 8, 11, 14]
-
-    histogram_pruning_bins = Conf.histogram_bins
-    histogram_pruning_threshold = Conf.histogram_threshold
-    x_value_cap = Conf.velocity_cap  #后处理参数，待定
-
-    for item in range(5):
+    for item in range(4):
         x_features = X_features[item]
-        u_features = []
+        u_features = U_features[item]
         reg_y_dim = Reg_y_dim[item]
 
-        if isinstance(dataset_name, str):
-            df_train = read_dataset(dataset_name, True, quad_sim_options) # pandas 类型的表格数据
-        
-            # value = df_train.loc[1, 'state_in_vel']
-            # if isinstance(value, str):
-            #     value = ast.literal_eval(value)  # 安全地将字符串解析为列表
-            #     print("----")
-            # print(df_train.head())
-            # print(df_train.columns)  # 查看列名
-            # print(df_train.loc[0, 'state_in_pose'])  # 检查预期值
-            df_train = df_train[:-1] #舍弃最后一行
-
-            gp_dataset = GPDataset(df_train, x_features, u_features, reg_y_dim,
+        gp_dataset = GPDataset(df_train, x_features, u_features, reg_y_dim,
                                     cap=x_value_cap, n_bins=histogram_pruning_bins, thresh=histogram_pruning_threshold, visualize_data=False) #获取数据集的对象
 
         n_clusters = Conf.clusters
@@ -161,7 +131,7 @@ if __name__ == "__main__":
         centroids = gp_dataset.centroids
         print("Training {} cluster model(s)".format(n_clusters))
 
-        n_train_points = 30
+        n_train_points = 60
         dense_gp = None #没用
         visualize_model = Conf.visualize_training_result
 
@@ -180,10 +150,6 @@ if __name__ == "__main__":
             cluster_y_points = gp_dataset.get_y(cluster=cluster)  #y数据
             cluster_u_points = gp_dataset.get_u(cluster=cluster)  #空
 
-            print(cluster_x_points.shape)
-            print(cluster_y_points.shape)
-            print(cluster_u_points.shape)
-            print("-----------------")
 
             # range_vec.set_postfix({
             #     'X': str(cluster_x_points.shape),

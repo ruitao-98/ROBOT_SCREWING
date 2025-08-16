@@ -8,7 +8,7 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 # print("当前 sys.path:", sys.path)  # 调试用
 
 sys.path.append(f'/home/yanji/anaconda3/envs/screwrobot/lib/python3.8/site-packages')
-
+import argparse
 import rclpy
 from rclpy.node import Node
 from robot_msgs.msg import FtPub
@@ -29,9 +29,10 @@ import copy
 from config.configuration import RecordingOptions, SimpleSimConfig
 import transforms3d.quaternions as trans_quat
 from scipy.spatial.transform import Rotation as R
+from distutils.util import strtobool
 
 class Data_Recorder(Node):
-    def __init__(self):
+    def __init__(self, simulation_disturbances):
         super().__init__("data_recorder")  # 初始化节点，命名为 'mpc_node'
         self.mpc_predict = Mpc_Opti()
 
@@ -49,7 +50,8 @@ class Data_Recorder(Node):
         self.adm_d = 4 * np.sqrt(np.multiply(self.adm_k,
                                               self.adm_m)) #初始化
         recording_options = RecordingOptions.recording_options
-        simulation_options = SimpleSimConfig.simulation_disturbances
+        simulation_options = simulation_disturbances
+        print(simulation_options)
 
         self.last_timestamp = 0.0  # 上次处理的时间戳
         
@@ -111,10 +113,10 @@ class Data_Recorder(Node):
             "state_in_force": np.zeros((0, 6)),     # 力/力矩
             "state_ref_pose": np.zeros((0, 7)),     # 位置+四元数
             "state_ref_vel": np.zeros((0, 6)),      # 6维度速度
-            "error": np.zeros((0, 5*3)),            # 5 * (x-x_r, x_dot-x_dot_r, f-f_r) 实际状态（state_out）与预测状态（state_pred）之间的误差
+            "error": np.zeros((0, 4*3)),            # 5 * (x-x_r, x_dot-x_dot_r, f-f_r) 实际状态（state_out）与预测状态（state_pred）之间的误差
             "input_in": np.zeros((0, 6+6)),         # (k,d)*6维，当前状态情况下的输入
-            "state_pred": np.zeros((0, 5*3)),       # 基于理论动力学模型预测的状态， 5 * (x, x_dot, f)
-            "state_out": np.zeros((0, 5*3)),          # 下一时刻的力的真实状态， 5 * (x, x_dot, f)
+            "state_pred": np.zeros((0, 4*3)),       # 基于理论动力学模型预测的状态， 4 * (x, x_dot, f)
+            "state_out": np.zeros((0, 4*3)),        # 下一时刻的力的真实状态， 4 * (x, x_dot, f)
             "timestamp": np.zeros((0, 1)),          # 时间戳
         }
         return blank_recording_dict
@@ -136,33 +138,32 @@ class Data_Recorder(Node):
                 # 位置误差
                 error_x = np.array([self.eef_pos[0]-self.ref_pose[0], self.eef_vel[0]-self.ref_vel[0], self.world_force[0]-0])
                 error_y = np.array([self.eef_pos[1]-self.ref_pose[1], self.eef_vel[1]-self.ref_vel[2], self.world_force[1]-0])
-                error_z = np.array([self.eef_pos[2]-self.ref_pose[2], self.eef_vel[2]-self.ref_vel[2], self.world_force[2]-0]) 
-                
+                 
                 # 姿态误差
                 orientation = trans_quat.quat2mat(self.ref_pose[3:])
                 rotation_vector_error = self.matrices_to_axis_angle(self.eef_rotm, orientation)
                 # rx, ry 状态（旋转向量 x, y 分量）
                 error_rx = np.array([rotation_vector_error[0], self.eef_vel[3], self.world_force[3]]) # rx
                 error_ry = np.array([rotation_vector_error[1], self.eef_vel[4], self.world_force[4]]) # ry
-                error_xyz = np.concatenate((error_x, error_y, error_z, error_rx, error_ry)).reshape(1, 3*5)
+                error_xyz = np.concatenate((error_x, error_y, error_rx, error_ry)).reshape(1, 3*4)
 
                 self.rec_dict["error"] = np.append(self.rec_dict["error"], error_xyz, axis=0)
 
                 input = np.concatenate((self.adm_k, self.adm_d)).reshape(1, 12)
                 self.rec_dict["input_in"] = np.append(self.rec_dict["input_in"], input, axis=0)
 
-                Next_State = np.zeros((1, 5*3))
-                for i in range(3):
+                Next_State = np.zeros((1, 4*3))
+                for i in range(2):
                     _state = np.array([self.eef_pos[i], self.eef_vel[i], self.world_force[i]])      # [x, x_dot, f_x]
                     _ref = np.array([self.ref_pose[i], self.ref_vel[i], 0.0])          # [x_r, x_dot_r, f_xr]
                     _input = np.array([-self.adm_k[i]/self.adm_m[i], -self.adm_d[i]/self.adm_m[i], 1/self.adm_m[i]])   # [u_0, u_1, u_2]
                     next_state = predict_next_state(self.mpc_predict, _state, _ref, _input)
                     Next_State[0, i*3:i*3 + 3] = next_state # 预测下一步的状态 [x, x_dot, f_x]
 
-                for i in range(3, 5): #rx ry
-                    _state = np.array([error_xyz[0, i], self.eef_vel[i], self.world_force[i]])      # [x, x_dot, f_x]
+                for i in range(2, 4): #rx ry
+                    _state = np.array([error_xyz[0, i], self.eef_vel[i+1], self.world_force[i+1]])      # [x, x_dot, f_x]
                     _ref = np.array([0.0, 0.0, 0.0])          # [x_r, x_dot_r, f_xr]
-                    _input = np.array([-self.adm_k[i]/self.adm_m[i], -self.adm_d[i]/self.adm_m[i], 1/self.adm_m[i]])   # [u_0, u_1, u_2]
+                    _input = np.array([-self.adm_k[i+1]/self.adm_m[i+1], -self.adm_d[i+1]/self.adm_m[i+1], 1/self.adm_m[i+1]])   # [u_0, u_1, u_2]
                     next_state = predict_next_state(self.mpc_predict, _state, _ref, _input)
                     Next_State[0, i*3:i*3 + 3] = next_state # 预测下一步的状态 [x, x_dot, f_x]
 
@@ -172,18 +173,18 @@ class Data_Recorder(Node):
 
 
                 if self.last_timestamp != 0.0: #第一次不记录，使其始终差一个单位
-                    State_out = np.zeros((1, 5*3))
-                    for j in range(3):
+                    State_out = np.zeros((1, 4*3))
+                    for j in range(2):
                         _state_out = np.array([self.eef_pos[j], self.eef_vel[j], self.world_force[j]])      # [x, x_dot, f_x]
                         State_out[0, j*3:j*3 + 3] = _state_out
-                    for j in range(3, 5): #rx ry
-                        _state_out = np.array([error_xyz[0, j], self.eef_vel[j], self.world_force[j]])      # [x, x_dot, f_x]
+                    for j in range(2, 4): #rx ry
+                        _state_out = np.array([error_xyz[0, j], self.eef_vel[j+1], self.world_force[j+1]])      # [x, x_dot, f_x]
                         State_out[0, j*3:j*3 + 3] = _state_out
                     self.rec_dict["state_out"] = np.append(self.rec_dict["state_out"], State_out, axis=0)
                 self.last_timestamp = self.timestamp
         else:
             print('stop')
-            State_out = np.zeros((1, 5*3))
+            State_out = np.zeros((1, 4*3))
             self.rec_dict["state_out"] = np.append(self.rec_dict["state_out"], State_out, axis=0) 
 
             print(self.rec_dict["state_out"].shape)
@@ -204,9 +205,38 @@ class Data_Recorder(Node):
         rotation_vector = angle * axis
         return rotation_vector
 
+
+def parse_bool(value):
+    """将字符串 'True' 或 'False' 转换为 Python 的布尔值"""
+    try:
+        return bool(strtobool(value))
+    except ValueError:
+        raise argparse.ArgumentTypeError(f"Boolean value expected, got '{value}'")
+
 def main():
+
+    # 初始化参数解析器
+    parser = argparse.ArgumentParser(description="Data Recorder Node with configurable simulation disturbances")
+    parser.add_argument('--screw1', type=parse_bool, default=False, help='Enable screw1 disturbance (0-degree deviation)')
+    parser.add_argument('--screw2', type=parse_bool, default=False, help='Enable screw2 disturbance (1-degree deviation)')
+    parser.add_argument('--screw3', type=parse_bool, default=True, help='Enable screw3 disturbance (2-degree deviation)')
+
+    # parser = argparse.ArgumentParser(description="Data Recorder Node with configurable simulation disturbances")
+    # parser.add_argument('--screw1', type=bool, default=False, help='Enable screw1 disturbance (0-degree deviation)')
+    # parser.add_argument('--screw2', type=bool, default=False, help='Enable screw2 disturbance (1-degree deviation)')
+    # parser.add_argument('--screw3', type=bool, default=True, help='Enable screw3 disturbance (2-degree deviation)')
+# Parse arguments
+    args = parser.parse_args()
+    
+    # Create simulation_disturbances dictionary from command-line arguments
+    simulation_disturbances = {
+        "screw1": args.screw1,
+        "screw2": args.screw2,
+        "screw3": args.screw3,
+    }
+
     rclpy.init() 
-    data_re = Data_Recorder()
+    data_re = Data_Recorder(simulation_disturbances)
     
     # 主循环
     try:
