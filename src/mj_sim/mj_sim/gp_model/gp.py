@@ -639,7 +639,7 @@ class GPEnsemble:
         :param dim: output dimension target.
         :return: A vector of shape mx1 of the same format as inputs. m is determined by the B_z matrix for dim.
         """
-        print('dim=', dim)
+        # print('dim=', dim)
         # Get input feature indices
         x_feats = self.gp[dim][0].x_features
         u_feats = self.gp[dim][0].u_features
@@ -650,7 +650,7 @@ class GPEnsemble:
         # Stack into a single matrix
         if isinstance(x, np.ndarray):
             z_x = x[x_feats] if x_feats else x
-            print(z_x)
+            # print(z_x)
             if u is not None and u_feats is not None and len(u) > 0 and len(u_feats) > 0: # 检查 u 和 u_feats 非空
                 z_u = u[u_feats]
                 # 确保 z_u 与 z_x 的列数匹配
@@ -817,12 +817,61 @@ class GPEnsemble:
             z = self.get_z(x, u, dim)
         # print("z", z)
         z = np.atleast_2d(z) #从 x 和 u 中提取该维度的特征（由 B_z 定义）。
-
+        # print("Available dimensions in gp_centroids:", list(self.gp_centroids.keys()))
         centroids = self.gp_centroids[dim]  #获取该维度的所有簇质心
 
         # Select subset of features for current dimension
         #计算测试点 z 到每个簇质心的欧几里得距离。 返回距离最小的簇索引
         return np.argmin(np.sqrt(np.sum((z[np.newaxis, :, :] - centroids[:, :, np.newaxis]) ** 2, 1)), 0)
+
+    def select_global_gp(self, dim, x=None, u=None, z=None):
+        """
+        根据测试点与质心的欧几里得距离，选择最优 GPR
+        Selects the best GP for computing inference at the given test points x for the given regression output
+        dimensions. This calculation is done by computing the distance of all n test points to all available GP's
+        centroids across all specified dimensions and selecting the one minimizing the Euclidean distance.
+
+        :param z: np array of shape d x n corresponding to the processed feature vector. If unknown, one may call this
+                method with x and u instead.
+        :param x: np array of shape 13 x n corresponding to the query quadrotor states. Only necessary if z=None.
+        :param u: np.array of shape 4 x n corresponding to the query quadrotor control vectors. Only necessary if z=None.
+        :param dim: index or list/array of GP output dimension(s). If None, evaluate on all dimensions.
+        :return: a numpy vector of length n, indicating which GP to use for every test sample x (global index across all dims).
+            """
+          # 确保 dim 是标量
+        # dim = np.atleast_1d(dim)
+        # if len(dim) != 1:
+        #     raise ValueError(f"Expected a single dimension, got {dim}")
+        # dim = dim[0]
+        # print('dim = ', dim)
+        # print('gp_centroids = ', self.gp_centroids[dim])
+        # 验证 dim 是否在 gp_centroids 中
+        # if dim not in list(self.gp_centroids.keys()):
+        #     raise KeyError(f"Dimension {dim} not found in gp_centroids. Available: {list(self.gp_centroids.keys())}")
+     
+        # 获取特征向量 z
+        if z is None:
+            z = self.get_z(x, u, dim)
+        z = np.atleast_2d(z)  # 确保 z 是 2D 数组，形状为 (m, n_samples)
+
+        # 获取指定维度的质心
+        centroids = self.gp_centroids[dim]  # 形状 (3, m)
+
+        # 验证质心和 z 的特征维度匹配
+        if centroids.shape[1] != z.shape[0]:
+            raise ValueError(f"Feature dimension mismatch: centroids ({centroids.shape[1]}) vs z ({z.shape[0]})")
+
+        # 计算 z 到质心的欧几里得距离
+        # centroids: (3, m)
+        # z: (m, n_samples)
+        # distances: (3, n_samples)
+        distances = np.sqrt(np.sum((z[np.newaxis, :, :] - centroids[:, :, np.newaxis]) ** 2, 1))
+        
+        # 调试输出
+        # print(f"Dimension {dim} distances shape: {distances.shape}")
+        # print(f"Dimension {dim} distances: {distances}")
+        
+        return distances
 
     def homogeneous_feature_space(self):
         """

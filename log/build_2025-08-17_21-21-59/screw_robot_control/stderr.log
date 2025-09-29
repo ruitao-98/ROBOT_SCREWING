@@ -1,0 +1,7 @@
+/home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control_tcp.cpp: In member function ‘void right_arm_test::RobotAdmittanceControl::go_to_pose()’:
+/home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control_tcp.cpp:857:80: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  857 |           goal_pose.rpy.rx = 0 + angle; goal_pose.rpy.ry = 0; goal_pose.rpy.rz = 3.14159; //m12-flat
+      |                                                               ~~~~~~~~~~~~~~~~~^~~~~~~~~
+/home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control_tcp.cpp:870:7: note: here
+  870 |       default:
+      |       ^~~~~~~

@@ -52,7 +52,8 @@ RobotAdmittanceControl::RobotAdmittanceControl() : Node("screw_robot") {
     rotation_speed = 46.0;
     num_points = 1;
     control_dt = 0.008;
-    screw_pitch = 1.5 * 1e-3;
+    // screw_pitch = 1.5 * 1e-3; //三通
+    screw_pitch = 1.75 * 1e-3; //M12
     speed = ((rotation_speed / 6.238) / 60) * screw_pitch; // m/s
 
     object_length << 0, 0, 0; 
@@ -318,7 +319,7 @@ void RobotAdmittanceControl::set_tcp(char choice){
             object_length << 0, 0, 0.025;   //M12 六角头螺丝
             break;
         case '2':
-            object_length << 0, 0, 0.016;   //3分螺母
+            object_length << 0, 0, 0.015;   //3分螺母
             break; 
         case '3':
             object_length << 0, 0, 0.021;  //三通，3分
@@ -528,7 +529,8 @@ void RobotAdmittanceControl::passive_fine(){
     wish_force << 0, 0, -1, 0, 0, 0;  //期望力
     selection_vector<<1, 1, 1, 1, 1, 0; //选择向量
     adm_m << 1, 1, 2.5, 1.0, 1.0, 1.0;
-    adm_k << 1200.0, 1200.0, 1300.0, 120.0, 120.0, 1.0;
+    // adm_k << 200.0, 200.0, 1300.0, 2.0, 2.0, 1.0;
+    adm_k << 1300.0, 1300.0, 1300.0, 120.0, 120.0, 1.0;
     for (Eigen::Index i = 0; i < adm_m.size(); ++i) {
         adm_d[i] = 4 * sqrt(adm_m[i] * adm_k[i]);
     }
@@ -553,7 +555,7 @@ void RobotAdmittanceControl::passive_fine(){
     int flag = 1; //初始化，一开始是搜索状态
     screw_execute_status_ = 2; //初始化，肯定是未运行的；
     screw_execute_result_ = 9; //不需要对其进行初始化，一开始他没有结果
-    int max_rotations = 2;
+    int max_rotations = 2;  //最大旋转轮数，一轮2圈
     int rotation_item = 0;
     double distance_threhold = 0.6;  // 单位 mm 
     auto goal_msg = robot_msgs::action::Screw::Goal();
@@ -844,24 +846,19 @@ void RobotAdmittanceControl::go_to_pose(){
     std::cin >> input;
 
     double angle;
-    angle = 0.0 * PI / 180;
+    angle = 0 * PI / 180;
     switch(input) {  //双臂实验标定结果
           
       case '1':
-          goal_pose.tran.x = -0.309667; goal_pose.tran.y = 0.348976; goal_pose.tran.z = 0.049928 + 0.001;
+          goal_pose.tran.x = -0.309667; goal_pose.tran.y = 0.349276; goal_pose.tran.z = 0.049928 + 0.010;
           goal_pose.rpy.rx = 0 + angle; goal_pose.rpy.ry = 0; goal_pose.rpy.rz =  3.14159;  // 三通
           break;
 
-    //   case '2':
-    //       // angle = 1 * PI / 180;
-    //       goal_pose.tran.x = -0.272948; goal_pose.tran.y =  0.337422 + 0.0036; goal_pose.tran.z = 0.0387647 + 0.0012;
-    //       goal_pose.rpy.rx = 0 + angle; goal_pose.rpy.ry = 0; goal_pose.rpy.rz = 3.14159; //m12-flat
+      case '2':
+          goal_pose.tran.x = -0.309667; goal_pose.tran.y = 0.349852; goal_pose.tran.z = 0.036029 + 0.001;
+          goal_pose.rpy.rx = 0 + angle; goal_pose.rpy.ry = 0; goal_pose.rpy.rz = 3.14159; //m12-flat
+          break;
 
-    //       // goal_pose.tran.x = -0.285672+0.00; goal_pose.tran.y =  0.387309 + 0.0; goal_pose.tran.z = 0.0342756 + 0.002;
-    //       // goal_pose.rpy.rx = 0 + angle; goal_pose.rpy.ry = 0; goal_pose.rpy.rz = 3.14159; //m12-nonflat
- 
-    //       break; // 添加break语句
-      
     //   case '3':
     //       // angle = 2 * PI / 180;
     //       goal_pose.tran.x = -0.285849; goal_pose.tran.y =  0.337506 + 0.0036; goal_pose.tran.z = 0.0488019 + 0.0012;

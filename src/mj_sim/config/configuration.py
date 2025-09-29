@@ -42,11 +42,11 @@ class ModelFitConfig:
     ds_name = "real_dataset"
     # ds_name = "sim_dataset"
     ds_metadata = {
-        # "groove1": False, 
+        # "groove1": True, 
         # "groove2": False,  
         "screw1": False,      # 0度偏差                 
-        "screw2": True,     # 1度偏差
-        "screw2": False,     # 2度偏差
+        "screw2": False,     # 1度偏差
+        "screw3": True,     # 2度偏差
     }
 
     # ds_metadata = {

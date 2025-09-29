@@ -6,6 +6,7 @@ import argparse
 import ast
 from tqdm import tqdm
 import numpy as np
+import pandas as pd
 
 from config.configuration import ModelFitConfig as Conf
 from gp_model.gp_common import GPDataset, restore_gp_regressors, read_dataset
@@ -87,27 +88,69 @@ if __name__ == "__main__":
 
     # 读取数据csv文件，重复这个过程几次，每次修改Conf.ds_metadata配置，即可一次读取多个环境下收集的数据，从而拼接，一起实现训练
     # model_name = "simple_sim_gp"
-    model_name = "real_task_gp"
-    quad_sim_options = Conf.ds_metadata
-    gp_name_dict = {"git": git_version, "model_name": model_name, "params": quad_sim_options}
-    print("gp_name_dict", gp_name_dict)
-    # Conf.ds_metadata
-    save_file_path, save_file_name = get_model_dir_and_file(gp_name_dict)
-    # print(save_file_name)
-    # print(save_file_path)
-    dataset_name = Conf.ds_name
-    if isinstance(dataset_name, str):
-        df_train = read_dataset(dataset_name, True, quad_sim_options) # pandas 类型的表格数据
-        df_train = df_train[:-1] #舍弃最后一行
-
+    # model_name = "real_task_gp"
+    # quad_sim_options = Conf.ds_metadata
+        # 定义三个配置
+    configs = [
+        {"screw1": True, "screw2": False, "screw3": False},  # screw1 为 True
+        {"screw1": False, "screw2": True, "screw3": False},  # screw2 为 True
+        {"screw1": False, "screw2": False, "screw3": True},  # screw3 为 True
+    ]
+    # 初始化空列表存储 DataFrame
+    df_list = []
+    dataset_name = Conf.ds_name 
+    # 循环读取数据集
+    for config in configs:
+        print("Current config:", config)
+        
+        # 设置模型名称和元数据
+        model_name = "real_task_gp"
+        quad_sim_options = config
+        gp_name_dict = {"git": git_version, "model_name": model_name, "params": quad_sim_options}
+        print("gp_name_dict", gp_name_dict)
+        
+        # 获取模型保存路径和文件名
+        save_file_path, save_file_name = get_model_dir_and_file(gp_name_dict)
+        print('save_path', save_file_path)
+        print('save_name', save_file_name)
+        # 读取数据集
+        try:
+            df_train = read_dataset(dataset_name, True, quad_sim_options)
+            # 舍弃最后一行，从第15行开始
+            df_train = df_train[15:-1]
+            df_list.append(df_train)
+        except Exception as e:
+            print(f"Failed to read dataset with config {config}: {e}")
     
+    # 按行拼接所有 DataFrame，保留第一个表的表头
+    if df_list:
+        df_combined = pd.concat(df_list, axis=0, ignore_index=True)
+        print("Combined dataset shape:", df_combined.shape)
+        # print("Combined dataset columns:", df_combined.columns.tolist())
+        # 打印前几行数据，仅显示一次表头
+        # print("\nCombined dataset preview (first 5 rows):")
+        # print(df_combined.head().to_string(index=False))
+    else:
+        print("No datasets were successfully loaded.")
 
+    # gp_name_dict = {"git": git_version, "model_name": model_name, "params": quad_sim_options}
+    # print("gp_name_dict", gp_name_dict)
+    # # Conf.ds_metadata
+    # save_file_path, save_file_name = get_model_dir_and_file(gp_name_dict)
+    # # print(save_file_name)
+    # # print(save_file_path)
+    # dataset_name = Conf.ds_name
+    # if isinstance(dataset_name, str):
+    #     print('------')
+    #     df_train = read_dataset(dataset_name, True, quad_sim_options) # pandas 类型的表格数据
+    #     df_train = df_train[15:-1] #舍弃最后一行
+    
     for item in range(4):
         x_features = X_features[item]
         u_features = U_features[item]
         reg_y_dim = Reg_y_dim[item]
 
-        gp_dataset = GPDataset(df_train, x_features, u_features, reg_y_dim,
+        gp_dataset = GPDataset(df_combined, x_features, u_features, reg_y_dim,
                                     cap=x_value_cap, n_bins=histogram_pruning_bins, thresh=histogram_pruning_threshold, visualize_data=False) #获取数据集的对象
 
         n_clusters = Conf.clusters
@@ -131,7 +174,7 @@ if __name__ == "__main__":
         centroids = gp_dataset.centroids
         print("Training {} cluster model(s)".format(n_clusters))
 
-        n_train_points = 60
+        n_train_points = 40
         dense_gp = None #没用
         visualize_model = Conf.visualize_training_result
 

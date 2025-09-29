@@ -43,7 +43,8 @@ class MPCWrapper(Node):
         # 变量和类继承
                 # 加载 GP 模型
         # git_version = '4196701'  # 长物体的实验结果
-        git_version = "0826d04" # 短物体的实验结果
+        # git_version = "0826d04" # 短物体的实验结果
+        git_version = "1c6eb6f" # 短物体的实验结果
         # model_name = "simple_sim_gp"
         model_name = "real_task_gp"
         sim_options = Conf.ds_metadata
@@ -52,6 +53,13 @@ class MPCWrapper(Node):
         # 为每个维度加载 GP 模型
         self.gp_models = {}
         self.B_x_dicts = {}
+        # 维度映射字典
+        self.DIM_MAPPING = {
+            2: 0,
+            5: 1,
+            8: 2,
+            11: 3
+        }
         global_dims = [2, 5, 8, 11]  # x, y, rx, ry维度的全局索引
         for reg_y_dim in global_dims:  # 对应全局索引 2, 5, 8, 11, 14
             pre_trained_models = load_pickled_models(model_options=load_ops, dimension=reg_y_dim)
@@ -92,7 +100,7 @@ class MPCWrapper(Node):
         print("current dim_idx = ",self.mpc_optimizers[2].dim_idx)
         print("current dim_idx = ",self.mpc_optimizers[3].dim_idx)
         self.rotation_speed = 46  # rev/s 46是参数，根据需要设置
-        self.screw_pitch = 1.5 * 1e-3 #螺距 1.2 mm 
+        self.screw_pitch = 1.75 * 1e-3 #螺距 1.2 mm 
         self.speed = ((self.rotation_speed / 6.238) / 60) * self.screw_pitch # m/s
 
         # 获得参数，重新生成轨迹，用于mpc计算
@@ -205,53 +213,73 @@ class MPCWrapper(Node):
         start_time = time.perf_counter()
         for i in range(4):  # x, y, rx, ry
             c_p = ref_traj[i*3:(i+1)*3, :].copy()  # 3×N
-            k_max = 2000
-            k_min = 100
-            d_max = 500
-            d_min = 20
-            c = 2.5
-            lower_bounds = [-np.inf, -np.inf, -np.inf]
-            upper_bounds = [np.inf, np.inf, np.inf]
-            input_lower_bounds = [-k_max/c, -d_max/c, 1/c]
-            input_upper_bounds = [-k_min/c, -d_min/c, 1/c]
-
-            if i == 0: # x
-                Q_val = np.array([[100.0, 0.0, 0.0],
-                                [0.0, 0.1, 0.0],
-                                [0.0, 0.0, 0.1]])
-                self.mpc_optimizers[i].set_state_bounds(lower_bounds, upper_bounds, input_lower_bounds, input_upper_bounds)
-            elif i == 1: # y
-                Q_val = np.array([[100.0, 0.0, 0.0],
-                                [0.0, 0.1, 0.0],
-                                [0.0, 0.0, 0.1]])
-                self.mpc_optimizers[i].set_state_bounds(lower_bounds, upper_bounds, input_lower_bounds, input_upper_bounds)
-            else: # rx, ry
-                Q_val = np.array([[100.0, 0.0, 0.0],
-                                [0.0, 0.1, 0.0],
-                                [0.0, 0.0, 0.1]])
-                k_max = 100
-                k_min = 4
-                d_max = 50
-                d_min = 2
+            if i in [0, 1]:  # x, y
+                k_max = 1200
+                k_min = 200
+                d_max = 200
+                d_min = 100
                 c = 1
-                lower_bounds = [-3 * np.pi/180, -3 * np.pi/180, -5] # 角度，角速度，力矩
-                upper_bounds = [3 * np.pi/180, 3 * np.pi/180, 5]
+                lower_bounds = [-np.inf, -np.inf, -np.inf]
+                upper_bounds = [np.inf, np.inf, np.inf]
                 input_lower_bounds = [-k_max/c, -d_max/c, 1/c]
                 input_upper_bounds = [-k_min/c, -d_min/c, 1/c]
-                self.mpc_optimizers[i].set_state_bounds(lower_bounds, upper_bounds, input_lower_bounds, input_upper_bounds)
-       
+                Q_val = np.array([[100.0, 0.0, 0.0],
+                                [0.0, 1, 0.0],
+                                [0.0, 0.0, 100]])
+                self.mpc_optimizers[0].set_state_bounds(lower_bounds, upper_bounds, input_lower_bounds, input_upper_bounds)
+                self.mpc_optimizers[1].set_state_bounds(lower_bounds, upper_bounds, input_lower_bounds, input_upper_bounds)
+                dim_local = [2, 5]
+            else: # rx, ry
+                Q_val = np.array([[0.1, 0.0, 0.0],
+                                [0.0, 1, 0.0],
+                                [0.0, 0.0, 100]])
+                k_max = 100
+                k_min = 5
+                d_max = 60
+                d_min = 10
+                c = 1
+                lower_bounds = [-4 * np.pi/180, -4 * np.pi/180, -5] # 角度，角速度，力矩
+                upper_bounds = [4 * np.pi/180, 4 * np.pi/180, 5]
+                input_lower_bounds = [-k_max/c, -d_max/c, 1/c]
+                input_upper_bounds = [-k_min/c, -d_min/c, 1/c]
+                self.mpc_optimizers[2].set_state_bounds(lower_bounds, upper_bounds, input_lower_bounds, input_upper_bounds)
+                self.mpc_optimizers[3].set_state_bounds(lower_bounds, upper_bounds, input_lower_bounds, input_upper_bounds)
+                dim_local = [8, 11]
             # 动态选择GP模型
-            if self.mpc_optimizers[i].with_gp:
-                x_test = self.X0[i] - c_p[:, 0].reshape(-1, 1)  # 当前状态与参考状态的误差
-                u_test = self.U0[i][:, 0].reshape(-1, 1)  # 当前控制输入
-                u_data = np.array([-u_test[0]/u_test[2], -u_test[1]/u_test[2]]).reshape(-1, 1)
-                # u_data = [-u_test[0]/u_test[2], -u_test[1]/u_test[2]]
-                gp_idx = self.mpc_optimizers[i].gp_regressors.select_gp(dim=self.mpc_optimizers[i].dim_idx, x=x_test, u=u_data)
-                
-                gp_idx = gp_idx[0] if isinstance(gp_idx, np.ndarray) else gp_idx  # 确保是标量
-            else:
-                gp_idx = 0
-            print('selected gp_idx =',  gp_idx)
+            # if self.mpc_optimizers[i].with_gp:
+            x_test = self.X0[i] - c_p[:, 0].reshape(-1, 1)  # 当前状态与参考状态的误差
+            u_test = self.U0[i][:, 0].reshape(-1, 1)  # 当前控制输入
+            u_data = np.array([-u_test[0]/u_test[2], -u_test[1]/u_test[2]]).reshape(-1, 1)
+            # u_data = [-u_test[0]/u_test[2], -u_test[1]/u_test[2]]
+            distances_list = []
+            centroid_indices = []    
+            # print('dim_local = ', dim_local)
+            for dim in dim_local:
+                # 假设 mpc_optimizers[dim] 对应维度 dim 的 GP 回归器
+                distances = self.mpc_optimizers[self.DIM_MAPPING[dim]].gp_regressors.select_global_gp(dim=dim, x=x_test, u=u_data)
+                distances_list.append(distances)
+                # 记录每个距离对应的 (dim_value, centroid_idx)
+                centroid_indices.extend([(dim, i) for i in range(distances.shape[0])])
+            # print(centroid_indices)
+            # 合并所有距离
+            all_distances = np.concatenate(distances_list, axis=0)  # 形状 (total_centroids, n_samples)
+            # 找到最小距离的索引
+            global_min_indices = np.argmin(all_distances, axis=0)  # 形状 (n_samples,)
+
+            # 获取 [dim_value, centroid_idx] 并应用映射
+            gp_idx = np.array([centroid_indices[idx] for idx in global_min_indices])
+            gp_idx[:, 0] = np.array([self.DIM_MAPPING[dv] for dv in gp_idx[:, 0]])
+            # print('selected gp_idx =',  gp_idx)
+            # gp_idx = self.mpc_optimizers[i].gp_regressors.select_global_gp(dim=dim_local, x=x_test, u=u_data)
+            # 提取 dim_value 和 centroid_idx
+            centroid_idx = gp_idx[0, 1]  # 该维度内的簇索引（例如 0、1 或 2）
+                # 应用维度映射：将 dim_value 从 [2, 5, 8, 11] 转换为 [0, 1, 2, 3]
+            dim_value = gp_idx[0, 0] # 最优质心所属的维度索引（例如 2 或 5）,映射到0 1 2 3
+            # gp_idx = self.mpc_optimizers[i].gp_regressors.select_gp(dim=self.mpc_optimizers[i].dim_idx, x=x_test, u=u_data)
+            # gp_idx = gp_idx[0] if isinstance(gp_idx, np.ndarray) else gp_idx  # 确保是标量
+            # else:
+            #     gp_idx = 0
+            print('selected gp_idx =',  gp_idx, "dim_value = ", dim_value, "centroid_idx = ", centroid_idx)
             init_control = np.concatenate((self.U0[i].reshape(-1, 1, order='F'), self.Next_s[i].reshape(-1, 1, order='F'))) #U0来自于上一时刻优化结果，X0来自于ros的消息
             c_p_flat = c_p.ravel(order='F')  # 改为 Fortran-style（列优先）
             trigger_values = np.zeros(self.N)
@@ -259,7 +287,8 @@ class MPCWrapper(Node):
             # print("x0=", self.X0[item], 'x0_ravel=', self.X0[item].ravel(order='F'))
             p = np.concatenate((c_p_flat, self.X0[i].ravel(order='F'), Q_val.ravel(order='F'), trigger_values))
             # res = self.mpc_optimzer.solve(init_control, p)
-            res = self.mpc_optimizers[i].solve(init_control, p, gp_idx=gp_idx)
+            # res = self.mpc_optimizers[i].solve(init_control, p, gp_idx=gp_idx)
+            res = self.mpc_optimizers[dim_value].solve(init_control, p, gp_idx=centroid_idx)
             estimated_opt = res['x'].full() # 提取优化变量的结果，是一个MX，或者DX的对象，estimated_opt是优化变量的最终值，是一个一维数组。
             self.U0[i] = estimated_opt[:self.N*self.n_controls].reshape(self.N, self.n_controls).T  # (N, n_controls) 转化为(n_controls, N)
             self.Xm[i] = estimated_opt[self.N*self.n_controls:].reshape(self.N + 1, self.n_states).T   # (N+1, n_states) 预测的状态 转化为(n_states, N+1)
@@ -269,9 +298,9 @@ class MPCWrapper(Node):
         print('curret time = ', (end_time - start_time) * 1000)
         # u = -k_x / m_x, -d_x / m_x, 1 / m_x
         command = ControlCommand()
-        command.d = [-self.U0[0][1, self.late_step]/self.U0[0][2, self.late_step], -self.U0[1][1, self.late_step]/self.U0[1][2, self.late_step], 5*np.sqrt(1300 * 2.5)
+        command.d = [-self.U0[0][1, self.late_step]/self.U0[0][2, self.late_step], -self.U0[1][1, self.late_step]/self.U0[1][2, self.late_step], 7*np.sqrt(1300 * 2.5),
                      -self.U0[2][1, self.late_step]/self.U0[2][2, self.late_step], -self.U0[3][1, self.late_step]/self.U0[3][2, self.late_step], 1.0] 
-        command.k = [-self.U0[0][0, self.late_step]/self.U0[0][2, self.late_step], -self.U0[1][0, self.late_step]/self.U0[1][2, self.late_step], 1300
+        command.k = [-self.U0[0][0, self.late_step]/self.U0[0][2, self.late_step], -self.U0[1][0, self.late_step]/self.U0[1][2, self.late_step], 1300.0,
                      -self.U0[2][0, self.late_step]/self.U0[2][2, self.late_step], -self.U0[3][0, self.late_step]/self.U0[3][2, self.late_step], 0.8] #xyzrxry的阻尼和刚度是求解的，其他维度暂时是写死的, m_x * u[0]
 
         self.command_pub.publish(command)

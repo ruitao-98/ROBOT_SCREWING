@@ -163,9 +163,9 @@ class MPCWrapper(Node):
         for i in range(4):  # x, y, rx, ry
             c_p = ref_traj[i*3:(i+1)*3, :].copy()  # 3×N
             k_max = 1200
-            k_min = 200
-            d_max = 200
-            d_min = 40
+            k_min = 400
+            d_max = 220
+            d_min = 120
             c = 1
             lower_bounds = [-np.inf, -np.inf, -np.inf]
             upper_bounds = [np.inf, np.inf, np.inf]
@@ -174,12 +174,12 @@ class MPCWrapper(Node):
 
             if i == 0: # x
                 Q_val = np.array([[100.0, 0.0, 0.0],
-                                [0.0, 0.1, 0.0],
+                                [0.0, 1, 0.0],
                                 [0.0, 0.0, 100]])
                 self.set_state_bounds(lower_bounds, upper_bounds, input_lower_bounds, input_upper_bounds)
             elif i == 1: # y
                 Q_val = np.array([[100.0, 0.0, 0.0],
-                                [0.0, 0.1, 0.0],
+                                [0.0, 1, 0.0],
                                 [0.0, 0.0, 100]])
                 self.set_state_bounds(lower_bounds, upper_bounds, input_lower_bounds, input_upper_bounds)
             # elif i == 2:  # z
@@ -189,12 +189,12 @@ class MPCWrapper(Node):
             #     self.set_state_bounds(lower_bounds, upper_bounds, input_lower_bounds, input_upper_bounds)
             else: # rx, ry
                 Q_val = np.array([[0.1, 0.0, 0.0],
-                                [0.0, 0.1, 0.0],
+                                [0.0, 10, 0.0],
                                 [0.0, 0.0, 100]])
                 k_max = 100
-                k_min = 2
-                d_max = 40
-                d_min = 1
+                k_min = 5
+                d_max = 60
+                d_min = 10
                 c = 1
                 lower_bounds = [-4 * np.pi/180, -4 * np.pi/180, -5] # 角度，角速度，力矩
                 upper_bounds = [4 * np.pi/180, 4 * np.pi/180, 5]
@@ -224,7 +224,7 @@ class MPCWrapper(Node):
         # command.k = [-self.U0[0][0, self.late_step]/self.U0[0][2, self.late_step], -self.U0[1][0, self.late_step]/self.U0[1][2, self.late_step], 
         #              -self.U0[2][0, self.late_step]/self.U0[2][2, self.late_step], 
         #             -self.U0[3][0, self.late_step]/self.U0[3][2, self.late_step], -self.U0[4][0, self.late_step]/self.U0[4][2, self.late_step], 0.8] #xyrxry的阻尼和刚度是求解的，其他维度暂时是写死的, m_x * u[0]
-        command.d = [-self.U0[0][1, self.late_step]/self.U0[0][2, self.late_step], -self.U0[1][1, self.late_step]/self.U0[1][2, self.late_step], 5*np.sqrt(1300 * 2.5),
+        command.d = [-self.U0[0][1, self.late_step]/self.U0[0][2, self.late_step], -self.U0[1][1, self.late_step]/self.U0[1][2, self.late_step], 7*np.sqrt(1300 * 2.5),
                     -self.U0[2][1, self.late_step]/self.U0[2][2, self.late_step], -self.U0[3][1, self.late_step]/self.U0[3][2, self.late_step], 1.0] 
         command.k = [-self.U0[0][0, self.late_step]/self.U0[0][2, self.late_step], -self.U0[1][0, self.late_step]/self.U0[1][2, self.late_step], 1300.0,
                     -self.U0[2][0, self.late_step]/self.U0[2][2, self.late_step], -self.U0[3][0, self.late_step]/self.U0[3][2, self.late_step], 0.8] #xyrxry的阻尼和刚度是求解的，其他维度暂时是写死的, m_x * u[0]

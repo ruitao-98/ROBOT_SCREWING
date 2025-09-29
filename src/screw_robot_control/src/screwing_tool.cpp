@@ -188,7 +188,7 @@ void endeffector::width_increase(int distance, rclcpp::Publisher<robot_msgs::msg
 		msg1.width = width;
 		pub1->publish(msg1);
 		// current_vec.push_back(current);
-		if (this->get_presentvelocity(1) <= 1) {
+		if (this->get_presentvelocity(1) <= 10) {
 			this->torque_off(1);
 			std::this_thread::sleep_for(std::chrono::milliseconds(300));
 			int end_position = this->get_presentposition(1);
@@ -437,7 +437,7 @@ int endeffector::width_recovery(){
 	this->set_goalposition(1, goal_position_1);
 	std::this_thread::sleep_for(std::chrono::milliseconds(800));
 	while (true) {
-		if (this->get_presentvelocity(1) <= 1) {
+		if (this->get_presentvelocity(1) <= 15) {
 			this->torque_off(1);
 			std::this_thread::sleep_for(std::chrono::milliseconds(500));
 			int final_position = this->get_presentposition(1);

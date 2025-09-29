@@ -1,0 +1,7 @@
+/home/yanji/robot_screwing/src/screw_robot_control/src/screwing_tool.cpp: In member function ‘int endeffector::width_reduce_full_for_handover(rclcpp::Publisher<robot_msgs::msg::CurrentPub_<std::allocator<void> > >::SharedPtr, robot_msgs::msg::CurrentPub&, rclcpp::Publisher<robot_msgs::msg::WidthPub_<std::allocator<void> > >::SharedPtr, robot_msgs::msg::WidthPub&)’:
+/home/yanji/robot_screwing/src/screw_robot_control/src/screwing_tool.cpp:381:37: warning: unused variable ‘width’ [-Wunused-variable]
+  381 |                                 int width = this->get_presentposition(1);
+      |                                     ^~~~~
+/home/yanji/robot_screwing/src/screw_robot_control/src/screwing_tool.cpp:358:21: warning: unused variable ‘width’ [-Wunused-variable]
+  358 |                 int width = this->get_presentposition(1);
+      |                     ^~~~~

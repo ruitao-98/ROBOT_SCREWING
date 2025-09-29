@@ -85,7 +85,7 @@ class Mpc_Opti:
                 cluster_id = {dim: [i] for dim in gp_dims}
                 print("cluster_id", cluster_id)
                 # ca.vertcat(-(self.u[0]/self.u[2]), -(self.u[1]/self.u[2])).reshape((2, 1))
-                delta_f = self.predict_delta_f_sym(self.s, self.s_r, [-self.u[0]/self.u[2], -self.u[1]/self.u[2]], cluster_id=cluster_id)
+                delta_f = self.predict_delta_f_sym(self.s, self.s_r, ca.vertcat(-(self.u[0]/self.u[2]), -(self.u[1]/self.u[2])).reshape((2, 1)), cluster_id=cluster_id)
                 s_next = self.s_next_nominal + self.B_x @ (delta_f * self.trigger)  # 只在 trigger=1 时应用GP
                 self.f_models[i] = ca.Function(f'f_{i}', [self.s, self.s_r, self.u, self.trigger], [s_next],
                                                ['input_state', 'state_ref', 'control_input', 'trigger'], ['state_next'])

@@ -1,0 +1,9 @@
+/home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control_tcp.cpp: In member function ‘void right_arm_test::RobotAdmittanceControl::go_to_pose()’:
+/home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control_tcp.cpp:859:16: error: expected ‘;’ before ‘:’ token
+  859 |           break:
+      |                ^
+      |                ;
+/home/yanji/robot_screwing/src/screw_robot_control/src/right_arm_control_tcp.cpp:859:16: error: expected primary-expression before ‘:’ token
+make[2]: *** [CMakeFiles/right_arm_control_tcp.dir/build.make:63：CMakeFiles/right_arm_control_tcp.dir/src/right_arm_control_tcp.cpp.o] 错误 1
+make[1]: *** [CMakeFiles/Makefile2:223：CMakeFiles/right_arm_control_tcp.dir/all] 错误 2
+make: *** [Makefile:141：all] 错误 2
